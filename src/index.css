@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: black;
+}
+
+.hex {
+    display: block;
+    margin: 0 60px;
+    position: relative;
+    width: 250px;
+    height: 216.5px; /* width * 0.866 */
+    background: white;
+    box-sizing: border-box;
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.hex-background {
+    position: absolute;
+    background-color: orange; /*color of the main-background*/
+    top: 2px; /* equal to border thickness */
+    left: 2px; /* equal to border thickness */
+    width: 246px; /* container height - (border thickness * 2) */
+    height: 212.5px; /* container height - (border thickness * 2) */
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.image-grid {
+    transform: rotateZ(1deg);
+    perspective: 1000px;
+}
+
+.mask {
+    background: radial-gradient(transparent, black 90%);
+}
+
+.radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1.25px solid #fff;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 5px #fff;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio:before {
+    content: '';
+    display: block;
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.radio:checked:before {
+    background: #beadfa;
+}

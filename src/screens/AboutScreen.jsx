@@ -1,0 +1,219 @@
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
+import Footer from "../components/Footer.jsx";
+
+import AboutRamCover from "../assets/images/aboutRamCover.jpg";
+import AboutRam1 from "../assets/images/aboutRam1.jpg";
+import AboutRam2 from "../assets/images/aboutRam2.jpg";
+import AboutRam3 from "../assets/images/aboutRam3.jpg";
+import AboutRam4 from "../assets/images/aboutRam4.jpg";
+import AboutRam5 from "../assets/images/aboutRam5.jpg";
+import AboutRam6 from "../assets/images/aboutRam6.jpg";
+
+const ColorPalleteComponent = (props) => {
+  return (
+    <div
+      className={`relative w-1/6 h-full`}
+      style={{
+        backgroundColor: props.backgroundColor,
+      }}
+    >
+    </div>
+  )
+}
+
+function AboutScreen() {
+  const paraRef =  useRef(null);
+
+  return (
+    <Parallax 
+      pages={2}
+      ref={paraRef}
+      className="parallax-2"
+    >
+      <ParallaxLayer 
+        offset={0}
+        factor={2}
+        style={{
+          backgroundColor: "black",
+          zIndex: 10,
+        }}
+      >
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={0}
+        style={{
+          zIndex: 15,
+        }}
+      >
+        <div className="w-full h-full relative">
+          <img src={AboutRamCover} className="absolute z-0 w-full h-full object-cover" alt="about ram" />
+          <div className="absolute z-10 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black"></div>
+        </div>
+      </ParallaxLayer>
+
+      <ParallaxLayer 
+        offset={0.9}
+        speed={1}
+        style={{
+          zIndex:15,
+          width: "fit-content",
+          height: "fit-content",
+          left: 80
+        }}
+        >
+        <div className="">
+          <h1 className="text-white font-font-paris text-[40px]">Hi, my name is Ramsha</h1>
+        </div>
+      </ParallaxLayer>
+
+      <ParallaxLayer 
+        offset={1}
+        speed={0.5}
+        style={{
+          zIndex: 15,
+        }}  
+        >
+        <div className="absolute top-0 w-full h-[10%] flex items-end justify-center">
+          <span className="font-arch-b text-[15px] text-white uppercase">about me</span>
+        </div>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={1}
+        speed={0.2}
+        style={{
+          zIndex: 15,
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "end"
+        }}
+      >
+        <Footer/>
+        <div className="w-full h-[90%] relative">
+          <div className="w-[200px] h-0 border absolute translate-x-10">
+            <h1 className="font-arch-b text-gray-400 opacity-35 uppercase text-[12px] mt-1">Kuala Lumpur</h1>
+          </div>
+          <div className="hex left-20">
+            <div className="hex-background">
+              <img src={AboutRam6} className="" alt="About Ram"/>
+            </div>
+            
+          </div>
+          <div className="hex -top-[107px] left-[268px]">
+            <div className="hex-background">
+              <img src={AboutRam5} className="" alt="About Ram"/>
+            </div>
+          </div>
+          <div className="w-[200px] h-0 border absolute translate-x-[182px] translate-y-20 -rotate-[59deg]">
+            <h1 className="font-arch-b text-gray-400 opacity-35 uppercase text-[12px] mt-1">Penang</h1>
+          </div>
+
+          <div className="hex -top-[106px] left-[268px]">
+            <div className="hex-background">
+              <img src={AboutRam2} className="" alt="About Ram"/>
+            </div>
+          </div>
+          <div className="hex -top-[215px] left-[457px] overflow-visible">
+            <div className="hex-background">
+              <img src={AboutRam2} className="" alt="About Ram"/>
+            </div>
+          </div>
+          <div className="w-[200px] h-0 border absolute bottom-24 right-0">
+            <h1 className="font-arch-b text-gray-400 opacity-35 text-right uppercase text-[12px] mt-1">Karachi</h1>
+          </div>
+        </div>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={1}
+        speed={1}
+        style={{
+          zIndex: 15,
+          width: "50%",
+          left: "50%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "end"
+        }}
+      >
+        <div className="w-full h-[90%] flex flex-col">
+          <div className="w-full h-full flex flex-col">
+            <p className="w-full h-[80%] flex items-center justify-center px-20 font-ubuntu text-justify text-white">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quam cum magni. Itaque laboriosam asperiores ullam, modi, explicabo ducimus aliquam voluptas dolor molestias harum blanditiis, quis aperiam? Molestiae, inventore? Vero.
+Nulla nisi dolore atque magni corporis voluptate nobis culpa sed nesciunt officia excepturi architecto debitis, qui accusantium laboriosam beatae libero dolorem! Cumque eum dolor, libero adipisci magni ratione sequi debitis!
+Nihil soluta, et, cumque tenetur illum obcaecati numquam id illo a quia eius, atque explicabo ratione deserunt placeat necessitatibus totam ad fugiat non praesentium aliquam sint. Enim vitae sed culpa!
+Dignissimos qui sequi officiis natus, quae alias recusandae optio ipsam praesentium harum autem quisquam quidem quaerat. Quaerat sint expedita officiis harum, ad perspiciatis, aliquid beatae ab vitae dicta nulla rerum?
+Soluta, accusantium, explicabo magnam dolore qui cum error assumenda similique eligendi quibusdam, libero quia rerum vero deserunt dicta! Voluptatibus fugit maxime dicta quaerat aspernatur facere unde in doloribus voluptates. Culpa?
+            </p>
+            <div className="w-full h-[20%] flex items-center justify-end">
+              <div className="w-[35%] h-[35%] flex"> 
+                {colors.map((color, index) => (
+                  <ColorPalleteComponent 
+                    key={color.id}
+                    index={index}
+                    {...color}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="relative w-full h-[20%] flex items-center justify-center">
+            <div className="w-[30%] h-[40%] bg-purple-950 rounded-full flex items-center justify-center select-none cursor-pointer hover:opacity-75 active:opacity-50">
+              <span className="text-[15px] font-arch-b uppercase text-white">reach out</span>
+            </div>
+          </div>
+        </div>
+      </ParallaxLayer>
+    </Parallax>
+  )
+}
+
+export default AboutScreen;
+
+const colors = [
+  {
+    id: 1,
+    backgroundColor: "#3b0764",
+  },
+  {
+    id: 2,
+    backgroundColor: "#6b21a8",
+  },
+  {
+    id: 3,
+    backgroundColor: "#9333ea",
+  },
+  {
+    id: 4,
+    backgroundColor: "#c084fc",
+  },
+  {
+    id: 5,
+    backgroundColor: "#e9d5ff",
+  },
+  {
+    id: 6,
+    backgroundColor: "#f3e8ff"
+  },
+]
+
+const imageCount = [
+  {
+    count: 1,
+  },
+  {
+    count: 2,
+  },
+  {
+    count: 3,
+  },
+  {
+    count: 4,
+  },
+]
