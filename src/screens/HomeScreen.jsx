@@ -6,6 +6,9 @@ import { act, Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTransform, useScroll, useMotionValueEvent, motion } from "framer-motion";
 
 import Footer from "../components/Footer";
 
@@ -126,6 +129,18 @@ import portraitvid1 from "../assets/videos/portraitvid1.mp4";
 import portraitvid2 from "../assets/videos/portraitvid2.mp4";
 import portraitvid3 from "../assets/videos/portraitvid3.mp4";
 
+import purplemakeup from "../assets/images/purplemakeup.jpg";
+import brownmakeup from "../assets/images/brownmakeup.jpg";
+import typography from "../assets/images/typography.jpg";
+
+import parallax1 from "../assets/images/parallax1.jpg";
+import parallax2 from "../assets/images/parallax2.jpg";
+import parallax3 from "../assets/images/parallax3.jpg";
+import chanel from "../assets/images/chanel.jpg";
+
+
+gsap.registerPlugin(ScrollTrigger);
+
 const ServicesComponent = (props) => {
   return (
     <div className="group relative w-full h-1/4 border-y border-white flex items-center px-10 transition-all duration-300">
@@ -148,58 +163,21 @@ const FeaturedImagesComponent = (props) => {
   )
 }
 
-const LeftFaceCardImageComponent = (props) => {
-  return (
-    <div className="w-full h-1/3">  
-      <img className="w-full h-full object-cover" src={props.source} alt={props.description}/>
-    </div>
-  )
-}
-
-const RightFaceCardImageComponent = (props) => {
-  return (
-    <div className="w-full h-1/3">  
-      <img className="w-full h-full object-cover" src={props.source} alt={props.description}/>
-    </div>
-  )
-}
-
-const FaceCardTrainImagesComponent = (props) => {
-  return (
-    <img 
-      src={props.source}
-      className="min-w-[250px] w-[250px] h-full object-cover"
-      alt={props.description}
-    />
-  )
-}
-
 function HomeScreen() {
   const paraRef = useRef(null);
   const scrollTop = useSelector(selectScrollTop)
-  const scrollDirection = useSelector(selectScrollDirection)
   const dispatch = useDispatch();
-
-  const [ appointmentButtonWidth, setAppointmentButtonWidth ] = useState(0);
-  const [ appointmentButtonHeight, setAppointmentButtonHeight ] = useState(0);
-  const [ trainTranslateX, setTrainTranslateX] = useState(5000);
-  const [ faceCardTranslateY, setFaceCardTranslateY ] = useState(4200);
-  const [ rightFaceCardTranslateY, setRightFaceCardTranslateY ] = useState(4200);
   const [ contact, setContact ] = useState("appointment");
   const [activeWork, setActiveWork ] = useState("creative");
-  const [y, setY ] = useState(scrollTop); 
+  const imageContainer = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: imageContainer,
+    offset: ['start end', 'end start']
+  })
 
-  const getScrollDirection = () => {
-    if(y > scrollTop){
-      dispatch(setScrollDirection("up"))
-    } else if (y < scrollTop) {
-      dispatch(setScrollDirection("down"))
-    }
-    setY(scrollTop);
-  };
-
-  console.log(`this is ${y} and this is ${scrollTop}`)
-
+  const y = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+  
   const handleScroll = () => {
     if(paraRef.current){
       dispatch(setScrollTop(paraRef.current.current))
@@ -210,54 +188,109 @@ function HomeScreen() {
     setContact(e.target.value) 
   }
 
-  const trainObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting){
-        if(scrollDirection === "down") {
-          setTrainTranslateX(trainTranslateX + 60)
-        } else if (scrollDirection === "up") {
-          setTrainTranslateX(trainTranslateX - 60)
-        }
-      } else {
-        setTrainTranslateX(5000)
-      }
-    });
-  });
-
-  const faceCardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting){
-        console.log("isIntersecting")
-        if(scrollDirection === "down"){
-          setFaceCardTranslateY(faceCardTranslateY + 25)
-          setRightFaceCardTranslateY(rightFaceCardTranslateY - 25)
-        } else if(scrollDirection === "up") {
-          setFaceCardTranslateY(faceCardTranslateY - 25)
-          setRightFaceCardTranslateY(rightFaceCardTranslateY + 25)
-        }
-      } else {
-        console.log("not")
-        setFaceCardTranslateY(4200)
-        setRightFaceCardTranslateY(4200)
-      }
-    });
-  });
-
   useEffect(() => {
-    getScrollDirection();
-  }, [scrollTop])
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".img",
+      }
+    })
+    .to(".img", {
+      duration: .4,
+      stagger: .2,
+      y: -829,
+      ease: "power2.out"
+    })
 
-  useEffect(() => {
-    const trainElements = document.querySelectorAll(".trainTranslate");
-    const leftFaceCardElements = document.querySelectorAll(".faceCardParallax")
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".gallery-text",
+        scrub: true,
+        ease: "expoScale(0.5,7,none)"
+      }
+    })
+    .fromTo(".gallery-text", {
+      scale: 1,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    }, {
+      scale: 2,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    })
 
-    trainElements.forEach((el) => trainObserver.observe(el));
-    leftFaceCardElements.forEach((el) => faceCardObserver.observe(el));
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".gallery1",
+        scrub: true,
+        ease: "expoScale(0.5,7,none)"
+      }
+    })
+    .fromTo(".gallery1", {
+      y: -200,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    },
+    {
+      y: 900,
+      repeat: 2,
+      yoyo: true,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    })
 
-    return () => {
-      trainElements.forEach((el) => trainObserver.unobserve(el));
-      leftFaceCardElements.forEach((el) => faceCardObserver.unobserve(el));
-    }
+    const tl4 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".gallery2",
+        scrub: true,
+        ease: "expoScale(0.5,7,none)"
+      }
+    })
+    .fromTo(".gallery2", {
+      y: 0,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    },
+    {
+      y: -800,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    })
+
+    const tl5 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".gallery3",
+        scrub: true,
+        ease: "expoScale(0.5,7,none)"
+      }
+    })
+    .fromTo(".gallery3", {
+      y: 0,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    },
+    {
+      y: 600,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    })
+
+    const tl6 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".gallery4",
+        scrub: true,
+        ease: "expoScale(0.5,7,none)"
+      }
+    })
+    .fromTo(".gallery4", {
+      y: 0,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    },
+    {
+      y: -1000,
+      scrub: true,
+      ease: "expoScale(0.5,7,none)"
+    })
   }, [scrollTop])
 
   useEffect(() => {
@@ -268,22 +301,10 @@ function HomeScreen() {
     }
   }, [])
 
-  useEffect(() => {
-    if(scrollTop > 750 && appointmentButtonWidth < 250) {
-      setAppointmentButtonWidth(appointmentButtonWidth + 7)
-    }
-
-    if(scrollTop > 750 && appointmentButtonHeight < 54.5){
-      setAppointmentButtonHeight(appointmentButtonHeight + 3)
-    }
-  }, [scrollTop])
-
-  console.log(faceCardTranslateY, rightFaceCardTranslateY, scrollDirection);
-
   return (
     <Parallax
       className="parallaxContainer"
-      pages={11}
+      pages={10}
       ref={paraRef}
     >
       <ParallaxLayer
@@ -323,7 +344,7 @@ function HomeScreen() {
           zIndex: 15
         }}
       >
-        <div className={`text-[265px] translate-y-96 font-extrabold font-arch-b font-bold uppercase`}>
+        <div className={`text-[265px] translate-y-96 font-extrabold font-arch-b uppercase`}>
           <span className="text-white">makeupby</span>
           <span className="text-purple-950">ram</span>
         </div>
@@ -381,18 +402,17 @@ function HomeScreen() {
       <ParallaxLayer
         sticky={{
           start: 1.05,
-          end: 8.9
+          end: 9.9
         }}
         className="left-0 right-0 mx-auto"
         style={{
           zIndex: 20,
-          width: appointmentButtonWidth,
-          height: appointmentButtonHeight,
+          width: "fit-content",
           top: 730
         }}
       >
-        <div className={`w-full h-full ${appointmentButtonWidth >= 250 ? "p-4" : "p-0"} text-[15px] cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
-          <span className={`${appointmentButtonWidth < 250 ? "opacity-0" : "opacity-100"}`}>make an appointment</span>
+        <div className={`p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
+          <span className="text-[15px]">make an appointment</span>
         </div>
       </ParallaxLayer>
 
@@ -442,139 +462,6 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 {...image}
               />
             ))}
-          </div>
-        </div>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={4}
-        className="faceCardParallax"
-        speed={0.5}
-        style={{
-          zIndex: 15,
-          overflow: "hidden"
-        }}
-      >
-        <div className="w-full h-full bg-black flex items-center justify-center">
-          <div className="relative overflow-hidden w-full h-full bg-black">
-            
-            <div className="absolute z-20 w-full h-full bg-gradient-to-b from-black from-20% via-transparent to-80% to-black">
-
-            </div>
-            <div className="absolute z-0 w-full h-full flex bg-black">
-              <div className="min-w-1/3 w-1/3 mr-2 h-full flex flex-col faceCardTranslate transition-all duration-200" style={{
-                transform: `translateY(-${faceCardTranslateY}px)`
-              }}>
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-                 {leftFaceCardImages.map((image, index) => (
-                  <LeftFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))} 
-              </div>
-              <div className="min-w-1/3 w-1/3 h-full">
-                <video loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
-                  <source src={processVideo1} type="video/mp4"/>
-                  Video Format Not supported
-                </video>
-              </div>
-              <div className="min-w-1/3 w-1/3 h-full ml-2 flex flex-col transition-all duration-200" style={{
-                transform: `translateY(-${rightFaceCardTranslateY}px)`
-              }}>
-                {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-                 {rightFaceCardImages.map((image, index) => (
-                  <RightFaceCardImageComponent 
-                    key={image.id}
-                    index={index}
-                    {...image}
-                  />
-                 ))}
-              </div>
-            </div>
           </div>
         </div>
       </ParallaxLayer>
@@ -632,7 +519,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                     <img className="w-full h-full object-cover" src={creativework1} alt="dontbyram"/>
                   </div>
                   <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-2">
-                  <img className="w-full h-full object-cover" src={facecard2} alt="dontbyram"/>
+                  <img className="w-full h-full object-cover object-top" src={creativework3} alt="dontbyram"/>
                   </div>
                   <div className="bg-red-500 row-span-1 col-span-2 row-start-1 col-start-3">
                   <img className="w-full h-full object-cover object-top" src={creativework5} alt="dontbyram"/>
@@ -641,7 +528,10 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                   <img className="w-full h-full object-cover" src={facecard1} alt="dontbyram"/>
                   </div>
                   <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-3">
-                  <img className="w-full h-full object-cover object-top" src={creativework3} alt="dontbyram"/>
+                    <video key={processVideo1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
+                      <source src={processVideo1} type="video/mp4"/>
+                      Video Format Not supported
+                    </video>
                   </div>
                   <div className="bg-red-500 row-span-1 col-span-1 row-start-2 col-start-4">
                   <img className="w-full h-full object-cover" src={creativework6} alt="dontbyram"/>
@@ -815,131 +705,49 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={5}
-        speed={0.8}
+        offset={4}
+        factor={2}
+        speed={0.6}
         style={{
           zIndex: 15,
         }}
       >
-        <div className="w-full h-full flex flex-col justify-center gap-20">
-          <div className="w-full h-[25%] flex items-center justify-end">
-            <h1 className="text-white font-arch-b uppercase text-[300px] translate-x-32">bolder</h1>
-          </div>
-          <div className="w-full h-[50%] trainTranslate overflow-hidden">
-            <div className={`h-full w-fit transition-all duration-75 flex`} style={{
-              transform: `translateX(-${trainTranslateX}px)`
-            }}>
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-              {faceCardTrainImages.map((image, index) => (
-                <FaceCardTrainImagesComponent 
-                  key={image.id}
-                  index={index}
-                  {...image}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </ParallaxLayer>
+       <h1 className="font-arch-b z-30 text-[14rem] gallery-text uppercase">bolder</h1>
+       <div className="fixed z-20 gallery-dark w-full h-[210vh] bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
+       <div className="fixed z-20 w-full h-[210vh] mask"></div>
 
-      <ParallaxLayer 
-        offset={6.3}
-        style={{
-          zIndex: 15,
-          width: "fit-content",
-          height: "fit-content",
-          left: "40%"
-        }}
-      >
-        <div className="w-fit h-fit p-10">
-          <p className="text-white text-[25px] font-os font-light">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius facere possimus ullam molestias quo magnam, voluptatem amet facilis architecto sunt id distinctio commodi, laboriosam aspernatur quae maxime omnis sit doloremque.
-            Consectetur volup tatum autem ab magni illo eum, itaque eaque culpa perspiciatis nemo fuga laudantium cumque architecto inventore quisquam id est quibusdam dolor soluta assumenda fugiat doloremque!
-          </p>
-        </div>
-      </ParallaxLayer>
+       <section>
+        <div className="line"></div>
+        <div className="line"></div>
+       </section>
 
+       <section className="gallery">
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+        <div className="img"></div>
+       </section>
+      </ParallaxLayer>
 
       <ParallaxLayer
-        offset={7}
-        speed={0.5}
+        offset={6}
+        factor={1.5}
         style={{
           zIndex: 15,
-          width: "30%",
         }}
       >
-        <div className="w-full h-[200vh] -translate-y-[500px] flex items-center justify-center">
-          <div className="w-full h-full relative">
-            <video loop muted autoPlay className={`absolute z-0 w-full h-full object-cover transition-all duration-300`}>
-              <source src={processVideo2} type="video/mp4"/>
-              Video Format Not supported
-            </video>
-            <div className="absolute z-10 w-full h-full bg-gradient-to-b from-black from-5% to-95% via-transparent to-black">
+        <div className="w-full h-[150vh] bg-black">
 
-            </div>
-            <div className="absolute z-20 w-full h-full bg-gradient-to-l from-black from-1% to-transparent">
-
-            </div>
-          </div>
         </div>
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={7}
-        speed={2}
-        style={{
-          zIndex: 15,
-          width: "70%",
-          left: "30%"
-        }}
-      >
-        <div className="w-full h-full flex justify-center">
-          <div className="w-[80%] h-full relative flex items-center justify-center pb-40 pr-72">
-            <img className="w-[500px] h-[600px] absolute z-50 border-[10px] object-cover" alt="Ram doing makeup" src={processMain1}/>
-            <img className="w-[500px] h-[600px] absolute z-40 border-[8px] top-[90px] left-[150px] object-cover" alt="Ram doing makeup" src={processMain4}/>
-            <img className="w-[500px] h-[600px] absolute z-30 border-[6px] top-[150px] left-[220px] object-cover" alt="Ram doing makeup" src={processMain3}/>
-            <img className="w-[500px] h-[600px] absolute z-20 border-[4px] top-[200px] left-[280px] object-cover" alt="Ram doing makeup" src={processMain5}/>
-            <img className="w-[500px] h-[600px] absolute z-10 border-[2px] top-[250px] left-[340px] object-cover" alt="Ram doing makeup" src={processMain2}/>
-          </div>
-        </div> 
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={8}
+        offset={7.5}
         speed={0.9}
         style={{
           zIndex: 15,
@@ -965,78 +773,166 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={9}
+        offset={8.5}
+        factor={1.75}
         speed={0.5}
         style={{
           zIndex: 15
         }}
       >
-        <div className="w-full h-full flex flex-col">
-          <div className="w-full h-1/4 flex items-center justify-center uppercase font-arch-b text-[150px] text-[rgb(16,0,40)]">
-            makeupbyram
+        <div className="image-gallery relative">
+          <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black via-transparent to-black z-20"></div>
+          <div className="gallery1 image-column ">
+          <div className="imageContainer">
+            <img src={featuredCoverBG} alt="makeupbyram" className="object-cover w-full h-full"/>
           </div>
-          <div className="w-full h-1/4 flex items-center justify-center uppercase font-arch-b text-[150px] text-[rgb(44,0,91)]">
-            makeupbyram
+          <div className="imageContainer">
+            <div className="w-full h-full bg-[#1c1ca2] flex flex-col items-center justify-evenly">
+              <div className="colour-1 aurora"></div>
+              <div className="colour-2 aurora"></div>
+              <div className="colour-3 aurora"></div>
+              <div className="w-[70%] h-[70%] absolute z-10 flex items-center justify-center">
+                <div className="w-fit h-fit translate-x-7 text-white font-arch-b uppercase text-[5rem] flex items-center justify-center">
+                  <div className="translate-x-5">u</div>
+                  <div className="-translate-y-5">n</div>
+                  <div className="translate-y-5 -translate-x-5">i</div>
+                  <div className="-translate-x-10">q</div>
+                  <div className="-translate-y-2 -translate-x-14">u</div>
+                  <div className="-translate-x-20">e</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-full h-1/4 flex items-center justify-center uppercase font-arch-b text-[150px] text-[#beadfa]">
-            makeupbyram
+          <div className="imageContainer">
+            <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover"/>
           </div>
-          <div className="w-full h-1/4 flex items-center justify-center uppercase font-arch-b text-[150px] text-white">
-            makeupbyram
+          <div className="imageContainer">
+            <img src="" alt="makeupbyram" className="object-cover"/>
           </div>
+          <div className="imageContainer">
+            <img src="" alt="makeupbyram" className="object-cover"/>
+          </div>
+          <div className="imageContainer">
+            <img src="" alt="makeupbyram" className="object-cover"/>
+          </div>
+          </div>
+      <div className="gallery2 image-column ">
+        <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="object-cover"/>
         </div>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={10}
-        style={{
-          zIndex: 15,
-          width: "50%",
-        }}
-      >
-        <div className="w-full h-full flex items-center">
-          <div className="w-full h-full">
-            <div className="w-full h-full grid grid-rows-4 grid-cols-3 skew-x-12 relative">
-              <div className="w-full h-full absolute z-10 bg-gradient-to-b from-black from-[3]%] via-transparent to-black to-[98%]">
+        <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full bg-black object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={brownmakeup} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+        <video key={runwayvid1} loop muted autoPlay className={`absolute z-0 w-full h-full object-cover transition-all duration-300`}>
+              <source src={runwayvid1} type="video/mp4"/>
+              Video Format Not supported
+            </video>
+        </div>
+        <div className="imageContainer">
+          <img src={train18} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={runwaywork2} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+      </div>
+    <div className="gallery3 image-column ">
+        <div className="imageContainer">
+          <img src={facecard2} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={runwaywork1} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={typography} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+         <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+         <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+         <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+    </div>
+    <div className="gallery4 image-column ">
+        <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={creativework2} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <div className="w-full h-full bg-white flex items-center justify-center">
+            <div className="w-[75%] h-[60%] grid grid-cols-4 grid-rows-4 gap-1">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>e</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">9</span>
               </div>
-              <div className="w-full h-full absolute z-10 bg-gradient-to-r from-black via-transparent to-black to-[95%]">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>n</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
               </div>
-              <div className="col-span-1 col-start-1 row-span-1 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={train1} alt="Ram doing makeup"/>
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>c</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">6</span>
               </div>
-              <div className="col-span-1 col-start-1 row-span-2 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={detailsFeatured1} alt="Ram doing makeup"/>
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>h</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">3</span>
               </div>
-              <div className="col-span-1 col-start-1 row-span-1 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={detailsFeatured2} alt="Ram doing makeup"/>
+              <div className="relative col-start-2 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>a</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">4</span>
               </div>
-              <div className="row-start-1 col-start-2 row-span-2 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={train3} alt="Ram doing makeup"/>
+              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>n</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
               </div>
-              <div className="row-span-2 row-start-3 col-start-2 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={featuredImage2} alt="Ram doing makeup"/>
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>t</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">1</span>
               </div>
-              <div className="row-start-1 row-span-3 col-start-3 flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={featuredCoverBG} alt="Ram doing makeup"/>
+              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>i</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">8</span>
               </div>
-              <div className="flex items-center justify-center">
-                <img className="w-[98%] h-[98%] object-cover" src={train4} alt="Ram doing makeup"/>
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>n</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
+              </div>
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+                <h1>g</h1>
+                <span className="absolute text-white text-[10px] bottom-2 right-3">5</span>
               </div>
             </div>
           </div>
         </div>
+        <div className="imageContainer">
+          <img src={processMain1} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+        <div className="imageContainer">
+          <img src={chanel} alt="makeupbyram" className="w-full h-full object-cover"/>
+        </div>
+    </div>
+        </div>
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={10}
-        speed={1}
+        offset={9.5}
+        speed={0.4}
         style={{
           zIndex: 15,
-          width: "50%",
-          left: "50%",
         }}
       >
-        <div className="w-full h-full relative flex items-center justify-center">
+        <div className="w-full h-full px-[20rem] relative flex items-center justify-center">
           <Footer/>
           <div className="w-[85%] h-[70%] border-2 rounded-[100px] relative flex flex-col items-center pt-10">
             <div className="absolute -top-10 left-0 right-0 mx-auto bg-black w-fit h-fit p-2 px-5">
@@ -1199,156 +1095,26 @@ const featuredImages = [
   },
 ]
 
-const leftFaceCardImages = [
-  {
-    id: 1,
-    source: faceCardImageRaw1,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 2,
-    source: faceCardImageRaw2,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 3,
-    source: faceCardImageRaw3,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 4,
-    source: faceCardImageRaw4,
-    description: "Ram doing makeup",
-  },
-]
 
-const rightFaceCardImages = [
-  {
-    id: 1,
-    source: faceCardImageRaw5,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 2,
-    source: faceCardImageRaw6,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 3,
-    source: faceCardImageRaw7,
-    description: "Ram doing makeup",
-  },
-  {
-    id: 4,
-    source: faceCardImageRaw8,
-    description: "Ram doing makeup",
-  },
-]
 
-const faceCardTrainImages = [
+const images = [
   {
-    id: 1,
-    source: train1,
-    alt: "Make up by Ram"
+
   },
   {
-    id: 2,
-    source: train2,
-    alt: "Make up by Ram"
+    
   },
   {
-    id: 3,
-    source: train3,
-    alt: "Make up by Ram"
+    
   },
   {
-    id: 4,
-    source: train4,
-    alt: "Make up by Ram"
+    
   },
   {
-    id: 5,
-    source: train5,
-    alt: "Make up by Ram"
+    
   },
   {
-    id: 6,
-    source: train6,
-    alt: "Make up by Ram"
+    
   },
-  {
-    id: 7,
-    source: train7,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 8,
-    source: train8,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 9,
-    source: train9,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 10,
-    source: train10,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 11,
-    source: train11,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 12,
-    source: train12,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 13,
-    source: train13,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 14,
-    source: train14,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 15,
-    source: train15,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 16,
-    source: train16,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 17,
-    source: train17,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 18,
-    source: train18,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 19,
-    source: train19,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 20,
-    source: train20,
-    alt: "Make up by Ram"
-  },
-  {
-    id: 21,
-    source: train21,
-    alt: "Make up by Ram"
-  },
+
 ]

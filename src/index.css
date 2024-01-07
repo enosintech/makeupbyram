@@ -2,12 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes hueRotate {
+    to {
+      filter: hue-rotate(360deg);
+    }
+}
+  
+@keyframes colour-1 {
+    0% {
+      top: 0vh;
+      left: 50vw;
+    }
+    25% {
+      left: 0vw;
+    }
+    50% {
+      top: 100vh;
+    }
+    75% {
+      left: 100vw;
+    }
+    100% {
+      top: 0vh;
+      left: 50vw;
+    }
+  }
+  
+  @keyframes colour-2 {
+    0% {
+      top: 50vh;
+      left: 100vw;
+    }
+    25% {
+      top: 100vh;
+    }
+    50% {
+      left: 0vw;
+    }
+    75% {
+      top: 0vh;
+    }
+    100% {
+      top: 50vh;
+      left: 100vw;
+    }
+  }
+  
+  @keyframes colour-3 {
+    0% {
+      top: 100vh;
+      left: 50vw;
+    }
+    25% {
+      left: 100vw;
+    }
+    50% {
+      top: 0vh;
+    }
+    75% {
+      left: 0vw;
+    }
+    100% {
+      top: 100vh;
+      left: 50vw;
+    }
+}
+
 * {
     box-sizing: border-box;
 }
 
-html {
+.aurora {
+    position: absolute;
+    opacity: 0.75;
+}
+
+.colour-1 {
+    box-shadow: 0 0 45vmax 45vmax purple;
+    animation: hueRotate 10s 0s linear infinite, colour-1 19s 0s linear infinite;
+}
+
+.colour-2 {
+    box-shadow: 0 0 45vmax 45vmax blue;
+    animation: hueRotate 10s 0s linear infinite, colour-1 19s 0s linear infinite;
+}
+
+.colour-3 {
+    box-shadow: 0 0 45vmax 45vmax red;
+    animation: hueRotate 10s 0s linear infinite, colour-1 19s 0s linear infinite;
+}
+
+.gallery {
+    height: 200vh;
+}
+
+.gallery-text{ 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: white;
+}
+
+.gallery-dark {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+html, body {
     background-color: black;
+    width: 100%;
+    min-height: 100%;
+    overscroll-behavior: none;
 }
 
 .hex {
@@ -33,9 +141,64 @@ html {
     -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
 }
 
+.image-gallery {
+    height: 175vh;
+    background: black;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    padding: 2vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.image-column {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    min-width: 250px;
+    position: relative;
+}
+
+.image-column:nth-of-type(1) {
+    top: -45%
+}
+
+.image-column:nth-of-type(2) {
+    top: -45%
+}
+
+.image-column:nth-of-type(3) {
+    top: -45%
+}
+
+.image-column:nth-of-type(4) {
+    top: -50%;
+}
+
+.image-column:nth-of-type(5) {
+    top: -45%;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    position: relative;
+    border-radius: 1vw;
+    overflow: hidden;
+}
+
 .image-grid {
     transform: rotateZ(1deg);
     perspective: 1000px;
+}
+
+.line {
+    border-right: 3px solid white;
+    height: 200vh;
 }
 
 .mask {
@@ -67,4 +230,58 @@ html {
 
 .radio:checked:before {
     background: #beadfa;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
+    margin: 0 auto;
+}
+
+section > .img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    z-index: -1;
+}
+
+section > .img:nth-of-type(1) {
+    background-image: url("assets/images/detailsFeatured1.jpg");
+}
+section > .img:nth-of-type(2) {
+    background-image: url("assets/images/train4.jpg");
+}
+section > .img:nth-of-type(3) {
+    background-image: url("assets/images/train2.jpg");
+}
+section > .img:nth-of-type(4) {
+    background-image: url("assets/images/train18.jpg");
+}
+section > .img:nth-of-type(5) {
+    background-image: url("assets/images/processMain3.jpg");
+}
+section > .img:nth-of-type(6) {
+    background-image:url("assets/images/facecardImageRaw8.jpg");
+}
+section > .img:nth-of-type(7) {
+    background-image: url("assets/images/facecardImageRaw5.jpg");
+}
+section > .img:nth-of-type(8) {
+    background-image: url("assets/images/makeupwork6.jpg");
+}
+section > .img:nth-of-type(9) {
+    background-image: url("assets/images/runwaywork7.jpg");
+}
+
+section > .img:before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    border-right: 1px solid black;
 }

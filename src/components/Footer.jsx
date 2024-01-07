@@ -8,7 +8,7 @@ const Footer = () => {
   const [ activeLocation, setActiveLocation ] = useState(location.pathname);
 
     return (
-      <div className={`absolute w-[40%] h-[5%] z-50 bottom-2 px-3 ${activeLocation === "/" ? "right-3" : "left-3"} flex items-center justify-evenly`}
+      <div className={`absolute h-[5%] z-50 bottom-2 px-3 ${activeLocation === "/" ? "right-3 w-[20%]" : "left-3 w-[40%]"} flex items-center justify-evenly`}
       >
         <span className="text-gray-500 font-arch-b uppercase text-[13px]">©makeupbyram {new Date().getFullYear()}</span>
         <div className="flex w-[25%] pr-5 justify-evenly">
