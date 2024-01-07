@@ -137,7 +137,7 @@ import parallax1 from "../assets/images/parallax1.jpg";
 import parallax2 from "../assets/images/parallax2.jpg";
 import parallax3 from "../assets/images/parallax3.jpg";
 import chanel from "../assets/images/chanel.jpg";
-
+import wavy from "../assets/images/wavy.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -228,14 +228,14 @@ function HomeScreen() {
     .fromTo(".gallery1", {
       y: -200,
       scrub: true,
-      ease: "expoScale(0.5,7,none)"
+      ease: "expoScale(0.5,7,none)",
+      duration: 20
     },
     {
       y: 900,
-      repeat: 2,
-      yoyo: true,
       scrub: true,
-      ease: "expoScale(0.5,7,none)"
+      ease: "expoScale(0.5,7,none)",
+      duration: 20,
     })
 
     const tl4 = gsap.timeline({
@@ -304,7 +304,7 @@ function HomeScreen() {
   return (
     <Parallax
       className="parallaxContainer"
-      pages={10}
+      pages={10.5}
       ref={paraRef}
     >
       <ParallaxLayer
@@ -402,12 +402,13 @@ function HomeScreen() {
       <ParallaxLayer
         sticky={{
           start: 1.05,
-          end: 9.9
+          end: 8.5
         }}
         className="left-0 right-0 mx-auto"
         style={{
           zIndex: 20,
           width: "fit-content",
+          height: "fit-content",
           top: 730
         }}
       >
@@ -710,6 +711,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         speed={0.6}
         style={{
           zIndex: 15,
+          overflow: "hidden"
         }}
       >
        <h1 className="font-arch-b z-30 text-[14rem] gallery-text uppercase">bolder</h1>
@@ -729,25 +731,60 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         <div className="img"></div>
         <div className="img"></div>
         <div className="img"></div>
-        <div className="img"></div>
+        <div className="img"></div> 
         <div className="img"></div>
        </section>
       </ParallaxLayer>
 
       <ParallaxLayer
         offset={6}
-        factor={1.5}
+        speed={0.4}
         style={{
           zIndex: 15,
         }}
       >
-        <div className="w-full h-[150vh] bg-black">
-
+        <div className="-mt-72 w-full h-[150vh] grid grid-cols-4 grid-rows-5">
+          <div className="col-span-4 row-span-2 translate-x-20 flex">
+            <div className="h-full w-1/2 relative">
+              <img className="w-[35%] h-[70%] object-cover border-[10px] z-50 border-white absolute translate-x-[50%] top-3" src={processMain1} alt="ram"/>
+              <img className="w-[35%] h-[70%] object-cover border-[8px] z-40 border-white absolute translate-x-[65%] translate-y-[10%] top-3" src={processMain4} alt="ram"/>
+              <img className="w-[35%] h-[70%] object-cover border-[6px] z-30 border-white absolute translate-x-[80%] translate-y-[20%] top-3" src={processMain3} alt="ram"/>
+              <img className="w-[35%] h-[70%] object-cover border-[4px] z-20 border-white absolute translate-x-[95%] translate-y-[30%] top-3" src={processMain2} alt="ram"/>
+              <img className="w-[35%] h-[70%] object-cover border-[2px] z-10 border-white absolute translate-x-[110%] translate-y-[40%] top-3" src={processMain5} alt="ram"/>
+            </div>
+            <div className="h-full w-1/2 flex flex-col py-16 translate-y-5">
+              <div className="w-full h-[15%]">
+                <div className="w-fit h-full -translate-y-5 flex items-center justify-center gap-2">
+                  <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
+                    <div className="w-[40px] h-[40px] rounded-full bg-black flex items-center justify-center">
+                      <div className="w-[25px] h-[25px] rounded-full bg-white flex items-center justify-center">
+                        <div className="w-[15px] h-[15px] rounded-full bg-black"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-[50px] h-[50px] rounded-full bg-white"></div>
+                </div>
+              </div>
+              <div className="w-full h-[60%] font-arch font-light text-white text-left text-[3.5rem]">
+                <p className="h-full w-[70%] ">Loreming ipsum dolor sitsitsit of amet</p>
+              </div>
+              <div className="w-full h-[35%] text-white text-[17px] font-extralight">
+                <p className="w-[50%] h-[60%]">Lorem ipsum dolor sit amet. I have a big belly. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-4 row-span-3 flex items-center justify-center">
+            <div className="w-[90%] h-[80%] relative">
+              <div className="w-fit h-fit p-4 bg-white z-20 absolute rounded-full font-arch-b uppercase text-[15px] bottom-5 left-5">makeupbyram</div>
+              <img className="w-full h-full object-cover" src={wavy} alt="for design"/>
+              <div className="absolute top-0 z-10 w-full h-full bg-gradient-to-r from-transparent via-transparent via-[99.9%] to-[99.9%] to-black"></div>
+            </div>
+          </div>
         </div>
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={7.5}
+        offset={7}
         speed={0.9}
         style={{
           zIndex: 15,
@@ -773,11 +810,11 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={8.5}
-        factor={1.75}
+        offset={8}
+        factor={2}
         speed={0.5}
         style={{
-          zIndex: 15
+          zIndex: 15,
         }}
       >
         <div className="image-gallery relative">
@@ -926,7 +963,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={9.5}
+        offset={9.7}
         speed={0.4}
         style={{
           zIndex: 15,
