@@ -803,8 +803,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           position: "relative"
         }}
       >
-       <div className="fixed z-20 gallery-dark w-full h-[210vh] bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
-       <div className="fixed z-20 w-full h-[210vh] mask"></div>
+       <div className="fixed z-20 gallery-dark w-full h-[200dvh] bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
+       <div className="fixed z-20 w-full h-[200dvh] mask"></div>
 
        <section className="w-full h-full flex items-center justify-center">
           <h1 className="gallery-text font-arch-b uppercase text-[3rem]">bolder</h1>
