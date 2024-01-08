@@ -2,18 +2,14 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { act, Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTransform, useScroll, useMotionValueEvent, motion } from "framer-motion";
 
 import Footer from "../components/Footer";
 
-import { Model } from "../assets/3dmodel/Scene";
-import { setScrollTop, selectScrollTop, selectScrollDirection, setScrollDirection, selectLogoObserver, setLogoObserver, setAppointmentButtonObserver } from "../../slices/navSlice";
+import { setScrollTop, selectScrollTop, setLogoObserver, setAppointmentButtonObserver, setBurgerActive } from "../../slices/navSlice";
 
 import featuredCoverBG from "../assets/images/featuredCoverBG.jpg";
 import featuredImage1 from "../assets/images/featuredImage1.jpg";
@@ -144,12 +140,12 @@ gsap.registerPlugin(ScrollTrigger);
 const ServicesComponent = (props) => {
   return (
     <div className="group relative w-full h-1/4 border-y border-white flex items-center px-10 transition-all duration-300">
-      <span className="text-[60px] uppercase font-light transition-all duration-150">{props.service}</span>
-      <span className="text-[30px] absolute right-10 uppercase z-10 font-arch-b italic opacity-0 group-hover:opacity-100 transition-all duration-150">{props.description}</span>
+      <span className="text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] uppercase font-normal md:font-light transition-all duration-150">{props.service}</span>
+      <span className="text-[15px] sm:text-[20px] md:text-[24px] lg:text-[27px] xl:text-[30px] absolute right-10 uppercase z-10 font-arch-b italic opacity-0 group-hover:opacity-100 transition-all duration-150">{props.description}</span>
       <div className="absolute w-full h-0 group-hover:h-full transition-all duration-400 -translate-x-10 flex">
-        <img className="w-1/3 h-full object-cover" src={props.image1}/>
-        <img className="w-1/3 h-full object-cover" src={props.image2}/>
-        <img className={`w-1/3 h-full object-cover ${props.description === "elegant" ? "object-top" : ""}`} src={props.image3}/>
+        <img className={`sm:w-1/3 w-1/2 h-full object-cover ${props.index === 3 ? "w-0" : ""}`} src={props.image1}/>
+        <img className={`sm:w-1/3 w-1/2 h-full object-cover ${props.index === 0 ? "w-0" : ""} ${props.index === 1 ? "object-left w-1/2" : ""}`} src={props.image2}/>
+        <img className={`h-full object-cover ${props.index === 0 || props.index === 3 ? "w-1/2" : "w-1/3"}  ${props.description === "elegant" ? "object-top" : ""}`} src={props.image3}/>
       </div>
     </div>
   )
@@ -174,6 +170,8 @@ function HomeScreen() {
     if(paraRef.current){
       dispatch(setScrollTop(paraRef.current.current))
     }
+
+    dispatch(setBurgerActive(false))
   }
 
   const onContactChange = (e) => {
@@ -466,7 +464,7 @@ function HomeScreen() {
             <div className="absolute top-3 right-5 w-fit h-fit p-3 rounded-full border-white border-4 flex items-center justify-center text-white uppercase font-semibold font-arch-b">
               est. 2022
             </div>
-            <div className="absolute top-3 left-5 w-fit h-fit p-3 flex items-center justify-center text-white uppercase font-arch font-extrabold">
+            <div className="absolute top-3 left-5 w-fit h-fit p-3 px-0 translate-y-2 sm:px-3  flex items-center justify-center text-white uppercase font-arch font-extrabold">
               what i offer
             </div>
             <div className="w-full h-[85%] flex flex-col border-y text-white border-white">
@@ -484,7 +482,7 @@ function HomeScreen() {
 
       <ParallaxLayer
         sticky={{
-          start: 1.05,
+          start: 0.7,
           end: 8.5
         }}
         className="left-0 right-0 mx-auto"

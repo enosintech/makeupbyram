@@ -5,6 +5,7 @@ const initialState =  {
     scrollDirection: "",
     logoObserver: false,
     appointmentButtonObserver: false,
+    burgerActive: false,
 }
 
 export const navSlice = createSlice({
@@ -23,6 +24,9 @@ export const navSlice = createSlice({
         setAppointmentButtonObserver : (state, action ) => {
             state.appointmentButtonObserver = action.payload;
         },
+        setBurgerActive: (state, action) => {
+            state.burgerActive = action.payload;
+        }
     }
 })
 
@@ -30,10 +34,12 @@ export const { setScrollTop } = navSlice.actions;
 export const { setScrollDirection } = navSlice.actions;
 export const { setLogoObserver } = navSlice.actions;
 export const { setAppointmentButtonObserver } = navSlice.actions;
+export const { setBurgerActive } = navSlice.actions;
 
 export const selectScrollTop = (state) => state.nav.scrollTop;
 export const selectScrollDirection = (state) => state.nav.scrollDirection;
 export const selectLogoObserver = (state) => state.nav.logoObserver;
 export const selectAppointmentButtonObserver = (state) => state.nav.appointmentButtonObserver;
+export const selectBurgerActive = (state) => state.nav.burgerActive;
 
 export default navSlice.reducer;

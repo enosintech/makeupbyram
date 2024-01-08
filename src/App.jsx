@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { selectAppointmentButtonObserver, selectLogoObserver, selectScrollTop } from "../slices/navSlice";
+import { selectAppointmentButtonObserver, selectLogoObserver, selectScrollTop, selectBurgerActive, setBurgerActive } from "../slices/navSlice";
 
 import HomeScreen from "./screens/HomeScreen";
 import AboutScreen from "./screens/AboutScreen";
@@ -14,12 +14,13 @@ import logo from "./assets/favicon/ramsfav.png";
 function App() {
 
   const location = useLocation();
+  const dispatch = useDispatch();
   const scrollTop = useSelector(selectScrollTop);
   const logoObserver = useSelector(selectLogoObserver);
+  const burgerActive = useSelector(selectBurgerActive);
   const appointmentButtonObserver = useSelector(selectAppointmentButtonObserver);
 
   const [ activeLocation, setActiveLocation ] = useState(location.pathname);
-  const [ burgerActive, setBurgerActive ] = useState(false);
 
   useEffect(() => {
     setActiveLocation(location.pathname)
@@ -57,7 +58,7 @@ function App() {
         </div>
         <div className="w-fit h-fit relative md:hidden">
           <img className="w-[40px] h-[40px] cursor-pointer hover:opacity-50 invert active:opacity-25 transition-all duration-100" src={!burgerActive ? burgerMenu : burgerMinus } alt="burger menu" onClick={() => {
-            setBurgerActive(!burgerActive)
+            dispatch(setBurgerActive(!burgerActive))
           }}/>
           <div className={`absolute w-[100px] ${!burgerActive ? "h-[0px] -translate-y-20" : "h-[150px]"} transition-all duration-100 right-0 text-white flex flex-col`}>
             <div className={`w-full h-1/2 items-center ${activeLocation === "/" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/">home</Link></div>
