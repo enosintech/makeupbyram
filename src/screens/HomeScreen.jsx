@@ -398,7 +398,7 @@ function HomeScreen() {
           zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex mt-[11rem] sm:mt-8 justify-center py-[0.5px]">
+        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-5 mt-[11rem] justify-center py-[0.5px]">
           <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
         </div>
       </ParallaxLayer>
@@ -411,12 +411,13 @@ function HomeScreen() {
         style={{
           zIndex: 15,
           height: "100dvh",
-          backgroundColor: "red",
         }}
       >
-        <div className={`xl:text-[265px] xl:mt-5 lg:text-[200px] md:mt-12 md:text-[150px] sm:text-[115px] sm:mt-14 text-[90px] mt-[14rem] transition-all translate-y-96 font-extrabold font-arch-b uppercase`}>
-          <span className="text-white">makeupby</span>
-          <span className="text-purple-950">ram</span>
+        <div className={`w-full h-full flex flex-col justify-end py-20 xl:text-[265px] lg:text-[200px] md:text-[150px] sm:text-[115px] text-[90px] transition-all font-extrabold font-arch-b uppercase`}>
+          <div className="">
+            <span className="text-white">makeupby</span>
+            <span className="text-purple-950">ram</span>
+          </div>
         </div>
       </ParallaxLayer>
 
