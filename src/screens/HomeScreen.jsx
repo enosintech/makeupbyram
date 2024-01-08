@@ -169,15 +169,7 @@ function HomeScreen() {
   const dispatch = useDispatch();
   const [ contact, setContact ] = useState("appointment");
   const [activeWork, setActiveWork ] = useState("creative");
-  const imageContainer = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: imageContainer,
-    offset: ['start end', 'end start']
-  })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 1000]);
-  
   const handleScroll = () => {
     if(paraRef.current){
       dispatch(setScrollTop(paraRef.current.current))
@@ -210,11 +202,9 @@ function HomeScreen() {
     })
     .fromTo(".gallery-text", {
       scale: 1,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     }, {
       scale: 2,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     })
 
@@ -227,13 +217,11 @@ function HomeScreen() {
     })
     .fromTo(".gallery1", {
       y: -200,
-      scrub: true,
       ease: "expoScale(0.5,7,none)",
       duration: 20
     },
     {
       y: 900,
-      scrub: true,
       ease: "expoScale(0.5,7,none)",
       duration: 20,
     })
@@ -247,12 +235,10 @@ function HomeScreen() {
     })
     .fromTo(".gallery2", {
       y: 0,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     },
     {
       y: -800,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     })
 
@@ -261,16 +247,14 @@ function HomeScreen() {
         trigger: ".gallery3",
         scrub: true,
         ease: "expoScale(0.5,7,none)"
-      }
+      },
     })
     .fromTo(".gallery3", {
       y: 0,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     },
     {
       y: 600,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     })
 
@@ -283,13 +267,97 @@ function HomeScreen() {
     })
     .fromTo(".gallery4", {
       y: 0,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
     },
     {
       y: -1000,
-      scrub: true,
       ease: "expoScale(0.5,7,none)"
+    })
+  }, [scrollTop])
+
+  useEffect(() => {
+    const tl7 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".glide1",
+        scrub: true
+      }
+    })
+    .fromTo(".glide1", {
+        y: -200,
+        duration: 1,
+        
+    }, {
+      y: 200,
+      duration: 1,
+      scrub: true
+    })
+
+    const tl8 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".glide2",
+        scrub: true
+      }
+    })
+    .fromTo(".glide2", {
+        y: 0,
+        duration: 1,
+
+    }, {
+      y: 180,
+      duration: 1,
+      delay: .3,
+      scrub: true
+    })
+
+    const tl9 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".glide3",
+        scrub: true
+      }
+    })
+    .fromTo(".glide3", {
+        y: 40,
+        duration: 1,
+
+    }, {
+      y: 140,
+      duration: 1,
+      delay: .6,
+      scrub: true
+    })
+
+    const tl10 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".glide4",
+        scrub: true
+      }
+    })
+    .fromTo(".glide4", {
+        y: 80,
+        duration: 1,
+
+    }, {
+      y: 100,
+      duration: 1,
+      delay: .9,
+      scrub: true
+    })
+
+    const tl11 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".glide5",
+        scrub: true
+      }
+    })
+    .fromTo(".glide5", {
+        y: 90,
+        duration: 1,
+ 
+    }, {
+      y: 40,
+      duration: 1,
+      delay: 1.1,
+      scrub: true
     })
   }, [scrollTop])
 
@@ -327,10 +395,10 @@ function HomeScreen() {
           width: 30,
           height: 60,
           top: 370,
-          zIndex: 15
+          zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex justify-center py-[0.5px]">
+        <div className="h-full w-full border-[5px] border-white rounded-full flex mt-[11rem] sm:mt-8 justify-center py-[0.5px]">
           <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
         </div>
       </ParallaxLayer>
@@ -344,7 +412,7 @@ function HomeScreen() {
           zIndex: 15
         }}
       >
-        <div className={`text-[265px] translate-y-96 font-extrabold font-arch-b uppercase`}>
+        <div className={`xl:text-[265px] xl:mt-5 lg:text-[200px] md:mt-12 md:text-[150px] sm:text-[115px] sm:mt-14 text-[90px] mt-[14rem] transition-all translate-y-96 font-extrabold font-arch-b uppercase`}>
           <span className="text-white">makeupby</span>
           <span className="text-purple-950">ram</span>
         </div>
@@ -353,13 +421,12 @@ function HomeScreen() {
       <ParallaxLayer
         offset={0.9}
         speed={0.3}
-        className={`left-0 right-0 mx-auto flex h-fit items-center justify-center transition-all duration-300 ${scrollTop > 170 && scrollTop < 640 ? "opacity-100" : "opacity-0"}`}
+        className={`flex h-fit sm:hidden items-center justify-center transition-all duration-300 ${scrollTop > 170 && scrollTop < 640 ? "opacity-100" : "opacity-0"}`}
         style={{
-          width: "50%",
           zIndex: 15,
         }}
       >
-        {/*<Canvas camera={{ position: [5, 5, 14]}}>
+        <Canvas camera={{ position: [5, 5, 14]}}>
           <ambientLight intensity={2}/>
           <directionalLight position={[2, 2, 2]} color="white" intensity={12} />
               <Model />
@@ -368,7 +435,7 @@ function HomeScreen() {
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
           />
-        </Canvas> */}
+        </Canvas>
       </ParallaxLayer>
 
       <ParallaxLayer
@@ -746,11 +813,11 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         <div className="-mt-72 w-full h-[150vh] grid grid-cols-4 grid-rows-5">
           <div className="col-span-4 row-span-2 translate-x-20 flex">
             <div className="h-full w-1/2 relative">
-              <img className="w-[35%] h-[70%] object-cover border-[10px] z-50 border-white absolute translate-x-[50%] top-3" src={processMain1} alt="ram"/>
-              <img className="w-[35%] h-[70%] object-cover border-[8px] z-40 border-white absolute translate-x-[65%] translate-y-[10%] top-3" src={processMain4} alt="ram"/>
-              <img className="w-[35%] h-[70%] object-cover border-[6px] z-30 border-white absolute translate-x-[80%] translate-y-[20%] top-3" src={processMain3} alt="ram"/>
-              <img className="w-[35%] h-[70%] object-cover border-[4px] z-20 border-white absolute translate-x-[95%] translate-y-[30%] top-3" src={processMain2} alt="ram"/>
-              <img className="w-[35%] h-[70%] object-cover border-[2px] z-10 border-white absolute translate-x-[110%] translate-y-[40%] top-3" src={processMain5} alt="ram"/>
+              <img className="glide1 w-[35%] h-[70%] object-cover border-[10px] z-50 border-white absolute translate-x-[50%] top-3" src={processMain1} alt="ram"/>
+              <img className="glide2 w-[35%] h-[70%] object-cover border-[8px] z-40 border-white absolute translate-x-[65%] translate-y-[10%] top-3" src={processMain4} alt="ram"/>
+              <img className="glide3 w-[35%] h-[70%] object-cover border-[6px] z-30 border-white absolute translate-x-[80%] translate-y-[20%] top-3" src={processMain3} alt="ram"/>
+              <img className="glide4 w-[35%] h-[70%] object-cover border-[4px] z-20 border-white absolute translate-x-[95%] translate-y-[30%] top-3" src={processMain2} alt="ram"/>
+              <img className="glide5 w-[35%] h-[70%] object-cover border-[2px] z-10 border-white absolute translate-x-[110%] translate-y-[40%] top-3" src={processMain5} alt="ram"/>
             </div>
             <div className="h-full w-1/2 flex flex-col py-16 translate-y-5">
               <div className="w-full h-[15%]">

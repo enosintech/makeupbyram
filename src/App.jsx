@@ -23,7 +23,7 @@ function App() {
     setActiveLocation(location.pathname)
   }, [location])
 
-  console.log(scrollTop)
+  console.log(activeLocation)
 
   return (
     <div className="flex-1">
@@ -59,9 +59,9 @@ function App() {
           <img className="w-[40px] h-[40px] cursor-pointer hover:opacity-50 invert active:opacity-25 transition-all duration-100" src={!burgerActive ? burgerMenu : burgerMinus } alt="burger menu" onClick={() => {
             setBurgerActive(!burgerActive)
           }}/>
-          <div className={`absolute w-[100px] ${!burgerActive ? "h-[0px] -translate-y-20" : "h-[150px]"} transition-all duration-100 right-0 shadow border-[0.25px] flex flex-col`}>
-            <div className={`w-full h-1/2 border-b-[0.25px] items-center ${activeLocation === "/" ? "font-bold" : "font-light"} justify-center uppercase font-light cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/">home</Link></div>
-            <div className={`w-full h-1/2 border-t-[0.25px] flex items-center ${activeLocation === "/about" ? "font-bold" : "font-light"} justify-center uppercase font-light cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/about">about</Link></div>
+          <div className={`absolute w-[100px] ${!burgerActive ? "h-[0px] -translate-y-20" : "h-[150px]"} transition-all duration-100 right-0 text-white flex flex-col`}>
+            <div className={`w-full h-1/2 border-b-[0.25px] items-center ${activeLocation === "/" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/">home</Link></div>
+            <div className={`w-full h-1/2 border-t-[0.25px] flex items-center ${activeLocation === "/about" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/about">about</Link></div>
           </div>
         </div>
       </div>
