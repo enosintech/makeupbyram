@@ -143,9 +143,9 @@ const ServicesComponent = (props) => {
       <span className="text-[25px] md:text-[40px] lg:text-[50px] xl:text-[60px] uppercase font-normal md:font-light transition-all duration-150">{props.service}</span>
       <span className="text-[15px] sm:text-[20px] md:text-[24px] lg:text-[27px] xl:text-[30px] absolute right-10 uppercase z-10 font-arch-b italic opacity-0 group-hover:opacity-100 transition-all duration-150">{props.description}</span>
       <div className="absolute w-full h-0 group-hover:h-full transition-all duration-400 -translate-x-10 flex">
-        <img className={` h-full object-cover ${props.index === 3 ? "w-0" : "w-1/2 sm:w-1/3"}`} src={props.image1}/>
-        <img className={` h-full object-cover ${props.index === 0 ? "w-0" : "w-1/2 sm:w-1/3"} ${props.index === 1 ? "object-left w-1/2" : ""}`} src={props.image2}/>
-        <img className={`h-full object-cover ${props.index === 0 || props.index === 3 ? "w-1/2" : "w-1/3"}  ${props.description === "elegant" ? "object-top" : ""}`} src={props.image3}/>
+        <img className={` h-full object-cover ${props.index === 0 || props.index === 1 || props.index === 2 ? "w-1/2 sm:w-1/3" : props.index === 3 ? "w-0 sm:w-1/3" : "w-1/3"}`} src={props.image1}/>
+        <img className={` h-full object-cover ${props.index === 0 ? "w-0 sm:w-1/3" : props.index === 2 ? "w-1/2 sm:w-1/3" : props.index === 3 ? "w-1/2 sm:w-1/3" : props.index === 1 ? "w-1/2 sm:w-1/3 object-left" : "w-1/3"}`} src={props.image2}/>
+        <img className={`h-full object-cover  ${props.index === 0 || props.index === 3 ? "w-1/2 sm:w-1/3" : "w-1/3"} ${props.description === "elegant" ? "object-top" : ""}`} src={props.image3}/>
       </div>
     </div>
   )
@@ -210,8 +210,8 @@ function HomeScreen() {
         ease: "power2.out",
     }, {
       y: 0,
-      stagger: .1,
-      duration: .2,
+      stagger: 0.2,
+      duration: 0.1,
       ease: "power2.out"
     })
 
@@ -425,14 +425,15 @@ function HomeScreen() {
         offset={0}
         className="left-0 right-0 mx-auto"
         style={{
-          width: 30,
-          height: 60,
-          top: 370,
+          width: "100dvw",
+          height: "100dvh",
           zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-20 md:-mt-3 mt-[2rem] justify-center py-[0.5px]">
-          <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="h-[60px] w-[30px] border-[5px] border-white mb-20 rounded-full flex justify-center py-[0.5px]">
+            <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
+          </div>
         </div>
       </ParallaxLayer>
 
@@ -803,14 +804,14 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           position: "relative"
         }}
       >
-       <div className="fixed z-20 gallery-dark w-full h-[200dvh] bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
-       <div className="fixed z-20 w-full h-[200dvh] mask"></div>
+       <div className="fixed z-20 gallery-dark w-full h-full bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
+       <div className="fixed z-20 w-full h-full mask"></div>
 
        <section className="w-full h-full flex items-center justify-center">
-          <h1 className="gallery-text font-arch-b uppercase text-[3rem]">bolder</h1>
+          <h1 className="gallery-text font-arch-b uppercase text-[4rem] sm:text-[6rem] md:text-[9rem] lg:text-[12rem] xl:text-[14rem]">bolder</h1>
        </section>
 
-       <section className="h-full">
+       <section className="h-full w-full absolute top-0 z-[15]">
         <div className="line"></div>
         <div className="line"></div>
        </section>
