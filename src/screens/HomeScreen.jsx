@@ -411,6 +411,7 @@ function HomeScreen() {
         style={{
           zIndex: 15,
           height: "100dvh",
+          backgroundColor: "red",
         }}
       >
         <div className={`xl:text-[265px] xl:mt-5 lg:text-[200px] md:mt-12 md:text-[150px] sm:text-[115px] sm:mt-14 text-[90px] mt-[14rem] transition-all translate-y-96 font-extrabold font-arch-b uppercase`}>
