@@ -202,12 +202,16 @@ function HomeScreen() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".img",
+        scrub: true,
       }
     })
-    .to(".img", {
-      duration: .4,
-      stagger: .2,
-      y: -829,
+    .fromTo(".img", {
+        y: 829,
+        ease: "power2.out",
+    }, {
+      y: 0,
+      stagger: .1,
+      duration: .2,
       ease: "power2.out"
     })
 
@@ -215,7 +219,6 @@ function HomeScreen() {
       scrollTrigger: {
         trigger: ".gallery-text",
         scrub: true,
-        ease: "expoScale(0.5,7,none)"
       }
     })
     .fromTo(".gallery-text", {
@@ -794,19 +797,25 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         speed={0.6}
         style={{
           zIndex: 15,
-          overflow: "hidden"
+          overflow: "hidden",
+          width: "100%",
+          height: "200dvh",
+          position: "relative"
         }}
       >
-       <h1 className="font-arch-b z-30 text-[14rem] gallery-text uppercase">bolder</h1>
        <div className="fixed z-20 gallery-dark w-full h-[210vh] bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
        <div className="fixed z-20 w-full h-[210vh] mask"></div>
 
-       <section>
+       <section className="w-full h-full flex items-center justify-center">
+          <h1 className="gallery-text font-arch-b uppercase text-[3rem]">bolder</h1>
+       </section>
+
+       <section className="h-full">
         <div className="line"></div>
         <div className="line"></div>
        </section>
 
-       <section className="gallery">
+       <section className="gallery w-full top-0 absolute">
         <div className="img"></div>
         <div className="img"></div>
         <div className="img"></div>
@@ -1173,7 +1182,7 @@ const services = [
   },
   {
     id: 2,
-    service: "shoot",
+    service: "shoot makeup",
     description: "photo and video",
     image1: shootmakeup1,
     image2: shootmakeup3,

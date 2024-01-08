@@ -97,15 +97,10 @@ html, body {
 }
 
 .gallery {
-    height: 200vh;
+    height: 100%;
 }
 
 .gallery-text{ 
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
     color: white;
 }
 
@@ -167,7 +162,7 @@ html, body {
 }
 
 .image-column:nth-of-type(1) {
-    top: -45%
+    top: -45%;
 }
 
 .image-column:nth-of-type(2) {
@@ -202,7 +197,7 @@ html, body {
 
 .line {
     border-right: 3px solid white;
-    height: 200vh;
+    height: 100%;
 }
 
 .mask {
@@ -239,12 +234,12 @@ html, body {
 section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 100vh;
     margin: 0 auto;
 }
 
 section > .img {
     width: 100%;
+    min-width: 200px;
     height: 100%;
     position: relative;
     background-size: cover;
