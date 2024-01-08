@@ -398,7 +398,7 @@ function HomeScreen() {
           zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-0 mt-[7rem] justify-center py-[0.5px]">
+        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-0 mt-[2rem] justify-center py-[0.5px]">
           <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
         </div>
       </ParallaxLayer>
@@ -460,7 +460,7 @@ function HomeScreen() {
           zIndex: 20,
           width: "fit-content",
           height: "fit-content",
-          top: 700
+          top: 600
         }}
       >
         <div className={`p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
