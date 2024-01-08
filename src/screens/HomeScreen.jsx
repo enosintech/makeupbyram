@@ -13,7 +13,7 @@ import { useTransform, useScroll, useMotionValueEvent, motion } from "framer-mot
 import Footer from "../components/Footer";
 
 import { Model } from "../assets/3dmodel/Scene";
-import { setScrollTop, selectScrollTop, selectScrollDirection, setScrollDirection } from "../../slices/navSlice";
+import { setScrollTop, selectScrollTop, selectScrollDirection, setScrollDirection, selectLogoObserver, setLogoObserver, setAppointmentButtonObserver } from "../../slices/navSlice";
 
 import featuredCoverBG from "../assets/images/featuredCoverBG.jpg";
 import featuredImage1 from "../assets/images/featuredImage1.jpg";
@@ -179,6 +179,26 @@ function HomeScreen() {
   const onContactChange = (e) => {
     setContact(e.target.value) 
   }
+
+  const mainLogoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        dispatch(setLogoObserver(false));
+      } else {
+        dispatch(setLogoObserver(true));
+      }
+    });
+  });
+
+  const appointmentBtnObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        dispatch(setAppointmentButtonObserver(true));
+      } else {
+        dispatch(setAppointmentButtonObserver(false));
+      }
+    })
+  })
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -369,6 +389,18 @@ function HomeScreen() {
     }
   }, [])
 
+  useEffect(() => {
+    const logoObserve = document.querySelectorAll(".logoObserve");
+    const buttonObserve = document.querySelectorAll(".buttonObserve");
+    logoObserve.forEach((el) => mainLogoObserver.observe(el));
+    buttonObserve.forEach((el) => appointmentBtnObserver.observe(el));
+
+    return () => {
+      logoObserve.forEach((el) => mainLogoObserver.unobserve(el));
+      buttonObserve.forEach((el) => appointmentBtnObserver.unobserve(el));
+    }
+  }, [scrollTop])
+
   return (
     <Parallax
       className="parallaxContainer"
@@ -398,7 +430,7 @@ function HomeScreen() {
           zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-0 mt-[2rem] justify-center py-[0.5px]">
+        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-20 md:-mt-3 mt-[2rem] justify-center py-[0.5px]">
           <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
         </div>
       </ParallaxLayer>
@@ -414,7 +446,7 @@ function HomeScreen() {
         }}
       >
         <div className={`w-full h-full flex flex-col justify-end py-20 xl:text-[265px] lg:text-[200px] md:text-[150px] sm:text-[115px] text-[90px] transition-all font-extrabold font-arch-b uppercase`}>
-          <div className="">
+          <div className="w-fit h-fit logoObserve">
             <span className="text-white">makeupby</span>
             <span className="text-purple-950">ram</span>
           </div>
@@ -463,7 +495,7 @@ function HomeScreen() {
           top: 600
         }}
       >
-        <div className={`p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
+        <div className={`buttonObserve p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
           <span className="text-[15px]">make an appointment</span>
         </div>
       </ParallaxLayer>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { selectScrollTop } from "../slices/navSlice";
+import { selectAppointmentButtonObserver, selectLogoObserver, selectScrollTop } from "../slices/navSlice";
 
 import HomeScreen from "./screens/HomeScreen";
 import AboutScreen from "./screens/AboutScreen";
@@ -15,6 +15,8 @@ function App() {
 
   const location = useLocation();
   const scrollTop = useSelector(selectScrollTop);
+  const logoObserver = useSelector(selectLogoObserver);
+  const appointmentButtonObserver = useSelector(selectAppointmentButtonObserver);
 
   const [ activeLocation, setActiveLocation ] = useState(location.pathname);
   const [ burgerActive, setBurgerActive ] = useState(false);
@@ -23,16 +25,14 @@ function App() {
     setActiveLocation(location.pathname)
   }, [location])
 
-  console.log(activeLocation)
-
   return (
     <div className="flex-1">
-      <div className={`fixed z-50 bg-transparent w-full h-[60px] flex items-center justify-between px-12 transition-all duration-400`}>
-        <div className={`uppercase font-bold text-[16px] transition-all duration-100 ${activeLocation === "/" ? scrollTop  > 675 ? "opacity-100" : "opacity-0" : "opacity-100"}`}>
+      <div className={`fixed z-50 bg-transparent w-full h-[60px] flex items-center justify-between px-5 sm:px-12 transition-all duration-400`}>
+        <div className={`uppercase font-bold text-[16px] transition-all duration-100 ${activeLocation === "/" ? logoObserver ? "opacity-100" : "opacity-0" : "opacity-100"}`}>
           {
             activeLocation === "/" 
             ?
-             scrollTop < 835 
+             appointmentButtonObserver === false 
             ?
             <div className="text-white font-arch-b">
               <span>makeupby</span>
@@ -60,8 +60,9 @@ function App() {
             setBurgerActive(!burgerActive)
           }}/>
           <div className={`absolute w-[100px] ${!burgerActive ? "h-[0px] -translate-y-20" : "h-[150px]"} transition-all duration-100 right-0 text-white flex flex-col`}>
-            <div className={`w-full h-1/2 border-b-[0.25px] items-center ${activeLocation === "/" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/">home</Link></div>
-            <div className={`w-full h-1/2 border-t-[0.25px] flex items-center ${activeLocation === "/about" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/about">about</Link></div>
+            <div className={`w-full h-1/2 items-center ${activeLocation === "/" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/">home</Link></div>
+            <div className="w-full border-2 border-white"></div>
+            <div className={`w-full h-1/2 flex items-center ${activeLocation === "/about" ? "font-extrabold" : "font-light"} justify-center uppercase cursor-pointer hover:opacity-50 active:opacity-25 select-none ${!burgerActive ? "hidden" : "flex"}`}><Link to="/about">about</Link></div>
           </div>
         </div>
       </div>
