@@ -140,7 +140,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ServicesComponent = (props) => {
   return (
     <div className="group relative w-full h-1/4 border-y border-white flex items-center px-10 transition-all duration-300">
-      <span className="text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] uppercase font-normal md:font-light transition-all duration-150">{props.service}</span>
+      <span className="text-[25px] md:text-[40px] lg:text-[50px] xl:text-[60px] uppercase font-normal md:font-light transition-all duration-150">{props.service}</span>
       <span className="text-[15px] sm:text-[20px] md:text-[24px] lg:text-[27px] xl:text-[30px] absolute right-10 uppercase z-10 font-arch-b italic opacity-0 group-hover:opacity-100 transition-all duration-150">{props.description}</span>
       <div className="absolute w-full h-0 group-hover:h-full transition-all duration-400 -translate-x-10 flex">
         <img className={`sm:w-1/3 w-1/2 h-full object-cover ${props.index === 3 ? "w-0" : ""}`} src={props.image1}/>
@@ -461,11 +461,13 @@ function HomeScreen() {
       >
         <div className="w-full h-full pt-[100px]">
           <div className="w-full h-[85%] relative flex flex-col justify-end">
-            <div className="absolute top-3 right-5 w-fit h-fit p-3 rounded-full border-white border-4 flex items-center justify-center text-white uppercase font-semibold font-arch-b">
-              est. 2022
-            </div>
-            <div className="absolute top-3 left-5 w-fit h-fit p-3 px-0 translate-y-2 sm:px-3  flex items-center justify-center text-white uppercase font-arch font-extrabold">
-              what i offer
+            <div className="w-full h-[15%] flex items-center flex-row-reverse justify-between px-5 sm:px-12">
+              <div className="w-fit h-fit p-3 rounded-full border-white border-4 flex items-center justify-center text-white uppercase font-semibold font-arch-b">
+                est. 2022
+              </div>
+              <div className="left-5 w-fit h-fit p-3 px-0 sm:px-3  flex items-center justify-center text-white uppercase font-arch font-extrabold">
+                what i offer
+              </div>
             </div>
             <div className="w-full h-[85%] flex flex-col border-y text-white border-white">
               {services.map((service, index) => (
