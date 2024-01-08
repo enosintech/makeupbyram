@@ -407,9 +407,10 @@ function HomeScreen() {
         offset={0}
         horizontal
         speed={3}
-        className="w-fit h-fit"
+
         style={{
-          zIndex: 15
+          zIndex: 15,
+          height: "100dvh",
         }}
       >
         <div className={`xl:text-[265px] xl:mt-5 lg:text-[200px] md:mt-12 md:text-[150px] sm:text-[115px] sm:mt-14 text-[90px] mt-[14rem] transition-all translate-y-96 font-extrabold font-arch-b uppercase`}>
