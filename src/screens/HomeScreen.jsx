@@ -398,7 +398,7 @@ function HomeScreen() {
           zIndex: 15,
         }}
       >
-        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-5 mt-[11rem] justify-center py-[0.5px]">
+        <div className="h-full w-full border-[5px] border-white rounded-full flex sm:mt-0 mt-[7rem] justify-center py-[0.5px]">
           <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
         </div>
       </ParallaxLayer>
@@ -422,30 +422,11 @@ function HomeScreen() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={0.9}
-        speed={0.3}
-        className={`flex h-fit sm:hidden items-center justify-center transition-all duration-300 ${scrollTop > 170 && scrollTop < 640 ? "opacity-100" : "opacity-0"}`}
+        offset={1}
+        speed={0.1}
         style={{
           zIndex: 15,
-        }}
-      >
-        <Canvas camera={{ position: [5, 5, 14]}}>
-          <ambientLight intensity={2}/>
-          <directionalLight position={[2, 2, 2]} color="white" intensity={12} />
-              <Model />
-          <OrbitControls 
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-        </Canvas>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={1.05}
-        speed={0.3}
-        style={{
-          zIndex: 15
+          height: "100dvh",
         }}
       >
         <div className="w-full h-full pt-[100px]">
@@ -479,7 +460,7 @@ function HomeScreen() {
           zIndex: 20,
           width: "fit-content",
           height: "fit-content",
-          top: 730
+          top: 700
         }}
       >
         <div className={`p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
