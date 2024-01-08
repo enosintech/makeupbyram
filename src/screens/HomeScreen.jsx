@@ -211,7 +211,7 @@ function HomeScreen() {
     }, {
       y: 0,
       stagger: 0.2,
-      duration: 0.1,
+      duration: 1,
       ease: "power2.out"
     })
 
@@ -430,7 +430,7 @@ function HomeScreen() {
           zIndex: 15,
         }}
       >
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-end py-40 sm:py-48 md:py-56 lg:py-64 xl:py-80 justify-center">
           <div className="h-[60px] w-[30px] border-[5px] border-white mb-20 rounded-full flex justify-center py-[0.5px]">
             <div className={`w-[15px] h-[15px] rounded-full bg-white animate-bouncer`}></div>
           </div>
