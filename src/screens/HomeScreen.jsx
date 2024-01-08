@@ -143,8 +143,8 @@ const ServicesComponent = (props) => {
       <span className="text-[25px] md:text-[40px] lg:text-[50px] xl:text-[60px] uppercase font-normal md:font-light transition-all duration-150">{props.service}</span>
       <span className="text-[15px] sm:text-[20px] md:text-[24px] lg:text-[27px] xl:text-[30px] absolute right-10 uppercase z-10 font-arch-b italic opacity-0 group-hover:opacity-100 transition-all duration-150">{props.description}</span>
       <div className="absolute w-full h-0 group-hover:h-full transition-all duration-400 -translate-x-10 flex">
-        <img className={`sm:w-1/3 w-1/2 h-full object-cover ${props.index === 3 ? "w-0" : ""}`} src={props.image1}/>
-        <img className={`sm:w-1/3 w-1/2 h-full object-cover ${props.index === 0 ? "w-0" : ""} ${props.index === 1 ? "object-left w-1/2" : ""}`} src={props.image2}/>
+        <img className={` h-full object-cover ${props.index === 3 ? "w-0" : "w-1/2 sm:w-1/3"}`} src={props.image1}/>
+        <img className={` h-full object-cover ${props.index === 0 ? "w-0" : "w-1/2 sm:w-1/3"} ${props.index === 1 ? "object-left w-1/2" : ""}`} src={props.image2}/>
         <img className={`h-full object-cover ${props.index === 0 || props.index === 3 ? "w-1/2" : "w-1/3"}  ${props.description === "elegant" ? "object-top" : ""}`} src={props.image3}/>
       </div>
     </div>
