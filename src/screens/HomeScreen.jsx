@@ -406,8 +406,6 @@ function HomeScreen() {
     }
   }, [scrollTop])
 
-  console.log(window.innerWidth)
-
   return (
     <Parallax
       className="parallaxContainer"
@@ -790,7 +788,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             }
             <div className="absolute z-20 bottom-0 translate-x-12 w-full h-[10%] flex items-center justify-end px-10">
               <div className="w-fit p-3 h-fit flex items-center justify-center gap-3">
-                <span className="uppercase font-arch font-thin text-white tracking-wider">{window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
+                <span className="uppercase font-arch font-thin text-white tracking-wider">{activeWork === "runway" && window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
                 <div className={`w-[100px] h-[20px] flex items-center ${activeWork === "runway" && window.innerWidth >= 1100 ? "justify-end" : "justify-start"}`}>
                   <div className={`w-[40px] h-0 border transition-all duration-200 ${activeWork === "runway" && window.innerWidth >= 1100 ? "" : "animate-scroll"}`}></div>
                 </div>
