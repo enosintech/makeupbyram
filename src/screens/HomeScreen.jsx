@@ -1075,7 +1075,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       >
         <div className="w-full h-full sm:px-[3rem] xl:px-[10rem] 2xl:px-[20rem] relative flex items-center justify-center">
           <Footer/>
-          <div className="w-[85%] h-[70%] border-2 rounded-[100px] relative flex flex-col items-center pt-10">
+          <div className="w-[85%] h-[70%] border-2 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] lg:rounded-[80px] xl:rounded-[100px] relative flex flex-col items-center pt-10">
             <div className="absolute -top-5 sm:-top-6 lg:-top-8 xl:-top-10 left-0 right-0 mx-auto bg-black w-fit h-fit p-2 px-2">
               <span className="text-white font-font-paris text-[15px] sm:text-[22px] md:text-[30px] lg:text-[34px] xl:text-[40px]">One last step to an amazing look</span>
             </div>
@@ -1122,27 +1122,27 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                     <div className="w-full h-full flex">
                       <div className="w-[70%] h-full flex flex-wrap justify-evenly">
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <input id="1" type="radio" className="radio w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
                           <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                       </div>
