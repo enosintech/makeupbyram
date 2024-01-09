@@ -141,12 +141,12 @@ html, body {
 }
 
 .image-gallery {
-    height: 175vh;
+    height: 100%;
     background: black;
     display: flex;
     flex-direction: row;
-    gap: 2vw;
-    padding: 2vw;
+    gap: 2dvw;
+    padding: 2dvw;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -156,8 +156,7 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2vw;
-    min-width: 250px;
+    gap: 2dvw;
     position: relative;
 }
 
@@ -186,7 +185,7 @@ html, body {
     height: 100%;
     min-height: 500px;
     position: relative;
-    border-radius: 1vw;
+    border-radius: 1dvw;
     overflow: hidden;
 }
 
@@ -206,8 +205,6 @@ html, body {
 
 .radio {
     appearance: none;
-    width: 20px;
-    height: 20px;
     border: 1.25px solid #fff;
     border-radius: 50%;
     outline: none;
@@ -229,6 +226,32 @@ html, body {
 
 .radio:checked:before {
     background: #beadfa;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    outline: none;
+}
+
+.react-datepicker__input-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.react-datepicker__input-container > input {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Archivo', sans-serif;
+    text-align: center;
+    outline: none;
 }
 
 section {

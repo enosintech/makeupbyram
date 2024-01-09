@@ -8,9 +8,9 @@ const Footer = () => {
   const [ activeLocation, setActiveLocation ] = useState(location.pathname);
 
     return (
-      <div className={`absolute h-[5%] z-50 bottom-2 px-3 ${activeLocation === "/" ? "right-3 w-[20%]" : "left-3 w-[40%]"} flex items-center justify-evenly`}
+      <div className={`absolute h-[5%] z-50 bottom-2 md:px-3 ${activeLocation === "/" ? "right-3 w-[70%] sm:w-[50%] md:w-[40% lg:w-[30%] xl:w-[30%]"  : "left-3 w-[40%]"} flex items-center justify-between translate-x-5 sm:translate-x-0`}
       >
-        <span className="text-gray-500 font-arch-b uppercase text-[13px]">©makeupbyram {new Date().getFullYear()}</span>
+        <span className="text-gray-500 font-arch-b uppercase text-[13px] w-[75%]">©makeupbyram {new Date().getFullYear()}</span>
         <div className="flex w-[25%] pr-5 justify-evenly">
           <a href="https://www.instagram.com/makeupby.ram/?next=%2Fkhanboy7637%2Ftagged%2F&hl=af" target="_blank"><FontAwesomeIcon icon={faInstagram} color="white" className="hover:opacity-75 active:opacity-50 cursor-pointer select-none"/></a>
           <a><FontAwesomeIcon icon={faTiktok} color="white" className="hover:opacity-75 active:opacity-50 cursor-pointer select-none"/></a>

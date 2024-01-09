@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 import Footer from "../components/Footer";
 
@@ -165,6 +168,7 @@ function HomeScreen() {
   const dispatch = useDispatch();
   const [ contact, setContact ] = useState("appointment");
   const [activeWork, setActiveWork ] = useState("creative");
+  const [ date, setDate ] = useState(new Date());
 
   const handleScroll = () => {
     if(paraRef.current){
@@ -402,6 +406,8 @@ function HomeScreen() {
     }
   }, [scrollTop])
 
+  console.log(date)
+
   return (
     <Parallax
       className="parallaxContainer"
@@ -500,7 +506,7 @@ function HomeScreen() {
         }}
       >
         <div className={`buttonObserve p-4 cursor-pointer hover:opacity-50 active:opacity-25 select-none bg-purple-950 rounded-full flex items-center justify-center uppercase text-white font-arch-b `}>
-          <span className="text-[15px]">make an appointment</span>
+          <span className="text-[15px]">contact me</span>
         </div>
       </ParallaxLayer>
 
@@ -908,13 +914,18 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         speed={0.5}
         style={{
           zIndex: 15,
+          width: "100dvw",
+          height: "175dvh",
         }}
       >
         <div className="image-gallery relative">
           <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black via-transparent to-black z-20"></div>
           <div className="gallery1 image-column ">
           <div className="imageContainer">
-            <img src={featuredCoverBG} alt="makeupbyram" className="object-cover w-full h-full"/>
+          <video key={processVideo2} loop muted autoPlay className={`absolute z-0 w-full h-full object-cover object-center transition-all duration-300`}>
+              <source src={processVideo2} type="video/mp4"/>
+              Video Format Not supported
+            </video>
           </div>
           <div className="imageContainer">
             <div className="w-full h-full bg-[#1c1ca2] flex flex-col items-center justify-evenly">
@@ -922,7 +933,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               <div className="colour-2 aurora"></div>
               <div className="colour-3 aurora"></div>
               <div className="w-[70%] h-[70%] absolute z-10 flex items-center justify-center">
-                <div className="w-fit h-fit translate-x-7 text-white font-arch-b uppercase text-[5rem] flex items-center justify-center">
+                <div className="w-fit h-fit -rotate-90 sm:rotate-0 translate-x-3 sm:translate-x-7 text-white font-arch-b uppercase text-[5rem] flex items-center justify-center">
                   <div className="translate-x-5">u</div>
                   <div className="-translate-y-5">n</div>
                   <div className="translate-y-5 -translate-x-5">i</div>
@@ -934,7 +945,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             </div>
           </div>
           <div className="imageContainer">
-            <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover"/>
+            <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover object-center"/>
           </div>
           <div className="imageContainer">
             <img src="" alt="makeupbyram" className="object-cover"/>
@@ -954,19 +965,19 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           <img src="" alt="makeupbyram" className="w-full h-full bg-black object-cover"/>
         </div>
         <div className="imageContainer">
-          <img src={brownmakeup} alt="makeupbyram" className="w-full h-full object-cover"/>
+          <img src={brownmakeup} alt="makeupbyram" className="w-full h-full object-cover object-center"/>
         </div>
         <div className="imageContainer">
-        <video key={runwayvid1} loop muted autoPlay className={`absolute z-0 w-full h-full object-cover transition-all duration-300`}>
+        <video key={runwayvid1} loop muted autoPlay className={`absolute z-0 w-full h-full object-cover object-center transition-all duration-300`}>
               <source src={runwayvid1} type="video/mp4"/>
               Video Format Not supported
             </video>
         </div>
         <div className="imageContainer">
-          <img src={train18} alt="makeupbyram" className="w-full h-full object-cover"/>
+          <img src={train18} alt="makeupbyram" className="w-full h-full object-center object-cover"/>
         </div>
         <div className="imageContainer">
-          <img src={runwaywork2} alt="makeupbyram" className="w-full h-full object-cover"/>
+          <img src={runwaywork2} alt="makeupbyram" className="w-full h-full object-center object-cover"/>
         </div>
       </div>
     <div className="gallery3 image-column ">
@@ -1001,46 +1012,46 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         </div>
         <div className="imageContainer">
           <div className="w-full h-full bg-white flex items-center justify-center">
-            <div className="w-[75%] h-[60%] grid grid-cols-4 grid-rows-4 gap-1">
-              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+            <div className="w-[100%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] h-[30%] sm:h-[35%] md:h-[45%] lg:h-[52%] xl:h-[60%] grid grid-cols-4 grid-rows-4 gap-1">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>e</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">9</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">9</span>
               </div>
-              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>n</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">2</span>
               </div>
-              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>c</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">6</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">6</span>
               </div>
-              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>h</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">3</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">3</span>
               </div>
-              <div className="relative col-start-2 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-2 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>a</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">4</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">4</span>
               </div>
-              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>n</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">2</span>
               </div>
-              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>t</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">1</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">1</span>
               </div>
-              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-3 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>i</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">8</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">8</span>
               </div>
-              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>n</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">2</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">2</span>
               </div>
-              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[40px]">
+              <div className="relative col-start-4 bg-purple-950 rounded-xl flex items-center justify-center text-white uppercase font-arch-b text-[15px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[40px]">
                 <h1>g</h1>
-                <span className="absolute text-white text-[10px] bottom-2 right-3">5</span>
+                <span className="absolute text-white text-[5px] sm:text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] 2xl:text-[10px] bottom-1 md:bottom-2 right-0 sm:right-1 md:right-2 lg:right-3">5</span>
               </div>
             </div>
           </div>
@@ -1062,32 +1073,32 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           zIndex: 15,
         }}
       >
-        <div className="w-full h-full px-[20rem] relative flex items-center justify-center">
+        <div className="w-full h-full sm:px-[3rem] xl:px-[10rem] 2xl:px-[20rem] relative flex items-center justify-center">
           <Footer/>
           <div className="w-[85%] h-[70%] border-2 rounded-[100px] relative flex flex-col items-center pt-10">
-            <div className="absolute -top-10 left-0 right-0 mx-auto bg-black w-fit h-fit p-2 px-5">
-              <span className="text-white font-font-paris text-[40px]">One last step to an amazing look</span>
+            <div className="absolute -top-5 sm:-top-6 lg:-top-8 xl:-top-10 left-0 right-0 mx-auto bg-black w-fit h-fit p-2 px-2">
+              <span className="text-white font-font-paris text-[15px] sm:text-[22px] md:text-[30px] lg:text-[34px] xl:text-[40px]">One last step to an amazing look</span>
             </div>
-            <div className="w-2/5 h-[10%] border rounded-full flex items-center justify-evenly">
-                <input className="radio" type="radio" name="contact" value="inquiry" id="inq" checked={contact === "inquiry"} onChange={onContactChange}/>
+            <div className="w-4/5 md:w-3/5 lg:w-2/5 h-[10%] border rounded-full flex items-center justify-evenly">
+                <input className="radio w-[20px] h-[20px]" type="radio" name="contact" value="inquiry" id="inq" checked={contact === "inquiry"} onChange={onContactChange}/>
                 <label className="text-white font-os font-light text-[15px]" for="inq">Inquiry</label>
-                <input className="radio" type="radio" name="contact" value="appointment" id="app" checked={contact === "appointment"} onChange={onContactChange}/>
+                <input className="radio w-[20px] h-[20px]" type="radio" name="contact" value="appointment" id="app" checked={contact === "appointment"} onChange={onContactChange}/>
                 <label className="text-white font-os font-light text-[15px]" for="app">Appointment</label>
             </div>
             <div className="w-full h-[70%] translate-y-2 border-y-[0.5px]">
               <form className="w-full h-full flex flex-col">
                 <div className="w-full h-1/3 flex flex-col border-b-[0.5px]">
                   <div className="w-full h-1/3 border-b-[0.25px] flex items-center pl-5">
-                    <label className="text-white w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Name</label>
-                    <input type="text" className="w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-950 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Full Name"/>
+                    <label className="text-white w-[20%] sm:w-[15%] md:w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Name</label>
+                    <input type="text" className="w-[80%] sm:w-[85%] md:w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-950 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Full Name"/>
                   </div>
                   <div className="w-full h-1/3 border-b-[0.25px] flex items-center pl-5">
-                    <label className="text-white w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Email</label>
-                    <input type="email" className="w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-300 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Email"/>
+                    <label className="text-white w-[20%] sm:w-[15%] md:w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Email</label>
+                    <input type="email" className="w-[80%] sm:w-[85%] md:w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-300 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Email"/>
                   </div>
                   <div className="w-full h-1/3 flex items-center pl-5">
-                    <label className="text-white w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Mobile</label>
-                    <input type="text" className="w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-50 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Phone Number"/>
+                    <label className="text-white w-[20%] sm:w-[15%] md:w-[10%] flex items-center justify-center text-[15px] font-arch-b uppercase">Mobile</label>
+                    <input type="text" className="w-[80%] sm:w-[85%] md:w-[90%] h-full bg-black text-[15px] font-arch-b uppercase px-3 text-purple-50 outline-none  placeholder:text-gray-400 placeholder:opacity-25" placeholder="Enter your Phone #"/>
                   </div>
                 </div>
                 <div className="w-full h-2/3">
@@ -1098,7 +1109,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                       <div className="w-full h-[15%] flex items-center justify-center">
                         <span className="text-white font-arch-b uppercase text-[15px]">inquiry</span>
                       </div>
-                      <div className="w-full h-[85%] bg-blue-500">
+                      <div className="w-full h-[85%]">
                         <textarea
                           className="w-full h-full p-5 outline-none bg-black font-arch text-[20px] text-white resize-none placeholder:text-gray-400 placeholder:opacity-25"
                           placeholder="What would you like to find out?"
@@ -1111,47 +1122,40 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                     <div className="w-full h-full flex">
                       <div className="w-[70%] h-full flex flex-wrap justify-evenly">
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                         <div className="w-1/2 h-1/3 flex items-center justify-center gap-5">
-                          <input id="1" type="radio" className="radio"/>
-                          <label for="1" className="font-arch-b uppercase text-[13px] text-white">face to face private</label>
+                          <input id="1" type="radio" className="radio w-[13px] sm:w-[15px] md:w-[17px] lg:w-[20px] sm:h-[15px] md:h-[17px] lg:h-[20px] h-[13px] ml-2"/>
+                          <label for="1" className="font-arch-b uppercase text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] text-white">face to face private</label>
                         </div>
                       </div>
-                      <div className="w-[30%] h-full flex flex-col border-l-[0.5px]">
-                        <div className="w-full h-1/3 bg-black border-b-[0.5px] cursor-pointer select-none">
-                          <div className="w-full h-full flex items-center justify-evenly hover:opacity-75 active:opacity-50">
-                            <span className="font-arch-b text-white uppercase text-[20px]">Choose Day</span>
-                            <FontAwesomeIcon icon={faChevronDown} size="lg" color="white"/>
-                          </div>
+                      <div className="w-[30%] h-full flex flex-col justify-center border-l-[0.5px]">
+                        <div className="w-full h-[40%] cursor-pointer select-none flex flex-col items-center py-5">
+                          <span className="font-arch-b h-1/3 text-white uppercase text-[8px] sm:text-[12px] md:text-[15px] lg:text-[18px] text-center mb-2">choose date & time</span>
+                          <DatePicker selected={date} className="flex-1" onChange={(date) => {setDate(date)}} showTimeSelect closeOnScroll={true} dateFormat="MMMM dd h:mm aa"/>
+                          <div className="border w-[80%]"></div>
                         </div>
-                        <div className="w-full h-1/3 bg-black border-b-[0.5px] cursor-pointer select-none">
+                        <div className="w-full h-[30%] bg-black cursor-pointer select-none">
                           <div className="w-full h-full flex items-center justify-evenly hover:opacity-75 active:opacity-50">
-                            <span className="font-arch-b text-white uppercase text-[20px]">Choose time</span>
-                            <FontAwesomeIcon icon={faChevronDown} size="lg" color="white"/>
-                          </div>
-                        </div>
-                        <div className="w-full h-1/3 bg-black cursor-pointer select-none">
-                          <div className="w-full h-full flex items-center justify-evenly hover:opacity-75 active:opacity-50">
-                            <span className="font-arch-b text-white uppercase text-[20px]">Choose Day</span>
-                            <FontAwesomeIcon icon={faChevronDown} size="lg" color="white"/>
+                            <span className="font-arch-b text-white uppercase text-[8px] sm:text-[12px] md:text-[15px] lg:text-[18px]">Choose venue</span>
+                            <FontAwesomeIcon icon={faChevronDown} size="sm" color="white"/>
                           </div>
                         </div>
                       </div>
@@ -1160,8 +1164,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 </div>
               </form>
             </div>
-            <div className="absolute left-0 right-0 bottom-5 rounded-full mx-auto w-[30%] h-[10%] bg-purple-950 flex items-center justify-center cursor-pointer hover:opacity-75 active:opacity-50 select-none">
-              <span className="uppercase font-arch-b text-[14px] text-white">{contact === "inquiry" ? "make inquiry" : "make appointment"}</span>
+            <div className="absolute left-0 right-0 bottom-5 rounded-full mx-auto w-[50%] md:w-[30%] h-[10%] bg-purple-950 flex items-center justify-center cursor-pointer hover:opacity-75 active:opacity-50 select-none">
+              <span className="uppercase font-arch-b text-[10px] sm:text-[12px] lg:text-[14px] text-white">{contact === "inquiry" ? "make inquiry" : "make appointment"}</span>
             </div>
           </div>
         </div>
