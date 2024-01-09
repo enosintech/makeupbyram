@@ -156,7 +156,7 @@ const ServicesComponent = (props) => {
 
 const FeaturedImagesComponent = (props) => {
   return (
-    <div className="w-[29%] h-[80%] shadow-md border-[10px]">
+    <div className="w-1/3 sm:w-[20%] md:w-[25%] lg:w-[29%] h-[80%] sm:h-full lg:h-[50%] xl:h-[65%] 2xl:h-[80%] shadow-md border-[10px]">
       <img className="w-full h-full object-cover" src={props.source} alt="" />
     </div>
   )
@@ -406,7 +406,7 @@ function HomeScreen() {
     }
   }, [scrollTop])
 
-  console.log(date)
+  console.log(window.innerWidth)
 
   return (
     <Parallax
@@ -512,11 +512,11 @@ function HomeScreen() {
 
       <ParallaxLayer
         offset={2}
-        speed={0.7}
+        speed={0.5}
         style={{
-          width: "50%",
+          width: window.innerWidth < 1024 ? "100dvw" : "50dvw",
+          height: window.innerWidth  < 1024 ? "50dvh" : "100dvh",
           zIndex: 15,
-          paddingLeft: 100
         }}
       >
         <div className="w-full h-full flex items-center justify-center">
@@ -526,21 +526,26 @@ function HomeScreen() {
 
       <ParallaxLayer
         offset={2}
+        speed={1}
+        className="paralysed"
         style={{
-          width: "50%",
+          width: window.innerWidth < 1024 ? "100dvw" : "50dvw",
+          height: window.innerWidth  < 1024 ? "50dvh" : "100dvh",
           zIndex: 15,
-          left: "50%"
+          left: window.innerWidth  < 1024 ? 0 : "50%",
+          marginTop: window.innerWidth  < 1024 ? "50%" : 0,
+          backgroundColor: "black",
         }}
       >
-        <div className="w-full h-full p-20 flex flex-col items-center">
+        <div className="w-full h-full p-5 sm:p-10 lg:p-20 flex flex-col items-center">
           <div className="w-full h-[60%] text-white">
             <div className="w-full h-[20%] flex items-center justify-center">
               <h1 className="font-arch-b uppercase">featured</h1>
             </div>
-            <div className="relative w-full h-[80%] flex items-start justify-center text-justify px-10 py-10">
-              <p className="font-os">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius facere possimus ullam molestias quo magnam, voluptatem amet facilis architecto sunt id distinctio commodi, laboriosam aspernatur quae maxime omnis sit doloremque.
+            <div className="relative w-full h-[80%] flex items-start justify-center text-justify text-[10px] md:text-[13px] xl:text-[18px] px-1 md:px-5 lg:px-10 py-1 md:py-5">
+              <p className="font-arch">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius facere possimus ullam molestias quo magnam, voluptatem amet facilis architecto sunt id distinctio commodi, laboriosam aspernatur quae maxime omnis sit doloremque.
 Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis nemo fuga laudantium cumque architecto inventore quisquam id est quibusdam dolor soluta assumenda fugiat doloremque! </p>
-              <div className="absolute bottom-8 right-10 cursor-pointer hover:opacity-50 active:opactity-25">
+              <div className="absolute bottom-4 xl:bottom-8 md:right-10 right-0 cursor-pointer hover:opacity-50 active:opactity-25">
                 <Link to="/about">
                   <span className="text-purple-950 uppercase font-bold mr-2">read about me</span>
                   <span><FontAwesomeIcon icon={faChevronRight} color="rgb(59 7 100/1)"/></span>
@@ -548,7 +553,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               </div>
             </div>
           </div>
-          <div className="w-full h-[40%] flex justify-evenly">
+          <div className="w-full h-[40%] flex justify-evenly gap-1 sm:gap-0">
             {featuredImages.map((image, index) => (
               <FeaturedImagesComponent 
                 key={image.id}
@@ -569,98 +574,95 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
       >
         <div className="w-full h-full flex">
           <div className="w-1/4 h-full flex flex-col items-center">
-            <div className="w-full h-[10%] flex items-center justify-center">
-              <span className="uppercase font-arch-b text-[20px] text-white">my work</span>
+            <div className="w-full h-[6%] flex items-center justify-center">
+              <span className="uppercase font-arch-b text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] text-white">my work</span>
             </div>
             <div className="w-[80%] h-0 border-2"></div>
-            <div className="w-full h-[50%]">
+            <div className="w-full h-[50%] text-[13px] pl-3 sm:pl-2 sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
               <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("creative")
               }}>
-                <div className={`font-arch uppercase transition-all duration-200 text-white ${activeWork === "creative" ? "scale-[0.94] font-bold " : " font-thin"}`}>creative editorial makeup</div>
-                <FontAwesomeIcon icon={faChevronRight} size="md" color="white" className={`${activeWork === "creative" ? "opacity-100" : "opacity-0"} transition-all duration-100`}/>
+                <div className={`font-arch uppercase transition-all duration-200 text-center text-white ${activeWork === "creative" ? "scale-[0.94] font-bold " : " font-thin"}`}>creative editorial makeup</div>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "creative" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
               <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("makeup")
               }}>
-                <div className={`text-white font-arch uppercase transition-all duration-200 ${activeWork === "makeup" ? "scale-[0.94] font-bold" : "font-thin"}`}>makeup portraits</div>
-                <FontAwesomeIcon icon={faChevronRight} size="md" color="white" className={`${activeWork === "makeup" ? "opacity-100" : "opacity-0"} transition-all duration-100`}/>
+                <div className={`text-white font-arch uppercase transition-all duration-200 text-center ${activeWork === "makeup" ? "scale-[0.94] font-bold" : "font-thin"}`}>makeup portraits</div>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "makeup" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
               <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("runway")
               }}>
-                <div className={`text-white font-arch uppercase transition-all duration-200 ${activeWork === "runway" ? "scale-[0.94] font-bold" : "font-thin"}`}>runway makeup</div>
-                <FontAwesomeIcon icon={faChevronRight} size="md" color="white" className={`${activeWork === "runway" ? "opacity-100" : "opacity-0"} transition-all duration-100`}/>
+                <div className={`text-white font-arch uppercase transition-all duration-200 text-center ${activeWork === "runway" ? "scale-[0.94] font-bold" : "font-thin"}`}>runway makeup</div>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "runway" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
             </div>
           </div>
-          <div className="relative w-3/4 h-full flex flex-col border-l-2 pl-3">
-              <div className="absolute right-0 h-full w-[30%] bg-gradient-to-r from-transparent via-transparent to-black">
-
-              </div>
+          <div className="relative w-3/4 h-full flex flex-col translate-x-2 md:translate-x-0 border-l-2 pl-3">
             {
               activeWork === "creative" 
               ?
               <div className="w-full h-[90%] flex gap-2 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-full h-full grid gap-2 grid-cols-4 grid-rows-3">
-                  <div className=" row-span-2 col-span-2 row-start-1 col-start-1">
+                <div className="w-full min-w-fit h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+                  <div className=" row-span-2 col-span-2 row-start-1 col-start-1 workItem">
                     <video key={creativeWorkVideo2} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={creativeWorkVideo2} type="video/mp4"/>
                       Video Format Not supported
                     </video>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 workItem">
                     <img className="w-full h-full object-cover" src={creativework1} alt="dontbyram"/>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-2">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-2 workItem">
                   <img className="w-full h-full object-cover object-top" src={creativework3} alt="dontbyram"/>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-2 row-start-1 col-start-3">
+                  <div className="bg-red-500 row-span-1 col-span-2 row-start-1 col-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={creativework5} alt="dontbyram"/>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-2 col-start-3">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-2 col-start-3 workItem">
                   <img className="w-full h-full object-cover" src={facecard1} alt="dontbyram"/>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-3">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-3 workItem">
                     <video key={processVideo1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={processVideo1} type="video/mp4"/>
                       Video Format Not supported
                     </video>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-2 col-start-4">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-2 col-start-4 workItem">
                   <img className="w-full h-full object-cover" src={creativework6} alt="dontbyram"/>
                   </div>
-                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-4">
+                  <div className="bg-red-500 row-span-1 col-span-1 row-start-3 col-start-4 workItem">
                   <img className="w-full h-full object-cover object-top" src={processMain3} alt="dontbyram"/>
                   </div>
                 </div>
-                <div className="w-full min-w-full h-full grid grid-rows-3 grid-cols-4 gap-2">
-                  <div className="bg-blue-500 row-span-2 row-start-1">
+                <div className="w-full min-w-full h-full grid grid-rows-3 gap-2">
+                  <div className="bg-blue-500 row-span-2 row-start-1 workItem">
                   <video key={creativeWorkVideo1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                   <source src={creativeWorkVideo1} type="video/mp4"/>
                   Video Format Not supported
                 </video>
                   </div>
                   
-                  <div className="bg-blue-500 row-span-2 col-span-2 row-start-2 col-start-2">
+                  <div className="bg-blue-500 row-span-2 col-span-2 row-start-2 col-start-2 workItem">
                   <video key={processVideo2} loop muted autoPlay className={`w-full h-full object-cover object-top transition-all duration-300`}>
                   <source src={processVideo2} type="video/mp4"/>
                   Video Format Not supported
                 </video>
                   </div>
-                  <div className="bg-blue-500">
+                  <div className="bg-blue-500 workItem">
                   <img className="w-full h-full object-cover" src={facecard3} alt="dontbyram"/>
                   </div>
-                  <div className="bg-blue-500">
+                  <div className="bg-blue-500 workItem">
                   <img className="w-full h-full object-cover" src={featuredImage1} alt="dontbyram"/>
                   </div>
-                  <div className="bg-blue-500">
+                  <div className="bg-blue-500 workItem">
                   <img className="w-full h-full object-cover object-top" src={creativework2} alt="dontbyram"/>
                   </div>
-                  <div className="bg-blue-500">
+                  <div className="bg-blue-500 workItem">
                   <img className="w-full h-full object-cover" src={creativework7} alt="dontbyram"/>
                   </div>
-                  <div className="bg-blue-500 row-span-2 row-start-2 col-start-4">
+                  <div className="bg-blue-500 workItem row-span-2 row-start-2 col-start-4 workItem">
                   <img className="w-full h-full object-cover" src={featuredCoverBG} alt="dontbyram"/>
                   </div>
                   
@@ -670,72 +672,72 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               activeWork === "makeup"
               ?
               <div className="w-full h-[90%] flex gap-2 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-full h-full grid gap-2 grid-cols-4 grid-rows-3">
-                  <div className=" row-span-2 col-span-2 row-start-1 col-start-2">
+                <div className="w-full min-w-fit h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+                  <div className=" row-span-2 col-span-2 row-start-1 col-start-2 workItem">
                   <video key={portraitvid1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                   <source src={portraitvid1} type="video/mp4"/>
                   Video Format Not supported
                 </video>
                   </div>
-                  <div className=" row-span-1 col-span-1 row-start-3">
+                  <div className=" row-span-1 col-span-1 row-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork5} alt="dontbyram"/>
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-3 col-start-2">
+                  <div className="row-span-1 col-span-1 row-start-3 col-start-2 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork6} alt="dontbyram"/>
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-1 col-start-1">
+                  <div className="row-span-1 col-span-1 row-start-1 col-start-1 workItem">
                   <img className="w-full h-full object-cover" src={makeupwork1} alt="dontbyram"/>
 
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-2 col-start-1">
+                  <div className="row-span-1 col-span-1 row-start-2 col-start-1 workItem">
                   <img className="w-full h-full object-cover" src={makeupwork2} alt="dontbyram"/>
 
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-3 col-start-3">
+                  <div className="row-span-1 col-span-1 row-start-3 col-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork7} alt="dontbyram"/>
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-1 col-start-4">
+                  <div className="row-span-1 col-span-1 row-start-1 col-start-4 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork3} alt="dontbyram"/>
 
                   </div>
-                  <div className="col-span-1 row-start-2 col-start-4">
+                  <div className="col-span-1 row-start-2 col-start-4 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork4} alt="dontbyram"/>
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-3 col-start-4">
+                  <div className="row-span-1 col-span-1 row-start-3 col-start-4 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork8} alt="dontbyram"/>
                   </div>
                 </div>
-                <div className="w-full min-w-full h-full grid grid-rows-3 grid-cols-4 gap-2">
-                  <div className=" row-span-2 row-start-1">
+                <div className="w-full min-w-full h-full grid grid-rows-3 gap-2">
+                  <div className=" row-span-2 row-start-1 workItem">
                   <video key={portraitvid2} loop muted autoPlay className={`w-full h-full object-cover object-top transition-all duration-300`}>
                   <source src={portraitvid2} type="video/mp4"/>
                   Video Format Not supported
                 </video>
                   </div>
                   
-                  <div className="row-span-2 col-span-2 row-start-2 col-start-3">
+                  <div className="row-span-2 col-span-2 row-start-2 col-start-3 workItem">
                   <video key={portraitvid3} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                   <source src={portraitvid3} type="video/mp4"/>
                   Video Format Not supported
                 </video>
                   </div>
-                  <div className="">
+                  <div className="workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork11} alt="dontbyram"/>
 
                   </div>
-                  <div className="">
+                  <div className="workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork12} alt="dontbyram"/>
 
                   </div>
-                  <div className="">
+                  <div className="workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork13} alt="dontbyram"/>
 
                   </div>
-                  <div className="">
+                  <div className="workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork10} alt="dontbyram"/>
 
                   </div>
-                  <div className="row-span-2 row-start-2 col-start-2">
+                  <div className="row-span-2 row-start-2 col-start-2 workItem">
                   <img className="w-full h-full object-cover object-top" src={makeupwork9} alt="dontbyram"/>
 
                   </div>
@@ -743,40 +745,40 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 </div>
               </div>
               :
-              <div className="w-full h-[90%] flex gap-1 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-full h-full grid gap-2 grid-cols-4 grid-rows-3">
-                  <div className="row-span-2 col-span-2 row-start-1 col-start-1">
+              <div className={`w-full h-[90%] flex gap-1 ${window.innerWidth >= 1100 ? "overflow-x-hidden" : "overflow-x-scroll"} overflow-y-scroll`}>
+                <div className="w-full min-w-full h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+                  <div className="row-span-2 col-span-2 row-start-1 col-start-1 workItem">
                   <video key={runwayvid1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={runwayvid1} type="video/mp4"/>
                       Video Format Not supported
                     </video>
                   </div>
-                  <div className=" row-span-1 col-span-1 row-start-3">
+                  <div className=" row-span-1 col-span-1 row-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={runwaywork5} alt="dontbyram"/>
 
                   </div>
-                  <div className=" row-span-1 col-span-1 row-start-3 col-start-2">
+                  <div className=" row-span-1 col-span-1 row-start-3 col-start-2 workItem">
                   <img className="w-full h-full object-cover object-top" src={runwaywork6} alt="dontbyram"/>
 
                   </div>
-                  <div className=" row-span-1 col-span-2 row-start-1 col-start-3">
+                  <div className=" row-span-1 col-span-2 row-start-1 col-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={runwaywork4} alt="dontbyram"/>
                   </div>
-                  <div className=" row-span-1 col-span-1 row-start-2 col-start-3">
+                  <div className=" row-span-1 col-span-1 row-start-2 col-start-3 workItem">
                   <img className="w-full h-full object-cover object-top" src={runwaywork1} alt="dontbyram"/>
                   </div>
-                  <div className=" row-span-1 col-span-1 row-start-3 col-start-3">
+                  <div className=" row-span-1 col-span-1 row-start-3 col-start-3 workItem">
                   <video key={runwaywayvid2} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={runwaywayvid2} type="video/mp4"/>
                       Video Format Not supported
                     </video>
 
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-2 col-start-4">
+                  <div className="row-span-1 col-span-1 row-start-2 col-start-4 workItem">
                   <img className="w-full h-full object-cover object-top" src={runwaywork2} alt="dontbyram"/>
 
                   </div>
-                  <div className="row-span-1 col-span-1 row-start-3 col-start-4">
+                  <div className="row-span-1 col-span-1 row-start-3 col-start-4 workItem">
                 
                   <video key={runwaywayvid3} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={runwaywayvid3} type="video/mp4"/>
@@ -786,11 +788,11 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 </div>
               </div>
             }
-            <div className="absolute z-20 bottom-0 w-full h-[10%] flex items-center justify-end px-10">
+            <div className="absolute z-20 bottom-0 translate-x-12 w-full h-[10%] flex items-center justify-end px-10">
               <div className="w-fit p-3 h-fit flex items-center justify-center gap-3">
-                <span className="uppercase font-arch font-thin text-white tracking-wider">{activeWork === "runway" ? "no scroll" : 'scroll'}</span>
+                <span className="uppercase font-arch font-thin text-white tracking-wider">{window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
                 <div className={`w-[100px] h-[20px] flex items-center ${activeWork === "runway" ? "justify-end" : "justify-start"}`}>
-                  <div className={`w-[40px] h-0 border transition-all duration-200 ${activeWork === "runway" ? "" : "animate-scroll"}`}></div>
+                  <div className={`w-[40px] h-0 border transition-all duration-200 ${window.innerWidth >= 1100 ? "" : "animate-scroll"}`}></div>
                 </div>
               </div>
             </div>

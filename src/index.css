@@ -339,3 +339,7 @@ section > .img:before {
     left: 0;
     border-right: 1px solid black;
 }
+
+.workItem {
+    min-width: 250px;
+}
