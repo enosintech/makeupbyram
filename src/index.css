@@ -161,11 +161,11 @@ html, body {
 }
 
 .image-column:nth-of-type(1) {
-    top: -45%;
+    top: -20%;
 }
 
 .image-column:nth-of-type(2) {
-    top: -45%
+    top: -65%
 }
 
 .image-column:nth-of-type(3) {
@@ -252,6 +252,31 @@ html, body {
     font-family: 'Archivo', sans-serif;
     text-align: center;
     outline: none;
+    font-size: 9px;
+}
+
+@media only screen and (min-width: 640px) {
+    .react-datepicker__input-container > input {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .react-datepicker__input-container > input {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .react-datepicker__input-container > input {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1536px) {
+    .react-datepicker__input-container > input {
+        font-size: 18px;
+    }
 }
 
 section {

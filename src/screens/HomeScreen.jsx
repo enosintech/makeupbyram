@@ -945,7 +945,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             </div>
           </div>
           <div className="imageContainer">
-            <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover object-center"/>
+            <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover h-full"/>
           </div>
           <div className="imageContainer">
             <img src="" alt="makeupbyram" className="object-cover"/>
@@ -1071,6 +1071,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         speed={0.4}
         style={{
           zIndex: 15,
+          height: "100dvh",
+          width: "100dvw"
         }}
       >
         <div className="w-full h-full sm:px-[3rem] xl:px-[10rem] 2xl:px-[20rem] relative flex items-center justify-center">
