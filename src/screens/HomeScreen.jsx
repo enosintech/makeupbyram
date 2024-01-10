@@ -301,92 +301,6 @@ function HomeScreen() {
   }, [scrollTop])
 
   useEffect(() => {
-    const tl7 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".glide1",
-        scrub: true
-      }
-    })
-    .fromTo(".glide1", {
-        y: -200,
-        duration: 1,
-        
-    }, {
-      y: 200,
-      duration: 1,
-      scrub: true
-    })
-
-    const tl8 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".glide2",
-        scrub: true
-      }
-    })
-    .fromTo(".glide2", {
-        y: 0,
-        duration: 1,
-
-    }, {
-      y: 180,
-      duration: 1,
-      delay: .3,
-      scrub: true
-    })
-
-    const tl9 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".glide3",
-        scrub: true
-      }
-    })
-    .fromTo(".glide3", {
-        y: 40,
-        duration: 1,
-
-    }, {
-      y: 140,
-      duration: 1,
-      delay: .6,
-      scrub: true
-    })
-
-    const tl10 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".glide4",
-        scrub: true
-      }
-    })
-    .fromTo(".glide4", {
-        y: 80,
-        duration: 1,
-
-    }, {
-      y: 100,
-      duration: 1,
-      delay: .9,
-      scrub: true
-    })
-
-    const tl11 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".glide5",
-        scrub: true
-      }
-    })
-    .fromTo(".glide5", {
-        y: 90,
-        duration: 1,
- 
-    }, {
-      y: 40,
-      duration: 1,
-      delay: 1.1,
-      scrub: true
-    })
-  }, [scrollTop])
-
-  useEffect(() => {
     const container = document.querySelector(".parallaxContainer")
     container.addEventListener("scroll", handleScroll)
     return () => {
@@ -535,17 +449,17 @@ function HomeScreen() {
           backgroundColor: "black",
         }}
       >
-        <div className="w-full h-full p-5 sm:p-10 lg:p-20 flex flex-col items-center">
-          <div className="w-full h-[60%] text-white">
+        <div className="w-full lg:h-full h-[600px] p-5 sm:p-10 lg:p-10 2xl:p-20 flex flex-col items-center">
+          <div className="w-full h-full lg:h-[60%] text-white">
             <div className="w-full h-[20%] flex items-center justify-center">
               <h1 className="font-arch-b uppercase">featured</h1>
             </div>
-            <div className="relative w-full h-[80%] flex items-start justify-center text-justify text-[10px] md:text-[13px] xl:text-[18px] px-1 md:px-5 lg:px-10 py-1 md:py-5">
+            <div className="relative w-full h-[80%] flex items-start justify-center text-justify text-[15px] xl:text-[18px] px-1 md:px-5 lg:px-10 py-1 md:py-5">
               <p className="font-arch">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius facere possimus ullam molestias quo magnam, voluptatem amet facilis architecto sunt id distinctio commodi, laboriosam aspernatur quae maxime omnis sit doloremque.
 Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis nemo fuga laudantium cumque architecto inventore quisquam id est quibusdam dolor soluta assumenda fugiat doloremque! </p>
               <div className="absolute bottom-4 xl:bottom-8 md:right-10 right-0 cursor-pointer hover:opacity-50 active:opactity-25">
                 <Link to="/about">
-                  <span className="text-purple-950 uppercase font-bold mr-2">read about me</span>
+                  <span className="text-purple-950 uppercase font-arch-b mr-2">read about me</span>
                   <span><FontAwesomeIcon icon={faChevronRight} color="rgb(59 7 100/1)"/></span>
                 </Link>
               </div>
@@ -570,34 +484,34 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           zIndex: 15,
         }}
       >
-        <div className="w-full h-full flex">
-          <div className="w-1/4 h-full flex flex-col items-center">
-            <div className="w-full h-[6%] flex items-center justify-center">
+        <div className="w-full h-full flex lg:flex-row flex-col">
+          <div className="lg:w-1/4 w-full h-full flex flex-col items-center">
+            <div className="w-full lg:h-[6%] mb-1 h-[30%] flex items-center justify-center">
               <span className="uppercase font-arch-b text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] text-white">my work</span>
             </div>
-            <div className="w-[80%] h-0 border-2"></div>
-            <div className="w-full h-[50%] text-[13px] pl-3 sm:pl-2 sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
-              <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
+            <div className="lg:w-[80%] w-[20%] md:w-[10%] h-0 border-2 mb-2"></div>
+            <div className="w-full lg:h-[50%] h-[70%] flex lg:block text-[13px] pl-3 sm:pl-2 sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+              <div className="lg:w-full w-1/3 lg:h-1/4 h-full flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("creative")
               }}>
-                <div className={`font-arch uppercase transition-all duration-200 text-center text-white ${activeWork === "creative" ? "scale-[0.94] font-bold " : " font-thin"}`}>creative editorial makeup</div>
-                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "creative" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
+                <div className={`font-arch uppercase transition-all duration-200 text-center text-white ${activeWork === "creative" ? "scale-[0.94] font-bold " : " font-thin"}`}>creative makeup</div>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "creative" ? "lg:opacity-100 opacity-0" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
-              <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
+              <div className="lg:w-full w-1/3 lg:h-1/4 h-full flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("makeup")
               }}>
                 <div className={`text-white font-arch uppercase transition-all duration-200 text-center ${activeWork === "makeup" ? "scale-[0.94] font-bold" : "font-thin"}`}>makeup portraits</div>
-                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "makeup" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "makeup" ? "lg:opacity-100 opacity-0" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
-              <div className="w-full h-1/4 flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
+              <div className="lg:w-full w-1/3 lg:h-1/4 h-full flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("runway")
               }}>
                 <div className={`text-white font-arch uppercase transition-all duration-200 text-center ${activeWork === "runway" ? "scale-[0.94] font-bold" : "font-thin"}`}>runway makeup</div>
-                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "runway" ? "opacity-100" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "runway" ? "lg:opacity-100 opacity-0" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
               </div>
             </div>
           </div>
-          <div className="relative w-3/4 h-full flex flex-col translate-x-2 md:translate-x-0 border-l-2 pl-3">
+          <div className="relative lg:w-3/4 w-full h-full flex flex-col lg:border-l-2 mt-4 border-t-[6px] lg:border-t-0 lg:pl-3">
             {
               activeWork === "creative" 
               ?
