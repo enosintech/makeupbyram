@@ -756,16 +756,16 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           zIndex: 15,
         }}
       >
-        <div className="-mt-72 w-full h-[150vh] grid grid-cols-4 grid-rows-5">
-          <div className="col-span-4 row-span-2 translate-x-20 flex">
-            <div className="h-full w-1/2 relative">
-              <img className="glide1 w-[35%] h-[70%] object-cover border-[10px] z-50 border-white absolute translate-x-[50%] top-3" src={processMain1} alt="ram"/>
-              <img className="glide2 w-[35%] h-[70%] object-cover border-[8px] z-40 border-white absolute translate-x-[65%] translate-y-[10%] top-3" src={processMain4} alt="ram"/>
-              <img className="glide3 w-[35%] h-[70%] object-cover border-[6px] z-30 border-white absolute translate-x-[80%] translate-y-[20%] top-3" src={processMain3} alt="ram"/>
-              <img className="glide4 w-[35%] h-[70%] object-cover border-[4px] z-20 border-white absolute translate-x-[95%] translate-y-[30%] top-3" src={processMain2} alt="ram"/>
-              <img className="glide5 w-[35%] h-[70%] object-cover border-[2px] z-10 border-white absolute translate-x-[110%] translate-y-[40%] top-3" src={processMain5} alt="ram"/>
+        <div className="-mt-72 w-full h-[150dvh] grid grid-cols-4 grid-rows-5">
+          <div className="col-span-4 row-span-4 lg:row-span-2 lg:translate-x-20 flex flex-col items-center lg:flex-row">
+            <div className="h-[50%] lg:h-full w-full lg:w-1/2 relative translate-x-5 md:translate-x-5 lg:-translate-x-14 xl:translate-x-0">
+              <img className="glide1 w-[35%] lg:w-[45%] xl:w-[35%] h-[45%] sm:h-[55%] md:h-[65%] lg:h-[70%] object-cover border-[10px] z-50 border-white absolute translate-x-[50%] top-3" src={processMain1} alt="ram"/>
+              <img className="glide2 w-[35%] lg:w-[45%] xl:w-[35%] h-[45%] sm:h-[55%] md:h-[65%] lg:h-[70%] object-cover border-[8px] z-40 border-white absolute translate-x-[65%] translate-y-[10%] top-3" src={processMain4} alt="ram"/>
+              <img className="glide3 w-[35%] lg:w-[45%] xl:w-[35%] h-[45%] sm:h-[55%] md:h-[65%] lg:h-[70%] object-cover border-[6px] z-30 border-white absolute translate-x-[80%] translate-y-[20%] top-3" src={processMain3} alt="ram"/>
+              <img className="glide4 w-[35%] lg:w-[45%] xl:w-[35%] h-[45%] sm:h-[55%] md:h-[65%] lg:h-[70%] object-cover border-[4px] z-20 border-white absolute translate-x-[95%] translate-y-[30%] top-3" src={processMain2} alt="ram"/>
+              <img className="glide5 w-[35%] lg:w-[45%] xl:w-[35%] h-[45%] sm:h-[55%] md:h-[65%] lg:h-[70%] object-cover border-[2px] z-10 border-white absolute translate-x-[110%] translate-y-[40%] top-3" src={processMain5} alt="ram"/>
             </div>
-            <div className="h-full w-1/2 flex flex-col py-16 translate-y-5">
+            <div className="h-[50%] lg:h-full w-full lg:w-1/2 flex flex-col px-[5%] lg:pl-0 py-16 translate-y-5">
               <div className="w-full h-[15%]">
                 <div className="w-fit h-full -translate-y-5 flex items-center justify-center gap-2">
                   <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center">
@@ -778,15 +778,15 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                   <div className="w-[50px] h-[50px] rounded-full bg-white"></div>
                 </div>
               </div>
-              <div className="w-full h-[60%] font-arch font-light text-white text-left text-[3.5rem]">
-                <p className="h-full w-[70%] ">Loreming ipsum dolor sitsitsit of amet</p>
+              <div className="w-full h-[60%] font-arch font-light text-white text-left text-[2rem] sm:text-[3rem] xl:text-[3.5rem]">
+                <p className="h-full w-full lg:w-[85%] ">Loreming ipsum dolor sitsitsit of amet</p>
               </div>
               <div className="w-full h-[35%] text-white text-[17px] font-extralight">
-                <p className="w-[50%] h-[60%]">Lorem ipsum dolor sit amet. I have a big belly. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
+                <p className="w-full lg:w-[50%] h-[60%]">Lorem ipsum dolor sit amet. I have a big belly. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
               </div>
             </div>
           </div>
-          <div className="col-span-4 row-span-3 flex items-center justify-center">
+          <div className="col-span-4 lg:row-span-3 row-span-1 row-start-5 lg:row-start-3 flex items-center justify-center">
             <div className="w-[90%] h-[80%] relative">
               <div className="w-fit h-fit p-4 bg-white z-20 absolute rounded-full font-arch-b uppercase text-[15px] bottom-5 left-5">makeupbyram</div>
               <img className="w-full h-full object-cover" src={wavy} alt="for design"/>
