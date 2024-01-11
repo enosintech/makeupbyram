@@ -154,7 +154,7 @@ function AboutScreen() {
       >
         <div className="w-full h-[90%] bg-black lg:bg-transparent -translate-y-10 flex flex-col">
           <div className="w-full h-full flex flex-col">
-            <p className="w-full h-[80%] text-[10px] sm:pt-4 lg:pt-0 sm:text-[12px] md:text-[14px] flex lg:items-start xl:items-center justify-center lg:translate-y-10 lg:translate-x-10 xl:translate-y-0 xl:translate-x-0 lg:text-[13px] xl:text-[15px] 2xl:text-[18px] px-10 md:px-20 font-arch text-justify text-white">
+            <p className="w-full h-[80%] bg-red-500 overflow-scroll text-[10px] sm:pt-4 lg:pt-0 sm:text-[12px] md:text-[14px] flex lg:items-start xl:items-center justify-center lg:translate-y-10 lg:translate-x-10 xl:translate-y-0 xl:translate-x-0 lg:text-[13px] xl:text-[15px] 2xl:text-[18px] px-10 md:px-20 font-arch text-justify text-white">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quam cum magni. Itaque laboriosam asperiores ullam, modi, explicabo ducimus aliquam voluptas dolor molestias harum blanditiis, quis aperiam? Molestiae, inventore? Vero.
 Nulla nisi dolore atque magni corporis voluptate nobis culpa sed nesciunt officia excepturi architecto debitis, qui accusantium laboriosam beatae libero dolorem! Cumque eum dolor, libero adipisci magni ratione sequi debitis!
 Nihil soluta, et, cumque tenetur illum obcaecati numquam id illo a quia eius, atque explicabo ratione deserunt placeat necessitatibus totam ad fugiat non praesentium aliquam sint. Enim vitae sed culpa!
@@ -174,7 +174,7 @@ Soluta, accusantium, explicabo magnam dolore qui cum error assumenda similique e
             </div>
           </div>
           <div className="relative w-full h-[20%] flex items-center justify-center">
-            <div className="w-[30%] h-[70%] lg:h-[40%] bg-purple-950 rounded-full flex items-center justify-center select-none cursor-pointer hover:opacity-75 active:opacity-50">
+            <div className="w-[40%] lg:w-[30%] h-[80%] lg:h-[40%] bg-purple-950 rounded-full flex items-center justify-center select-none cursor-pointer hover:opacity-75 active:opacity-50">
               <span className="text-[15px] font-arch-b uppercase text-white">reach out</span>
             </div>
           </div>
