@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,js,jsx,tsx}"],
   theme: {
     extend: {
+      screens : {
+        "s" : "500px",
+      },
       keyframes: {
         bouncer : {
           "0%" : {

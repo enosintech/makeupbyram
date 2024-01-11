@@ -495,8 +495,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 setActiveWork("creative")
               }}>
                 <div className={`font-arch uppercase transition-all duration-200 text-center text-white ${activeWork === "creative" ? "scale-[0.94] font-bold " : " font-thin"}`}>creative makeup</div>
-                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "creative" ? "lg:opacity-100 opacity-0" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>
-              </div>
+                <FontAwesomeIcon icon={faChevronRight} size={`${window.innerWidth < 1024 ? "sm" : "md"}`} color="white" className={`${activeWork === "creative" ? "lg:opacity-100 opacity-0" : "opacity-0"} md:-translate-x-2 transition-all duration-100`}/>              </div>
               <div className="lg:w-full w-1/3 lg:h-1/4 h-full flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("makeup")
               }}>
@@ -583,7 +582,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               :
               activeWork === "makeup"
               ?
-              <div className="w-full h-[90%] flex gap-1 md:gap-2 overflow-x-scroll overflow-y-scroll">
+              <div className="w-full h-[90%] flex gap-1 md:gap-2gi overflow-x-scroll overflow-y-scroll">
                 <div className="w-full min-w-fit h-full grid gap-1 md:gap-2 lg:grid-cols-4 grid-rows-3">
                   <div className=" row-span-2 col-span-2 row-start-1 col-start-2 workItem">
                   <video key={portraitvid1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
@@ -702,9 +701,9 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             }
             <div className="absolute z-20 bottom-0 translate-x-12 w-full h-[10%] flex items-center justify-end px-10">
               <div className="w-fit p-3 md:translate-x-0 translate-x-4 h-fit flex items-center justify-center gap-3">
-                <span className="uppercase text-[12px] md:text-[15px] font-arch font-thin text-white tracking-wider">{activeWork === "runway" && window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
-                <div className={`w-[100px] h-[20px] flex items-center ${activeWork === "runway" && window.innerWidth >= 1100 ? "justify-end" : "justify-start"}`}>
-                  <div className={`w-[40px] h-0 border transition-all duration-200 ${activeWork === "runway" && window.innerWidth >= 1100 ? "" : "animate-scroll"}`}></div>
+                <span className="uppercase text-[12px] md:text-[15px] font-arch font-thin text-white tracking-wider">{activeWork === "runway" ? "no scroll" : 'scroll'}</span>
+                <div className={`w-[100px] h-[20px] flex items-center justify-start`}>
+                  <div className={`w-[40px] h-0 border transition-all duration-200 ${activeWork === "runway" ? "" : "animate-scroll"}`}></div>
                 </div>
               </div>
             </div>
@@ -803,21 +802,21 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           zIndex: 15,
         }}
       >
-        <div className="relative w-full h-full">
-          <div className="absolute top-[170px] bg-white transition-all duration-300 left-0 w-[450px] h-[450px] rounded-full -translate-x-10 flex items-center justify-center">
-            <span className="text-[50px] text-black font-ubuntu">eyes</span>
+        <div className="relative w-[100dvw] h-[100dvh]">
+          <div className="absolute bg-white transition-all duration-300 left-0 size-[120px] s:size-[150px] sm:size-[180px] md:size-[260px] lg:size-[300px] xl:size-[350px] 2xl:size-[380px] -translate-x-[10%] rounded-full flex items-center justify-center">
+            <span className="text-[20px] md:text-[35px] xl:text-[50px] text-black font-ubuntu">eyes</span>
           </div>
-          <div className="bg-white w-[300px] h-[300px] rounded-full absolute bottom-[60px] left-[350px]">
+          <div className="bg-white size-[90px] s:size-[105px] sm:size-[120px] md:size-[150px] lg:size-[200px] xl:size-[280px] 2xl:size-[350px] rounded-full top-32 sm:top-40 md:top-[220px] lg:top-[250px] translate-x-[40px] s:translate-x-[70px] sm:translate-x-[100px] md:translate-x-[150px] lg:translate-x-[180px] xl:translate-x-[220px] 2xl:translate-x-[250px] absolute">
             <img className="w-full h-full rounded-full object-cover" src={detailsFeatured2} alt="makeupbyram" />
           </div>
-          <div className="group w-[650px] h-[650px] rounded-full absolute right-[470px] flex items-center justify-center">
+          <div className="group size-[200px] s:size-[300px] s:-top-20 sm:size-[350px] md:size-[400px] lg:size-[500px] xl:size-[600px] 2xl:size-[650px] sm:-top-20 lg:-top-44 left-0 right-0 mx-auto z-20 rounded-full absolute flex items-center justify-center">
             <img className="absolute w-full h-full rounded-full object-cover opacity-100 transition-all duration-300" src={detailsFeatured1} alt="makeupbyram" />
           </div>
-          <div className="w-[250px] h-[250px] rounded-full absolute right-[235px] top-[50px]">
+          <div className="size-[80px] s:size-[95px] sm:size-[110px] md:size-[140px] lg:size-[180px] xl:size-[220px] 2xl:size-[300px] rounded-full absolute top-0 right-0 -translate-x-[40px] s:-translate-x-[30px] sm:-translate-x-[60px] md:-translate-x-[120px] lg:-translate-x-[150px] xl:-translate-x-[180px]">
             <img className="w-full h-full rounded-full object-cover" src={detailsMain2} alt="makeupbyram" />
           </div>
-          <div className="w-[550px] group bg-[#beadfa] transition-all duration-300 h-[550px] rounded-full absolute bottom-[-5px] right-[-50px] flex items-center justify-center">
-            <span className="text-[50px] text-white font-ubuntu">lips</span>
+          <div className="group bg-[#beadfa] transition-all translate-x-[15%] translate-y-[50%] duration-300 size-[180px] s:size-[220px] sm:size-[250px] md:size-[300px] lg:size-[400px] xl:size-[475px] 2xl:size-[525px] right-0 rounded-full absolute flex items-center justify-center">
+            <span className="text-[20px] md:text-[35px] xl:text-[50px] text-white font-ubuntu">lips</span>
           </div>
         </div>
       </ParallaxLayer>
