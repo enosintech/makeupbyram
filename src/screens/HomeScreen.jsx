@@ -490,7 +490,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               <span className="uppercase font-arch-b text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] text-white">my work</span>
             </div>
             <div className="lg:w-[80%] w-[20%] md:w-[10%] h-0 border-2 mb-2"></div>
-            <div className="w-full lg:h-[50%] h-[70%] flex lg:block text-[13px] pl-3 sm:pl-2 sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+            <div className="w-full lg:h-[50%] h-[70%] flex lg:block text-[10px] pl-3 sm:pl-2 sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
               <div className="lg:w-full w-1/3 lg:h-1/4 h-full flex items-center justify-center gap-2 cursor-pointer select-none hover:opacity-50 active:opacity-25" onClick={() => {
                 setActiveWork("creative")
               }}>
