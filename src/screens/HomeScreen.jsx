@@ -515,8 +515,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             {
               activeWork === "creative" 
               ?
-              <div className="w-full h-[90%] flex gap-2 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-full h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+              <div className="w-full h-[90%] flex gap-1 md:gap-2 overflow-x-scroll overflow-y-scroll">
+                <div className="w-full min-w-full h-full grid gap-1 md:gap-2 lg:grid-cols-4 grid-rows-3">
                   <div className=" row-span-2 col-span-2 row-start-1 col-start-1 workItem">
                     <video key={creativeWorkVideo2} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={creativeWorkVideo2} type="video/mp4"/>
@@ -548,7 +548,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                   <img className="w-full h-full object-cover object-top" src={processMain3} alt="dontbyram"/>
                   </div>
                 </div>
-                <div className="w-full min-w-full h-full grid grid-rows-3 gap-2">
+                <div className="w-full min-w-full h-full grid grid-rows-3 gap-1 md:gap-2">
                   <div className="bg-blue-500 row-span-2 row-start-1 workItem">
                   <video key={creativeWorkVideo1} loop muted autoPlay className={`w-full h-full object-cover object-left md:object-center transition-all duration-300`}>
                   <source src={creativeWorkVideo1} type="video/mp4"/>
@@ -583,8 +583,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               :
               activeWork === "makeup"
               ?
-              <div className="w-full h-[90%] flex gap-2 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-fit h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+              <div className="w-full h-[90%] flex gap-1 md:gap-2 overflow-x-scroll overflow-y-scroll">
+                <div className="w-full min-w-fit h-full grid gap-1 md:gap-2 lg:grid-cols-4 grid-rows-3">
                   <div className=" row-span-2 col-span-2 row-start-1 col-start-2 workItem">
                   <video key={portraitvid1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                   <source src={portraitvid1} type="video/mp4"/>
@@ -619,7 +619,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                   <img className="w-full h-full object-cover object-top" src={makeupwork8} alt="dontbyram"/>
                   </div>
                 </div>
-                <div className="w-full min-w-full h-full grid grid-rows-3 gap-2">
+                <div className="w-full min-w-full h-full grid grid-rows-3 gap-1 md:gap-2">
                   <div className=" row-span-2 row-start-1 workItem">
                   <video key={portraitvid2} loop muted autoPlay className={`w-full h-full object-cover object-top transition-all duration-300`}>
                   <source src={portraitvid2} type="video/mp4"/>
@@ -658,7 +658,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               </div>
               :
               <div className={`w-full h-[90%] flex gap-1 ${window.innerWidth >= 1100 ? "overflow-x-hidden" : "overflow-x-scroll"} overflow-y-scroll`}>
-                <div className="w-full min-w-full h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+                <div className="w-full min-w-full h-full grid gap-1 md:gap-2 lg:grid-cols-4 grid-rows-3">
                   <div className="row-span-2 col-span-2 row-start-1 col-start-1 workItem">
                   <video key={runwayvid1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={runwayvid1} type="video/mp4"/>
