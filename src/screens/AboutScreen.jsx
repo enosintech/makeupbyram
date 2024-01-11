@@ -154,7 +154,7 @@ function AboutScreen() {
       >
         <div className="w-full h-[90%] bg-black lg:bg-transparent -translate-y-10 flex flex-col">
           <div className="w-full h-full flex flex-col">
-            <p className="w-full h-[80%] bg-red-500 overflow-scroll text-[10px] sm:pt-4 lg:pt-0 sm:text-[12px] md:text-[14px] flex lg:items-start xl:items-center justify-center lg:translate-y-10 lg:translate-x-10 xl:translate-y-0 xl:translate-x-0 lg:text-[13px] xl:text-[15px] 2xl:text-[18px] px-10 md:px-20 font-arch text-justify text-white">
+            <p className="w-full h-[80%] overflow-scroll text-[10px] sm:pt-4 lg:pt-0 sm:text-[12px] md:text-[14px] flex lg:items-start xl:items-center justify-center lg:translate-y-10 lg:translate-x-10 xl:translate-y-0 xl:translate-x-0 lg:text-[13px] xl:text-[15px] 2xl:text-[18px] px-10 md:px-20 font-arch text-justify text-white">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quam cum magni. Itaque laboriosam asperiores ullam, modi, explicabo ducimus aliquam voluptas dolor molestias harum blanditiis, quis aperiam? Molestiae, inventore? Vero.
 Nulla nisi dolore atque magni corporis voluptate nobis culpa sed nesciunt officia excepturi architecto debitis, qui accusantium laboriosam beatae libero dolorem! Cumque eum dolor, libero adipisci magni ratione sequi debitis!
 Nihil soluta, et, cumque tenetur illum obcaecati numquam id illo a quia eius, atque explicabo ratione deserunt placeat necessitatibus totam ad fugiat non praesentium aliquam sint. Enim vitae sed culpa!
