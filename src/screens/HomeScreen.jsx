@@ -485,7 +485,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
         }}
       >
         <div className="w-full h-full flex lg:flex-row flex-col">
-          <div className="lg:w-1/4 w-full h-full flex flex-col items-center">
+          <div className="lg:w-1/4 w-full h-[10%] lg:h-full flex flex-col items-center">
             <div className="w-full lg:h-[6%] mb-1 h-[30%] flex items-center justify-center">
               <span className="uppercase font-arch-b text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] text-white">my work</span>
             </div>
@@ -511,12 +511,12 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               </div>
             </div>
           </div>
-          <div className="relative lg:w-3/4 w-full h-full flex flex-col lg:border-l-2 mt-4 border-t-[6px] lg:border-t-0 lg:pl-3">
+          <div className="relative lg:w-3/4 w-full h-[70%] sm:h-[80%] md:h-[90%] lg:h-full flex flex-col lg:border-l-2 mt-4 border-t-[6px] lg:border-t-0 lg:pl-3">
             {
               activeWork === "creative" 
               ?
               <div className="w-full h-[90%] flex gap-2 overflow-x-scroll overflow-y-scroll">
-                <div className="w-full min-w-fit h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
+                <div className="w-full min-w-full h-full grid gap-2 lg:grid-cols-4 grid-rows-3">
                   <div className=" row-span-2 col-span-2 row-start-1 col-start-1 workItem">
                     <video key={creativeWorkVideo2} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
                       <source src={creativeWorkVideo2} type="video/mp4"/>
@@ -550,7 +550,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
                 </div>
                 <div className="w-full min-w-full h-full grid grid-rows-3 gap-2">
                   <div className="bg-blue-500 row-span-2 row-start-1 workItem">
-                  <video key={creativeWorkVideo1} loop muted autoPlay className={`w-full h-full object-cover transition-all duration-300`}>
+                  <video key={creativeWorkVideo1} loop muted autoPlay className={`w-full h-full object-cover object-left md:object-center transition-all duration-300`}>
                   <source src={creativeWorkVideo1} type="video/mp4"/>
                   Video Format Not supported
                 </video>
@@ -701,8 +701,8 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
               </div>
             }
             <div className="absolute z-20 bottom-0 translate-x-12 w-full h-[10%] flex items-center justify-end px-10">
-              <div className="w-fit p-3 h-fit flex items-center justify-center gap-3">
-                <span className="uppercase font-arch font-thin text-white tracking-wider">{activeWork === "runway" && window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
+              <div className="w-fit p-3 md:translate-x-0 translate-x-4 h-fit flex items-center justify-center gap-3">
+                <span className="uppercase text-[12px] md:text-[15px] font-arch font-thin text-white tracking-wider">{activeWork === "runway" && window.innerWidth >= 1100 ? "no scroll" : 'scroll'}</span>
                 <div className={`w-[100px] h-[20px] flex items-center ${activeWork === "runway" && window.innerWidth >= 1100 ? "justify-end" : "justify-start"}`}>
                   <div className={`w-[40px] h-0 border transition-all duration-200 ${activeWork === "runway" && window.innerWidth >= 1100 ? "" : "animate-scroll"}`}></div>
                 </div>

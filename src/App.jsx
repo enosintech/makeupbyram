@@ -52,11 +52,11 @@ function App() {
           
           
         </div>
-        <div className={`w-fit px-3 uppercase hidden items-center gap-14 md:flex transition-all duration-100 text-white`}>
+        <div className={`w-fit px-3 uppercase hidden items-center gap-14 lg:flex transition-all duration-100 text-white`}>
           <span className={`cursor-pointer hover:opacity-50 active:opacity-25 ${activeLocation === "/" ? "font-bold" : "font-light"}`}><Link to="/">home</Link></span>
           <span className={`cursor-pointer hover:opacity-50 active:opacity-25 ${activeLocation === "/about" ? "font-bold" : "font-light"}`}><Link to="/about">about</Link></span>
         </div>
-        <div className="w-fit h-fit relative md:hidden">
+        <div className="w-fit h-fit relative lg:hidden">
           <img className="w-[40px] h-[40px] cursor-pointer hover:opacity-50 invert active:opacity-25 transition-all duration-100" src={!burgerActive ? burgerMenu : burgerMinus } alt="burger menu" onClick={() => {
             dispatch(setBurgerActive(!burgerActive))
           }}/>
