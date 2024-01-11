@@ -51,7 +51,7 @@ function AboutScreen() {
         }}
       >
         <div className="w-full h-full relative">
-          <img src={AboutRamCover} className="absolute z-0 w-full h-full object-cover" alt="about ram" />
+          <img src={AboutRamCover} className="absolute z-0 w-full h-full object-center object-cover" alt="about ram" />
           <div className="absolute z-10 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black"></div>
         </div>
       </ParallaxLayer>

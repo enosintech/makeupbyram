@@ -723,8 +723,6 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           position: "relative"
         }}
       >
-       <div className="fixed z-20 gallery-dark w-full h-full bg-gradient-to-b from-black from-5% via-transparent to-95% to-black"></div>
-       <div className="fixed z-20 w-full h-full mask"></div>
 
        <section className="w-full h-full flex items-center justify-center">
           <h1 className="gallery-text font-arch-b uppercase text-[4rem] sm:text-[6rem] md:text-[9rem] lg:text-[12rem] xl:text-[14rem]">bolder</h1>
@@ -802,7 +800,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           zIndex: 15,
         }}
       >
-        <div className="relative w-[100dvw] h-[100dvh]">
+        <div className="relative w-[100dvw] h-[100dvh] translate-y-[50%]">
           <div className="absolute bg-white transition-all duration-300 left-0 size-[120px] s:size-[150px] sm:size-[180px] md:size-[260px] lg:size-[300px] xl:size-[350px] 2xl:size-[380px] -translate-x-[10%] rounded-full flex items-center justify-center">
             <span className="text-[20px] md:text-[35px] xl:text-[50px] text-black font-ubuntu">eyes</span>
           </div>
@@ -861,7 +859,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
             <img src={faceCardImageRaw4} alt="makeupbyram" className="object-cover h-full"/>
           </div>
           <div className="imageContainer">
-            <img src="" alt="makeupbyram" className="object-cover"/>
+            <img src={train5} alt="makeupbyram" className="h-full object-cover"/>
           </div>
           <div className="imageContainer">
             <img src="" alt="makeupbyram" className="object-cover"/>
@@ -904,7 +902,7 @@ Consectetur voluptatum autem ab magni illo eum, itaque eaque culpa perspiciatis 
           <img src={typography} alt="makeupbyram" className="w-full h-full object-cover"/>
         </div>
          <div className="imageContainer">
-          <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
+          <img src={makeupPieces} alt="makeupbyram" className="w-full h-full object-cover"/>
         </div>
          <div className="imageContainer">
           <img src="" alt="makeupbyram" className="w-full h-full object-cover"/>
