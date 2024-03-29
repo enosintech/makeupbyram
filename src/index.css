@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: nohemiBlack;
+    src: url(/assets/fonts/Nohemi-Black.ttf);
+}
+
+@font-face {
+    font-family: nohemiBold;
+    src: url(/assets/fonts/Nohemi-Bold.ttf);
+}
+
+@font-face {
+    font-family: nohemiSemiBold;
+    src: url(/assets/fonts/Nohemi-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: nohemiMedium;
+    src: url(/assets/fonts/Nohemi-Medium.ttf);
+}
+
+@font-face {
+    font-family: nohemiRegular;
+    src: url(/assets/fonts/Nohemi-Regular.ttf);
+}
+
+@font-face {
+    font-family: nohemiLight;
+    src: url(/assets/fonts/Nohemi-Light.ttf);
+}
+
+@font-face {
+    font-family: nohemiExtraLight;
+    src: url(/assets/fonts/Nohemi-ExtraLight.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: black;
+    width: 100dvw;
+    overflow-x: hidden;
+    height: 100%;
+    user-select: none;
+    background-color: white;
+}
+
+section {
+    overflow-x: hidden;
+}
