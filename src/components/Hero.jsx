@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 import { heroVideo, scrollArrow } from "../lib";
+import { noTriggerFromAnimations, pinAnimations } from "../utils/animations";
 
 const Hero = () => {
     
@@ -20,14 +19,9 @@ const Hero = () => {
     }, [])
 
     useGSAP(() => {
-        ScrollTrigger.create({
-            trigger: ".heroPin",
-            start: "top top",
-            end: "bottom 0",
-            pin: true,
-        })
+        pinAnimations(".heroPin", 0);
 
-        gsap.from("#heroVideo", {
+        noTriggerFromAnimations("#heroVideo", {
             width: "40%",
             height: "40%",
             borderRadius: 16,
@@ -36,7 +30,7 @@ const Hero = () => {
             delay: 3,
         })
 
-        gsap.from("#loadAppear", {
+        noTriggerFromAnimations("#loadAppear", {
             opacity: 0,
             duration: 0.5,
             ease: "power2.inOut",
@@ -46,16 +40,16 @@ const Hero = () => {
 
   return (
     <section className="w-full h-[100vh]">
-        <div className="w-full h-full relative heroPin flex items-center justify-center">
+        <div className="w-full h-full heroPin flex items-center justify-center">
             <video id="heroVideo" key={heroVideo} ref={videoRef} preload="none" className="w-full h-full object-cover absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto z-[-1]" autoPlay={true} playsInline={true} loop={true} muted={true} controls={false}>
                 <source src={heroVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-full pt-[90px] lg:pt-[120px] xl:pt-[150px] 2xl:pt-[180px]">
-                <div id="loadAppear" className="w-full h-full relative pl-5 pt-5">
-                    <div className="flex flex-col text-white text-3xl sm:text-5xl font-nohemiLight">
+                <div id="loadAppear" className="w-full h-full pl-5 pt-5">
+                    <div className="flex flex-col text-white text-2xl sm:text-5xl font-nohemiLight">
                         <p>Style. Kuala Lumpur. Ready.</p>
                         <p>Bold. <span className="text-purple-950">Purple.</span> Friends. Livid.</p>
-                        <p>Color. Expression.</p>
+                        <p>Color. Empathy.</p>
                         <p>Karachi.</p>
                     </div>
                     <div className="absolute bottom-10 rounded-full w-[80px] h-[80px] bg-gray-700 left-10 flex items-center justify-center">

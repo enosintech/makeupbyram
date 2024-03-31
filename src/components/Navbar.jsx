@@ -1,24 +1,24 @@
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
+import { noTriggerFromAnimations, triggerToAnimations } from "../utils/animations";
 
 const Navbar = () => {
 
   useGSAP(() => {
-    gsap.from("#fromRight", {
+    noTriggerFromAnimations("#fromRight", {
       x: "200%",
       duration: 1,
       delay: 5,
       ease: "power2.inOut",
     })
 
-    gsap.to("#yieldLeft", {
-      x: "-150%",
-      scrollTrigger: {
-        trigger: "#aboutAnimateTrigger", 
-        scrub :true,
-      },
+    triggerToAnimations("#yieldLeft", {
+      x: "-150%"
+    }, {
+      trigger: "#aboutAnimateTrigger", 
+      scrub :true,
     })
   }, [])
 
