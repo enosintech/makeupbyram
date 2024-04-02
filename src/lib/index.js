@@ -34,8 +34,6 @@ import workedWith from "/assets/videos/workedWith.mp4";
 import lips from "../assets/animations/lips.json";
 import scroll from "../assets/animations/scroll.json";
 
-// Assets
-
 export const scrollArrow = arrow;
 
 export const aboutImage1 = about1;
@@ -72,5 +70,3 @@ export const workedWithVideo = workedWith;
 export const Lips = lips;
 
 export const scrollDown = scroll;
-
-// Constants 

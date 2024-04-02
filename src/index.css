@@ -55,13 +55,3 @@ body {
 section {
     overflow-x: hidden;
 }
-
-.textEdit {
-    text-align: justify;
-    direction: rtl;
-}
-
-.textshadow {
-    text-shadow: 0.5px 0.5px 1px white,
-                 -0.5px -0.5px 1px white   ;
-}

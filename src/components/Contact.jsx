@@ -52,8 +52,8 @@ const Contact = () => {
         <div className="w-full h-[100vh] lastPin flex items-center justify-center relative whiteScrubTrigger">
             <ScrollPrompt rotate={180}/>
             <Clock />
-            <div className="w-[40%] h-full flex flex-col items-center justify-between py-40">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-nohemiBlack text-white">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
+            <div className="w-[40%] h-full flex flex-col items-center justify-between py-40 md:py-10">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="flex flex-col items-center text-white gap-5">
                     <p className="font-nohemiExtraLight text-center text-2xl sm:text-3xl md:text-4xl max-w-[500px]">Schedule a Call</p>
                     <div className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full bg-purple-950">

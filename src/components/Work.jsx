@@ -200,7 +200,7 @@ const Work = () => {
         </div>
         <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger">
           <div className="w-1/2 h-full overflow-hidden">
-              <img className="w-full h-full object-cover object-center scale-[2] runwayImageScale" alt="runway photo1" src={runwayImage1} />
+              <img className="w-full h-full object-cover object-top scale-[2] runwayImageScale" alt="runway photo1" src={runwayImage1} />
           </div>    
           <div className="w-1/2 h-full overflow-hidden">
               <img className="w-full h-full object-cover object-center scale-[2] runwayImageScale" alt="runway photo2" src={runwayImage2} />
