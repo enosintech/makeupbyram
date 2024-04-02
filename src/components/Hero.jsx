@@ -1,25 +1,15 @@
-import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 
-import { heroVideo, scrollArrow } from "../lib";
+import { heroVideo } from "../lib";
 import { noTriggerFromAnimations, pinAnimations } from "../utils/animations";
 
+import Clock from "./Clock";
+import ScrollPrompt from "./ScrollPrompt";
+
 const Hero = () => {
-    
-    const videoRef = useRef(null);
-    
-    const [ time, setTime ] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTime(new Date().toLocaleTimeString("en-US", {timeZone: "Asia/Kuala_Lumpur"}))
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [])
 
     useGSAP(() => {
-        pinAnimations(".heroPin", 0);
+        pinAnimations(".heroPin");
 
         noTriggerFromAnimations("#heroVideo", {
             width: "40%",
@@ -41,24 +31,19 @@ const Hero = () => {
   return (
     <section className="w-full h-[100vh]">
         <div className="w-full h-full heroPin flex items-center justify-center">
-            <video id="heroVideo" key={heroVideo} ref={videoRef} preload="none" className="w-full h-full object-cover absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto z-[-1]" autoPlay={true} playsInline={true} loop={true} muted={true} controls={false}>
+            <video id="heroVideo" key={heroVideo} preload="none" className="w-full h-full object-cover absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto z-[-1]" autoPlay={true} playsInline={true} loop={true} muted={true} controls={false}>
                 <source src={heroVideo} type="video/mp4"/>
             </video>
-            <div className="w-full h-full pt-[90px] lg:pt-[120px] xl:pt-[150px] 2xl:pt-[180px]">
+            <div className="w-full h-full pt-[40px] sm:pt-[60px] md:pt-[80px] lg:pt-[120px] xl:pt-[150px] 2xl:pt-[180px]">
                 <div id="loadAppear" className="w-full h-full pl-5 pt-5">
-                    <div className="flex flex-col text-white text-2xl sm:text-5xl font-nohemiLight">
+                    <div className="flex flex-col text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-nohemiLight">
                         <p>Style. Kuala Lumpur. Ready.</p>
                         <p>Bold. <span className="text-purple-950">Purple.</span> Friends. Livid.</p>
                         <p>Color. Empathy.</p>
                         <p>Karachi.</p>
                     </div>
-                    <div className="absolute bottom-10 rounded-full w-[80px] h-[80px] bg-gray-700 left-10 flex items-center justify-center">
-                        <img className="size-10 invert rotate-90" alt="arrow" src={scrollArrow}/>
-                    </div>
-                    <div className="absolute bottom-10 right-5 sm:right-7 lg:right-10 xl:right-14 flex flex-col items-end gap-3 text-white text-lg">
-                        <p className="font-nohemiBold">LOCAL TIME</p>
-                        <p className="font-nohemiLight">{time} KUL</p>
-                    </div>
+                    <ScrollPrompt />
+                    <Clock />
                 </div>
             </div>
         </div>

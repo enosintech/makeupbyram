@@ -25,11 +25,11 @@ export const triggerToAnimations = (target, animationsProps, scrollProps) => {
     })
 }
 
-export const pinAnimations = (target, end) => {
+export const pinAnimations = (target, startSide = "top", start = "top", endSide = "bottom", end = "0", pin = true) => {
     ScrollTrigger.create({
         trigger: target,
-        start: "top top",
-        end: `bottom ${end}`,
-        pin: true,
+        start: `${startSide} ${start}`,
+        end: `${endSide} ${end}`,
+        pin: pin,
     })
 }
