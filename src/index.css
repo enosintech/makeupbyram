@@ -52,6 +52,11 @@ body {
     background-color: white;
 }
 
+.cursor {
+    user-select: none;
+    pointer-events: none;
+}
+
 section {
     overflow-x: hidden;
 }

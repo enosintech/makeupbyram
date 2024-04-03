@@ -7,12 +7,14 @@ import About from "./components/About";
 import Highlights from "./components/Highlights";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
+import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   return (
     <>
+      <CursorComponent />
       <Navbar />
       <Hero />
       <About />

@@ -1,4 +1,4 @@
-import { creativeImage1, creativeImage2, creativeImage3, creativeImage4, creativeImage5, creativeImage6, portraitImage1, portraitImage2, portraitImage3, portraitImage4, portraitImage5, portraitImage6 } from "../lib";
+import { aboutImage1, creativeImage1, creativeImage2, creativeImage3, creativeImage4, creativeImage5, creativeImage6, portraitImage1, portraitImage2, portraitImage3, portraitImage4, portraitImage5, portraitImage6 } from "../lib";
 
 export const creativeMakeup = {
     id: "creative",

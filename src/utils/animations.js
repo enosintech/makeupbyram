@@ -7,6 +7,12 @@ export const noTriggerFromAnimations = (target, animationProps) => {
     })
 }
 
+export const noTriggerToAnimations = (target, animationProps) => {
+    gsap.to(target, {
+        ...animationProps
+    })
+}
+
 export const triggerFromAnimations = (target, animationProps, scrollProps) => {
     gsap.from(target, {
         ...animationProps,

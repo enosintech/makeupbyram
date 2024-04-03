@@ -1,18 +1,23 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Lottie from "lottie-react";
+import { useLenis } from "@studio-freight/react-lenis";
 
 import { pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
 import WorkSectionComponent from "./WorkSectionComponent";
 import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2 } from "../lib";
-
-import lips1 from "/assets/images/lips1.jpg";
-import lips3 from "/assets/images/lips3.jpg";
-import lipsMain from "/assets/images/lips.jpg";
-import lips4 from "/assets/images/lips2.jpg";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4 } from "../lib";
 
 const Work = () => {
+  
+  const lenis = useLenis();
+
+  const handleContactClick = () => {
+    lenis.scrollTo(".contactTrigger", {
+      duration: 3,
+      offset: window.innerHeight,
+    })
+  }
 
   useGSAP(() => {
     const imgs = gsap.utils.toArray(".motiv");
@@ -190,7 +195,7 @@ const Work = () => {
               <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
               <p className="font-nohemiSemiBold absolute opacity-0 toOne3">FEATURED</p>
             </div> 
-            <span><p className="font-nohemiLight">HIRE ME</p></span>
+            <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiLight text-xl" onClick={handleContactClick}>HIRE ME</p></span>
           </div>
         </div>
       </div>
@@ -212,7 +217,7 @@ const Work = () => {
       </div>
       <div className="w-full h-[100vh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
         <div className="w-full h-[100vh] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
-          <Lottie animationData={Lips} loop={true} className="relative z-10 size-60 sm:size-80 md:size-[400px] lg:size-[600px] xl:size-[750px] 2xl:size-[900px]"/>
+          <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
             <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:translate-y-10 font-nohemiBold text-center opacity-0 toLife">LIPS TO</p>
           </div>
@@ -236,16 +241,16 @@ const Work = () => {
       <div className="w-full h-[100vh] growUpTrigger"></div>
       <div className="w-full h-[100vh] relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-y-visible">
         <div className="w-[30%] h-full flex justify-end pr-20 z-10">
-          <img className="sm:w-[90%] w-full h-[55%] translate-y-72  text-white flex flex-col items-center moveDown2 object-cover object-center" alt="lips" src={lipsMain} />
+          <img className="sm:w-[90%] w-full h-[55%] translate-y-72  text-white flex flex-col items-center moveDown2 object-cover object-center" alt="lips" src={lipsMain1} />
         </div>
         <div className="w-[25%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown object-center" alt="lips 1" src={lips1}/>
+          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown object-center bg-white" alt="lips 1" src=""/>
         </div>
         <div className="w-[20%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[40%] translate-y-32 object-cover moveUp" alt="lips 2" src={lips4}/>
+          <img className="w-[80%] h-[40%] translate-y-32 object-cover moveUp" alt="lips 2" src={lipsMain3}/>
         </div>
         <div className="w-[25%] h-full flex items-end justify-start z-10">
-          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2" alt="lips 3" src={lips3}/>
+          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2" alt="lips 3" src={lipsMain4}/>
         </div>
         <div className="z-[6] absolute md:-bottom-14 xl:-bottom-20 bottom-0 2xl:left-20 left-5 lg:left-10 flex flex-col text-white font-nohemiExtraLight">
           <p className="lg:text-[12rem] md:text-[10rem] text-[5rem]">BOLDER</p>

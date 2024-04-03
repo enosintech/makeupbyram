@@ -86,41 +86,41 @@ const About = () => {
             </div>
           </div>
           <div className="workedWithPin w-full h-[100vh] text-white relative z-10 flex flex-col items-center justify-center">
-            <ScrollPrompt />
+            <ScrollPrompt id={"noclick"}/>
             <video key={workedWithVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
               <source src={workedWithVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-1/2 flex items-center justify-center">
               <div className="flex flex-col justify-center gap-3 text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
                 <div className="flex justify-center gap-2 md:gap3">
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Party</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Party</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Shoot</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Shoot</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Lifestyle</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Lifestyle</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Creative</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Creative</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Runway</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                   </span>
                 </div>
                 <div className="flex justify-center gap-2 md:gap-3">
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Edgy</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Edgy</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Expressive</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Expressive</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Free</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Free</p>
                   </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center">
-                    <p className="font-nohemiSemiBold">Brave</p>
+                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Brave</p>
                   </span>
                 </div>
               </div>

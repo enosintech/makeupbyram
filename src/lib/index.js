@@ -26,6 +26,10 @@ import featuredleft2 from "/assets/images/featuredleft2.webp";
 import featuredmain2 from "/assets/images/featuredmain2.webp";
 import featuredright1 from "/assets/images/featuredright1.webp";
 import featuredright2 from "/assets/images/featuredright2.webp";
+import lips1 from "/assets/images/lips1.webp";
+import lips2 from "/assets/images/lips2.jpg";
+import lips3 from "/assets/images/lips3.webp";
+import lips4 from "/assets/images/lips4.webp";
 
 import herovideo from "/assets/videos/herovideo.mp4";
 import aboutvideo from "/assets/videos/aboutvideo.mp4";
@@ -62,6 +66,10 @@ export const featuredLeft2 = featuredleft2;
 export const featuredMain2 = featuredmain2;
 export const featuredRight1 = featuredright1;
 export const featuredRight2 = featuredright2;
+export const lipsMain1 = lips1;
+export const lipsMain2 = lips2;
+export const lipsMain3 = lips3;
+export const lipsMain4 = lips4;
 
 export const heroVideo = herovideo;
 export const aboutVideo = aboutvideo;
