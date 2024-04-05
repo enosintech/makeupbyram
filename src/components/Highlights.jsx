@@ -44,7 +44,7 @@ const Highlights = () => {
                     </div>
                 </div>
                 <div className="w-1/4 h-full relative overflow-hidden">
-                    <img className="w-full h-full object-cover scale-[2] scl" alt="shoot Cover" src={highlightImage2} />
+                    <img className="w-full h-full object-cover object-left md:object-center scale-[2] scl" alt="shoot Cover" src={highlightImage2} />
                     <div className="absolute bottom-10 left-5 flex flex-col text-4xl font-nohemiBold">
                         <p>PHOTOSHOOT/ VIDEO</p>
                         <p className="font-nohemiLight">MAKEUP</p>

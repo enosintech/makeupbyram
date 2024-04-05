@@ -91,7 +91,7 @@ const About = () => {
               <source src={workedWithVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-1/2 flex items-center justify-center">
-              <div className="flex flex-col justify-center gap-3 text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
+              <div className="flex flex-col-reverse justify-center gap-3 text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
                 <div className="flex justify-center gap-2 md:gap3">
                   <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Party</p>
@@ -100,7 +100,7 @@ const About = () => {
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Shoot</p>
                   </span>
                   <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Lifestyle</p>
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Eccentric</p>
                   </span>
                   <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Creative</p>
@@ -117,10 +117,10 @@ const About = () => {
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Expressive</p>
                   </span>
                   <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Free</p>
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Avant-garde</p>
                   </span>
                   <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Brave</p>
+                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                   </span>
                 </div>
               </div>
@@ -129,10 +129,10 @@ const About = () => {
               <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
                 <p className="font-nohemiExtraLight text-lg md:text-2xl">WORKED WITH</p>
                 <div className="flex flex-col gap-1 items-end text-3xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
-                  <p className="mt-5 font-nohemiLight -translate-x-40 opacity-0 stackIn">ruffspur</p>
-                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">roberto</span>Carvalli</p>
+                  <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">roberto</span>Carvalli</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">makeup</span>Miracle</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">polydextrous</span>Studios</p>
+                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">misspetiteplanet</span>Malaysia</p>
                 </div>
               </div>
             </div>

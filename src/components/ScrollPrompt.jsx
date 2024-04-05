@@ -11,7 +11,6 @@ const ScrollPrompt = (props) => {
     lenis.scrollTo(props.target, {
       immediate: true,
     })
-    console.log("clicked")
   }
 
   return (

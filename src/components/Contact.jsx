@@ -1,15 +1,14 @@
 import Lottie from "lottie-react";
 import { useGSAP } from "@gsap/react";
+import { useLenis } from "@studio-freight/react-lenis";
 
 import { heroVideo, scrollDown, aboutRam } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
-import { useLenis } from "@studio-freight/react-lenis";
 
 const Contact = () => {
-
 
     const lenis = useLenis();
 
@@ -46,6 +45,7 @@ const Contact = () => {
             start: "top bottom",
             toggleActions: "play none none reverse"
         })
+        
     }, [])
 
   return (
@@ -72,10 +72,9 @@ const Contact = () => {
                     </button>
                 </div>
                 <div className="flex flex-col gap-5 items-center text-white">
-                    <div className="p-2 border-2 border-white rounded-full w-fit"><p className="font-nohemiLight">makeupbyram@gmail.com</p></div>
+                    <div className="p-2 border-2 border-white rounded-full w-fit"><p className="font-nohemiLight">projects.ramsha@gmail.com</p></div>
                     <div className="flex justify-center item-center gap-4 font-nohemiSemiBold">
                         <p className="hover:text-purple-600 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">INSTAGRAM</a></p>
-                        <p className="hover:text-purple-600 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">TIKTOK</a></p>   
                         <p className="hover:text-purple-600 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">WHATSAPP</a></p>
                     </div>
                 </div>
