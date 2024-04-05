@@ -51,8 +51,8 @@ const About = () => {
 
   return (
     <>
-      <section id="aboutAnimateTrigger" className="w-full h-[400svh] flex flex-col">
-          <div className="w-full h-[100svh] relative bg-white flex flex-col py-1 aboutPin z-20">
+      <section id="aboutAnimateTrigger" className="w-full h-[400dvh] flex flex-col">
+          <div className="w-full h-[100dvh] relative bg-white flex flex-col py-1 aboutPin z-20">
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
               <span className="p-2 w-fit h-fit rounded-full border-[6px] border-white"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiLight">ESTABLISHED 2022</p></span>
               <div className="w-28"></div>
@@ -85,7 +85,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="workedWithPin w-full h-[100svh] text-white relative z-10 flex flex-col items-center justify-center">
+          <div className="workedWithPin w-full h-[100dvh] text-white relative z-10 flex flex-col items-center justify-center">
             <ScrollPrompt id={"noclick"}/>
             <video key={workedWithVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
               <source src={workedWithVideo} type="video/mp4"/>

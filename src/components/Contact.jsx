@@ -49,8 +49,8 @@ const Contact = () => {
     }, [])
 
   return (
-    <section className="w-full h-[300svh] -mt-2 flex flex-col relative z-10">
-        <div className="w-full h-[100svh] bg-black flex items-center contactPin justify-center relative z-[5] px-20">
+    <section className="w-full h-[300dvh] -mt-2 flex flex-col relative z-10">
+        <div className="w-full h-[100dvh] bg-black flex items-center contactPin justify-center relative z-[5] px-20">
             <img className="sm:w-[200px] w-[150px] z-[-1] rounded-[16px] sm:h-[250px] h-[200px] opacity-0 bringRam object-cover absolute left-0 right-0 mx-auto top-40" alt="rams face" src={aboutRam}/>
             <p className="text-2xl md:text-5xl lg:text-6xl md:translate-y-32 translate-y-0 font-nohemiSemiBold max-w-[750px] text-justify text-purple-950">Hey, it's Ram, <span className="">the makeup artist. {" "}</span>
                 <span className="text-neutral-900"><span className="word"> I'm </span> <span className="word">all </span> <span className="word">about</span> <span className="word">quality</span> <span className="word">and</span> <span className="word">the</span> <span className="word">perfect</span> <span className="word">blend.</span> <span className="word">Each</span> <span className="word">face</span> <span className="word">is</span> <span className="word">a</span> <span className="word">canvas,</span> <span className="word">and</span> <span className="word">I</span> <span className="word">dive</span> <span className="word">in</span> <span className="word">with</span> <span className="word">a</span> <span className="word">certain</span> <span className="word">passion</span> <span className="word">and</span> <span className="word">precision.</span></span>
@@ -60,7 +60,7 @@ const Contact = () => {
                 <p className="text-white text-2xl font-nohemiLight hover:text-purple-900 transition-all">HIRE ME</p>
             </div>
         </div>
-        <div className="w-full h-[100svh] lastPin flex items-center justify-center relative whiteScrubTrigger">
+        <div className="w-full h-[100dvh] lastPin flex items-center justify-center relative whiteScrubTrigger">
             <ScrollPrompt rotate={180} target={".homescreen"}/>
             <Clock />
             <div className="w-[40%] h-full flex flex-col items-center justify-between py-40 md:py-10 contactTrigger">
