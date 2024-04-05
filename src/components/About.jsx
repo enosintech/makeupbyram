@@ -51,8 +51,8 @@ const About = () => {
 
   return (
     <>
-      <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
-          <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
+      <section id="aboutAnimateTrigger" className="w-full h-[400svh] flex flex-col">
+          <div className="w-full h-[100svh] relative bg-white flex flex-col py-1 aboutPin z-20">
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
               <span className="p-2 w-fit h-fit rounded-full border-[6px] border-white"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiLight">ESTABLISHED 2022</p></span>
               <div className="w-28"></div>
@@ -78,14 +78,14 @@ const About = () => {
                   <video key={aboutVideo} className="w-full h-full object-cover" autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
                     <source src={aboutVideo} type="video/mp4"/>
                   </video>
-                  <div className="flex flex-col min-w-[200px] max-w-[700px] absolute bottom-3 text-white left-5 justify-center gap-3 text-[38px] xl:text-7xl font-nohemiBlack">
+                  <div className="flex flex-col min-w-[200px] max-w-[700px] absolute bottom-3 text-white left-5 justify-center gap-3 text-[30px] xl:text-7xl font-nohemiBlack">
                     <p className="w-fit">A MOBILE MAKEUP STUDIO BASED IN KUALA LUMPUR</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="workedWithPin w-full h-[100vh] text-white relative z-10 flex flex-col items-center justify-center">
+          <div className="workedWithPin w-full h-[100svh] text-white relative z-10 flex flex-col items-center justify-center">
             <ScrollPrompt id={"noclick"}/>
             <video key={workedWithVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
               <source src={workedWithVideo} type="video/mp4"/>
@@ -128,7 +128,7 @@ const About = () => {
             <div className="w-full h-1/2 flex justify-end">
               <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
                 <p className="font-nohemiExtraLight text-lg md:text-2xl">WORKED WITH</p>
-                <div className="flex flex-col gap-1 items-end text-3xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
+                <div className="flex flex-col gap-1 items-end text-2xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
                   <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">roberto</span>Carvalli</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">makeup</span>Miracle</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">polydextrous</span>Studios</p>

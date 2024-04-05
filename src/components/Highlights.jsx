@@ -32,8 +32,8 @@ const Highlights = () => {
     }, [])
 
   return (
-    <section id="moveLeftTrigger" className="w-full h-[300vh] bg-white relative z-20 text-white">
-        <div className="w-full h-[100vh] overflow-hidden highlightPin relative">
+    <section id="moveLeftTrigger" className="w-full h-[300svh] bg-white relative z-20 text-white">
+        <div className="w-full h-[100svh] overflow-hidden highlightPin relative">
             <p className="font-nohemiSemiBold text-xl absolute top-5 left-5 z-10">WHAT I OFFER</p>
             <div className="md:w-[200vw] w-[400vw] md:min-w-[200vw] min-w-[400vw] h-full flex gap-x-1 py-1 moveLeft">
                 <div className="w-1/4 h-full relative overflow-hidden">
