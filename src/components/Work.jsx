@@ -14,7 +14,7 @@ const Work = () => {
 
   const handleContactClick = () => {
     lenis.scrollTo(".contactTrigger", {
-      duration: 3,
+      duration: 10,
       offset: window.innerHeight,
     })
   }
