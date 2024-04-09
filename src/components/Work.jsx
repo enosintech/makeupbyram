@@ -185,7 +185,7 @@ const Work = () => {
 
   return (
     <section className='w-full h-[720dvh] relative z-30 flex flex-col'>
-      <div className="w-full h-[100vh] absolute top-0 left-0">
+      <div className="w-full h-[100dvh] absolute top-0 left-0">
         <p className="pinText absolute top-5 left-5 text-white font-nohemiSemiBold text-3xl md:text-5xl opacity-0 z-20">SELECTED WORK</p>
         <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
           <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">

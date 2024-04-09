@@ -12,6 +12,8 @@ const CursorComponent = () => {
             return;
         }
 
+        gsap.set(".cursor", {xPercent: -50, yPercent: -50})
+        
         let targets = gsap.utils.toArray(".cursor");
         
         window.addEventListener("mousemove", (e) => {
@@ -43,8 +45,8 @@ const CursorComponent = () => {
 
   return (
     <>
-        <div className="cursor mouse w-6 h-6 bg-purple-800 fixed top-0 left-0 rounded-full z-[10000] opacity-0"></div>
-        <div className="cursor w-6 h-6 bg-purple-300 fixed top-0 left-0 rounded-full z-[10000] opacity-0"></div>
+        <div className="cursor mouse w-6 h-6 bg-purple-950 fixed top-0 left-0 rounded-full z-[10000] opacity-0"></div>
+        <div className="cursor w-6 h-6 bg-purple-200 fixed top-0 left-0 rounded-full z-[10000] opacity-0"></div>
     </>
   )
 }

@@ -1,22 +1,30 @@
+import { useState } from "react";
 import Lottie from "lottie-react";
 import { useGSAP } from "@gsap/react";
-import { useLenis } from "@studio-freight/react-lenis";
 
-import { heroVideo, scrollDown, aboutRam } from "../lib";
+import { heroVideo, aboutRam, aboutRamScroll } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 
 const Contact = () => {
+    
+    const [ copied, setCopied ] = useState(false);
 
-    const lenis = useLenis();
+    const handleCopyText = () => {
+        const copyText = document.getElementById("emailInput");
 
-    const handleHireClick = () => {
-        lenis.scrollTo(".contactTrigger", {
-            duration: 1,
-            offset: window.innerHeight,
-        })
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(copyText.value);
+
+        setCopied(true);
+
+        setTimeout(() => {
+            setCopied(false);
+        }, 4000)
     }
 
     useGSAP(() => {
@@ -55,9 +63,8 @@ const Contact = () => {
             <p className="text-2xl md:text-5xl lg:text-6xl md:translate-y-32 translate-y-0 font-nohemiSemiBold max-w-[750px] text-justify text-purple-950">Hey, it's Ram, <span className="">the makeup artist. {" "}</span>
                 <span className="text-neutral-900"><span className="word"> I'm </span> <span className="word">all </span> <span className="word">about</span> <span className="word">quality</span> <span className="word">and</span> <span className="word">the</span> <span className="word">perfect</span> <span className="word">blend.</span> <span className="word">Each</span> <span className="word">face</span> <span className="word">is</span> <span className="word">a</span> <span className="word">canvas,</span> <span className="word">and</span> <span className="word">I</span> <span className="word">dive</span> <span className="word">in</span> <span className="word">with</span> <span className="word">a</span> <span className="word">certain</span> <span className="word">passion</span> <span className="word">and</span> <span className="word">precision.</span></span>
             </p>
-            <div className="absolute bottom-5 right-5 flex items-center gap-2 hireButton" onClick={handleHireClick}>
-                <Lottie animationData={scrollDown} loop={true} className="size-10"/>
-                <p className="text-white text-2xl font-nohemiLight hover:text-purple-900 transition-all">HIRE ME</p>
+            <div className="absolute bottom-5 right-5 flex items-center gap-2 hireButton">
+                <Lottie animationData={aboutRamScroll} loop={true} className="size-40"/>
             </div>
         </div>
         <div className="w-full h-[100dvh] lastPin flex items-center justify-center relative whiteScrubTrigger">
@@ -72,10 +79,13 @@ const Contact = () => {
                     </button>
                 </div>
                 <div className="flex flex-col gap-5 items-center text-white">
-                    <div className="p-2 border-2 border-white rounded-full w-fit"><p className="font-nohemiLight">projects.ramsha@gmail.com</p></div>
+                    <div className="border-2 border-white rounded-full w-fit h-fit flex items-center px-2">
+                        <input readOnly={true} className="font-nohemiLight select-none outline-none w-[230px] py-2 bg-transparent" type="text" value="projects.ramsha@gmail.com"  id="emailInput" />
+                        <button disabled={copied} onClick={handleCopyText} className={`font-nohemiBlack h-full text-[14px] hover:text-purple-800 active:text-purple-950 ${copied ? "text-purple-950" : ""}`}><p>{copied ? "COPIED" : "COPY"}</p></button>
+                    </div>
                     <div className="flex justify-center item-center gap-4 font-nohemiSemiBold">
-                        <p className="hover:text-purple-600 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">INSTAGRAM</a></p>
-                        <p className="hover:text-purple-600 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">WHATSAPP</a></p>
+                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all"><a href="https://www.instagram.com/makeupby.ram/" target="_blank">INSTAGRAM</a></p>
+                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">WHATSAPP</a></p>
                     </div>
                 </div>
             </div>
