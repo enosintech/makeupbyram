@@ -29,7 +29,7 @@ const Hero = () => {
     })
 
   return (
-    <section className="w-full h-[100dvh] homescreen">
+    <section className="w-full h-[100vh] homescreen">
         <div className="w-full h-full heroPin flex items-center justify-center">
             <video id="heroVideo" key={heroVideo} preload="none" className="w-full h-full object-cover absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto z-[-1]" autoPlay={true} playsInline={true} loop={true} muted={true} controls={false}>
                 <source src={heroVideo} type="video/mp4"/>
