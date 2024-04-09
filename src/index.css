@@ -48,8 +48,7 @@ body {
     color: black;
     width: 100dvw;
     overflow-x: hidden;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100%;
     user-select: none;
     background-color: white;
 }
@@ -57,10 +56,6 @@ body {
 .cursor {
     user-select: none;
     pointer-events: none;
-}
-
-html {
-    height: -webkit-fill-available;
 }
 
 input::selection {
