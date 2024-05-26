@@ -34,6 +34,7 @@ import lips4 from "/assets/images/lips4.webp";
 import herovideo from "/assets/videos/herovideo.mp4";
 import aboutvideo from "/assets/videos/aboutvideo.mp4";
 import workedWith from "/assets/videos/workedWith.mp4";
+import workVideo from "/assets/videos/workVideo.mp4";
 
 import lips from "../assets/animations/lips.json";
 import scroll from "../assets/animations/scroll.json";
@@ -75,6 +76,7 @@ export const lipsMain4 = lips4;
 export const heroVideo = herovideo;
 export const aboutVideo = aboutvideo;
 export const workedWithVideo = workedWith;
+export const workVideoMain = workVideo;
 
 export const Lips = lips;
 export const scrollDown = scroll;

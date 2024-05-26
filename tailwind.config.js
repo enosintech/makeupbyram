@@ -14,6 +14,7 @@ export default {
         "nohemiRegular" : "nohemiRegular, sans-serif",
         "nohemiLight" : "nohemiLight, sans-serif",
         "nohemiExtraLight" : "nohemiExtraLight, sans-serif",
+        "nohemiThin" : "nohemiThin, sans-serif"
       }
     },
   },

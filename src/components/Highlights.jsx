@@ -1,8 +1,9 @@
 import { useGSAP } from "@gsap/react";
+import Lottie from "lottie-react";
 
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
-import { highlightImage1, highlightImage2, highlightImage4, runwayImage2 } from "../lib";
+import { highlightImage1, highlightImage2, highlightImage4, runwayImage2, scrollDown } from "../lib";
 
 const Highlights = () => {
 
@@ -34,7 +35,11 @@ const Highlights = () => {
   return (
     <section id="moveLeftTrigger" className="w-full h-[300vh] bg-white relative z-20 text-white">
         <div className="w-full h-[100vh] overflow-hidden highlightPin relative">
-            <p className="font-nohemiSemiBold text-xl absolute top-5 left-5 z-10">WHAT I OFFER</p>
+            <div className="absolute top-3 left-5 flex flex-row-reverse items-center gap-x-2 z-10">
+                <Lottie animationData={scrollDown} className="size-10" />
+                <p className="font-nohemiExtraLight text-xl">SCROLL DOWN</p>
+            </div>
+            <p className="font-nohemiSemiBold text-xl absolute top-5 right-5 z-10">WHAT I OFFER</p>
             <div className="md:w-[200vw] w-[400vw] md:min-w-[200vw] min-w-[400vw] h-full flex gap-x-1 py-1 moveLeft">
                 <div className="w-1/4 h-full relative overflow-hidden">
                     <img className="w-full h-full object-cover scale-[2] scl" alt="creative Cover" src={highlightImage1} />

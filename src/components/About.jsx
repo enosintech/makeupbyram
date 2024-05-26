@@ -53,11 +53,10 @@ const About = () => {
     <>
       <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
           <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
+            <span className="absolute bottom-5 left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
-              <span className="p-2 w-fit h-fit rounded-full border-[6px] border-white"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiLight">ESTABLISHED 2022</p></span>
-              <div className="w-28"></div>
               <div className="text-right absolute right-3 lg:right-6">
-                <p className="text-2xl lg:text-4xl xl:text-5xl w-[300px] font-nohemiExtraLight">{time}</p>
+                <p className="text-2xl lg:text-4xl xl:text-5xl w-[300px] font-nohemiThin">{time}</p>
               </div>
             </div>
             <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
@@ -78,61 +77,43 @@ const About = () => {
                   <video key={aboutVideo} className="w-full h-full object-cover" autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
                     <source src={aboutVideo} type="video/mp4"/>
                   </video>
-                  <div className="flex flex-col min-w-[200px] max-w-[700px] absolute bottom-3 text-white left-5 justify-center gap-3 text-[30px] xl:text-7xl font-nohemiBlack">
-                    <p className="w-fit">A MOBILE MAKEUP STUDIO BASED IN KUALA LUMPUR</p>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="workedWithPin w-full h-[100vh] text-white relative z-10 flex flex-col items-center justify-center">
-            <ScrollPrompt id={"noclick"}/>
             <video key={workedWithVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
               <source src={workedWithVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-1/2 flex items-center justify-center">
-              <div className="flex flex-col-reverse justify-center gap-3 text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
-                <div className="flex justify-center gap-2 md:gap3">
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Party</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Shoot</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Eccentric</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Creative</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
-                  </span>
-                </div>
-                <div className="flex justify-center gap-2 md:gap-3">
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Edgy</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Expressive</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Avant-garde</p>
-                  </span>
-                  <span className="rounded-full border border-white p-2 md:p-3 lg:p-5 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
-                  </span>
+              <div className="flex flex-col-reverse justify-center gap- text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
+                <div className="flex flex-col text-center">
+                  <p className="mb-5 text-xl font-nohemiExtraLight">SKIP TO WORK</p>
+                  <div className="flex justify-center gap-4 md:gap-5">
+                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
+                      <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
+                    </span>
+                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
+                      <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
+                    </span>
+                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>  
+                      <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="w-full h-1/2 flex justify-end">
               <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
-                <p className="font-nohemiExtraLight text-lg md:text-2xl">WORKED WITH</p>
+                <p className="font-nohemiExtraLight text-lg md:text-xl tracking-tighter">WORKED WITH</p>
                 <div className="flex flex-col gap-1 items-end text-2xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
-                  <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">roberto</span>Carvalli</p>
-                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">makeup</span>Miracle</p>
-                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">polydextrous</span>Studios</p>
-                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiLight">misspetiteplanet</span>Malaysia</p>
+                  <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Roberto</span>Carvalli</p>
+                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Makeup</span>Miracle</p>
+                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Polydextrous</span>Studios</p>
+                  <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Misspetiteplanet</span>Malaysia</p>
                 </div>
               </div>
             </div>

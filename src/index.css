@@ -37,11 +37,20 @@
     src: url(/assets/fonts/Nohemi-ExtraLight.ttf);
 }
 
+@font-face {
+    font-family: nohemiThin;
+    src: url(/assets/fonts/Nohemi-Thin.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     cursor: none !important;
+}
+
+html, body {
+    overscroll-behavior-x: none;
 }
 
 body {
@@ -63,6 +72,15 @@ input::selection {
     background: none;
 }
 
+.loader {
+    transition: all;
+    transition-duration: 0.5s;
+}
+
 section {
     overflow-x: hidden;
+}
+
+.stretch {
+    font-stretch: ultra-expanded;
 }

@@ -6,7 +6,7 @@ import { useLenis } from "@studio-freight/react-lenis";
 import { pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
 import WorkSectionComponent from "./WorkSectionComponent";
 import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4 } from "../lib";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo } from "../lib";
 
 const Work = () => {
   
@@ -54,7 +54,7 @@ const Work = () => {
       duration: 0.3,
     }, {
       trigger: ".zeroTrigger",
-      start: "top bottom",
+      start: "top top",
       toggleActions: "play none none reverse",
     })
 
@@ -64,7 +64,7 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".zeroTrigger",
-      start: "top bottom",
+      start: "top top",
       toggleActions: "play none none reverse",
     })
 
@@ -74,7 +74,7 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".oneTrigger",
-      start: "top bottom",
+      start: "top top",
       toggleActions: "play none none reverse",
     })
 
@@ -94,7 +94,7 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".oneTrigger",
-      start: "top bottom",
+      start: "top top",
       toggleActions: "play none none reverse",
     })
 
@@ -183,24 +183,31 @@ const Work = () => {
 
   }, [])
 
+
   return (
-    <section className='w-full h-[720vh] relative z-30 flex flex-col'>
+    <section className='w-full h-[820vh] relative z-30 flex flex-col'>
       <div className="w-full h-[100vh] absolute top-0 left-0">
-        <p className="pinText absolute top-5 left-5 text-white font-nohemiSemiBold text-3xl md:text-5xl opacity-0 z-20">SELECTED WORK</p>
-        <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
-          <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
-            <div className="relative w-[300px] h-full flex items-center md:text-xl">
-              <p className="font-nohemiSemiBold absolute toZero">CREATIVE EDITORIAL MAKEUP</p>
+        <div className="pinText absolute top-5 text-white pt-5 left-5 w-fit text-nowrap h-fit flex items-center text-3xl md:text-5xl opacity-0 z-20">
+              <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
               <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
-              <p className="font-nohemiSemiBold absolute opacity-0 toOne3">FEATURED</p>
+              <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
             </div> 
+        <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
+          <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
+            <p className="relative text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
             <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiLight text-md sm:text-xl" onClick={handleContactClick}>HIRE ME</p></span>
           </div>
         </div>
       </div>
       <div className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
-        <div className="w-full h-[160vh] min-h-[160vh] relative">
+        <div className="w-full h-[100vh] bg-black flex items-center justify-center relative">
+          <video className="absolute  w-full h-full top-0 left-0 object-cover" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
+            <source src={workVideoMain} type="video/mp4"/>
+          </video>
+          <p className="font-nohemiBold text-white text-9xl relative z-10">SELECTED <span className="font-nohemiThin">WORKS</span></p>
+        </div>
+        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger">
           <WorkSectionComponent {...creativeMakeup} />
         </div>
         <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger">
@@ -226,13 +233,11 @@ const Work = () => {
           </div>
         </div>
         <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
-          <p className="absolute z-10 text-white font-nohemiBlack text-8xl bottom-5 text-center w-full">COLOR</p>
           <img className="w-full h-full object-cover" alt="main Shift" src={featuredMain1}/>
           <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredLeft1} alt="changing image 1"/>
           <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredLeft2} alt="changing image 2"/>
         </div>
         <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
-          <p className="absolute z-10 text-white font-nohemiBlack text-8xl bottom-5 text-center w-full">STYLE</p>
           <img className="w-full h-full object-cover" alt="mainsideshit" src={featuredMain2}/>
           <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredRight1} alt="changing image 1 Right"/>
           <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredRight2} alt="changing image 2 Right"/>
@@ -251,9 +256,6 @@ const Work = () => {
         </div>
         <div className="w-[25%] h-full flex items-end justify-start z-10">
           <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2" alt="lips 3" src={lipsMain4}/>
-        </div>
-        <div className="z-[6] absolute md:-bottom-14 xl:-bottom-20 bottom-0 2xl:left-20 left-5 lg:left-10 flex flex-col text-white font-nohemiExtraLight">
-          <p className="lg:text-[12rem] md:text-[10rem] text-[5rem]">BOLDER</p>
         </div>
       </div>
     </section>
