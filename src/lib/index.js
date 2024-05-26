@@ -1,4 +1,5 @@
 import arrow from "/assets/icons/arrow.png";
+import animatedAsterisk from "/assets/icons/animateAsterisk.svg";
 
 import about1 from "/assets/images/about1.webp";
 import about2 from "/assets/images/about2.webp";
@@ -41,6 +42,7 @@ import scroll from "../assets/animations/scroll.json";
 import aboutramscroll from "../assets/animations/aboutramscroll.json";
 
 export const scrollArrow = arrow;
+export const animateAsteriskSvg = animatedAsterisk;
 
 export const aboutImage1 = about1;
 export const aboutImage2 = about2;

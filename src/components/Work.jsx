@@ -1,12 +1,12 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import gsap, { Back } from "gsap";
 import Lottie from "lottie-react";
 import { useLenis } from "@studio-freight/react-lenis";
 
-import { pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
+import { noTriggerToAnimations, pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
 import WorkSectionComponent from "./WorkSectionComponent";
 import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo } from "../lib";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo, animateAsteriskSvg } from "../lib";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -205,6 +205,16 @@ const Work = () => {
       scrub: 2.5,
     })  
 
+    noTriggerToAnimations("#hireMeAnimate", {
+      width: 14,
+      height: 14,
+      opacity: 1,
+      duration: 0.3,
+      yoyo: true,
+      repeat: -1,
+      ease: "power1"
+    })
+
     pinAnimations(".pinHigh");
 
     pinAnimations(".pinTrigger", "top", "top", "bottom" , "bottom", ".pinText");
@@ -231,7 +241,10 @@ const Work = () => {
               <p id="barWorkText" className="absolute text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
               <p id="barFeaturedText" className="absolute text-black font-nohemiSemiBold md:text-xl opacity-0">FEATURED</p>
             </div>
-            <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiLight text-md sm:text-xl" onClick={handleContactClick}>HIRE ME</p></span>
+            <div className="flex items-center gap-x-2">
+              <img src={animateAsteriskSvg} className="size-5 animate-spin" />
+              <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiSemiBold text-md sm:text-xl" onClick={handleContactClick}>HIRE ME</p></span>
+            </div>
           </div>
         </div>
       </div>

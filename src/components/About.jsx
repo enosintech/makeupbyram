@@ -1,14 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
+import { useLenis } from "@studio-freight/react-lenis";
 
-import ScrollPrompt from "./ScrollPrompt";
 
 import { aboutImage1, aboutImage2, aboutVideo, workedWithVideo } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 
 const About = () => {
-
+  const lenis = useLenis();
   const [ time, setTime ] = useState("3:37:43 PM");
 
   useEffect(() => {
@@ -18,6 +18,27 @@ const About = () => {
 
     return () => clearInterval(interval);
   })
+
+  const handleRunwayClick = () => {
+    lenis.scrollTo(".zeroTrigger", {
+      duration: 6,
+      offset: 10 / 100 *  window.innerHeight,
+    })
+  }
+
+  const handleExperimentalClick = () => {
+    lenis.scrollTo(".minusTrigger", {
+      duration: 6,
+      offset: 10 / 100 *  window.innerHeight,
+    })
+  }
+
+  const handlePortraitsClick = () => {
+    lenis.scrollTo(".oneTrigger", {
+      duration: 6,
+      offset: 10 / 100 *  window.innerHeight,
+    })
+  }
 
   useGSAP(() => {
     triggerToAnimations(".g_down", {
@@ -90,15 +111,15 @@ const About = () => {
                 <div className="flex flex-col text-center">
                   <p className="mb-5 text-xl font-nohemiExtraLight">SKIP TO WORK</p>
                   <div className="flex justify-center gap-4 md:gap-5">
-                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                     </span>
-                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                     </span>
-                    <span className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>  
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
                     </span>

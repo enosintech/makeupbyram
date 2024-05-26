@@ -22,7 +22,6 @@ const CursorComponent = () => {
             const { target } = e;
 
             const isTargetLinkOrBtn = target?.closest('a') || target?.closest('button') || target?.closest('.clickable') || target?.closest('.trick') || target?.closest(".hireButton");
-            const isTargetWorkSection = target?.closest(".cursorTrigger")
 
             noTriggerToAnimations(targets, {
                 duration: 0.7,
