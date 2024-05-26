@@ -7,6 +7,8 @@ import { pinAnimations, triggerFromAnimations, triggerToAnimations } from "../ut
 import WorkSectionComponent from "./WorkSectionComponent";
 import { creativeMakeup, shootMakeup } from "../constants";
 import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo } from "../lib";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Work = () => {
   
@@ -49,17 +51,27 @@ const Work = () => {
     })
 
     triggerToAnimations(".toZero", {
-      opacity: 0,
+      opacity: 1,
       ease: "power1",
       duration: 0.3,
     }, {
-      trigger: ".zeroTrigger",
+      trigger: ".minusTrigger",
       start: "top top",
       toggleActions: "play none none reverse",
     })
 
     triggerToAnimations(".toOne1", {
       opacity: 1,
+      ease: "power1",
+      duration: 0.3
+    }, {
+      trigger: ".zeroTrigger",
+      start: "top top",
+      toggleActions: "play none none reverse",
+    })
+
+    triggerToAnimations("#nowFade", {
+      opacity: 0,
       ease: "power1",
       duration: 0.3
     }, {
@@ -104,6 +116,26 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".twoTrigger",
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+    })
+
+    triggerToAnimations("#barWorkText", {
+      opacity: 0,
+      ease: "power1",
+      duration: 0.3
+    }, {
+      trigger: ".pinHigh",
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+    })
+
+    triggerToAnimations("#barFeaturedText", {
+      opacity: 1,
+      ease: "power1",
+      duration: 0.3
+    }, {
+      trigger: ".pinHigh",
       start: "top bottom",
       toggleActions: "play none none reverse",
     })
@@ -195,7 +227,10 @@ const Work = () => {
             </div> 
         <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
           <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
-            <p className="relative text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
+            <div className="relative flex items-center text-nowrap">
+              <p id="barWorkText" className="absolute text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
+              <p id="barFeaturedText" className="absolute text-black font-nohemiSemiBold md:text-xl opacity-0">FEATURED</p>
+            </div>
             <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiLight text-md sm:text-xl" onClick={handleContactClick}>HIRE ME</p></span>
           </div>
         </div>
@@ -206,11 +241,12 @@ const Work = () => {
             <source src={workVideoMain} type="video/mp4"/>
           </video>
           <p className="font-nohemiBold text-white text-9xl relative z-10">SELECTED <span className="font-nohemiThin">WORKS</span></p>
+          <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-10 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger">
+        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger cursorTrigger">
           <WorkSectionComponent {...creativeMakeup} />
         </div>
-        <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger">
+        <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <img className="w-full h-full object-cover object-top scale-[2] runwayImageScale" alt="runway photo1" src={runwayImage1} />
           </div>    
@@ -218,7 +254,7 @@ const Work = () => {
               <img className="w-full h-full object-cover object-center scale-[2] runwayImageScale" alt="runway photo2" src={runwayImage2} />
           </div> 
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative oneTrigger z-10">
+        <div className="w-full h-[160vh] min-h-[160vh] relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent {...shootMakeup} />
         </div>
       </div>

@@ -13,6 +13,7 @@ const CursorComponent = () => {
         }
 
         gsap.set(".cursor", {xPercent: -50, yPercent: -50})
+        gsap.set('.hireMeCursor', {xPercent: -50, yPercent: -50})
         
         let targets = gsap.utils.toArray(".cursor");
         
@@ -21,6 +22,7 @@ const CursorComponent = () => {
             const { target } = e;
 
             const isTargetLinkOrBtn = target?.closest('a') || target?.closest('button') || target?.closest('.clickable') || target?.closest('.trick') || target?.closest(".hireButton");
+            const isTargetWorkSection = target?.closest(".cursorTrigger")
 
             noTriggerToAnimations(targets, {
                 duration: 0.7,
