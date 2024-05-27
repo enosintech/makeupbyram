@@ -66,7 +66,7 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".zeroTrigger",
-      start: "top top",
+      start: "top bottom",
       toggleActions: "play none none reverse",
     })
 
@@ -76,7 +76,7 @@ const Work = () => {
       duration: 0.3
     }, {
       trigger: ".zeroTrigger",
-      start: "top top",
+      start: "top bottom",
       toggleActions: "play none none reverse",
     })
 
@@ -162,6 +162,7 @@ const Work = () => {
 
     triggerToAnimations(".moveDown", {
       y: 100,
+      opacity: 0.7,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -171,6 +172,7 @@ const Work = () => {
 
     triggerToAnimations(".moveDown2", {
       y: -20,
+      opacity: 1,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -180,6 +182,7 @@ const Work = () => {
 
     triggerToAnimations(".moveUp", {
       y: 300,
+      opacity: 0.5,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -189,6 +192,7 @@ const Work = () => {
 
     triggerToAnimations(".moveUp2", {
       y: 200,
+      opacity: 0.4,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -275,10 +279,10 @@ const Work = () => {
         <div className="w-full h-[100vh] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
-            <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:translate-y-10 font-nohemiBold text-center opacity-0 toLife">LIPS TO</p>
+            <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:translate-y-10 font-nohemiBold text-center opacity-0 toLife flex items-center gap-x-40"><span>LIPS</span><span>TO</span></p>
           </div>
           <div className="w-full h-1/2 absolute bottom-0 flex items-start justify-center">
-            <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:-translate-y-10 font-nohemiBold text-center opacity-0 toLife">DIE FOR</p>
+            <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:-translate-y-10 font-nohemiBold text-center opacity-0 toLife flex items-center gap-x-40"><span>DIE</span><span>FOR</span></p>
           </div>
         </div>
         <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
@@ -295,16 +299,16 @@ const Work = () => {
       <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
       <div className="w-full h-[100vh] relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-y-visible">
         <div className="w-[30%] h-full flex justify-end pr-20 z-10">
-          <img className="sm:w-[90%] w-full h-[55%] translate-y-72  text-white flex flex-col items-center moveDown2 object-cover object-center" alt="lips" src={lipsMain1} />
+          <img className="sm:w-[90%] w-full h-[55%] translate-y-72 flex flex-col items-center moveDown2 rounded-[10px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={lipsMain3} />
         </div>
         <div className="w-[25%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown object-center bg-white" alt="lips 1" src=""/>
+          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown rounded-[10px] object-center opacity-35 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 1" src={lipsMain3}/>
         </div>
         <div className="w-[20%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[40%] translate-y-32 object-cover moveUp" alt="lips 2" src={lipsMain3}/>
+          <img className="w-[80%] h-[40%] translate-y-32 object-cover moveUp rounded-[10px] opacity-70 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 2" src={lipsMain1}/>
         </div>
         <div className="w-[25%] h-full flex items-end justify-start z-10">
-          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2" alt="lips 3" src={lipsMain4}/>
+          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2 rounded-[10px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={lipsMain1}/>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@ import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 
-
 import { aboutImage1, aboutImage2, aboutVideo, workedWithVideo } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
@@ -37,6 +36,13 @@ const About = () => {
     lenis.scrollTo(".oneTrigger", {
       duration: 6,
       offset: 10 / 100 *  window.innerHeight,
+    })
+  }
+
+  const handleContactClick = () => {
+    lenis.scrollTo(".contactTrigger", {
+      duration: 10,
+      offset: window.innerHeight,
     })
   }
 
@@ -75,6 +81,7 @@ const About = () => {
       <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
           <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
             <span className="absolute bottom-5 left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
+            <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-5 z-50 p-3 w-fit h-fit rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME</p></span>
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
               <div className="text-right absolute right-3 lg:right-6">
                 <p className="text-2xl lg:text-4xl xl:text-5xl w-[300px] font-nohemiThin">{time}</p>

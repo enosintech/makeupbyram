@@ -62,6 +62,10 @@ body {
     background-color: white;
 }
 
+.contactOverlay {
+    clip-path: circle(0%);
+}
+
 .cursor {
     user-select: none;
     pointer-events: none;

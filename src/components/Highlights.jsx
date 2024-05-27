@@ -37,7 +37,7 @@ const Highlights = () => {
         <div className="w-full h-[100vh] overflow-hidden highlightPin relative">
             <div className="absolute top-3 left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-10" />
-                <p className="font-nohemiExtraLight text-xl">SCROLL DOWN</p>
+                <p className="font-nohemiMedium text-xl">SCROLL DOWN</p>
             </div>
             <p className="font-nohemiSemiBold text-xl absolute top-5 right-5 z-10">WHAT I OFFER</p>
             <div className="md:w-[200vw] w-[400vw] md:min-w-[200vw] min-w-[400vw] h-full flex gap-x-1 py-1 moveLeft">
