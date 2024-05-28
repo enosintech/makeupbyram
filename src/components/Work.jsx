@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import gsap, { Back } from "gsap";
+import gsap from "gsap";
 import Lottie from "lottie-react";
 import { useLenis } from "@studio-freight/react-lenis";
 
@@ -233,7 +233,7 @@ const Work = () => {
   return (
     <section className='w-full h-[820vh] relative z-30 flex flex-col'>
       <div className="w-full h-[100vh] absolute top-0 left-0">
-        <div className="pinText absolute top-5 text-white pt-5 left-5 w-fit text-nowrap h-fit flex items-center text-3xl md:text-5xl opacity-0 z-20">
+        <div className="pinText absolute top-5 text-white pt-5 left-5 w-[700px] text-nowrap h-fit flex items-center text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
               <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
@@ -241,13 +241,13 @@ const Work = () => {
             </div> 
         <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
           <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
-            <div className="relative flex items-center text-nowrap">
+            <div className="relative flex items-center w-[400px] h-[70%] text-nowrap">
               <p id="barWorkText" className="absolute text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
               <p id="barFeaturedText" className="absolute text-black font-nohemiSemiBold md:text-xl opacity-0">FEATURED</p>
             </div>
             <div className="flex items-center gap-x-2">
               <img src={animateAsteriskSvg} className="size-5 animate-spin" />
-              <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiSemiBold text-md sm:text-xl" onClick={handleContactClick}>HIRE ME</p></span>
+              <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiSemiBold text-md sm:text-xl translate-y-[1px]" onClick={handleContactClick}>HIRE ME</p></span>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@ const Work = () => {
           <video className="absolute  w-full h-full top-0 left-0 object-cover" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
             <source src={workVideoMain} type="video/mp4"/>
           </video>
-          <p className="font-nohemiBold text-white text-9xl relative z-10">SELECTED <span className="font-nohemiThin">WORKS</span></p>
+          <p className="font-nohemiBold text-white text-9xl relative z-10">SELECTED <span className="font-nohemiExtraLight">WORKS</span></p>
           <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-10 z-10" color="white" size="xl"/>
         </div>
         <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger cursorTrigger">

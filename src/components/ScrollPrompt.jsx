@@ -14,9 +14,15 @@ const ScrollPrompt = (props) => {
   }
 
   return (
-    <Lottie animationData={scrollDown} loop={true} className={`size-20 sm:size-28 xl:size-40 absolute bottom-8 sm:bottom-5 md:bottom-2 left-0 ${props.id === "noclick" ? "" : "cursor-pointer clickable"}`} style={{
-        transform: `rotate(${props.rotate}deg)`
-    }} onClick={handleClick}/>
+    <div className={`flex flex-col text-center absolute ${props.bottom ? "md:bottom-5 bottom-10 left-4 md:left-0" : "bottom-8 sm:bottom-5 md:bottom-2 left-0"}`}>
+      <Lottie animationData={scrollDown} loop={true} className={`size-20 sm:size-28 xl:size-40 ${props.id === "noclick" ? "" : "clickable"}`} style={{
+          transform: `rotate(${props.rotate}deg)`
+      }} onClick={handleClick}/>
+      {
+        props.bottom &&
+          <p className="font-nohemiMedium tracking-tight text-white text-[14px]">BACK TO TOP</p>
+      }
+    </div>
   )
 }
 

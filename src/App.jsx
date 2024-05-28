@@ -8,10 +8,24 @@ import Highlights from "./components/Highlights";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
+import { useLenis } from "@studio-freight/react-lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
+
+  const lenis = useLenis();
+
+  lenis?.stop();
+
+  setTimeout(() => {
+      lenis?.start()
+  }, 6500)
+
+  window.addEventListener("beforeunload", () => {
+    lenis?.scrollTo(0, {immediate: true, force: true})
+  })
+
   return (
     <>
       <CursorComponent />

@@ -3,7 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 export const noTriggerFromAnimations = (target, animationProps) => {
     gsap.from(target, {
-        ...animationProps
+        ...animationProps,
     })
 }
 

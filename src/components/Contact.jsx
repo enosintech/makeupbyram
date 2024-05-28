@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap, { Back } from "gsap";
+import { useLenis } from "@studio-freight/react-lenis";
 
-import { heroVideo } from "../lib";
+import { boldArrowImg, heroVideo } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 import Clock from "./Clock";
@@ -13,6 +14,8 @@ const Contact = () => {
     const contactOverlayRef = useRef(null);
     const overlayOpenRef = useRef(null);
     const overlayCloseRef = useRef(null);
+
+    const lenis = useLenis();
     
     const [ copied, setCopied ] = useState(false);
 
@@ -92,25 +95,29 @@ const Contact = () => {
         </div>
         <div className="w-full h-[100vh] lastPin flex items-center justify-center relative whiteScrubTrigger">
             <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100vh] bg-white fixed z-50 left-0 top-0">
-                <p ref={overlayCloseRef}>im still a work in progress. click me to close</p>
+                <p ref={overlayCloseRef} onClick={() => {
+                    lenis.start()
+                }}>im still a work in progress. click me to close</p>
             </div>
-            <ScrollPrompt rotate={180} target={".homescreen"}/>
+            <ScrollPrompt bottom={true} rotate={180} target={".homescreen"}/>
             <Clock />
-            <div className="w-[40%] h-full flex flex-col items-center justify-between py-40 md:py-10 contactTrigger">
+            <div className="w-[40%] h-full flex flex-col items-center justify-between pb-40 pt-14 md:py-10 contactTrigger">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="flex flex-col items-center text-white gap-5">
-                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full bg-purple-950 group hover:bg-white transition-all">
+                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full bg-purple-950 group hover:bg-white transition-all" onClick={() => {
+                        lenis.stop();
+                    }}>
                         <p className="font-nohemiSemiBold text-4xl md:text-5xl group-hover:text-black transition-all">Let's Talk</p>
                     </button>
                 </div>
                 <div className="flex flex-col gap-5 items-center text-white">
-                    <div className="border-2 border-white rounded-full w-fit h-fit flex items-center px-2">
+                    <div className="border-2 border-white rounded-full w-fit h-fit flex items-center px-2 pr-3">
                         <input readOnly={true} className="font-nohemiLight select-none outline-none w-[230px] py-2 bg-transparent" type="text" value="projects.ramsha@gmail.com"  id="emailInput" />
-                        <button disabled={copied} onClick={handleCopyText} className={`font-nohemiBlack h-full text-[14px] hover:text-purple-800 active:text-purple-950 ${copied ? "text-purple-950" : ""}`}><p>{copied ? "COPIED" : "COPY"}</p></button>
+                        <button disabled={copied} onClick={handleCopyText} className={`font-nohemiBlack h-full text-[14px] hover:text-purple-800 active:text-purple-950 translate-y-[1px] ${copied ? "text-purple-950" : ""}`}><p>{copied ? "COPIED" : "COPY"}</p></button>
                     </div>
                     <div className="flex justify-center item-center gap-4 font-nohemiSemiBold">
-                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all"><a href="https://www.instagram.com/makeupby.ram/" target="_blank">INSTAGRAM</a></p>
-                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all"><a href="" target="_blank">WHATSAPP</a></p>
+                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all flex items-center gap-x-2"><a href="https://www.instagram.com/makeupby.ram/" target="_blank" className="translate-y-[1px]">INSTAGRAM</a><img src={boldArrowImg} className="size-5 -rotate-45 invert"/></p>
+                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all flex items-center gap-x-2"><a href="" target="_blank" className="translate-y-[1px]">WHATSAPP</a><img src={boldArrowImg} className="size-5 -rotate-45 invert"/></p>
                     </div>
                 </div>
             </div>

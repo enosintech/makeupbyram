@@ -116,17 +116,17 @@ const About = () => {
             <div className="w-full h-1/2 flex items-center justify-center">
               <div className="flex flex-col-reverse justify-center gap- text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
                 <div className="flex flex-col text-center">
-                  <p className="mb-5 text-xl font-nohemiExtraLight">SKIP TO WORK</p>
+                  <p className="mb-5 text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
                   <div className="flex justify-center gap-4 md:gap-5">
-                    <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                     </span>
-                    <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                     </span>
-                    <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
                       <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>  
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
                     </span>
@@ -136,7 +136,7 @@ const About = () => {
             </div>
             <div className="w-full h-1/2 flex justify-end">
               <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
-                <p className="font-nohemiExtraLight text-lg md:text-xl tracking-tighter">WORKED WITH</p>
+                <p className="font-nohemiMedium text-lg md:text-xl tracking-tighter">WORKED WITH</p>
                 <div className="flex flex-col gap-1 items-end text-2xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
                   <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Roberto</span>Carvalli</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Makeup</span>Miracle</p>
