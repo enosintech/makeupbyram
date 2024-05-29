@@ -56,7 +56,8 @@ html, body {
 body {
     color: black;
     width: 100dvw;
-    overflow-y: hidden;
+    overflow-y: visible;
+    overflow-x: hidden;
     height: 100%;
     background-color: white;
 }
