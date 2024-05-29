@@ -56,14 +56,16 @@ html, body {
 body {
     color: black;
     width: 100dvw;
-    overflow-x: hidden;
+    overflow-y: hidden;
     height: 100%;
-    user-select: none;
     background-color: white;
 }
 
 .contactOverlay {
     clip-path: circle(0%);
+    backdrop-filter: blur(16px);
+    transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
 }
 
 .cursor {
@@ -82,7 +84,9 @@ input::selection {
 }
 
 section {
+    overflow-y: visible;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .stretch {

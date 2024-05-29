@@ -6,9 +6,12 @@ import { useLenis } from "@studio-freight/react-lenis";
 import { noTriggerToAnimations, pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
 import WorkSectionComponent from "./WorkSectionComponent";
 import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo, animateAsteriskSvg } from "../lib";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo, animateAsteriskSvg, portraitImage5, lipsToDieVideo } from "../lib";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+import testImg from "/assets/images/testImg.jpg";
+import testImg2 from "/assets/images/testImg2.jpg";
 
 const Work = () => {
   
@@ -192,7 +195,7 @@ const Work = () => {
 
     triggerToAnimations(".moveUp2", {
       y: 200,
-      opacity: 0.4,
+      opacity: 0.0,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -231,7 +234,7 @@ const Work = () => {
 
 
   return (
-    <section className='w-full h-[820vh] relative z-30 flex flex-col'>
+    <section className='w-full h-[820vh] relative z-30 flex flex-col overflow-x-visible'>
       <div className="w-full h-[100vh] absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-5 left-5 w-[700px] text-nowrap h-fit flex items-center text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
@@ -254,7 +257,7 @@ const Work = () => {
       </div>
       <div className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
         <div className="w-full h-[100vh] bg-black flex items-center justify-center relative">
-          <video className="absolute  w-full h-full top-0 left-0 object-cover" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
+          <video className="absolute  w-full h-full top-0 left-0 object-cover" preload="none" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
             <source src={workVideoMain} type="video/mp4"/>
           </video>
           <p className="font-nohemiBold text-white text-9xl relative z-10">SELECTED <span className="font-nohemiExtraLight">WORKS</span></p>
@@ -297,18 +300,20 @@ const Work = () => {
         </div>
       </div>
       <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
-      <div className="w-full h-[100vh] relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-y-visible">
+      <div className="w-full h-[100vh] relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div className="w-[30%] h-full flex justify-end pr-20 z-10">
-          <img className="sm:w-[90%] w-full h-[55%] translate-y-72 flex flex-col items-center moveDown2 rounded-[10px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={lipsMain3} />
+          <img className="sm:w-[90%] w-full h-[55%] translate-y-72 flex flex-col items-center moveDown2 rounded-[20px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={testImg} />
         </div>
         <div className="w-[25%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown rounded-[10px] object-center opacity-35 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 1" src={lipsMain3}/>
+          <img className="w-[80%] h-[55%] translate-y-56 object-cover moveDown rounded-[20px] object-center opacity-35 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 1" src={testImg2}/>
         </div>
         <div className="w-[20%] h-full flex justify-start z-10">
-          <img className="w-[80%] h-[40%] translate-y-32 object-cover moveUp rounded-[10px] opacity-70 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 2" src={lipsMain1}/>
+          <video preload="none" className="w-[80%] h-[40%] translate-y-32 object-cover moveUp rounded-[20px] opacity-70 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 2" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
+            <source src={lipsToDieVideo} type="video/mp4"/>
+          </video>
         </div>
-        <div className="w-[25%] h-full flex items-end justify-start z-10">
-          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2 rounded-[10px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={lipsMain1}/>
+        <div className="w-[25%] h-full flex items-end justify-start z-10 relative">
+          <img className="w-[75%] h-[58%] -translate-y-20 object-cover moveUp2 rounded-[20px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={portraitImage5}/>
         </div>
       </div>
     </section>

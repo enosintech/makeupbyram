@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap, { Back } from "gsap";
 import { useLenis } from "@studio-freight/react-lenis";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons"
 
 import { boldArrowImg, heroVideo } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
@@ -62,7 +64,7 @@ const Contact = () => {
         })
 
         triggerToAnimations("#aboutSlide", {
-            xPercent: -50,
+            xPercent: -25,
         }, {
             trigger: ".contactPin",
             start: "top top",
@@ -87,24 +89,46 @@ const Contact = () => {
 
   return (
     <section className="w-full h-[300vh] -mt-2 flex flex-col relative z-10">
-        <div className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[5] overflow-hidden">
-            <div id="aboutSlide" className="w-[200vw] h-full flex">
-                <div className="min-w-1/2 w-1/2 h-full bg-green-500"></div>
-                <div className="min-w-1/2 w-1/2 h-full bg-yellow-500"></div>
+        <div className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
+            <div id="aboutSlide" className="w-[150vw] h-full flex">
+                <div className="min-w-[100vw] w-[100vw] h-full bg-black"></div>
+                <div className="min-w-[50vw] w-[50vw] h-full bg-yellow-500"></div>
             </div>
         </div>
         <div className="w-full h-[100vh] lastPin flex items-center justify-center relative whiteScrubTrigger">
-            <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100vh] bg-white fixed z-50 left-0 top-0">
-                <p ref={overlayCloseRef} onClick={() => {
-                    lenis.start()
-                }}>im still a work in progress. click me to close</p>
+            <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100vh] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
+                <div className="bg-slate-100 rounded-[20px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <div ref={overlayCloseRef} className="clickable absolute top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center" onClick={() => {
+                        lenis?.start();
+                    }}>
+                        <FontAwesomeIcon icon={faX}/>
+                    </div>
+                    <div className="absolute top-7 left-5">
+                        <p className="font-nohemiMedium text-xl">GET IN TOUCH</p>
+                    </div>
+                    <div className="rounded-[20px] w-[95%] h-[80%] bg-white flex flex-col overflow-hidden px-5">
+                        <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
+                            <input type="text" className="w-full h-full flex items-center placeholder:text-gray-300 font-nohemiRegular outline-none text-xl" placeholder="Your Name"/>
+                        </div>
+                        <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
+                            <input type="email" className="w-full h-full flex items-center placeholder:text-gray-300 font-nohemiRegular outline-none text-xl" placeholder="Your Email"/>
+                        </div>
+                        <div className="w-full h-2/4 py-3">
+                            <textarea className="w-full h-full text-justify resize-none placeholder:text-gray-300 font-nohemiLight outline-none text-xl" placeholder="Your Message"/>
+                        </div>
+                    </div>
+                </div>
+                <button className="hover:opacity-70 active:opacity-50 transition-all font-nohemiBold text-2xl text-white py-3 px-5 flex items-center justify-center rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <p>SUBMIT</p>
+                </button>
             </div>
             <ScrollPrompt bottom={true} rotate={180} target={".homescreen"}/>
             <Clock />
             <div className="w-[40%] h-full flex flex-col items-center justify-between pb-40 pt-14 md:py-10 contactTrigger">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white relative z-[51]">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="flex flex-col items-center text-white gap-5">
                     <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full bg-purple-950 group hover:bg-white transition-all" onClick={() => {
+                        lenis.scrollTo("end", {immediate: true, force: true})
                         lenis.stop();
                     }}>
                         <p className="font-nohemiSemiBold text-4xl md:text-5xl group-hover:text-black transition-all">Let's Talk</p>
