@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const Clock = () => {
+const Clock = (props) => {
 
     const [ time, setTime ] = useState(0);
 
@@ -13,7 +13,7 @@ const Clock = () => {
     }, [])
 
   return (
-    <div className="absolute bottom-10 right-5 sm:right-7 lg:right-10 xl:right-14 flex flex-col items-end gap-3 text-white text-md sm:text-lg xl:text-xl">
+    <div className={`absolute ${props.bottom ? "bottom-6 md:bottom-5" : "bottom-10"} right-5 sm:right-7 lg:right-10 xl:right-14 flex flex-col items-end gap-3 text-white text-md sm:text-lg xl:text-xl`}>
         <p className="font-nohemiBold">LOCAL TIME</p>
         <p className="font-nohemiLight">{time} KUL</p>
     </div>

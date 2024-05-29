@@ -123,7 +123,7 @@ const Contact = () => {
                 </button>
             </div>
             <ScrollPrompt bottom={true} rotate={180} target={".homescreen"}/>
-            <Clock />
+            <Clock bottom={true}/>
             <div className="w-[40%] h-full flex flex-col items-center justify-between pb-40 pt-14 md:py-10 contactTrigger">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white relative z-[51]">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="flex flex-col items-center text-white gap-5 overflow-x-hidden">
