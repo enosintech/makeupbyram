@@ -51,14 +51,14 @@
 
 html, body {
     overscroll-behavior-x: none;
+    overflow-x: hidden;
 }
 
 body {
     color: black;
-    width: 100dvw;
-    overflow-y: visible;
-    overflow-x: hidden;
+    width: 100vw;
     height: 100%;
+    overflow-x: hidden;
     background-color: white;
 }
 
