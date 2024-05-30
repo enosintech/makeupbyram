@@ -87,8 +87,7 @@ const Contact = () => {
         })
 
         const imgs = gsap.utils.toArray(".aboutAnimVid");
-        const next = 2;
-        const fade = 0.6;
+        const fade = 0.8;
 
         gsap.set(imgs[0], {autoAlpha: 1})
 
@@ -99,7 +98,7 @@ const Contact = () => {
 
             imgs.push(imgs.shift())
 
-            gsap.delayedCall(next, crossFade);
+            gsap.delayedCall(2, crossFade);
         }
         
         gsap.delayedCall(0, crossFade);
@@ -110,20 +109,30 @@ const Contact = () => {
         <div className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
-                    <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                        <video key={aboutAdVideo4} className="w-full h-full object-cover absolute z-[1] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
-                            <source src={aboutAdVideo4} type="video/mp4" />
-                        </video>
-                        <video key={workVideoMain} className="w-full h-full object-cover absolute z-[2] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
-                            <source src={workVideoMain} type="video/mp4" />
-                        </video>
-                        <video key={aboutAdVideo} className="w-full h-full object-cover absolute z-[3] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
-                            <source src={aboutAdVideo} type="video/mp4"/>
-                        </video>
-                        <img className="w-full h-full object-cover absolute z-[4] aboutAnimVid" src={aboutAdImage} alt="about Image"/>
-                        <video key={aboutAdVideo2} className="w-full h-full object-cover absolute z-[5] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
-                            <source src={aboutAdVideo2} type="video/mp4" />
-                        </video>
+                    <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] bg-black lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                        <div className="w-full h-full absolute z-[2] aboutAnimVid overflow-hidden">
+                            <video key={aboutAdVideo4} className="w-full h-full object-cover" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                                <source src={aboutAdVideo4} type="video/mp4" />
+                            </video>
+                        </div>
+                        <div className="w-full h-full absolute z-[3] aboutAnimVid overflow-hidden">
+                            <video key={workVideoMain} className="w-full h-full object-cover" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                                <source src={workVideoMain} type="video/mp4" />
+                            </video>
+                        </div>
+                        <div className="w-full h-full absolute z-[4] aboutAnimVid overflow-hidden">
+                            <video key={aboutAdVideo} className="w-full h-full object-cover" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                                <source src={aboutAdVideo} type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div className="w-full h-full absolute z-[1] aboutAnimVid overflow-hidden">
+                            <img key={aboutAdImage} className="w-full h-full object-cover" src={aboutAdImage} alt="about Image"/>
+                        </div>
+                        <div className="w-full h-full absolute z-[5] aboutAnimVid overflow-hidden">
+                            <video key={aboutAdVideo2} className="w-full h-full object-cover" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                                <source src={aboutAdVideo2} type="video/mp4" />
+                            </video>
+                        </div>
                         <div className="flex flex-col absolute bottom-5 lg:bottom-10 left-5 lg:left-10 z-10 text-white">
                             <p className="lg:text-5xl sm:text-4xl text-3xl font-nohemiBold tracking-tight">RAM AT WORK</p>
                             <p className="font-nohemiLight tracking-tight">22' — Present</p>

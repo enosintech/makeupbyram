@@ -84,7 +84,7 @@ const About = () => {
             <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-2 sm:right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
               <div className="text-right absolute top-4 right-2 sm:right-3 lg:right-6">
-                <p className="text-4xl sm:text-4xl xl:text-5xl w-[300px] font-nohemiExtraLight">{time}</p>
+                <p className="text-4xl sm:text-4xl xl:text-5xl w-[300px] font-nohemiThin">{time}</p>
               </div>
             </div>
             <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
