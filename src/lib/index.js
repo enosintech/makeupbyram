@@ -32,12 +32,16 @@ import lips1 from "/assets/images/lips1.webp";
 import lips2 from "/assets/images/lips2.jpg";
 import lips3 from "/assets/images/lips3.webp";
 import lips4 from "/assets/images/lips4.webp";
+import aboutAdImg from "/assets/images/aboutAd.jpg";
 
 import herovideo from "/assets/videos/herovideo.mp4";
 import aboutvideo from "/assets/videos/aboutvideo.mp4";
 import workedWith from "/assets/videos/workedWith.mp4";
 import workVideo from "/assets/videos/workVideo.mp4";
 import lipsToDieVid from "/assets/videos/lipsToDieVid.mp4";
+import aboutAd from "/assets/videos/aboutAd.mp4";
+import aboutAd2 from "/assets/videos/aboutAd2.mp4";
+import aboutAd4 from "/assets/videos/aboutAd5.mp4";
 
 import lips from "../assets/animations/lips.json";
 import scroll from "../assets/animations/scroll.json";
@@ -77,12 +81,16 @@ export const lipsMain1 = lips1;
 export const lipsMain2 = lips2;
 export const lipsMain3 = lips3;
 export const lipsMain4 = lips4;
+export const aboutAdImage = aboutAdImg
 
 export const heroVideo = herovideo;
 export const aboutVideo = aboutvideo;
 export const workedWithVideo = workedWith;
 export const workVideoMain = workVideo;
 export const lipsToDieVideo = lipsToDieVid;
+export const aboutAdVideo = aboutAd;
+export const aboutAdVideo2 = aboutAd2;
+export const aboutAdVideo4 = aboutAd4;
 
 export const Lips = lips;
 export const scrollDown = scroll;

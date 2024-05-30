@@ -4,8 +4,9 @@ import gsap, { Back } from "gsap";
 import { useLenis } from "@studio-freight/react-lenis";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons"
+import Lottie from "lottie-react"
 
-import { boldArrowImg, heroVideo } from "../lib";
+import { aboutAdImage, aboutAdVideo, aboutAdVideo2, aboutAdVideo4, aboutRam, aboutRamScroll, boldArrowImg, heroVideo, workVideoMain } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 import Clock from "./Clock";
@@ -63,12 +64,12 @@ const Contact = () => {
             toggleActions: "play none none reverse"
         })
 
-        triggerToAnimations("#aboutSlide", {
-            xPercent: -25,
+        triggerToAnimations("#slideAboutMe", {
+            width: "100%",
         }, {
-            trigger: ".contactPin",
-            start: "top top",
-            end: "bottom top",
+            trigger: ".lastPin", 
+            start: "top bottom",
+            end: "top top",
             scrub: true,
         })
 
@@ -84,15 +85,65 @@ const Contact = () => {
         overlayCloseRef?.current.addEventListener("click", () => {
             tl.reverse(.3)
         })
+
+        const imgs = gsap.utils.toArray(".aboutAnimVid");
+        const next = 2;
+        const fade = 0.6;
+
+        gsap.set(imgs[0], {autoAlpha: 1})
+
+        const crossFade = () => {
+            gsap.timeline()
+            .to(imgs[0], {autoAlpha: 0, duration: fade})
+            .to(imgs[1], {autoAlpha: 1, duration: fade}, 0)
+
+            imgs.push(imgs.shift())
+
+            gsap.delayedCall(next, crossFade);
+        }
         
+        gsap.delayedCall(0, crossFade);
     }, [])
 
   return (
     <section className="w-full h-[300vh] -mt-2 flex flex-col relative z-10">
         <div className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
-            <div id="aboutSlide" className="w-[150vw] h-full flex">
-                <div className="min-w-[100vw] w-[100vw] h-full bg-black"></div>
-                <div className="min-w-[50vw] w-[50vw] h-full bg-yellow-500"></div>
+            <div className="w-[100vw] h-full flex lg:flex-row flex-col">
+                <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
+                    <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                        <video key={aboutAdVideo4} className="w-full h-full object-cover absolute z-[1] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                            <source src={aboutAdVideo4} type="video/mp4" />
+                        </video>
+                        <video key={workVideoMain} className="w-full h-full object-cover absolute z-[2] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                            <source src={workVideoMain} type="video/mp4" />
+                        </video>
+                        <video key={aboutAdVideo} className="w-full h-full object-cover absolute z-[3] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                            <source src={aboutAdVideo} type="video/mp4"/>
+                        </video>
+                        <img className="w-full h-full object-cover absolute z-[4] aboutAnimVid" src={aboutAdImage} alt="about Image"/>
+                        <video key={aboutAdVideo2} className="w-full h-full object-cover bg-yellow-500 absolute z-[5] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                            <source src={aboutAdVideo2} type="video/mp4" />
+                        </video>
+                        <p className="lg:text-5xl sm:text-4xl text-3xl absolute bottom-5 lg:bottom-10 left-5 lg:left-10 z-10 text-white font-nohemiBold tracking-tight">RAM WORKING</p>
+                    </div>
+                </div>
+                <div className="lg:w-[40%] w-full lg:h-full h-[60%] flex flex-col relative">
+                    <div className="w-full h-[15%] flex items-center justify-end">
+                        <div className="w-fit h-fit relative text-white p-3 flex items-center lg:translate-y-0 translate-y-20">
+                            <div id="slideAboutMe" className="absolute w-0 h-full bg-purple-950 right-0"></div>
+                            <p className="lg:text-6xl md:text-5xl sm:text-4xl text-4xl font-nohemiSemiBold relative z-10 lg:translate-y-1">ABOUT ME</p>
+                        </div>
+                    </div>
+                    <div className="w-full h-[85%] flex lg:flex-col flex-row">
+                        <div className="lg:w-full w-1/2 lg:h-[55%] h-full hidden md:flex items-center justify-center">
+                            <img src={aboutRam} className="2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[60%] sm:w-[70%] w-[80%] h-[60%] sm:h-[75%] md:h-[80%] lg:h-[85%] object-cover bg-white rounded-[30px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"/>
+                        </div>
+                        <div className="lg:w-full md:w-1/2 lg:h-[45%] w-full h-full flex lg:items-start items-center justify-center px-20 sm:px-36 md:px-14 xl:px-32 lg:pt-5">
+                            <p className="2xl:text-3xl text-2xl text-justify font-nohemiMedium text-white">My name is Ramsha. <span className="text-neutral-500">I make things up I make things up I make things up I make things up. Makeup Artist.</span></p>
+                        </div>
+                    </div>
+                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-32 absolute right-7 bottom-5"/>
+                </div>
             </div>
         </div>
         <div className="w-full h-[100vh] lastPin flex items-center justify-center relative whiteScrubTrigger">
@@ -104,7 +155,7 @@ const Contact = () => {
                         <FontAwesomeIcon icon={faX}/>
                     </div>
                     <div className="absolute top-5 sm:top-7 left-5">
-                        <p className="font-nohemiMedium text-xl">GET IN TOUCH</p>
+                        <p className="font-nohemiBold text-xl">GET IN TOUCH</p>
                     </div>
                     <div className="rounded-[20px] w-[95%] h-[80%] bg-white flex flex-col overflow-hidden px-5">
                         <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
@@ -119,15 +170,16 @@ const Contact = () => {
                     </div>
                 </div>
                 <button className="hover:opacity-70 active:opacity-50 transition-all font-nohemiBold text-2xl text-white py-3 px-5 flex items-center justify-center rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <p>SUBMIT</p>
+                    <p>Reach Out</p>
                 </button>
+                <p className="absolute bottom-3 text-white font-nohemiRegular tracking-tight text-lg">© {new Date().getFullYear()} MAKEUPBYRAM</p>
             </div>
             <ScrollPrompt bottom={true} rotate={180} target={".homescreen"}/>
             <Clock bottom={true}/>
             <div className="w-[40%] h-full flex flex-col items-center justify-between pb-40 pt-14 md:py-10 contactTrigger">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white relative z-[51]">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
-                <div className="flex flex-col items-center text-white gap-5 overflow-x-hidden">
-                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full bg-purple-950 group hover:bg-white transition-all" onClick={() => {
+                <div className="text-white overflow-x-hidden rounded-full">
+                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full overflow-hidden bg-purple-950 group hover:bg-white transition-all shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" onClick={() => {
                         lenis.scrollTo("end", {immediate: true, force: true})
                         lenis.stop();
                     }}>
