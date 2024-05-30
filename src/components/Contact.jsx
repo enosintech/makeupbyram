@@ -209,7 +209,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <video key={heroVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
+            <video key={heroVideo} className="w-full h-full object-cover absolute z-[-1]" preload="none" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
                 <source src={heroVideo} type="video/mp4"/>
             </video>
         </div>

@@ -116,7 +116,7 @@ const About = () => {
             <div className="w-full h-1/2 flex items-center justify-center">
               <div className="flex flex-col-reverse  justify-center text-2xl md:text-3xl lg:text-4xl xl:text-[5xl]">
                 <div className="flex flex-col text-center items-center">
-                  <p className="mb-5 sm:text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
+                  <p className="mb-5 text-[16px] sm:text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
                   <div className="flex justify-center w-[90vw] gap-4 md:gap-5 flex-wrap">
                     <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
                       <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>
