@@ -80,10 +80,10 @@ const About = () => {
     <>
       <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
           <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
-            <span className="absolute bottom-5 left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
-            <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
+            <span className="absolute bottom-5 left-2 sm:left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
+            <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-2 sm:right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
-              <div className="text-right absolute top-4 right-3 lg:right-6">
+              <div className="text-right absolute top-4 right-2 sm:right-3 lg:right-6">
                 <p className="text-4xl sm:text-4xl xl:text-5xl w-[300px] font-nohemiExtraLight">{time}</p>
               </div>
             </div>
@@ -135,7 +135,7 @@ const About = () => {
               </div>
             </div>
             <div className="w-full h-1/2 flex justify-end">
-              <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
+              <div className="w-1/2 h-full flex flex-col items-end justify-end pb-5 pr-3 md:pr-6 lg:pr-10">
                 <p className="font-nohemiMedium sm:text-lg md:text-xl tracking-tighter">WORKED WITH</p>
                 <div className="flex flex-col gap-0 sm:gap-1 items-end text-3xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
                   <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Roberto</span>Carvalli</p>

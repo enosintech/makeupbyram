@@ -236,7 +236,7 @@ const Work = () => {
   return (
     <section className='w-full h-[850vh] relative z-30 flex flex-col overflow-x-visible'>
       <div className="w-full h-[100vh] absolute top-0 left-0">
-        <div className="pinText absolute top-5 text-white pt-5 left-5 w-[700px] text-nowrap h-fit flex items-center text-3xl md:text-5xl opacity-0 z-20">
+        <div className="pinText absolute top-5 text-white pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
               <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>

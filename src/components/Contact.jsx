@@ -121,11 +121,11 @@ const Contact = () => {
                             <source src={aboutAdVideo} type="video/mp4"/>
                         </video>
                         <img className="w-full h-full object-cover absolute z-[4] aboutAnimVid" src={aboutAdImage} alt="about Image"/>
-                        <video key={aboutAdVideo2} className="w-full h-full object-cover bg-yellow-500 absolute z-[5] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
+                        <video key={aboutAdVideo2} className="w-full h-full object-cover absolute z-[5] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
                             <source src={aboutAdVideo2} type="video/mp4" />
                         </video>
                         <div className="flex flex-col absolute bottom-5 lg:bottom-10 left-5 lg:left-10 z-10 text-white">
-                            <p className="lg:text-5xl sm:text-4xl text-3xl font-nohemiBold tracking-tight">RAM WORKING</p>
+                            <p className="lg:text-5xl sm:text-4xl text-3xl font-nohemiBold tracking-tight">RAM AT WORK</p>
                             <p className="font-nohemiLight tracking-tight">22' — Present</p>
                         </div>
                     </div>
@@ -142,10 +142,10 @@ const Contact = () => {
                             <img src={aboutRam} className="2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[50%] sm:w-[70%] w-[80%] h-[60%] sm:h-[75%] md:h-[65%] lg:h-[85%] object-cover bg-white rounded-[30px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"/>
                         </div>
                         <div className="lg:w-full md:w-1/2 lg:h-[45%] w-full h-full flex lg:items-start items-center justify-center px-20 sm:px-36 md:px-14 xl:px-32 lg:pt-5">
-                            <p className="2xl:text-3xl sm:text-2xl text-lg text-center font-nohemiMedium text-white">My name is Ramsha. <span className="text-neutral-500">I make things up I make things up I make things up I make things up. Makeup Artist.</span></p>
+                            <p className="2xl:text-3xl sm:text-2xl text-lg text-justify tracking-tight font-regular text-white">My name is Ramsha. <span className="text-neutral-500">I am a makeup artist, so i make things up. I make things up really well. I make things up, makeup artist. yes. hehe. </span></p>
                         </div>
                     </div>
-                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-28 lg:size-32 absolute right-7 bottom-5"/>
+                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-28 lg:size-32 absolute sm:right-4 right-2 md:right-7 bottom-5"/>
                 </div>
             </div>
         </div>

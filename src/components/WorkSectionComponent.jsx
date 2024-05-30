@@ -27,7 +27,7 @@ const WorkSectionComponent = (props) => {
     }, [])
     
   return (
-    <div className="w-full h-full grid grid-rows-2 grid-cols-3 gap-1">
+    <div className="w-full h-full grid grid-rows-3 lg:grid-rows-2 grid-cols-2 lg:grid-cols-3 gap-1">
         <div className="overflow-hidden">
             <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image1} />
         </div>

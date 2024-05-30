@@ -35,8 +35,8 @@ const Hero = () => {
                 <source src={heroVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-full pt-[60px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
-                <div id="loadAppear" className="w-full h-full pl-6 pt-0">
-                    <p className="text-white sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP STUDIO BASED IN KUALA LUMPUR</p>
+                <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0">
+                    <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP STUDIO BASED IN KUALA LUMPUR</p>
                     <ScrollPrompt id={"noclick"}/>
                     <Clock />
                 </div>
