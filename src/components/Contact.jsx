@@ -110,7 +110,7 @@ const Contact = () => {
         <div className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
-                    <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                         <video key={aboutAdVideo4} className="w-full h-full object-cover absolute z-[1] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
                             <source src={aboutAdVideo4} type="video/mp4" />
                         </video>
@@ -124,7 +124,10 @@ const Contact = () => {
                         <video key={aboutAdVideo2} className="w-full h-full object-cover bg-yellow-500 absolute z-[5] aboutAnimVid" autoPlay={true} loop={true} controls={false} muted={true} playsInline={true}>
                             <source src={aboutAdVideo2} type="video/mp4" />
                         </video>
-                        <p className="lg:text-5xl sm:text-4xl text-3xl absolute bottom-5 lg:bottom-10 left-5 lg:left-10 z-10 text-white font-nohemiBold tracking-tight">RAM WORKING</p>
+                        <div className="flex flex-col absolute bottom-5 lg:bottom-10 left-5 lg:left-10 z-10 text-white">
+                            <p className="lg:text-5xl sm:text-4xl text-3xl font-nohemiBold tracking-tight">RAM WORKING</p>
+                            <p className="font-nohemiLight tracking-tight">22' — Present</p>
+                        </div>
                     </div>
                 </div>
                 <div className="lg:w-[40%] w-full lg:h-full h-[60%] flex flex-col relative">
@@ -136,13 +139,13 @@ const Contact = () => {
                     </div>
                     <div className="w-full h-[85%] flex lg:flex-col flex-row">
                         <div className="lg:w-full w-1/2 lg:h-[55%] h-full hidden md:flex items-center justify-center">
-                            <img src={aboutRam} className="2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[60%] sm:w-[70%] w-[80%] h-[60%] sm:h-[75%] md:h-[80%] lg:h-[85%] object-cover bg-white rounded-[30px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"/>
+                            <img src={aboutRam} className="2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[50%] sm:w-[70%] w-[80%] h-[60%] sm:h-[75%] md:h-[65%] lg:h-[85%] object-cover bg-white rounded-[30px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"/>
                         </div>
                         <div className="lg:w-full md:w-1/2 lg:h-[45%] w-full h-full flex lg:items-start items-center justify-center px-20 sm:px-36 md:px-14 xl:px-32 lg:pt-5">
-                            <p className="2xl:text-3xl text-2xl text-justify font-nohemiMedium text-white">My name is Ramsha. <span className="text-neutral-500">I make things up I make things up I make things up I make things up. Makeup Artist.</span></p>
+                            <p className="2xl:text-3xl sm:text-2xl text-lg text-center font-nohemiMedium text-white">My name is Ramsha. <span className="text-neutral-500">I make things up I make things up I make things up I make things up. Makeup Artist.</span></p>
                         </div>
                     </div>
-                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-32 absolute right-7 bottom-5"/>
+                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-28 lg:size-32 absolute right-7 bottom-5"/>
                 </div>
             </div>
         </div>

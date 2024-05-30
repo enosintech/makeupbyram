@@ -244,7 +244,7 @@ const Work = () => {
             </div> 
         <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
           <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
-            <div className="relative flex items-center w-[350px] h-[70%] text-nowrap">
+            <div className="relative flex items-center w-[320px] h-[70%] text-nowrap">
               <p id="barWorkText" className="absolute text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
               <p id="barFeaturedText" className="absolute text-black font-nohemiSemiBold md:text-xl opacity-0">FEATURED</p>
             </div>
@@ -261,7 +261,7 @@ const Work = () => {
             <source src={workVideoMain} type="video/mp4"/>
           </video>
           <div className="flex flex-col text-right text-white  relative z-10">
-            <p className="font-nohemiBold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">SELECTED <span className="font-nohemiRegular">WORKS</span></p>
+            <p className="font-nohemiBold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Selected <span className="font-nohemiRegular">Works</span></p>
             <p className="font-nohemiExtraLight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">22' — Present</p>
           </div>
           <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-10 z-10" color="white" size="xl"/>
@@ -305,10 +305,10 @@ const Work = () => {
       <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
       <div className="w-full h-[130vh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div className="w-1/2 h-[100vh] flex justify-center z-10">
-          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[40px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={testImg} />
+          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={testImg} />
         </div>
         <div className="w-1/2 h-[100vh] flex items-end justify-center z-10 relative">
-          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 object-cover moveUp2 rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={portraitImage6}/>
+          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 object-cover moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={portraitImage6}/>
         </div>
       </div>
     </section>

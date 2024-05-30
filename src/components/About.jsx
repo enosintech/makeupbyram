@@ -41,8 +41,8 @@ const About = () => {
 
   const handleContactClick = () => {
     lenis.scrollTo(".contactTrigger", {
-      duration: 10,
       offset: window.innerHeight,
+      immediate: true
     })
   }
 
@@ -81,14 +81,14 @@ const About = () => {
       <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
           <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
             <span className="absolute bottom-5 left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
-            <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-5 z-50 p-3 w-fit h-fit rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME</p></span>
+            <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
             <div className="w-full h-[15%] absolute top-0 z-10 text-white flex items-center justify-between px-5">
-              <div className="text-right absolute right-3 lg:right-6">
-                <p className="text-2xl lg:text-4xl xl:text-5xl w-[300px] font-nohemiThin">{time}</p>
+              <div className="text-right absolute top-4 right-3 lg:right-6">
+                <p className="text-4xl sm:text-4xl xl:text-5xl w-[300px] font-nohemiExtraLight">{time}</p>
               </div>
             </div>
             <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
-              <div className="lg:w-1/2 w-full lg:h-full h-1/2 flex flex-col justify-center gap-1">
+              <div className="lg:w-1/2 w-full lg:h-full h-[60%] flex flex-col justify-center gap-1">
                 <div className="w-full h-1/2 relative">
                   <div className="w-full h-full absolute bottom-0 right-0 enlarge flex justify-center gap-2">
                     <div className="w-full h-full overflow-hidden"><img className="w-full h-full object-cover object-center scale-[2] g_down" alt="aboutImage1" src={aboutImage1}/></div>
@@ -100,7 +100,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="lg:w-1/2 w-full lg:h-full  h-1/2 relative">
+              <div className="lg:w-1/2 w-full lg:h-full  h-[40%] relative">
                 <div className="lg:w-[99.5%] w-full h-full absolute bottom-0 left-0 enlarge2 overflow-hidden">
                   <video key={aboutVideo} className="w-full h-full object-cover" autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
                     <source src={aboutVideo} type="video/mp4"/>
@@ -114,20 +114,20 @@ const About = () => {
               <source src={workedWithVideo} type="video/mp4"/>
             </video>
             <div className="w-full h-1/2 flex items-center justify-center">
-              <div className="flex flex-col-reverse justify-center gap- text-[12px] sm:text-xl md:text-3xl lg:text-4xl xl:text-[5xl]">
-                <div className="flex flex-col text-center">
-                  <p className="mb-5 text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
-                  <div className="flex justify-center gap-4 md:gap-5">
-                    <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
+              <div className="flex flex-col-reverse  justify-center text-2xl md:text-3xl lg:text-4xl xl:text-[5xl]">
+                <div className="flex flex-col text-center items-center">
+                  <p className="mb-5 text-lg sm:text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
+                  <div className="flex justify-center w-[90vw] gap-4 md:gap-5 flex-wrap">
+                    <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
+                      <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                     </span>
-                    <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>
+                    <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
+                      <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                     </span>
-                    <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                      <span className="w-3 h-3 rounded-full bg-white group-hover:bg-black transition-all"/>  
+                    <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
+                      <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>  
                       <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
                     </span>
                   </div>
@@ -136,8 +136,8 @@ const About = () => {
             </div>
             <div className="w-full h-1/2 flex justify-end">
               <div className="w-1/2 h-full flex flex-col items-end justify-end pb-10 pr-3 md:pr-6 lg:pr-10">
-                <p className="font-nohemiMedium text-lg md:text-xl tracking-tighter">WORKED WITH</p>
-                <div className="flex flex-col gap-1 items-end text-2xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
+                <p className="font-nohemiMedium sm:text-lg md:text-xl tracking-tighter">WORKED WITH</p>
+                <div className="flex flex-col gap-0 sm:gap-1 items-end text-3xl sm:text-5xl md:text-6xl font-nohemiSemiBold">
                   <p className="mt-5 -translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Roberto</span>Carvalli</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Makeup</span>Miracle</p>
                   <p className="-translate-x-40 opacity-0 stackIn"><span className="font-nohemiExtraLight">Polydextrous</span>Studios</p>
