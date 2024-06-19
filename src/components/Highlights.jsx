@@ -1,4 +1,6 @@
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Lottie from "lottie-react";
 
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
@@ -7,8 +9,17 @@ import { highlightImage1, highlightImage2, highlightImage4, runwayImage2, scroll
 
 const Highlights = () => {
 
+    const highlight = useRef(null);
+
     useGSAP(() => {
-        pinAnimations(".highlightPin", "top" , "top", "bottom", "-100%");
+
+        ScrollTrigger.create({
+            trigger: highlight.current,
+            start: "top top",
+            end: () => "+=" + highlight.current.offsetHeight * 2,
+            pin: true,
+            invalidateOnRefresh: true
+        })
 
         triggerToAnimations(".moveLeft", {
             x: window.innerWidth < 768 ? "-75%" : "-50%",
@@ -34,7 +45,7 @@ const Highlights = () => {
 
   return (
     <section id="moveLeftTrigger" className="w-full h-[300vh] bg-white relative z-20 text-white">
-        <div className="w-full h-[100vh] overflow-hidden highlightPin relative">
+        <div ref={highlight} className="w-full h-[33.34%] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
                 <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>

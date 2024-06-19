@@ -31,6 +31,7 @@ const Hero = () => {
             start: "top top",
             end: () => "+=" + hero.current.offsetHeight,
             pin: true,
+            invalidateOnRefresh: true,
         }); 
 
         const tl = gsap.timeline({
@@ -62,8 +63,8 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full h-[100dvh] homescreen">
-        <div ref={hero} className="w-full h-[100dvh] heroPin flex items-center justify-center">
+    <section className="w-full h-[100vh] homescreen">
+        <div ref={hero} className="w-full h-[100%] heroPin flex items-center justify-center">
             <VideoBackground ref={videoRef}/>
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">

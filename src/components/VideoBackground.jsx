@@ -12,7 +12,7 @@ const VideoBackground = forwardRef(function VideoBack(props, ref){
           <img className="w-full h-full object-cover absolute top-0 left-0 z-[-1]" src={heroPlaceImg} alt="video placeholder image"/>
           <VidLoadingPrompt />
         </div>
-        <video preload="none" ref={ref} className="absolute top-0 left-0 z-[1] w-full h-full object-cover bg-red-500" loop={true} playsInline={true} muted={true}>
+        <video ref={ref} className="absolute top-0 left-0 z-[1] w-full h-full object-cover bg-red-500" loop={true} playsInline={true} muted={true}>
             <source src="" type='video/mp4' />
         </video>
     </div>
