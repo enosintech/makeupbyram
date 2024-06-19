@@ -38,6 +38,10 @@ import aboutVidPlace from '/assets/images/aboutVidPlaceholder.webp';
 import about1ImagePlace from '/assets/images/about1placeholder.webp';
 import about2ImagePlace from "/assets/images/about2placeholder.webp";
 import workedWithPlace from "/assets/images/workedWithPlaceholder.webp";
+import highlight1Place from "/assets/images/highlight1Placeholder.webp";
+import highlight2Place from "/assets/images/highlight2Placeholder.webp";
+import highlight3Place from "/assets/images/highlight4Placeholder.webp";
+import runway2Place from "/assets/images/runway2Placeholder.webp";
 
 import aboutvideo from "/assets/videos/aboutvideo.mp4";
 import workedWith from "/assets/videos/workedWith.mp4";
@@ -46,7 +50,7 @@ import lipsToDieVid from "/assets/videos/lipsToDieVid.mp4";
 import aboutAd from "/assets/videos/aboutAd.mp4";
 import aboutAd2 from "/assets/videos/aboutAd2.mp4";
 import aboutAd4 from "/assets/videos/aboutAd5.mp4";
-import heroVideo from "/assets/videos/workedWith.mp4";
+import heroVideo from "/assets/videos/heroVideo.mp4";
 
 import lips from "../assets/animations/lips.json";
 import scroll from "../assets/animations/scroll.json";
@@ -92,6 +96,10 @@ export const aboutVidPlaceImg = aboutVidPlace;
 export const about1ImagePlaceholder = about1ImagePlace;
 export const about2ImagePlaceholder = about2ImagePlace;
 export const workedWithPlaceholderImage = workedWithPlace;
+export const highlightPlaceholderImage1 = highlight1Place;
+export const highlightPlaceholderImage2 = highlight2Place;
+export const highlightPlaceholderImage3 = highlight3Place;
+export const runway2PlaceholderImage = runway2Place;
 
 export const aboutVideo = aboutvideo;
 export const workedWithVideo = workedWith;

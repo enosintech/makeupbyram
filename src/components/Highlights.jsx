@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { about1ImagePlaceholder, highlightImage1, highlightImage2, highlightImage4, runwayImage2, scrollDown } from "../lib";
+import { about1ImagePlaceholder, highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
 import { noTriggerToAnimations } from "../utils/animations";
 
 const Highlights = () => {
@@ -66,7 +66,7 @@ const Highlights = () => {
                             width={"100%"}
                             height={"100%"}
                             effect="blur"
-                            placeholderSrc={about1ImagePlaceholder}
+                            placeholderSrc={highlightPlaceholderImage1}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -83,7 +83,7 @@ const Highlights = () => {
                             width={"100%"}
                             height={"100%"}
                             effect="blur"
-                            placeholderSrc={about1ImagePlaceholder}
+                            placeholderSrc={highlightPlaceholderImage2}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -100,7 +100,7 @@ const Highlights = () => {
                             width={"100%"}
                             height={"100%"}
                             effect="blur"
-                            placeholderSrc={about1ImagePlaceholder}
+                            placeholderSrc={runway2PlaceholderImage}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -117,7 +117,7 @@ const Highlights = () => {
                             width={"100%"}
                             height={"100%"}
                             effect="blur"
-                            placeholderSrc={about1ImagePlaceholder}
+                            placeholderSrc={highlightPlaceholderImage3}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
