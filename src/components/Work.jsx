@@ -234,8 +234,8 @@ const Work = () => {
 
 
   return (
-    <section className='w-full h-[850vh] relative z-30 flex flex-col overflow-x-visible'>
-      <div className="w-full h-[100vh] absolute top-0 left-0">
+    <section className='w-full h-[850svh] relative z-30 flex flex-col overflow-x-visible'>
+      <div className="w-full h-[100svh] absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
@@ -256,7 +256,7 @@ const Work = () => {
         </div>
       </div>
       <div className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
-        <div className="w-full h-[100vh] bg-black flex items-center justify-center relative">
+        <div className="w-full h-[100svh] bg-black flex items-center justify-center relative">
           <video className="absolute  w-full h-full top-0 left-0 object-cover" preload="none" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
             <source src={workVideoMain} type="video/mp4"/>
           </video>
@@ -266,10 +266,10 @@ const Work = () => {
           </div>
           <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-10 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger cursorTrigger">
+        <div className="w-full h-[160svh] min-h-[160svh] relative minusTrigger cursorTrigger">
           <WorkSectionComponent {...creativeMakeup} />
         </div>
-        <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger cursorTrigger">
+        <div className="w-full h-[100svh] min-h-[100svh] relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <img className="w-full h-full object-cover object-top scale-[2] runwayImageScale" alt="runway photo1" src={runwayImage1} />
           </div>    
@@ -277,11 +277,11 @@ const Work = () => {
               <img className="w-full h-full object-cover object-center scale-[2] runwayImageScale" alt="runway photo2" src={runwayImage2} />
           </div> 
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative oneTrigger z-10 cursorTrigger">
+        <div className="w-full h-[160svh] min-h-[160svh] relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent {...shootMakeup} />
         </div>
       </div>
-      <div className="w-full h-[100vh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
+      <div className="w-full h-[100svh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -302,12 +302,12 @@ const Work = () => {
           <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredRight2} alt="changing image 2 Right"/>
         </div>
       </div>
-      <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
-      <div className="w-full h-[130vh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
-        <div className="w-1/2 h-[100vh] flex justify-center z-10">
+      <div className="w-full h-[100svh] growUpTrigger bg-black"></div>
+      <div className="w-full h-[130svh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+        <div className="w-1/2 h-[100svh] flex justify-center z-10">
           <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={testImg} />
         </div>
-        <div className="w-1/2 h-[100vh] flex items-end justify-center z-10 relative">
+        <div className="w-1/2 h-[100svh] flex items-end justify-center z-10 relative">
           <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 object-cover moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={portraitImage6}/>
         </div>
       </div>

@@ -44,7 +44,7 @@ const Highlights = () => {
     }, [])
 
   return (
-    <section id="moveLeftTrigger" className="w-full h-[300vh] bg-white relative z-20 text-white">
+    <section id="moveLeftTrigger" className="w-full h-[300svh] bg-white relative z-20 text-white">
         <div ref={highlight} className="w-full h-[33.34%] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />

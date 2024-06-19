@@ -63,7 +63,7 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full h-[100vh] homescreen">
+    <section className="w-full h-[100svh] homescreen">
         <div ref={hero} className="w-full h-[100%] heroPin flex items-center justify-center">
             <VideoBackground ref={videoRef}/>
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
