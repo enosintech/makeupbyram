@@ -108,8 +108,6 @@ const Contact = ({ scrollPosition }) => {
         gsap.delayedCall(0, crossFade);
     }, [])
 
-    console.log(formData)
-
   return (
     <section className="w-full h-[300vh] -mt-2 flex flex-col relative z-10">
         <div ref={contactPinRef} className="w-full h-[100vh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
