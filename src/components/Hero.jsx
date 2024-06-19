@@ -11,7 +11,6 @@ import VideoBackground from "./VideoBackground";
 const Hero = () => {
 
     const hero = useRef(null);
-    const videoRef = useRef(null);
 
     const [ animPlaying, setAnimPlaying ] = useState(true);
 
@@ -50,9 +49,6 @@ const Hero = () => {
             ease: "power2.Out",
             duration: 2,
             delay: 3,
-            onStart: () => {
-                videoRef.current.play();
-            },
         })
 
         tl.to("#loadAppear", {
@@ -63,9 +59,9 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full h-[100svh] homescreen">
+    <section className="w-full h-[100vh] homescreen">
         <div ref={hero} className="w-full h-[100%] heroPin flex items-center justify-center">
-            <VideoBackground ref={videoRef}/>
+            <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">
                     <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP STUDIO BASED IN KUALA LUMPUR</p>

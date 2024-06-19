@@ -1,21 +1,27 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import Lottie from "lottie-react";
 import { useLenis } from "@studio-freight/react-lenis";
-
-import { noTriggerToAnimations, pinAnimations, triggerFromAnimations, triggerToAnimations } from "../utils/animations";
-import WorkSectionComponent from "./WorkSectionComponent";
-import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, lipsMain2, lipsMain3, lipsMain4, workVideoMain, aboutVideo, animateAsteriskSvg, portraitImage5, lipsToDieVideo, portraitImage6 } from "../lib";
+import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import Lottie from "lottie-react";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import testImg from "/assets/images/testImg.jpg";
-import testImg2 from "/assets/images/testImg2.jpg";
+import { noTriggerToAnimations, pinAnimations, triggerToAnimations } from "../utils/animations";
+import { creativeMakeup, shootMakeup } from "../constants";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, workVideoMain, animateAsteriskSvg, portraitImage6, selectedWorksPlaceholderImage, highlightPlaceholderImage1, runway2PlaceholderImage, runway1PlaceholderImage, lipsMain2, featuredMainPlaceholder1Img, featuredMainPlaceholder2Img, featuredLeftPlaceholder2Img, featuredLeftPlaceholder1Img, featuredRightPlaceholder1Img, featuredRightPlaceholder2Img, lips1PlaceholderImg, lips2PlaceholderImg } from "../lib";
 
-const Work = () => {
+import WorkSectionComponent from "./WorkSectionComponent";
+import VidLoadingPrompt from "./VidLoadingPrompt";
+
+const Work = ({ scrollPosition }) => {
   
   const lenis = useLenis();
+
+  const finalPinRef = useRef(null);
+  const pinHighRef = useRef(null);
 
   const handleContactClick = () => {
     lenis.scrollTo(".contactTrigger", {
@@ -163,29 +169,9 @@ const Work = () => {
       toggleActions: "play none none reverse",
     })
 
-    triggerToAnimations(".moveDown", {
-      y: 100,
-      opacity: 0.7,
-    }, {
-      trigger: ".parallaxTrigger",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 3.5
-    })
-
     triggerToAnimations(".moveDown2", {
       y: -20,
       opacity: 1,
-    }, {
-      trigger: ".parallaxTrigger",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 3.5
-    })
-
-    triggerToAnimations(".moveUp", {
-      y: 300,
-      opacity: 0.5,
     }, {
       trigger: ".parallaxTrigger",
       start: "top bottom",
@@ -212,17 +198,18 @@ const Work = () => {
       scrub: 2.5,
     })  
 
-    noTriggerToAnimations("#hireMeAnimate", {
-      width: 14,
-      height: 14,
+    noTriggerToAnimations("#workScrollPrompt", {
       opacity: 1,
-      duration: 0.3,
+      y: 0,
       yoyo: true,
       repeat: -1,
-      ease: "power1"
     })
 
-    pinAnimations(".pinHigh");
+    ScrollTrigger.create({
+      trigger: pinHighRef.current,
+      end: () => "+=" + pinHighRef.current.offsetHeight,
+      pin: true,
+    })
 
     pinAnimations(".pinTrigger", "top", "top", "bottom" , "bottom", ".pinText");
 
@@ -234,8 +221,8 @@ const Work = () => {
 
 
   return (
-    <section className='w-full h-[850svh] relative z-30 flex flex-col overflow-x-visible'>
-      <div className="w-full h-[100svh] absolute top-0 left-0">
+    <section className='w-full h-[850vh] relative z-30 flex flex-col overflow-x-visible'>
+      <div className="w-full h-[100vh] absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
@@ -255,33 +242,59 @@ const Work = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
-        <div className="w-full h-[100svh] bg-black flex items-center justify-center relative">
-          <video className="absolute  w-full h-full top-0 left-0 object-cover" preload="none" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
-            <source src={workVideoMain} type="video/mp4"/>
-          </video>
-          <div className="flex flex-col text-right text-white  relative z-10">
+      <div ref={finalPinRef} className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
+        <div className="w-full h-[100vh] flex items-center justify-center relative">
+          <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
+            <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
+            <VidLoadingPrompt />
+            <video className="absolute  w-full h-full top-0 left-0 object-cover" preload="none" key={workVideoMain} autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
+              <source src={workVideoMain} type="video/mp4"/>
+            </video>
+          </div>
+          <div className="flex flex-col text-right text-white relative z-10">
             <p className="font-nohemiBold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Selected <span className="font-nohemiRegular">Works</span></p>
             <p className="font-nohemiExtraLight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">22' — Present</p>
           </div>
-          <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-10 z-10" color="white" size="xl"/>
+          <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full h-[160svh] min-h-[160svh] relative minusTrigger cursorTrigger">
-          <WorkSectionComponent {...creativeMakeup} />
+        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger cursorTrigger">
+          <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
-        <div className="w-full h-[100svh] min-h-[100svh] relative flex gap-1 zeroTrigger cursorTrigger">
+        <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
-              <img className="w-full h-full object-cover object-top scale-[2] runwayImageScale" alt="runway photo1" src={runwayImage1} />
+              <div className="w-full h-full scale-[2] runwayImageScale">
+                <LazyLoadImage 
+                  src={runwayImage1}
+                  alt={"model on catwalk"}
+                  className="w-full h-full object-cover object-top"
+                  width={"100%"}
+                  height={"100%"}
+                  scrollPosition={scrollPosition}
+                  placeholderSrc={runway1PlaceholderImage}
+                  effect="blur"
+                />
+              </div>
           </div>    
           <div className="w-1/2 h-full overflow-hidden">
-              <img className="w-full h-full object-cover object-center scale-[2] runwayImageScale" alt="runway photo2" src={runwayImage2} />
+              <div className="w-full h-full scale-[2] runwayImageScale">
+                <LazyLoadImage 
+                  src={runwayImage2}
+                  alt={"model on catwalk"}
+                  className="w-full h-full object-cover object-top"
+                  width={"100%"}
+                  height={"100%"}
+                  scrollPosition={scrollPosition}
+                  placeholderSrc={runway2PlaceholderImage}
+                  effect="blur"
+                />
+              </div>
           </div> 
         </div>
-        <div className="w-full h-[160svh] min-h-[160svh] relative oneTrigger z-10 cursorTrigger">
-          <WorkSectionComponent {...shootMakeup} />
+        <div className="w-full h-[160vh] min-h-[160vh] relative oneTrigger z-10 cursorTrigger">
+          <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div className="w-full h-[100svh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
+      <div ref={pinHighRef} className="w-full h-[100vh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -292,23 +305,107 @@ const Work = () => {
           </div>
         </div>
         <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
-          <img className="w-full h-full object-cover" alt="main Shift" src={featuredMain1}/>
-          <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredLeft1} alt="changing image 1"/>
-          <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredLeft2} alt="changing image 2"/>
+          <LazyLoadImage 
+            src={featuredMain1}
+            alt="shifting image"
+            className="w-full h-full object-cover"
+            width={"100%"}
+            height={"100%"}
+            scrollPosition={scrollPosition}
+            placeholderSrc={featuredMainPlaceholder1Img}
+            effect="blur"
+          />
+          <div className="w-full h-full motiv absolute top-0 left-0">
+            <LazyLoadImage 
+              src={featuredLeft1}
+              alt="changing Image 1"
+              className="w-full h-full object-cover"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={featuredLeftPlaceholder1Img}
+              effect="blur"
+            />
+          </div>
+          <div className="w-full h-full motiv absolute top-0 left-0">
+            <LazyLoadImage 
+              src={featuredLeft2}
+              alt="changing Image 2"
+              className="w-full h-full object-cover"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={featuredLeftPlaceholder2Img}
+              effect="blur"
+            />
+          </div>
         </div>
         <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
-          <img className="w-full h-full object-cover" alt="mainsideshit" src={featuredMain2}/>
-          <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredRight1} alt="changing image 1 Right"/>
-          <img className="w-full h-full absolute top-0 left-0 motiv object-cover" src={featuredRight2} alt="changing image 2 Right"/>
+          <LazyLoadImage 
+            src={featuredMain2}
+            alt="shifting image right"
+            className="w-full h-full object-cover"
+            width={"100%"}
+            height={"100%"}
+            scrollPosition={scrollPosition}
+            placeholderSrc={featuredMainPlaceholder2Img}
+            effect="blur"
+          />
+          <div className="w-full h-full motiv absolute top-0 left-0">
+            <LazyLoadImage 
+              src={featuredRight1}
+              alt="changing Image 1 Right"
+              className="w-full h-full object-cover"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={featuredRightPlaceholder1Img}
+              effect="blur"
+            />
+          </div>
+          <div className="w-full h-full motiv absolute top-0 left-0">
+            <LazyLoadImage 
+              src={featuredRight2}
+              alt="changing Image 2 Right"
+              className="w-full h-full object-cover"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={featuredRightPlaceholder2Img}
+              effect="blur"
+            />
+          </div>
         </div>
       </div>
-      <div className="w-full h-[100svh] growUpTrigger bg-black"></div>
-      <div className="w-full h-[130svh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
-        <div className="w-1/2 h-[100svh] flex justify-center z-10">
-          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] object-cover object-center opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips" src={testImg} />
+      <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
+      <div className="w-full h-[130vh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+        <div className="w-1/2 h-[100vh] flex justify-center z-10">
+          <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+            <LazyLoadImage 
+              src={lipsMain1}
+              alt="lips to die for"
+              className="object-cover object-center w-full h-full"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={lips1PlaceholderImg}
+              effect="blur"
+            />
+          </div>
         </div>
-        <div className="w-1/2 h-[100svh] flex items-end justify-center z-10 relative">
-          <img className="md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 object-cover moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" alt="lips 3" src={portraitImage6}/>
+        <div className="w-1/2 h-[100vh] flex items-end justify-center z-10 relative">
+          <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+            <LazyLoadImage 
+              src={lipsMain2}
+              alt="lips to die for 2"
+              className="object-cover w-full h-full"
+              width={"100%"}
+              height={"100%"}
+              scrollPosition={scrollPosition}
+              placeholderSrc={lips2PlaceholderImg}
+              effect="blur"
+            />
+          </div>
         </div>
       </div>
     </section>

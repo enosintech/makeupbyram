@@ -13,7 +13,6 @@ const CursorComponent = () => {
         }
 
         gsap.set(".cursor", {xPercent: -50, yPercent: -50})
-        gsap.set('.hireMeCursor', {xPercent: -50, yPercent: -50})
         
         let targets = gsap.utils.toArray(".cursor");
         

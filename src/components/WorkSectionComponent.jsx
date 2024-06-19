@@ -1,4 +1,6 @@
 import { useGSAP } from "@gsap/react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { triggerToAnimations } from "../utils/animations";
 
@@ -28,25 +30,45 @@ const WorkSectionComponent = (props) => {
     
   return (
     <div className="w-full h-full grid grid-rows-3 lg:grid-rows-2 grid-cols-2 lg:grid-cols-3 gap-1">
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image1} />
-        </div>
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image2} />
-        </div>
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image3} />
-        </div>
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image4} />
-        </div>
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image5} />
-        </div>
-
-        <div className="overflow-hidden">
-            <img className={`object-cover object-center w-full h-full scale-[2] ${props.id === "creative" ? "creativeImageScale" : "portraitImageScale"}`} alt="work Image1" src={props.image6} />
-        </div>
+        {props.creativeMakeup ? 
+            props.creativeMakeup.map((items, i) => (
+                <div key={items.id} index={i} className="overflow-hidden">
+                    <div className="w-full h-full scale-[2] creativeImageScale">
+                        <LazyLoadImage 
+                            src={items.image}
+                            alt="creative makeup Image"
+                            className="w-full h-full object-cover object-center"
+                            width={"100%"}
+                            height={"100%"}
+                            scrollPosition={props.scrollPosition}
+                            placeholderSrc={items.placeholder}
+                            effect="blur"
+                        />
+                    </div>
+                </div>
+            ))
+        :
+        props.shootMakeup ? 
+            props.shootMakeup.map((items, i) => (
+                <div key={items.id} index={i} className="overflow-hidden">
+                    <div className="w-full h-full scale-[2] portraitImageScale">
+                        <LazyLoadImage 
+                            src={items.image}
+                            alt="creative makeup Image"
+                            className="w-full h-full object-cover object-center"
+                            width={"100%"}
+                            height={"100%"}
+                            scrollPosition={props.scrollPosition}
+                            placeholderSrc={items.placeholder}
+                            effect="blur"
+                        />
+                    </div>
+                </div>
+            ))
+        :
+                <div>CHECK</div>
+        }
+        
     </div>
   )
 }

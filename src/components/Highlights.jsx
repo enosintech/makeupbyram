@@ -5,10 +5,10 @@ import Lottie from "lottie-react";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { about1ImagePlaceholder, highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
+import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
 import { noTriggerToAnimations } from "../utils/animations";
 
-const Highlights = () => {
+const Highlights = ({ scrollPosition }) => {
 
     const highlight = useRef(null);
 
@@ -49,7 +49,7 @@ const Highlights = () => {
     }, [])
 
   return (
-    <section id="moveLeftTrigger" className="w-full h-[300svh] bg-white relative z-20 text-white">
+    <section className="w-full h-[300vh] bg-white relative z-20 text-white">
         <div ref={highlight} className="w-full h-[33.34%] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
@@ -67,6 +67,7 @@ const Highlights = () => {
                             height={"100%"}
                             effect="blur"
                             placeholderSrc={highlightPlaceholderImage1}
+                            scrollPosition={scrollPosition}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -84,6 +85,7 @@ const Highlights = () => {
                             height={"100%"}
                             effect="blur"
                             placeholderSrc={highlightPlaceholderImage2}
+                            scrollPosition={scrollPosition}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -101,6 +103,7 @@ const Highlights = () => {
                             height={"100%"}
                             effect="blur"
                             placeholderSrc={runway2PlaceholderImage}
+                            scrollPosition={scrollPosition}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
@@ -118,6 +121,7 @@ const Highlights = () => {
                             height={"100%"}
                             effect="blur"
                             placeholderSrc={highlightPlaceholderImage3}
+                            scrollPosition={scrollPosition}
                         />
                     </div>
                     <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
