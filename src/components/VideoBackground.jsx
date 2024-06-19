@@ -1,6 +1,8 @@
 import { forwardRef } from "react";
 
-import { heroPlaceImg, heroVideoMain } from "../lib";
+import { heroPlaceImg } from "../lib";
+
+import heroVideo from  "/assets/videos/heroVideo.mp4";
 
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
@@ -12,8 +14,8 @@ const VideoBackground =  (props, ref) => {
           <img className="w-full h-full object-cover absolute top-0 left-0 z-[-1]" src={heroPlaceImg} alt="video placeholder image"/>
           <VidLoadingPrompt />
         </div>
-        <video key={heroVideoMain} className="absolute top-0 left-0 z-[1] w-full h-full object-cover" loop={true} playsInline={true} muted={true}>
-            <source src={heroVideoMain} type='video/mp4' />
+        <video key={heroVideo} className="absolute top-0 left-0 z-[1] w-full h-full object-cover" loop={true} playsInline={true} muted={true}>
+            <source src={heroVideo} type='video/mp4' />
         </video>
     </div>
   )
