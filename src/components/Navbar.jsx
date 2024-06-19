@@ -6,14 +6,14 @@ const Navbar = () => {
 
   useGSAP(() => {
     noTriggerFromAnimations("#fromRight", {
-      x: "200%",
+      xPercent: 200,
       duration: 1,
       delay: 5,
       ease: "power2.inOut",
     })
 
     triggerToAnimations("#yieldLeft", {
-      x: "-150%"
+      xPercent: -150
     }, {
       trigger: "#aboutAnimateTrigger", 
       scrub :true,

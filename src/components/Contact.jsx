@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons"
 import Lottie from "lottie-react"
 
-import { aboutAdImage, aboutAdVideo, aboutAdVideo2, aboutAdVideo4, aboutRam, aboutRamScroll, boldArrowImg, heroVideo, workVideoMain } from "../lib";
+import { aboutAdImage, aboutAdVideo, aboutAdVideo2, aboutAdVideo4, aboutRam, aboutRamScroll, boldArrowImg, workVideoMain } from "../lib";
 import { pinAnimations, triggerToAnimations } from "../utils/animations";
 
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
+import VideoBackground from "./VideoBackground";
 
 const Contact = () => {
 
@@ -209,9 +210,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <video key={heroVideo} className="w-full h-full object-cover absolute z-[-1]" preload="none" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
-                <source src={heroVideo} type="video/mp4"/>
-            </video>
+            <VideoBackground />
         </div>
     </section>
   )

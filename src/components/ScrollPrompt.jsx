@@ -1,5 +1,5 @@
-import Lottie from "lottie-react";
 import { useLenis } from "@studio-freight/react-lenis";
+import Lottie from "lottie-react";
 
 import { scrollDown } from "../lib";
 

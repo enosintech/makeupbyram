@@ -1,12 +1,22 @@
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
+import { useRef } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { aboutImage1, aboutImage2, aboutVideo, workedWithVideo } from "../lib";
-import { pinAnimations, triggerToAnimations } from "../utils/animations";
+import { about1ImagePlaceholder, about2ImagePlaceholder, aboutImage1, aboutImage2, aboutVideo, aboutVidPlaceImg, workedWithPlaceholderImage, workedWithVideo } from "../lib";
+import { triggerToAnimations } from "../utils/animations";
+import VidLoadingPrompt from "./VidLoadingPrompt";
 
 
 const About = () => {
   const lenis = useLenis();
+
+  const aboutRef = useRef();
+  const aboutVidRef = useRef();
+  const workedWithRef = useRef();
+  const workedWithVideoRef = useRef(null);
 
   const handleRunwayClick = () => {
     lenis.scrollTo(".zeroTrigger", {
@@ -60,44 +70,95 @@ const About = () => {
       toggleActions: "play none none reverse",
     })
 
-    pinAnimations(".aboutPin");
+    ScrollTrigger.create({
+      trigger: aboutRef.current,
+      start: "top bottom",
+      onEnter: () => {
+        aboutVidRef.current.play();
+        workedWithVideoRef.current.play();
+      }
+    })
 
-    pinAnimations(".workedWithPin", "top", "top", "bottom", "-200%");
+    ScrollTrigger.create({
+      trigger: aboutRef.current,
+      start: "top top",
+      end: () => "+=" + aboutRef.current.offsetHeight,
+      pin: true,
+    }); 
+
+    ScrollTrigger.create({
+      trigger: workedWithRef.current,
+      start: "top top",
+      end: () => "+=" + workedWithRef.current.offsetHeight * 3,
+      pin: true,
+    }); 
 
   }, [])
 
   return (
     <>
-      <section id="aboutAnimateTrigger" className="w-full h-[400vh] flex flex-col">
-          <div className="w-full h-[100vh] relative bg-white flex flex-col py-1 aboutPin z-20">
+      <section id="aboutAnimateTrigger" className="w-full h-[400dvh] flex flex-col">
+          <div ref={aboutRef} className="w-full h-[100dvh] relative bg-white flex flex-col py-1 aboutPin z-20">
             <span className="absolute bottom-5 left-2 sm:left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
             <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-2 sm:right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
             <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
               <div className="lg:w-1/2 w-full lg:h-full h-[60%] flex flex-col justify-center gap-1">
                 <div className="w-full h-1/2 relative">
                   <div className="w-full h-full absolute bottom-0 right-0 enlarge flex justify-center gap-2">
-                    <div className="w-full h-full overflow-hidden"><img className="w-full h-full object-cover object-center scale-[2] g_down" alt="aboutImage1" src={aboutImage1}/></div>
+                    <div className="w-full h-full overflow-hidden">
+                      <div className="w-full h-full scale-[2] g_down bg-white">
+                        <LazyLoadImage 
+                          alt="about Image"
+                          src={aboutImage1}
+                          className="w-full h-full object-cover object-center"
+                          width={"100%"}
+                          height={"100%"}
+                          effect="blur"
+                          placeholderSrc={about1ImagePlaceholder}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full h-1/2 relative">
                   <div className="w-full h-full absolute bottom-0 right-0 enlarge overflow-hidden">
-                    <img className="w-full h-full object-cover scale-[2] g_down" alt="about Image 2" src={aboutImage2}/>
+                    <div className="w-full h-full scale-[2] g_down bg-white">
+                        <LazyLoadImage 
+                          alt="about Image"
+                          src={aboutImage2}
+                          className="w-full h-full object-cover object-center"
+                          width={"100%"}
+                          height={"100%"}
+                          effect="blur"
+                          placeholderSrc={about2ImagePlaceholder}
+                        />
+                      </div>
                   </div>
                 </div>
               </div>
               <div className="lg:w-1/2 w-full lg:h-full  h-[40%] relative">
                 <div className="lg:w-[99.5%] w-full h-full absolute bottom-0 left-0 enlarge2 overflow-hidden">
-                  <video key={aboutVideo} className="w-full h-full object-cover" autoPlay={true} loop={true} muted={true} controls={false} playsInline={true}>
+                  <div className="absolute top-0 left-0 w-full h-full z-[-1] grid place-items-center">
+                    <VidLoadingPrompt />
+                    <img className="absolute w-full h-full object-cover top-0 left-0 z-[-1]" src={aboutVidPlaceImg} alt="about video placeholder"/>
+                  </div>
+                  <video ref={aboutVidRef} preload="none" key={aboutVideo} className="w-full h-full object-cover" loop={true} muted={true} playsInline={true}>
                     <source src={aboutVideo} type="video/mp4"/>
                   </video>
                 </div>
               </div>
             </div>
           </div>
-          <div className="workedWithPin w-full h-[100vh] text-white relative z-10 flex flex-col items-center justify-center">
-            <video key={workedWithVideo} className="w-full h-full object-cover absolute z-[-1]" autoPlay={true} loop={true} muted={true} playsInline={true} controls={false}>
-              <source src={workedWithVideo} type="video/mp4"/>
-            </video>
+          <div ref={workedWithRef} className="workedWithPin w-full h-[100dvh] text-white relative z-10 flex flex-col items-center justify-center">
+            <div className="w-full h-full absolute z-[-1] grid place-items-center">
+              <div className="absolute top-0 left-0 w-full h-full z-[-1] grid place-items-center">
+                <VidLoadingPrompt />
+                <img className="absolute w-full h-full object-cover top-0 left-0 z-[-1]" src={workedWithPlaceholderImage} alt="worked with video placeholder"/>
+              </div>
+              <video ref={workedWithVideoRef} preload="none" key={workedWithVideo} className="w-full h-full object-cover absolute z-[1]" loop={true} muted={true} playsInline={true}>
+                <source src={workedWithVideo} type="video/mp4"/>
+              </video>
+            </div>
             <div className="w-full h-1/2 flex items-center justify-center">
               <div className="flex flex-col-reverse  justify-center text-2xl md:text-3xl lg:text-4xl xl:text-[5xl]">
                 <div className="flex flex-col text-center items-center">
