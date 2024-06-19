@@ -176,7 +176,7 @@ const Contact = ({ scrollPosition }) => {
                             <p className="text-[14px] text-justify tracking-tight font-light text-white">From comtemporary photoshoots to mainstream runway fashion projects, I am always looking for exciting opportunities to collaborate with artists of diverse disciplines and backgrounds. My arsenal is versatile and with it I am able to create a range of aesthetic looks that never compromise your vision.</p>
                         </div>
                     </div>
-                    <Lottie animationData={aboutRamScroll} className="size-24 md:size-28 lg:size-32 absolute sm:right-4 right-2 md:right-7 bottom-5"/>
+                    <Lottie animationData={aboutRamScroll} className="size-14 sm:size-24 md:size-28 lg:size-32 absolute sm:right-4 right-2 md:right-7 bottom-5"/>
                 </div>
             </div>
         </div>
