@@ -46,7 +46,6 @@ import lipsToDieVid from "/assets/videos/lipsToDieVid.mp4";
 import aboutAd from "/assets/videos/aboutAd.mp4";
 import aboutAd2 from "/assets/videos/aboutAd2.mp4";
 import aboutAd4 from "/assets/videos/aboutAd5.mp4";
-import heroVideo from "/assets/videos/heroVideo.mp4";
 
 import lips from "../assets/animations/lips.json";
 import scroll from "../assets/animations/scroll.json";
@@ -100,7 +99,6 @@ export const lipsToDieVideo = lipsToDieVid;
 export const aboutAdVideo = aboutAd;
 export const aboutAdVideo2 = aboutAd2;
 export const aboutAdVideo4 = aboutAd4;
-export const heroVid = heroVideo;
 
 export const Lips = lips;
 export const scrollDown = scroll;
