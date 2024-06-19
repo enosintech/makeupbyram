@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap, { Back } from "gsap";
-import { useLenis } from "@studio-freight/react-lenis";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons"
@@ -23,8 +22,6 @@ const Contact = ({ scrollPosition }) => {
     const overlayCloseRef = useRef(null);
     const lastPinRef = useRef(null);
     const contactPinRef = useRef(null);
-
-    const lenis = useLenis();
     
     const [ copied, setCopied ] = useState(false);
     const [ formData, setFormData ] = useState({
@@ -175,7 +172,7 @@ const Contact = ({ scrollPosition }) => {
                             </div>
                             <p className="absolute bottom-5 lg:-bottom-2 text-white font-black tracking-tight text-xl">Ramsha</p>
                         </div>
-                        <div className="lg:w-full md:w-1/2 lg:h-[45%] w-full h-full flex lg:items-start items-center justify-center px-20 sm:px-36 md:px-14 xl:px-32 lg:pt-5">
+                        <div className="lg:w-full md:w-1/2 lg:h-[45%] w-full h-full flex lg:items-start items-center justify-center px-10 sm:px-36 md:px-14 xl:px-32 lg:pt-5">
                             <p className="text-[14px] text-justify tracking-tight font-light text-white">From comtemporary photoshoots to mainstream runway fashion projects, I am always looking for exciting opportunities to collaborate with artists of diverse disciplines and backgrounds. My arsenal is versatile and with it I am able to create a range of aesthetic looks that never compromise your vision.</p>
                         </div>
                     </div>
@@ -186,13 +183,11 @@ const Contact = ({ scrollPosition }) => {
         <div ref={lastPinRef} className="w-full h-[100svh] lastPin flex items-center justify-center relative whiteScrubTrigger">
             <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100svh] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-100 rounded-[20px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center" onClick={() => {
-                        lenis?.start();
-                    }}>
+                    <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center">
                         <FontAwesomeIcon icon={faX}/>
                     </div>
                     <div className="absolute top-5 left-0 right-0 mx-auto w-fit">
-                        <p className="font-black tracking-tight text-3xl">GET IN TOUCH</p>
+                        <p className="font-black tracking-tight text-xl md:text-2xl lg:text-3xl">GET IN TOUCH</p>
                     </div>
                     <div className="rounded-[20px] w-[95%] h-[80%] bg-white flex flex-col overflow-hidden px-5">
                         <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
@@ -231,10 +226,7 @@ const Contact = ({ scrollPosition }) => {
             <div className="w-[40%] h-full flex flex-col items-center justify-between pb-40 pt-14 md:py-10 contactTrigger">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white relative z-[51]">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="text-white overflow-x-hidden rounded-full">
-                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full overflow-hidden bg-purple-950 group hover:bg-white transition-all shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" onClick={() => {
-                        lenis.scrollTo("end", {immediate: true, force: true})
-                        lenis.stop();
-                    }}>
+                    <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full overflow-hidden bg-purple-950 group hover:bg-white transition-all shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                         <p className="font-nohemiSemiBold text-4xl md:text-5xl group-hover:text-black transition-all">Let's Talk</p>
                     </button>
                 </div>
