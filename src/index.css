@@ -52,12 +52,12 @@
 html, body {
     overscroll-behavior-x: none;
     overflow-x: hidden;
+    min-height: 100svh;
 }
 
 body {
     color: black;
     width: 100vw;
-    height: 100svh;
     overflow-x: hidden;
     background-color: black;
 }
