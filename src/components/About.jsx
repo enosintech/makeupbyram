@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { about1ImagePlaceholder, about2ImagePlaceholder, aboutImage1, aboutImage2, aboutVideo, aboutVidPlaceImg, workedWithPlaceholderImage, workedWithVideo } from "../lib";
-import { triggerToAnimations } from "../utils/animations";
+import { noTriggerToAnimations, triggerToAnimations } from "../utils/animations";
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
 
@@ -68,6 +68,15 @@ const About = ({ scrollPosition }) => {
       trigger: ".workedWithPin",
       start: "bottom center",
       toggleActions: "play none none reverse",
+    })
+
+    noTriggerToAnimations(".bounce", {
+      width: window.innerWidth < 1024 ? 10 : 14,
+      height: window.innerWidth < 1024 ? 10 : 14,
+      ease: "power1.in",
+      repeat: -1,
+      yoyo: true,
+      duration: 0.5,
     })
 
     ScrollTrigger.create({
@@ -169,15 +178,15 @@ const About = ({ scrollPosition }) => {
                 <p className="mb-5 text-[16px] sm:text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
                 <div className="flex justify-center w-[90vw] gap-4 md:gap-5 flex-wrap">
                   <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>
+                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                   </span>
                   <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>
+                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                   </span>
                   <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all"/>  
+                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>  
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
                   </span>
                 </div>

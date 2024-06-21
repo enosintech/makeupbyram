@@ -50,15 +50,12 @@
 }
 
 html, body {
-    overscroll-behavior-x: none;
-    overflow-x: hidden;
+    height: 100%;
 }
 
 body {
     color: black;
     width: 100vw;
-    min-height: 100svh;
-    overflow-x: hidden;
     background-color: white;
 }
 
@@ -77,6 +74,11 @@ body {
 input::selection {
     color: none;
     background: none;
+}
+
+main {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 section {

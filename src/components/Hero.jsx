@@ -45,7 +45,7 @@ const Hero = () => {
         tl.from("#heroVid", {
             width: "40%",
             height: "40%",
-            borderRadius: 16,
+            borderRadius: 30,
             ease: "power2.Out",
             duration: 2,
             delay: 3,
@@ -64,7 +64,7 @@ const Hero = () => {
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">
-                    <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP STUDIO BASED IN KUALA LUMPUR</p>
+                    <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP ARTIST BASED IN KUALA LUMPUR</p>
                     <ScrollPrompt id={"noclick"}/>
                     <Clock />
                 </div>

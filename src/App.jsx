@@ -1,5 +1,6 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
+import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -13,12 +14,10 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll(true)
-ScrollTrigger.config({ignoreMobileResize: true})
-
 const App = ({ scrollPosition }) => {
 
   const lenis = useLenis(() => {
+    
     window.addEventListener("beforeunload", () => {
       lenis.scrollTo(0, {immediate: true, force: true})
       lenis.stop();
@@ -33,7 +32,7 @@ const App = ({ scrollPosition }) => {
   }, []);
 
   return (
-    <>
+    <main>
       <CursorComponent />
       <Navbar />
       <Hero />
@@ -41,7 +40,7 @@ const App = ({ scrollPosition }) => {
       <Highlights scrollPosition={scrollPosition}/>
       <Work scrollPosition={scrollPosition}/>
       <Contact scrollPosition={scrollPosition}/>
-    </>
+    </main>
   )
 }
 

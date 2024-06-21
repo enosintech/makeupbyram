@@ -236,8 +236,7 @@ const Contact = ({ scrollPosition }) => {
                         <button disabled={copied} onClick={handleCopyText} className={`font-nohemiBlack h-full text-[14px] hover:text-purple-800 active:text-purple-950 translate-y-[1px] ${copied ? "text-purple-950" : ""}`}><p>{copied ? "COPIED" : "COPY"}</p></button>
                     </div>
                     <div className="flex justify-center item-center gap-4 font-nohemiSemiBold">
-                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all flex items-center gap-x-2"><a href="https://www.instagram.com/makeupby.ram/" target="_blank" className="translate-y-[1px]">INSTAGRAM</a><img src={boldArrowImg} className="size-5 -rotate-45 invert"/></p>
-                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all flex items-center gap-x-2"><a href="" target="_blank" className="translate-y-[1px]">WHATSAPP</a><img src={boldArrowImg} className="size-5 -rotate-45 invert"/></p>
+                        <p className="hover:text-purple-800 active:text-purple-950 cursor-pointer select-none transition-all flex items-center gap-x-2"><a href="https://www.instagram.com/makeupby.ram/" target="_blank" className="translate-y-[1px]">INSTAGRAM</a><img src={boldArrowImg} className="size-4 -rotate-45 invert"/></p>
                     </div>
                 </div>
             </div>
