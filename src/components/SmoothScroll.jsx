@@ -5,7 +5,7 @@ import gsap from "gsap";
 const SmoothScroll = ({children}) => {
 
   return (
-    <ReactLenis root options={{ lerp: 0.05, duration: 1}}>
+    <ReactLenis root options={{ lerp: 0.1}}>
         {children}
     </ReactLenis>
   )
