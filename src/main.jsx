@@ -7,6 +7,8 @@ import SmoothScroll from "./components/SmoothScroll";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <SmoothScroll>
       <App />
+    </SmoothScroll>
   </React.StrictMode>,
 )

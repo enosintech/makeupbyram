@@ -32,7 +32,7 @@ const App = ({ scrollPosition }) => {
   }, []);
 
   return (
-    <main>
+    <div className="wrapperLenis">
       <CursorComponent />
       <Navbar />
       <Hero />
@@ -40,7 +40,7 @@ const App = ({ scrollPosition }) => {
       <Highlights scrollPosition={scrollPosition}/>
       <Work scrollPosition={scrollPosition}/>
       <Contact scrollPosition={scrollPosition}/>
-    </main>
+    </div>
   )
 }
 

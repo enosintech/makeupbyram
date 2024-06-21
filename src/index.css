@@ -42,6 +42,22 @@
     src: url(/assets/fonts/Nohemi-Thin.ttf);
 }
 
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -49,7 +65,7 @@
     cursor: none !important;
 }
 
-html, body {
+body, html {
     height: 100%;
 }
 
@@ -76,11 +92,6 @@ input::selection {
     background: none;
 }
 
-main {
-    height: 100%;
-    overflow-y: scroll;
-}
-
 section {
     overflow-y: visible;
     overflow-x: hidden;
@@ -100,6 +111,11 @@ section {
     text-indent: -9999em;
     animation: mulShdSpin 1.1s infinite ease;
     transform: translateZ(0);
+}
+
+.wrapperLenis {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 @keyframes mulShdSpin {
