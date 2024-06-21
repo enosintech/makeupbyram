@@ -28,6 +28,7 @@ const App = ({ scrollPosition }) => {
         lenis.stop();
       })
     }
+    
   }, []);
 
   return (
