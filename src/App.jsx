@@ -15,11 +15,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const App = ({ scrollPosition }) => {
+ScrollTrigger.config({ignoreMobileResize: true})
 
-  useGSAP(() => {
-    ScrollTrigger.config({ignoreMobileResize: true})
-  }, [])
+const App = ({ scrollPosition }) => {
 
   const lenis = useLenis(() => {
     
