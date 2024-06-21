@@ -72,6 +72,26 @@ body {
     pointer-events: none;
 }
 
+.heightbyfour {
+    height: 400vh;
+}
+
+.heightbythree {
+    height: 300vh;
+}
+
+.heightby850 {
+    height: 850vh;
+}
+
+.heightby160 {
+    height: 160vh;
+}
+
+.heightby130 {
+    height: 130vh;
+}
+
 input::selection {
     color: none;
     background: none;
@@ -80,7 +100,7 @@ input::selection {
 section {
     overflow-y: visible;
     overflow-x: hidden;
-    height: 100lvh;
+    height: 100vh;
 }
 
 .stretch {
@@ -96,6 +116,11 @@ section {
     text-indent: -9999em;
     animation: mulShdSpin 1.1s infinite ease;
     transform: translateZ(0);
+}
+
+.wrapperLenis {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 @keyframes mulShdSpin {
