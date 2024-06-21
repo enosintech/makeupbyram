@@ -59,8 +59,8 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full h-[100svh] homescreen">
-        <div ref={hero} className="w-full h-[100%] heroPin flex items-center justify-center">
+    <section className="w-full homescreen">
+        <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">

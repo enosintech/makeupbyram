@@ -106,8 +106,8 @@ const Contact = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section className="w-full h-[300svh] -mt-2 flex flex-col relative z-10">
-        <div ref={contactPinRef} className="w-full h-[100svh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
+    <section className="w-full h-[300lvh] -mt-2 flex flex-col relative z-10">
+        <div ref={contactPinRef} className="w-full h-[100lvh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
                     <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
@@ -180,8 +180,8 @@ const Contact = ({ scrollPosition }) => {
                 </div>
             </div>
         </div>
-        <div ref={lastPinRef} className="w-full h-[100svh] lastPin flex items-center justify-center relative whiteScrubTrigger">
-            <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100svh] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
+        <div ref={lastPinRef} className="w-full h-[100lvh] lastPin flex items-center justify-center relative whiteScrubTrigger">
+            <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100lvh] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-100 rounded-[20px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                     <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center">
                         <FontAwesomeIcon icon={faX}/>

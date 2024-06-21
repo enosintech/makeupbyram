@@ -1,6 +1,4 @@
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { useRef, useEffect} from "react";
-import gsap from "gsap";
 
 const SmoothScroll = ({children}) => {
 
