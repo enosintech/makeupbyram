@@ -11,10 +11,15 @@ import Highlights from "./components/Highlights";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = ({ scrollPosition }) => {
+
+  useGSAP(() => {
+    ScrollTrigger.config({ignoreMobileResize: true})
+  }, [])
 
   const lenis = useLenis(() => {
     
