@@ -57,6 +57,7 @@ body {
     color: black;
     width: 100vw;
     background-color: white;
+    overflow-x: hidden;
 }
 
 .contactOverlay {

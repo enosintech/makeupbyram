@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ignoreMobileResize: true})
 
 const App = ({ scrollPosition }) => {
 

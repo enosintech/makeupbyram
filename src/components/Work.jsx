@@ -243,7 +243,7 @@ const Work = ({ scrollPosition }) => {
         </div>
       </div>
       <div ref={finalPinRef} className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
-        <div className="w-full h-[100svh] flex items-center justify-center relative">
+        <div className="w-full h-[100lvh] flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
