@@ -10,21 +10,19 @@ import Highlights from "./components/Highlights";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
-import { useLayoutEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.normalizeScroll({
+  allowNestedScroll: true,
+  lockAxis: false,
+  momentum: self => Math.min(3, self.velocityY / 1000), 
+  type: "touch,wheel,", 
+})
+ScrollTrigger.config({
+  ignoreMobileResize: true
+})
 
 const App = ({ scrollPosition }) => {
-
-  useLayoutEffect(() => {
-
-    ScrollTrigger.normalizeScroll(true);
-  
-    return () => {
-      ScrollTrigger.normalizeScroll(false);
-    };
-
-  }, [])
 
   const lenis = useLenis(() => {
     
