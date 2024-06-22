@@ -212,7 +212,7 @@ const Work = ({ scrollPosition, height }) => {
 
 
   return (
-    <section style={{height: height * 8.5}} className='w-full relative z-30 flex flex-col'>
+    <section style={{height: typeof(height) === "string" ? "850lvh" : height * 8.5 }} className='w-full relative z-30 flex flex-col'>
       <div style={{height: height}} className="w-full absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
@@ -248,7 +248,7 @@ const Work = ({ scrollPosition, height }) => {
           </div>
           <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div style={{height: height * 1.6}} className="w-full relative minusTrigger cursorTrigger">
+        <div style={{height: typeof(height) === "string" ? "160lvh" : height * 1.6 }} className="w-full relative minusTrigger cursorTrigger">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
         <div style={{height: height}} className="w-full relative flex gap-1 zeroTrigger cursorTrigger">
@@ -281,7 +281,7 @@ const Work = ({ scrollPosition, height }) => {
               </div>
           </div> 
         </div>
-        <div style={{height: height * 1.6}} className="w-full relative oneTrigger z-10 cursorTrigger">
+        <div style={{height: typeof(height) === "string" ? "160lvh" : height * 1.6 }} className="w-full relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
@@ -369,7 +369,7 @@ const Work = ({ scrollPosition, height }) => {
         </div>
       </div>
       <div style={{height: height}} className="w-full growUpTrigger bg-black opacity-0"></div>
-      <div style={{height: height * 1.3}} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+      <div style={{height: typeof(height) === "string" ? "130lvh" : height * 1.3 }} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div style={{height: height}} className="w-1/2 flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 

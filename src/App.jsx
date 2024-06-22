@@ -41,6 +41,8 @@ const App = ({ scrollPosition }) => {
 
   }, []);
 
+  console.log(windowHeight)
+
   return (
     <>
       <CursorComponent />
