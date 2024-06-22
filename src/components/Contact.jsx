@@ -50,7 +50,7 @@ const Contact = ({ scrollPosition, height }) => {
 
         pinAnimations(".contactPin");
 
-        pinAnimations(".lastPin");
+        pinAnimations(".lastPin", "top", "top", "bottom", "-500%");
 
         triggerToAnimations("#slideAboutMe", {
             width: "100%",

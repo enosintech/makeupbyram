@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ScrollTrigger.normalizeScroll(true);
 
 ScrollTrigger.config({
-  ignoreMobileResize: false
+  ignoreMobileResize: true
 })
 
 const App = ({ scrollPosition }) => {
