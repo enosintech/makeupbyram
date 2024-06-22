@@ -42,8 +42,6 @@ const App = ({ scrollPosition }) => {
 
   const browserName = detectBrowser();
 
-  const [ windowHeight, setWindowHeight ] = useState(window.innerHeight);
-
   const lenis = useLenis(() => {
     
     window.addEventListener("beforeunload", () => {
@@ -60,17 +58,15 @@ const App = ({ scrollPosition }) => {
 
   }, []);
 
-  console.log(windowHeight)
-
   return (
     <>
       <CursorComponent />
       <Navbar />
-      <Hero height={windowHeight}/>
-      <About height={windowHeight} scrollPosition={scrollPosition}/>
-      <Highlights height={windowHeight} scrollPosition={scrollPosition}/>
-      <Work height={windowHeight} scrollPosition={scrollPosition}/>
-      <Contact height={windowHeight} scrollPosition={scrollPosition}/>
+      <Hero browserName={browserName}/>
+      <About browserName={browserName} scrollPosition={scrollPosition}/>
+      <Highlights browserName={browserName} scrollPosition={scrollPosition}/>
+      <Work browserName={browserName} scrollPosition={scrollPosition}/>
+      <Contact browserName={browserName} scrollPosition={scrollPosition}/>
     </>
   )
 }

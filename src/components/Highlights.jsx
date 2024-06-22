@@ -9,7 +9,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
 import { noTriggerToAnimations } from "../utils/animations";
 
-const Highlights = ({ scrollPosition, height }) => {
+const Highlights = ({ scrollPosition, browserName }) => {
 
     const highlight = useRef(null);
 
@@ -53,7 +53,7 @@ const Highlights = ({ scrollPosition, height }) => {
     }, [])
 
   return (
-    <section style={{height: typeof(height) === "string" ? "300lvh" : height * 3 }} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
+    <section style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 3 : "300lvh"}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
         <div ref={highlight} className="w-full h-[33.33%] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
