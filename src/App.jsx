@@ -23,12 +23,7 @@ const App = ({ scrollPosition }) => {
 
   const detector = new Detector();
 
-  const [ windowHeight, setWindowHeight] = useState(window.innerHeight);
-
-  useLayoutEffect(() => {
-      setWindowHeight(detector.browser.name === "SafariMobile" || detector.browser.name === "Chrome" ? "100lvh" : window.innerHeight)
-  }, [detector])
-
+  const windowHeight = detector ? detector.browser.name === "SafariMobile" || detector.browser.name === "Chrome" ? "100lvh" : window.innerHeight : window.innerHeight;
 
   const lenis = useLenis(() => {
     
