@@ -212,7 +212,7 @@ const Work = ({ scrollPosition }) => {
 
 
   return (
-    <section className='w-full h-[850dvh] relative z-30 flex flex-col overflow-x-hidden'>
+    <section className='w-full h-[850dvh] relative z-30 flex flex-col'>
       <div className="w-full h-[100dvh] absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
@@ -248,10 +248,10 @@ const Work = ({ scrollPosition }) => {
           </div>
           <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full h-[160dvh] relative minusTrigger cursorTrigger">
+        <div className="w-full h-[160dvh] min-h-[160dvh] relative minusTrigger cursorTrigger">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
-        <div className="w-full h-[100dvh] relative flex gap-1 zeroTrigger cursorTrigger">
+        <div className="w-full h-[100dvh] min-h-[100dvh] relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <div className="w-full h-full scale-[2] runwayImageScale">
                 <LazyLoadImage 
@@ -281,7 +281,7 @@ const Work = ({ scrollPosition }) => {
               </div>
           </div> 
         </div>
-        <div className="w-full h-[160dvh] relative oneTrigger z-10 cursorTrigger">
+        <div className="w-full h-[160dvh] min-h-[160dvh] relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
