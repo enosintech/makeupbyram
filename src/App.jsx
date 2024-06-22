@@ -21,13 +21,30 @@ ScrollTrigger.config({
 
 const App = ({ scrollPosition }) => {
 
-  const detector = new Detector();
+  function detectBrowser() {
+    var userAgent = navigator.userAgent;
+    if (userAgent.indexOf("Edg") > -1) {
+        return "Microsoft Edge";
+    } else if (userAgent.indexOf("Chrome") > -1) {
+        return "Chrome";
+    } else if (userAgent.indexOf("Firefox") > -1) {
+        return "Firefox";
+    } else if (userAgent.indexOf("Safari") > -1) {
+        return "Safari";
+    } else if (userAgent.indexOf("Opera") > -1) {
+        return "Opera";
+    } else if (userAgent.indexOf("Trident") > -1 || userAgent.indexOf("MSIE") > -1) {
+        return "Internet Explorer";
+    }
 
-  const [ windowHeight, setWindowHeight ] = useState(window.innerHeight);
+    return "Unknown";
+  }
 
-  useLayoutEffect(() => { 
-    setWindowHeight(detector.browser.name === "SafariMobile" || detector.browser.name === "Chrome" ? "100lvh" : window.innerHeight)
-  }, [detector])
+  const browserName = detectBrowser();
+
+  const [ windowHeight, setWindowHeight ] = useState(browserName === "Chrome" || browserName === "Safari" ? "100lvh" : window.innerHeight);
+
+  console.log(windowHeight)
 
   const lenis = useLenis(() => {
     
