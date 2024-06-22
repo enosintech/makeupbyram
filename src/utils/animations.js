@@ -37,5 +37,6 @@ export const pinAnimations = (target, startSide = "top", start = "top", endSide 
         start: `clamp(${startSide} ${start})`,
         end: `clamp(${endSide} ${end})`,
         pin: pin,
+        anticipatePin: 2,
     })
 }
