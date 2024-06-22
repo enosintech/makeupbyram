@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
+import { use100vh } from 'react-div-100vh';
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -11,6 +12,7 @@ import VideoBackground from "./VideoBackground";
 const Hero = () => {
 
     const hero = useRef(null);
+    const height = use100vh();
 
     const [ animPlaying, setAnimPlaying ] = useState(true);
 
@@ -59,7 +61,7 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full homescreen">
+    <section style={{height: height ? height : "100vh"}} className="w-full homescreen">
         <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">

@@ -80,7 +80,6 @@ input::selection {
 section {
     overflow-y: visible;
     overflow-x: hidden;
-    height: 100vh;
 }
 
 .stretch {
