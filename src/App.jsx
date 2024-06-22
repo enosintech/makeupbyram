@@ -13,11 +13,7 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll({
-  lockAxis: true,
-  momentum: self => Math.min(4, self.velocityY / 1000), 
-  type: "touch,wheel", 
-})
+ScrollTrigger.normalizeScroll(true);
 
 ScrollTrigger.config({
   ignoreMobileResize: true
