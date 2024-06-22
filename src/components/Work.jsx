@@ -221,7 +221,7 @@ const Work = ({ scrollPosition }) => {
 
 
   return (
-    <section className='w-full h-[850dvh] relative z-30 flex flex-col overflow-x-visible'>
+    <section className='w-full h-[850dvh] relative z-30 flex flex-col overflow-x-hidden'>
       <div className="w-full h-[100dvh] absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
