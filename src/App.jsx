@@ -13,10 +13,10 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll(true);
+// ScrollTrigger.normalizeScroll(true);
 
 ScrollTrigger.config({
-  ignoreMobileResize: true
+  ignoreMobileResize: false
 })
 
 const App = ({ scrollPosition }) => {
