@@ -1,10 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
-import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Lottie from "lottie-react";
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -19,9 +17,6 @@ import VidLoadingPrompt from "./VidLoadingPrompt";
 const Work = ({ scrollPosition }) => {
   
   const lenis = useLenis();
-
-  const finalPinRef = useRef(null);
-  const pinHighRef = useRef(null);
 
   const handleContactClick = () => {
     lenis.scrollTo(".contactTrigger", {
@@ -205,11 +200,7 @@ const Work = ({ scrollPosition }) => {
       repeat: -1,
     })
 
-    ScrollTrigger.create({
-      trigger: pinHighRef.current,
-      end: () => "+=" + pinHighRef.current.offsetHeight,
-      pin: true,
-    })
+    pinAnimations(".pinHigh");
 
     pinAnimations(".pinTrigger", "top", "top", "bottom" , "bottom", ".pinText");
 
@@ -242,7 +233,7 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
       </div>
-      <div ref={finalPinRef} className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
+      <div className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
         <div className="w-full h-[100dvh] flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
@@ -294,7 +285,7 @@ const Work = ({ scrollPosition }) => {
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} className="w-full h-[100dvh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
+      <div className="w-full h-[100dvh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">

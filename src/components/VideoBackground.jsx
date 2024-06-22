@@ -1,12 +1,15 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
 
 import { heroPlaceImg, heroVideoMain } from "../lib";
 
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
 const VideoBackground = () => {
+
+  gsap.registerPlugin(ScrollTrigger)
 
   const ref = useRef(null);
 

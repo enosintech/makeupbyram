@@ -1,16 +1,14 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
+import { pinAnimations } from "../utils/animations";
 
 const Hero = () => {
-
-    const hero = useRef(null);
 
     const [ animPlaying, setAnimPlaying ] = useState(true);
 
@@ -25,13 +23,7 @@ const Hero = () => {
 
     useGSAP(() => {
 
-        ScrollTrigger.create({
-            trigger: hero.current,
-            start: "top top",
-            end: () => "+=" + hero.current.offsetHeight,
-            pin: true,
-            invalidateOnRefresh: true,
-        }); 
+        pinAnimations(".heroPin")
 
         const tl = gsap.timeline({
             onStart: () => {
@@ -60,7 +52,7 @@ const Hero = () => {
 
   return (
     <section className="w-full h-[100dvh] homescreen overflow-x-hidden">
-        <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
+        <div className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">

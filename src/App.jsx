@@ -1,7 +1,7 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -11,10 +11,11 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
 
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.normalizeScroll(true);
-
 const App = ({ scrollPosition }) => {
+
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.config({ignoreMobileResize: true})
 
   const lenis = useLenis(() => {
     

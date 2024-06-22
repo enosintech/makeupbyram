@@ -22,8 +22,8 @@ const Highlights = ({ scrollPosition }) => {
           },
           scrollTrigger: {
             trigger: highlight.current,
-            start: "top top",
-            end: () => "+=" + highlight.current.offsetHeight * 2,
+            start: "clamp(top top)",
+            end: "clamp(bottom -100%)",
             pin: true,
             invalidateOnRefresh: true,
             scrub: true,

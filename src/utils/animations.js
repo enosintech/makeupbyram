@@ -1,5 +1,8 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({autoRefreshEvents: "load,visibilitychange,DOMContentLoaded"})
 
 export const noTriggerFromAnimations = (target, animationProps) => {
     gsap.from(target, {
@@ -31,11 +34,11 @@ export const triggerToAnimations = (target, animationsProps, scrollProps) => {
     })
 }
 
-export const pinAnimations = (target, startSide = "top", start = "top", endSide = "bottom", end = "0", pin = true) => {
+export const pinAnimations = (target, startSide = "top", start = "top", endSide = "bottom", end = "0",) => {
     ScrollTrigger.create({
         trigger: target,
-        start: `${startSide} ${start}`,
-        end: `${endSide} ${end}`,
-        pin: pin,
+        start: `clamp(${startSide} ${start})`,
+        end: `clamp(${endSide} ${end})`,
+        pin: true,
     })
 }

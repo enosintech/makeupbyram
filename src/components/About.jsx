@@ -2,20 +2,22 @@ import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { about1ImagePlaceholder, about2ImagePlaceholder, aboutImage1, aboutImage2, aboutVideo, aboutVidPlaceImg, workedWithPlaceholderImage, workedWithVideo } from "../lib";
-import { noTriggerToAnimations, triggerToAnimations } from "../utils/animations";
+import { noTriggerToAnimations, pinAnimations, triggerToAnimations } from "../utils/animations";
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
 
 const About = ({ scrollPosition }) => {
+
+  gsap.registerPlugin(ScrollTrigger);
+
   const lenis = useLenis();
 
-  const aboutRef = useRef();
   const aboutVidRef = useRef();
-  const workedWithRef = useRef();
   const workedWithVideoRef = useRef(null);
 
   const handleRunwayClick = () => {
@@ -80,7 +82,7 @@ const About = ({ scrollPosition }) => {
     })
 
     ScrollTrigger.create({
-      trigger: aboutRef.current,
+      trigger: ".aboutPin",
       start: "top bottom",
       onEnter: () => {
         aboutVidRef.current.play();
@@ -88,28 +90,16 @@ const About = ({ scrollPosition }) => {
       }
     })
 
-    ScrollTrigger.create({
-      trigger: aboutRef.current,
-      start: "top top",
-      end: () => "+=" + aboutRef.current.offsetHeight,
-      pin: true,
-      invalidateOnRefresh: true
-    }); 
+    pinAnimations(".aboutPin");
 
-    ScrollTrigger.create({
-      trigger: workedWithRef.current,
-      start: "top top",
-      end: () => "+=" + workedWithRef.current.offsetHeight * 3,
-      pin: true,
-      invalidateOnRefresh: true,
-    }); 
+    pinAnimations(".workedWithPin", "top", "top", "bottom", "-200%");
 
   }, [])
 
   return (
     
     <section id="aboutAnimateTrigger" className="w-full h-[400dvh] flex flex-col overflow-x-hidden">
-        <div ref={aboutRef} className="w-full h-[25%] relative bg-white flex flex-col py-1 aboutPin z-20">
+        <div className="w-full h-[25%] relative bg-white flex flex-col py-1 aboutPin z-20">
           <span className="absolute bottom-5 left-2 sm:left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
           <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-2 sm:right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
           <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
@@ -162,7 +152,7 @@ const About = ({ scrollPosition }) => {
             </div>
           </div>
         </div>
-        <div ref={workedWithRef} className="workedWithPin w-full h-[25%] text-white relative z-10 flex flex-col items-center justify-center">
+        <div className="workedWithPin w-full h-[25%] text-white relative z-10 flex flex-col items-center justify-center">
           <div className="w-full h-full absolute z-[-1] grid place-items-center">
             <div className="absolute top-0 left-0 w-full h-full z-[-1] grid place-items-center">
               <VidLoadingPrompt />
