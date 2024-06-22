@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 ScrollTrigger.config({
-    ignoreMobileResize: true
+    ignoreMobileResize: false
 })
 
 export const noTriggerFromAnimations = (target, animationProps) => {
@@ -45,6 +45,6 @@ export const pinAnimations = (target, startSide = "top", start = "top", endSide 
         pin: pin,
         anticipatePin: 2,
         invalidateOnRefresh: true,
-        pinReparent: true,
+        // pinReparent: true
     })
 }
