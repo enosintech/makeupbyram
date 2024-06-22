@@ -1,7 +1,8 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { Detector } from 'detector-js';
+import { useState } from "react";
 import gsap from "gsap";
 
 import Navbar from "./components/Navbar";
@@ -14,19 +15,17 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ScrollTrigger.normalizeScroll(true);
-
 ScrollTrigger.config({
   ignoreMobileResize: true
 })
 
 const App = ({ scrollPosition }) => {
 
-  const [ windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const detector = new Detector();
 
-  const setHeight = () => {
-    setWindowHeight(window.innerHeight);
-  }
+  console.log(detector.browser.name)
+
+  const [ windowHeight, setWindowHeight] = useState(detector.browser.name === "Safari" || detector.browser.name === "Chrome" ? "100vh" : window.innerHeight);
 
   const lenis = useLenis(() => {
     
@@ -43,16 +42,6 @@ const App = ({ scrollPosition }) => {
     }
 
   }, []);
-
-  // useEffect(() => {
-  //   setHeight();
-
-  //   window.addEventListener("resize", setHeight)
-
-  //   return () => {
-  //     window.removeEventListener("resize", setHeight)
-  //   }
-  // }, [])
 
   return (
     <>
