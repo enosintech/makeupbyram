@@ -42,9 +42,7 @@ const App = ({ scrollPosition }) => {
 
   const browserName = detectBrowser();
 
-  const [ windowHeight, setWindowHeight ] = useState(browserName === "Chrome" || browserName === "Safari" ? "100lvh" : window.innerHeight);
-
-  console.log(windowHeight)
+  const [ windowHeight, setWindowHeight ] = useState(window.innerHeight);
 
   const lenis = useLenis(() => {
     
