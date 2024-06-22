@@ -2,7 +2,7 @@ import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Detector } from 'detector-js';
-import { useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 
 import Navbar from "./components/Navbar";
@@ -23,9 +23,13 @@ const App = ({ scrollPosition }) => {
 
   const detector = new Detector();
 
-  console.log(detector.browser.name)
+  const [ windowHeight, setWindowHeight] = useState(window.innerHeight);
 
-  const [ windowHeight, setWindowHeight] = useState(detector.browser.name === "Safari" || detector.browser.name === "Chrome" ? "100vh" : window.innerHeight);
+  useLayoutEffect(() => {
+    if(detector){
+      setWindowHeight(detector.browser.name === "Safari" || detector.browser.name === "Chrome" ? "100lvh" : window.innerHeight)
+    }
+  }, [detector])
 
   const lenis = useLenis(() => {
     
