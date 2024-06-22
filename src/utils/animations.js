@@ -39,6 +39,6 @@ export const pinAnimations = (target, startSide = "top", start = "top", endSide 
         trigger: target,
         start: `clamp(${startSide} ${start})`,
         end: `clamp(${endSide} ${end})`,
-        pin: pin,
+        pin: false,
     })
 }
