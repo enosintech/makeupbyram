@@ -14,7 +14,7 @@ import CursorComponent from "./components/CursorComponent";
 const App = ({ scrollPosition }) => {
 
   gsap.registerPlugin(ScrollTrigger);
-  // ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.normalizeScroll(true);
   ScrollTrigger.config({ignoreMobileResize: false})
 
   const lenis = useLenis(() => {
