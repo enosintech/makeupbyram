@@ -21,8 +21,6 @@ const About = ({ scrollPosition }) => {
 
   const height = use100vh();
 
-  console.log(height)
-
   const handleRunwayClick = () => {
     lenis.scrollTo(".zeroTrigger", {
       duration: 6,

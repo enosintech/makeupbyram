@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
-import { use100vh } from 'react-div-100vh';
+import Div100vh from 'react-div-100vh'
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -12,7 +12,6 @@ import VideoBackground from "./VideoBackground";
 const Hero = () => {
 
     const hero = useRef(null);
-    const height = use100vh();
 
     const [ animPlaying, setAnimPlaying ] = useState(true);
 
@@ -61,18 +60,20 @@ const Hero = () => {
     }, [])
 
   return (
-    <section style={{height: height ? height : "100vh"}} className="w-full homescreen">
-        <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
-            <VideoBackground />
-            <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
-                <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">
-                    <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP ARTIST BASED IN KUALA LUMPUR</p>
-                    <ScrollPrompt id={"noclick"}/>
-                    <Clock />
+    <Div100vh>
+        <section className="w-full h-full homescreen">
+            <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
+                <VideoBackground />
+                <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
+                    <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">
+                        <p className="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-nohemiLight">A MAKEUP ARTIST BASED IN KUALA LUMPUR</p>
+                        <ScrollPrompt id={"noclick"}/>
+                        <Clock />
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </Div100vh>
   )
 }
 
