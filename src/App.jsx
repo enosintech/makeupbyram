@@ -28,11 +28,11 @@ const App = ({ scrollPosition }) => {
         lenis.stop();
       })
     }
-    
+
   }, []);
 
   return (
-    <div className="wrapperLenis">
+    <>
       <CursorComponent />
       <Navbar />
       <Hero />
@@ -40,7 +40,7 @@ const App = ({ scrollPosition }) => {
       <Highlights scrollPosition={scrollPosition}/>
       <Work scrollPosition={scrollPosition}/>
       <Contact scrollPosition={scrollPosition}/>
-    </div>
+    </>
   )
 }
 
