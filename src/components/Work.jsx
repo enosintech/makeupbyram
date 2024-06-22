@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { use100vh } from 'react-div-100vh';
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Lottie from "lottie-react";
@@ -22,6 +23,8 @@ const Work = ({ scrollPosition }) => {
 
   const finalPinRef = useRef(null);
   const pinHighRef = useRef(null);
+
+  const height = use100vh();
 
   const handleContactClick = () => {
     lenis.scrollTo(".contactTrigger", {
@@ -221,8 +224,8 @@ const Work = ({ scrollPosition }) => {
 
 
   return (
-    <section className='w-full h-[850vh] relative z-30 flex flex-col overflow-x-visible'>
-      <div className="w-full h-[100vh] absolute top-0 left-0">
+    <section style={{height: height ? height * 8.5 : "850vh"}} className='w-full relative z-30 flex flex-col overflow-x-visible'>
+      <div style={{height: height ? height : "100vh"}} className="w-full absolute top-0 left-0">
         <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
               <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
               <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
@@ -243,7 +246,7 @@ const Work = ({ scrollPosition }) => {
         </div>
       </div>
       <div ref={finalPinRef} className="w-full flex-col flex relative pinTrigger gap-1 finalPin">
-        <div className="w-full h-[100vh] flex items-center justify-center relative">
+        <div style={{height: height ? height : "100vh"}} className="w-full flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
@@ -257,10 +260,10 @@ const Work = ({ scrollPosition }) => {
           </div>
           <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative minusTrigger cursorTrigger">
+        <div style={{height: height ? height * 1.6 : "160vh"}} className="w-full relative minusTrigger cursorTrigger">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
-        <div className="w-full h-[100vh] min-h-[100vh] relative flex gap-1 zeroTrigger cursorTrigger">
+        <div style={{height: height ? height : "100vh"}} className="w-full relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <div className="w-full h-full scale-[2] runwayImageScale">
                 <LazyLoadImage 
@@ -290,11 +293,11 @@ const Work = ({ scrollPosition }) => {
               </div>
           </div> 
         </div>
-        <div className="w-full h-[160vh] min-h-[160vh] relative oneTrigger z-10 cursorTrigger">
+        <div style={{height: height ? height * 1.6 : "160vh"}} className="w-full relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} className="w-full h-[100vh] bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
+      <div ref={pinHighRef}  style={{height: height ? height : "100vh"}} className="w-full bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible">
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -377,9 +380,9 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[100vh] growUpTrigger bg-black"></div>
-      <div className="w-full h-[130vh] md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
-        <div className="w-1/2 h-[100vh] flex justify-center z-10">
+      <div  style={{height: height ? height : "100vh"}} className="w-full growUpTrigger bg-black"></div>
+      <div  style={{height: height ? height * 1.3 : "130vh"}} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+        <div  style={{height: height ? height : "100vh"}} className="w-1/2 flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain1}
@@ -393,7 +396,7 @@ const Work = ({ scrollPosition }) => {
             />
           </div>
         </div>
-        <div className="w-1/2 h-[100vh] flex items-end justify-center z-10 relative">
+        <div  style={{height: height ? height : "100vh"}} className="w-1/2 flex items-end justify-center z-10 relative">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain2}

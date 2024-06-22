@@ -49,10 +49,6 @@
     cursor: none !important;
 }
 
-body, html {
-    height: 100%;
-}
-
 body {
     color: black;
     background-color: white;
