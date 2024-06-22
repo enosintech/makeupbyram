@@ -10,12 +10,21 @@ import Highlights from "./components/Highlights";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
+import { useLayoutEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const App = ({ scrollPosition }) => {
 
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.normalizeScroll(true);
-  ScrollTrigger.config({ignoreMobileResize: false})
+  useLayoutEffect(() => {
+
+    ScrollTrigger.normalizeScroll(true);
+  
+    return () => {
+      ScrollTrigger.normalizeScroll(false);
+    };
+
+  }, [])
 
   const lenis = useLenis(() => {
     
