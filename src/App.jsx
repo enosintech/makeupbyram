@@ -15,7 +15,7 @@ const App = ({ scrollPosition }) => {
 
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.normalizeScroll(true);
-  ScrollTrigger.config({ignoreMobileResize: true})
+  ScrollTrigger.config({ignoreMobileResize: false})
 
   const lenis = useLenis(() => {
     

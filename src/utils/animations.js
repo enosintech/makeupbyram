@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.config({autoRefreshEvents: "load,visibilitychange,DOMContentLoaded"})
+ScrollTrigger.config({ignoreMobileResize: false})
 
 export const noTriggerFromAnimations = (target, animationProps) => {
     gsap.from(target, {
