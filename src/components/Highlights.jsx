@@ -2,17 +2,22 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Lottie from "lottie-react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
 import { noTriggerToAnimations } from "../utils/animations";
 
-const Highlights = ({ scrollPosition }) => {
+const Highlights = ({ scrollPosition, height }) => {
 
     const highlight = useRef(null);
 
     useGSAP(() => {
+
+        ScrollTrigger.config({
+            ignoreMobileResize: false
+        })
 
         const images = gsap.utils.toArray(".scl");
 
@@ -48,11 +53,11 @@ const Highlights = ({ scrollPosition }) => {
 
     }, [])
 
-    console.log(window.innerHeight)
+    console.log(height)
 
   return (
-    <section style={{height: window.innerHeight * 3}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
-        <div ref={highlight} style={{height: window.innerHeight}} className="w-full overflow-hidden highlightPin relative">
+    <section style={{height: height * 3}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
+        <div ref={highlight} className="w-full h-[33.33%] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
                 <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>

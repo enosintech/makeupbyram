@@ -1,7 +1,8 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
-import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -21,6 +22,12 @@ ScrollTrigger.config({
 
 const App = ({ scrollPosition }) => {
 
+  const [ windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  const setHeight = () => {
+    setWindowHeight(window.innerHeight);
+  }
+
   const lenis = useLenis(() => {
     
     window.addEventListener("beforeunload", () => {
@@ -37,15 +44,25 @@ const App = ({ scrollPosition }) => {
 
   }, []);
 
+  useEffect(() => {
+    setHeight();
+
+    window.addEventListener("resize", setHeight)
+
+    return () => {
+      window.removeEventListener("resize", setHeight)
+    }
+  }, [])
+
   return (
     <>
       <CursorComponent />
       <Navbar />
-      <Hero />
-      <About scrollPosition={scrollPosition}/>
-      <Highlights scrollPosition={scrollPosition}/>
-      <Work scrollPosition={scrollPosition}/>
-      <Contact scrollPosition={scrollPosition}/>
+      <Hero height={windowHeight}/>
+      <About height={windowHeight} scrollPosition={scrollPosition}/>
+      <Highlights height={windowHeight} scrollPosition={scrollPosition}/>
+      <Work height={windowHeight} scrollPosition={scrollPosition}/>
+      <Contact height={windowHeight} scrollPosition={scrollPosition}/>
     </>
   )
 }
