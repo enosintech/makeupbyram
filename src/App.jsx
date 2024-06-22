@@ -12,12 +12,13 @@ import Contact from "./components/Contact";
 import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
+
 ScrollTrigger.normalizeScroll({
-  allowNestedScroll: true,
-  lockAxis: false,
-  momentum: self => Math.min(3, self.velocityY / 1000), 
-  type: "touch,wheel,", 
+  lockAxis: true,
+  momentum: self => Math.min(4, self.velocityY / 1000), 
+  type: "touch,wheel", 
 })
+
 ScrollTrigger.config({
   ignoreMobileResize: true
 })
