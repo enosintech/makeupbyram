@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { use100vh } from 'react-div-100vh';
 import Lottie from "lottie-react";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -12,7 +11,6 @@ import { noTriggerToAnimations } from "../utils/animations";
 const Highlights = ({ scrollPosition }) => {
 
     const highlight = useRef(null);
-    const height = use100vh();
 
     useGSAP(() => {
 
@@ -51,8 +49,8 @@ const Highlights = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section style={{height: height ? height * 3 : "300vh"}} className="w-full bg-white relative z-20 text-white">
-        <div ref={highlight} style={{height: height ? height : "100vh"}} className="w-full overflow-hidden highlightPin relative">
+    <section className="w-full h-[300dvh] bg-white relative z-20 text-white">
+        <div ref={highlight} className="w-full h-[100dvh] overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
                 <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>
