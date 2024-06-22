@@ -44,15 +44,15 @@ const App = ({ scrollPosition }) => {
 
   }, []);
 
-  useEffect(() => {
-    setHeight();
+  // useEffect(() => {
+  //   setHeight();
 
-    window.addEventListener("resize", setHeight)
+  //   window.addEventListener("resize", setHeight)
 
-    return () => {
-      window.removeEventListener("resize", setHeight)
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener("resize", setHeight)
+  //   }
+  // }, [])
 
   return (
     <>
