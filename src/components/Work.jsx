@@ -200,7 +200,7 @@ const Work = ({ scrollPosition, height }) => {
       repeat: -1,
     })
 
-    pinAnimations(".pinHigh", "top", "top");
+    pinAnimations(".pinHigh");
 
     pinAnimations(".pinTrigger", "top", "top", "bottom" , "bottom", ".pinText");
 

@@ -16,7 +16,7 @@ const Highlights = ({ scrollPosition, height }) => {
     useGSAP(() => {
 
         ScrollTrigger.config({
-            ignoreMobileResize: false
+            ignoreMobileResize: true
         })
 
         const images = gsap.utils.toArray(".scl");
@@ -30,7 +30,6 @@ const Highlights = ({ scrollPosition, height }) => {
             start: "clamp(top top)",
             end: "clamp(bottom -100%)",
             pin: true,
-            invalidateOnRefresh: true,
             scrub: true,
           }  
         })
@@ -52,8 +51,6 @@ const Highlights = ({ scrollPosition, height }) => {
         ))
 
     }, [])
-
-    console.log(height)
 
   return (
     <section style={{height: height * 3}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
