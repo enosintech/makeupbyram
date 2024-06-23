@@ -25,21 +25,6 @@ const App = ({ scrollPosition }) => {
 
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
-
-    return () => {
-      window.removeEventListener('resize', () => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-      })
-    }
-  }, [])
-
   const lenis = useLenis(() => {
     
     window.addEventListener("beforeunload", () => {
@@ -47,14 +32,48 @@ const App = ({ scrollPosition }) => {
       lenis.stop();
     })
 
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      if(lenis.isScrolling){
+        lenis.stop();
+      }
+      lenis.start();
+    });
+
+
     return () => {
       window.removeEventListener("beforeunload", () => {
         lenis.scrollTo(0, {immediate: true, force: true})
         lenis.stop();
       })
+
+      window.removeEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        if(lenis.isScrolling){
+          lenis.stop();
+        }
+        lenis.start();
+      })
     }
 
   }, []);
+
+  // useEffect(() => {
+  //   window.addEventListener('resize', () => {
+  //     let vh = window.innerHeight * 0.01;
+  //     document.documentElement.style.setProperty('--vh', `${vh}px`);
+  //   });
+
+  //   return () => {
+  //     window.removeEventListener('resize', () => {
+  //       let vh = window.innerHeight * 0.01;
+  //       document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  //     })
+  //   }
+  // }, [])
 
     return (
       <>
