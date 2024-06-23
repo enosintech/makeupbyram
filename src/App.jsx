@@ -21,23 +21,6 @@ ScrollTrigger.config({
 
 const App = ({ scrollPosition }) => {
 
-  const  [ height, setHeight ] = useState(window.innerHeight);
-
-  const setHeightFunc = () => {
-    setHeight(window.innerHeight);
-  }
-
-  useEffect(() => {
-    setHeightFunc();
-
-    window.addEventListener("resize", setHeightFunc)
-
-    return () => {
-      window.removeEventListener("resize", setHeightFunc);
-    }
-
-  }, [])
-
   const lenis = useLenis(() => {
     
     window.addEventListener("beforeunload", () => {
@@ -58,11 +41,11 @@ const App = ({ scrollPosition }) => {
       <>
         <CursorComponent />
         <Navbar />
-        <Hero height={height}/>
-        <About height={height} scrollPosition={scrollPosition}/>
-        <Highlights height={height} scrollPosition={scrollPosition}/>
+        <Hero />
+        <About scrollPosition={scrollPosition}/>
+        <Highlights scrollPosition={scrollPosition}/>
         {/* <Work scrollPosition={scrollPosition}/> */}
-        <Contact height={height} scrollPosition={scrollPosition}/>
+        <Contact scrollPosition={scrollPosition}/>
       </>
     )
 }
