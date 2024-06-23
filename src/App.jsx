@@ -19,6 +19,8 @@ ScrollTrigger.config({
   ignoreMobileResize: true
 })
 
+ScrollTrigger.normalizeScroll(true);
+
 const App = ({ scrollPosition }) => {
 
   const lenis = useLenis(() => {
