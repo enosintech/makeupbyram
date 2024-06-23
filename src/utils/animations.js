@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 ScrollTrigger.config({
-    ignoreMobileResize: true
+    ignoreMobileResize: false
 })
 
 export const noTriggerFromAnimations = (target, animationProps) => {

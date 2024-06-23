@@ -16,7 +16,7 @@ const Highlights = ({ scrollPosition }) => {
     useGSAP(() => {
 
         ScrollTrigger.config({
-            ignoreMobileResize: true
+            ignoreMobileResize: false
         })
 
         const images = gsap.utils.toArray(".scl");
