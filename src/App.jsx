@@ -24,56 +24,56 @@ const App = ({ scrollPosition }) => {
   let vh = window.innerHeight * 0.01;
 
   document.documentElement.style.setProperty('--vh', `${vh}px`);
+ 
+  const [ refreshRoutine, setRefreshRoutine ] = useState(false);
+  const [ stopScrolling, setStopScrolling ] = useState(false);
 
   const lenis = useLenis(() => {
-    
-    window.addEventListener("beforeunload", () => {
+
+    if(refreshRoutine){
       lenis.scrollTo(0, {immediate: true, force: true})
       lenis.stop();
-    })
+    } 
+    
+    if(stopScrolling){
+      lenis.stop()
+    } else {
+      lenis.start()
+    }
 
+  }, [stopScrolling, refreshRoutine]);
+
+  useEffect(() => {
     window.addEventListener('resize', () => {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      if(lenis.isScrolling){
-        lenis.stop();
-      }
-      lenis.start();
+      setStopScrolling(true)
+
+      setTimeout(() => {
+        setStopScrolling(false)
+      }, 2000);
     });
 
+    window.addEventListener("beforeunload", () => {
+      setRefreshRoutine(true)
+    })
 
     return () => {
-      window.removeEventListener("beforeunload", () => {
-        lenis.scrollTo(0, {immediate: true, force: true})
-        lenis.stop();
-      })
-
       window.removeEventListener('resize', () => {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-        if(lenis.isScrolling){
-          lenis.stop();
-        }
-        lenis.start();
+        setStopScrolling(true)
+  
+        setTimeout(() => {
+          setStopScrolling(false)
+        }, 2000);
+      })
+
+      window.removeEventListener("beforeunload", () => {
+        setRefreshRoutine(true)
       })
     }
-
-  }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => {
-  //     let vh = window.innerHeight * 0.01;
-  //     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  //   });
-
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-  //       let vh = window.innerHeight * 0.01;
-  //       document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  //     })
-  //   }
-  // }, [])
+  }, [])
 
     return (
       <>
