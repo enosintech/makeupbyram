@@ -49,20 +49,10 @@
     cursor: none !important;
 }
 
-html, body {
-    overflow: hidden;
-    height: 100%;
-}
-
 body {
     color: black;
     background-color: white;
     width: 100vw;
-}
-
-#root {
-    height: 100%;
-    overflow-y: scroll;
 }
 
 .contactOverlay {
