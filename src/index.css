@@ -67,34 +67,9 @@ body {
     pointer-events: none;
 }
 
-.eightFiveVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 850);
-}
-
-.fourVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 400);
-}
-
 input::selection {
     color: none;
     background: none;
-}
-
-.oneVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-}
-
-.oneThreeVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 130);
-}
-
-.oneSixVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 160);
 }
 
 section {
@@ -106,11 +81,6 @@ section {
     font-stretch: ultra-expanded;
 }
 
-.threeVh {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 300);
-}
-
 .vidLoader {
     font-size: 10px;
     width: 1em;
@@ -120,6 +90,68 @@ section {
     text-indent: -9999em;
     animation: mulShdSpin 1.1s infinite ease;
     transform: translateZ(0);
+}
+
+@supports (-moz-appearance: none) {
+
+    .oneVh {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+    }
+
+    .oneThreeVh {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 130);
+    }
+
+    .oneSixVh {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 160);
+    }
+
+    .threeVh {
+        height: 300vh;
+        height: calc(var(--vh, 1vh) * 300);
+    }
+
+    .fourVh {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 400);
+    }
+
+    .eightFiveVh {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 850);
+    }
+    
+}
+
+@supports (-webkit-font-smoothing: antialiased) {
+
+    .oneVh {
+        height: 100lvh;
+    }
+
+    .oneThreeVh {
+        height: 130lvh;
+    }
+
+    .oneSixVh {
+        height: 160lvh;
+    }
+
+    .threeVh {
+        height: 300lvh;
+    }
+
+    .fourVh {
+        height: 400lvh;
+    }
+
+    .eightFiveVh {
+        height: 850lvh;
+    }
+
 }
 
 @keyframes mulShdSpin {
