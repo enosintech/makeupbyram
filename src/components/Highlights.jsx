@@ -55,8 +55,8 @@ const Highlights = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section ref={sliderTrigger} style={{height: window.innerHeight * 3}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
-        <div ref={highlight} style={{height: window.innerHeight}} className="w-full overflow-hidden highlightPin relative">
+    <section ref={sliderTrigger} style={{height: window.innerHeight * 3}} className="w-full relative text-white overflow-hidden">
+        <div ref={highlight} style={{height: window.innerHeight}} className="w-full bg-white overflow-hidden highlightPin relative z-50">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
                 <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>

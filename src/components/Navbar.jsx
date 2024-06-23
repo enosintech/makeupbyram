@@ -17,6 +17,7 @@ const Navbar = () => {
     }, {
       trigger: "#aboutAnimateTrigger", 
       scrub :true,
+      start: "clamp(top bottom)"
     })
   }, [])
 
