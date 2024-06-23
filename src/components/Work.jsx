@@ -1,29 +1,25 @@
 import { useGSAP } from "@gsap/react";
-import { useLenis } from "@studio-freight/react-lenis";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import Lottie from "lottie-react";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { noTriggerToAnimations, pinAnimations, triggerToAnimations } from "../utils/animations";
 import { creativeMakeup, shootMakeup } from "../constants";
-import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, workVideoMain, animateAsteriskSvg, selectedWorksPlaceholderImage, runway2PlaceholderImage, runway1PlaceholderImage, lipsMain2, featuredMainPlaceholder1Img, featuredMainPlaceholder2Img, featuredLeftPlaceholder2Img, featuredLeftPlaceholder1Img, featuredRightPlaceholder1Img, featuredRightPlaceholder2Img, lips1PlaceholderImg, lips2PlaceholderImg } from "../lib";
+import { Lips, runwayImage1, runwayImage2, featuredLeft1, featuredLeft2, featuredMain1, featuredMain2, featuredRight1, featuredRight2, lipsMain1, workVideoMain, selectedWorksPlaceholderImage, runway2PlaceholderImage, runway1PlaceholderImage, lipsMain2, featuredMainPlaceholder1Img, featuredMainPlaceholder2Img, featuredLeftPlaceholder2Img, featuredLeftPlaceholder1Img, featuredRightPlaceholder1Img, featuredRightPlaceholder2Img, lips1PlaceholderImg, lips2PlaceholderImg } from "../lib";
 
 import WorkSectionComponent from "./WorkSectionComponent";
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
-const Work = ({ scrollPosition, browserName }) => {
-  
-  const lenis = useLenis();
+const Work = ({ scrollPosition }) => {
 
-  const handleContactClick = () => {
-    lenis.scrollTo(".contactTrigger", {
-      duration: 10,
-      offset: window.innerHeight,
-    })
-  }
+  const finalPinRef = useRef(null);
+  const pinHighRef = useRef(null);
+  const oneVhRef = useRef(null);
 
   useGSAP(() => {
     const imgs = gsap.utils.toArray(".motiv");
@@ -124,26 +120,6 @@ const Work = ({ scrollPosition, browserName }) => {
       toggleActions: "play none none reverse",
     })
 
-    triggerToAnimations("#barWorkText", {
-      opacity: 0,
-      ease: "power1",
-      duration: 0.3
-    }, {
-      trigger: ".pinHigh",
-      start: "top bottom",
-      toggleActions: "play none none reverse",
-    })
-
-    triggerToAnimations("#barFeaturedText", {
-      opacity: 1,
-      ease: "power1",
-      duration: 0.3
-    }, {
-      trigger: ".pinHigh",
-      start: "top bottom",
-      toggleActions: "play none none reverse",
-    })
-
     triggerToAnimations(".growUp", {
       width: "100vw",
       height: "100vh",
@@ -200,41 +176,30 @@ const Work = ({ scrollPosition, browserName }) => {
       repeat: -1,
     })
 
-    pinAnimations(".pinHigh");
+    pinAnimations(pinHighRef.current, "top top", () => "+=" + pinHighRef.current.offsetHeight);
 
-    pinAnimations(".pinTrigger", "top", "top", "bottom" , "bottom", ".pinText");
-
-    pinAnimations(".finalPin", "bottom", "bottom", "bottom", "-100%");
-
-    pinAnimations(".pinTrigger", "top", "top", "bottom", "bottom", ".pinDiv");
+    ScrollTrigger.create({
+      trigger: finalPinRef.current,
+      pin: true,
+      start: "bottom bottom",
+      end: () => "+=" + oneVhRef.current.offsetHeight,
+      anticipatePin: 1,
+      pinSpacing: false,
+      markers: true,
+    })
 
   }, [])
 
-
   return (
-    <section style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 8.5 : "850lvh"}} className='w-full relative z-30 flex flex-col'>
-      <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-full absolute top-0 left-0">
-        <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
-              <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
-              <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
-              <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
-              <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
-            </div> 
-        <div className="absolute w-full h-[6%] bg-white bottom-0 left-0 z-20 pinDiv flex items-center">
-          <div className="w-full h-[85%] border-y-[3px] border-black flex items-center justify-between px-2 md:px-6">
-            <div className="relative flex items-center w-[320px] h-[70%] text-nowrap">
-              <p id="barWorkText" className="absolute text-black font-nohemiSemiBold md:text-xl">SELECTED WORKS</p>
-              <p id="barFeaturedText" className="absolute text-black font-nohemiSemiBold md:text-xl opacity-0">FEATURED</p>
-            </div>
-            <div className="flex items-center gap-x-2">
-              <img src={animateAsteriskSvg} className="size-5 animate-spin" />
-              <span className="hireButton cursor-pointer group"><p className="group-hover:text-purple-900 transition-all group-active:text-purple-950 font-nohemiSemiBold text-md sm:text-xl translate-y-[1px] w-fit min-w-[70px]" onClick={handleContactClick}>HIRE ME</p></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="w-full h-fit flex-col flex relative pinTrigger gap-1 finalPin">
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-full flex items-center justify-center relative">
+    <section className='w-full relative z-30 flex flex-col eightFiveVh'>
+      <div className="pinText fixed top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
+        <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
+        <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
+        <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
+        <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
+      </div> 
+      <div ref={finalPinRef} className="w-full h-fit flex-col flex relative pinTrigger gap-1 finalPin">
+        <div ref={oneVhRef} className="w-full oneVh flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
@@ -248,10 +213,10 @@ const Work = ({ scrollPosition, browserName }) => {
           </div>
           <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 1.6 : "160lvh"}} className="w-full relative minusTrigger cursorTrigger">
+        <div className="w-full oneSixVh relative minusTrigger cursorTrigger">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-full relative flex gap-1 zeroTrigger cursorTrigger">
+        <div className="w-full oneVh relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <div className="w-full h-full scale-[2] runwayImageScale">
                 <LazyLoadImage 
@@ -281,11 +246,11 @@ const Work = ({ scrollPosition, browserName }) => {
               </div>
           </div> 
         </div>
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 1.6 : "160lvh"}} className="w-full relative oneTrigger z-10 cursorTrigger">
+        <div className="w-full oneSixVh relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className={`w-full bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} className={`w-full oneVh border-y-4 border-white bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -368,9 +333,9 @@ const Work = ({ scrollPosition, browserName }) => {
           </div>
         </div>
       </div>
-      <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-full growUpTrigger bg-black opacity-0"></div>
-      <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 1.3 : "130lvh"}} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-1/2 flex justify-center z-10">
+      <div className="w-full oneVh growUpTrigger bg-black opacity-0"></div>
+      <div className="w-full oneThreeVh md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+        <div className="w-1/2 oneVh flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain1}
@@ -384,7 +349,7 @@ const Work = ({ scrollPosition, browserName }) => {
             />
           </div>
         </div>
-        <div style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-1/2 flex items-end justify-center z-10 relative">
+        <div className="w-1/2 oneVh flex items-end justify-center z-10 relative">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain2}

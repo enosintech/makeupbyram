@@ -172,11 +172,8 @@ const Contact = ({ scrollPosition }) => {
         <div ref={lastPinRef} className="w-full oneVh lastPin flex items-center justify-center relative whiteScrubTrigger">
             <div ref={contactOverlayRef} className="contactOverlay oneVh w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-100 rounded-[20px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center">
+                    <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
                         <FontAwesomeIcon icon={faX}/>
-                    </div>
-                    <div className="absolute top-5 left-0 right-0 mx-auto w-fit">
-                        <p className="font-black tracking-tight text-xl md:text-2xl lg:text-3xl">GET IN TOUCH</p>
                     </div>
                     <div className="rounded-[20px] w-[95%] h-[80%] bg-white flex flex-col overflow-hidden px-5">
                         <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
@@ -216,7 +213,7 @@ const Contact = ({ scrollPosition }) => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-nohemiBlack text-white relative z-[51]">MAKEUPBY<span className="text-purple-950">RAM</span></h1>
                 <div className="text-white overflow-x-hidden rounded-full">
                     <button ref={overlayOpenRef} className="p-6 w-[250px] md:w-[300px] flex items-center justify-center rounded-full overflow-hidden bg-purple-950 group hover:bg-white transition-all shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                        <p className="font-nohemiSemiBold text-4xl md:text-5xl group-hover:text-black transition-all">Let's Talk</p>
+                        <p className="font-nohemiSemiBold text-4xl md:text-5xl group-hover:text-black transition-all">Reach Out</p>
                     </button>
                 </div>
                 <div className="flex flex-col gap-5 items-center text-white">

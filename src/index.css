@@ -68,6 +68,10 @@ body {
     pointer-events: none;
 }
 
+.eightFiveVh {
+    height: calc(var(--vh, 1vh) * 850);
+}
+
 .fourVh {
     height: calc(var(--vh, 1vh) * 400);
 }
@@ -81,6 +85,13 @@ input::selection {
     height: calc(var(--vh, 1vh) * 100);
 }
 
+.oneThreeVh {
+    height: calc(var(--vh, 1vh) * 130);
+}
+
+.oneSixVh {
+    height: calc(var(--vh, 1vh) * 160);
+}
 
 section {
     overflow-y: visible;

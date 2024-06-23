@@ -26,7 +26,6 @@ const App = ({ scrollPosition }) => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
-  const [ stopScrolling, setStopScrolling ] = useState(false);
 
   const lenis = useLenis(() => {
 
@@ -34,24 +33,13 @@ const App = ({ scrollPosition }) => {
       lenis.scrollTo(0, {immediate: true, force: true})
       lenis.stop();
     } 
-    
-    if(stopScrolling){
-      lenis.stop()
-    } else {
-      lenis.start()
-    }
 
-  }, [stopScrolling, refreshRoutine]);
+  }, [refreshRoutine]);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      setStopScrolling(true)
-
-      setTimeout(() => {
-        setStopScrolling(false)
-      }, 2000);
     });
 
     window.addEventListener("beforeunload", () => {
@@ -62,11 +50,6 @@ const App = ({ scrollPosition }) => {
       window.removeEventListener('resize', () => {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-        setStopScrolling(true)
-  
-        setTimeout(() => {
-          setStopScrolling(false)
-        }, 2000);
       })
 
       window.removeEventListener("beforeunload", () => {
@@ -75,6 +58,7 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
+
     return (
       <>
         <CursorComponent />
@@ -82,7 +66,7 @@ const App = ({ scrollPosition }) => {
         <Hero />
         <About scrollPosition={scrollPosition}/>
         <Highlights scrollPosition={scrollPosition}/>
-        {/* <Work scrollPosition={scrollPosition}/> */}
+        <Work scrollPosition={scrollPosition}/>
         <Contact scrollPosition={scrollPosition}/>
       </>
     )
