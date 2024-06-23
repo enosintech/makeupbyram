@@ -29,16 +29,17 @@ const App = ({ scrollPosition }) => {
     window.addEventListener('resize', () => {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+      ScrollTrigger.refresh(true);
     });
 
     return () => {
       window.removeEventListener('resize', () => {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+        ScrollTrigger.refresh(true);
       })
     }
   }, [])
-
 
   const lenis = useLenis(() => {
     
