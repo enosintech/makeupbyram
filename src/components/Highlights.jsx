@@ -7,10 +7,11 @@ import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
-import { noTriggerToAnimations } from "../utils/animations";
+import { noTriggerToAnimations, pinAnimations } from "../utils/animations";
 
-const Highlights = ({ scrollPosition, browserName }) => {
+const Highlights = ({ scrollPosition }) => {
 
+    const sliderTrigger = useRef(null)
     const highlight = useRef(null);
 
     useGSAP(() => {
@@ -26,16 +27,17 @@ const Highlights = ({ scrollPosition, browserName }) => {
             ease: "none"
           },
           scrollTrigger: {
-            trigger: highlight.current,
+            trigger: sliderTrigger.current,
             start: "clamp(top top)",
-            end: "clamp(bottom -100%)",
-            pin: true,
+            end: () => "+=" + sliderTrigger.current.offsetHeight,
+            pin: ".highlightPin",
             scrub: true,
+            markers: true
           }  
         })
 
         tl.to(".moveLeft", {
-            x: window.innerWidth < 768 ? "-75%" : "-50%",
+            xPercent: window.innerWidth < 768 ? -110 : -75,
         })
 
         images.forEach((img) => (
@@ -53,8 +55,8 @@ const Highlights = ({ scrollPosition, browserName }) => {
     }, [])
 
   return (
-    <section style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight * 3 : "300lvh"}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
-        <div ref={highlight} className="w-full h-[33.33%] overflow-hidden highlightPin relative">
+    <section ref={sliderTrigger} style={{height: window.innerHeight * 3}} className="w-full bg-white relative z-20 text-white overflow-x-hidden">
+        <div ref={highlight} style={{height: window.innerHeight}} className="w-full overflow-hidden highlightPin relative">
             <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                 <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
                 <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -8,7 +8,9 @@ import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
 import { pinAnimations } from "../utils/animations";
 
-const Hero = ({ browserName }) => {
+const Hero = () => {
+
+    const hero = useRef(null);
 
     const [ animPlaying, setAnimPlaying ] = useState(true);
 
@@ -23,7 +25,7 @@ const Hero = ({ browserName }) => {
 
     useGSAP(() => {
 
-        pinAnimations(".heroPin")
+        pinAnimations(hero.current, "top top", () => "+=" + hero.current.offsetHeight, true);
 
         const tl = gsap.timeline({
             onStart: () => {
@@ -51,8 +53,8 @@ const Hero = ({ browserName }) => {
     }, [])
 
   return (
-    <section style={{height: browserName !== "Safari" || browserName !== "Chrome" ? window.innerHeight : "100lvh"}} className="w-full homescreen overflow-x-hidden">
-        <div className="w-full h-full heroPin flex items-center justify-center">
+    <section style={{height: window.innerHeight}} className="w-full homescreen overflow-x-hidden">
+        <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
                 <div id="loadAppear" className="w-full h-full pl-2 sm:pl-5 pt-0 opacity-0">
