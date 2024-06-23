@@ -69,10 +69,12 @@ body {
 }
 
 .eightFiveVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 850);
 }
 
 .fourVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 400);
 }
 
@@ -82,14 +84,17 @@ input::selection {
 }
 
 .oneVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
 }
 
 .oneThreeVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 130);
 }
 
 .oneSixVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 160);
 }
 
@@ -103,6 +108,7 @@ section {
 }
 
 .threeVh {
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 300);
 }
 

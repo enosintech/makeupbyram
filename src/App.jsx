@@ -38,6 +38,7 @@ const App = ({ scrollPosition }) => {
 
   useEffect(() => {
     window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
@@ -48,6 +49,7 @@ const App = ({ scrollPosition }) => {
 
     return () => {
       window.removeEventListener('resize', () => {
+        ScrollTrigger.refresh();
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
       })
