@@ -41,8 +41,9 @@ export const pinAnimations = (target, start = "top top", end, pinSpacing = false
         start: `clamp(${start}})`,
         end: end,
         pin: pin,
-        anticipatePin: 3,
+        anticipatePin: 1,
         markers: true,
         pinSpacing: pinSpacing,
+        invalidateOnRefresh: true
     })
 }
