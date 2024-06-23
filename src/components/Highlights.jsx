@@ -7,12 +7,11 @@ import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
-import { noTriggerToAnimations, pinAnimations } from "../utils/animations";
+import { noTriggerToAnimations } from "../utils/animations";
 
 const Highlights = ({ scrollPosition }) => {
 
-    const sliderTrigger = useRef(null)
-    const highlight = useRef(null);
+    const slider = useRef(null);
 
     useGSAP(() => {
 
@@ -21,23 +20,25 @@ const Highlights = ({ scrollPosition }) => {
         })
 
         const images = gsap.utils.toArray(".scl");
+        const panels = gsap.utils.toArray(".panel");
 
-        const tl = gsap.timeline({
-          defaults: {
-            ease: "none"
-          },
-          scrollTrigger: {
-            trigger: sliderTrigger.current,
-            start: "clamp(top top)",
-            end: () => "+=" + sliderTrigger.current.offsetHeight,
-            pin: ".highlightPin",
-            scrub: true,
-            markers: true
-          }  
+        let tl = gsap.timeline({
+            defaults: {
+                ease: "none",
+            },
+            scrollTrigger: {
+                trigger: slider.current,
+                pin: true,
+                scrub: 2,
+                start: "top top",
+                end: () => "+=" + slider.current.offsetWidth,
+                invalidateOnRefresh: true,
+                anticipatePin: 3,
+            }
         })
 
-        tl.to(".moveLeft", {
-            xPercent: window.innerWidth < 768 ? -110 : -75,
+        tl.to(panels, {
+          xPercent: window.innerWidth < 768 ? -100 * (panels.length - 1) : -100 * (panels.length - 2) ,
         })
 
         images.forEach((img) => (
@@ -55,90 +56,91 @@ const Highlights = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section ref={sliderTrigger} style={{height: window.innerHeight * 3}} className="w-full relative text-white overflow-hidden">
-        <div ref={highlight} style={{height: window.innerHeight}} className="w-full bg-white overflow-hidden highlightPin relative z-50">
-            <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
-                <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
-                <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>
+    <div className="overflow-x-hidden">
+        <div ref={slider} style={{height: window.innerHeight}} className="md:w-[200vw] w-[400vw] bg-white text-white md:min-w-[200vw] min-w-[400vw] h-full flex gap-x-1 py-1 moveLeft relative z-50">
+                <div className="w-[100vw] h-full absolute top-0 left-0 z-10">
+                <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
+                    <Lottie animationData={scrollDown} className="size-8 sm:size-10" />
+                    <p className="font-nohemiMedium sm:text-xl">SCROLL DOWN</p>
+                </div>
+                <p className="font-nohemiSemiBold sm:text-xl absolute top-5 right-2 sm:right-5 z-10">WHAT I OFFER</p>
             </div>
-            <p className="font-nohemiSemiBold sm:text-xl absolute top-5 right-2 sm:right-5 z-10">WHAT I OFFER</p>
-            <div className="md:w-[200vw] w-[400vw] md:min-w-[200vw] min-w-[400vw] h-full flex gap-x-1 py-1 moveLeft">
-                <div className="w-1/4 h-full relative overflow-hidden">
-                    <div className="w-full h-full scale-[2] scl">
-                        <LazyLoadImage 
-                            alt="Creative Work Cover"
-                            src={highlightImage1}
-                            className="w-full h-full object-cover"
-                            width={"100%"}
-                            height={"100%"}
-                            effect="blur"
-                            placeholderSrc={highlightPlaceholderImage1}
-                            scrollPosition={scrollPosition}
-                        />
-                    </div>
-                    <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
-                        <p>CREATIVE EDITORIAL</p>
-                        <p className="font-nohemiLight">MAKEUP</p>
-                    </div>
+            <div className="w-1/4 h-full relative overflow-hidden panel">
+                <div className="w-full h-full scale-[2] scl">
+                    <LazyLoadImage 
+                        alt="Creative Work Cover"
+                        src={highlightImage1}
+                        className="w-full h-full object-cover"
+                        width={"100%"}
+                        height={"100%"}
+                        effect="blur"
+                        placeholderSrc={highlightPlaceholderImage1}
+                        scrollPosition={scrollPosition}
+                    />
                 </div>
-                <div className="w-1/4 h-full relative overflow-hidden">
-                    <div className="w-full h-full scale-[2] scl">
-                        <LazyLoadImage 
-                            alt="Shoot Work Cover"
-                            src={highlightImage2}
-                            className="w-full h-full object-cover object-left md:object-center"
-                            width={"100%"}
-                            height={"100%"}
-                            effect="blur"
-                            placeholderSrc={highlightPlaceholderImage2}
-                            scrollPosition={scrollPosition}
-                        />
-                    </div>
-                    <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
-                        <p>PHOTOSHOOT/ VIDEO</p>
-                        <p className="font-nohemiLight">MAKEUP</p>
-                    </div>
+                <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
+                    <p>CREATIVE EDITORIAL</p>
+                    <p className="font-nohemiLight">MAKEUP</p>
                 </div>
-                <div className="w-1/4 h-full relative overflow-hidden">
-                    <div className="w-full h-full scale-[2] scl">
-                        <LazyLoadImage 
-                            alt="Runway Work Cover"
-                            src={runwayImage2}
-                            className="w-full h-full object-cover"
-                            width={"100%"}
-                            height={"100%"}
-                            effect="blur"
-                            placeholderSrc={runway2PlaceholderImage}
-                            scrollPosition={scrollPosition}
-                        />
-                    </div>
-                    <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
-                        <p>RUNWAY</p>
-                        <p className="font-nohemiLight">MAKEUP</p>
-                    </div>
+            </div>
+            <div className="w-1/4 h-full relative overflow-hidden panel">
+                <div className="w-full h-full scale-[2] scl">
+                    <LazyLoadImage 
+                        alt="Shoot Work Cover"
+                        src={highlightImage2}
+                        className="w-full h-full object-cover object-left md:object-center"
+                        width={"100%"}
+                        height={"100%"}
+                        effect="blur"
+                        placeholderSrc={highlightPlaceholderImage2}
+                        scrollPosition={scrollPosition}
+                    />
                 </div>
-                <div className="w-1/4 h-full overflow-hidden relative">
-                    <div className="w-full h-full scale-[2] scl">
-                        <LazyLoadImage 
-                            alt="Runway Work Cover"
-                            src={highlightImage4}
-                            className="w-full h-full object-cover"
-                            width={"100%"}
-                            height={"100%"}
-                            effect="blur"
-                            placeholderSrc={highlightPlaceholderImage3}
-                            scrollPosition={scrollPosition}
-                        />
-                    </div>
-                    <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
-                        <p>MASTERCLASS</p>
-                        <p className="font-nohemiLight">MAKEUP</p>
-                    </div>
+                <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
+                    <p>PHOTOSHOOT/ VIDEO</p>
+                    <p className="font-nohemiLight">MAKEUP</p>
+                </div>
+            </div>
+            <div className="w-1/4 h-full relative overflow-hidden panel">
+                <div className="w-full h-full scale-[2] scl">
+                    <LazyLoadImage 
+                        alt="Runway Work Cover"
+                        src={runwayImage2}
+                        className="w-full h-full object-cover"
+                        width={"100%"}
+                        height={"100%"}
+                        effect="blur"
+                        placeholderSrc={runway2PlaceholderImage}
+                        scrollPosition={scrollPosition}
+                    />
+                </div>
+                <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
+                    <p>RUNWAY</p>
+                    <p className="font-nohemiLight">MAKEUP</p>
+                </div>
+            </div>
+            <div className="w-1/4 h-full overflow-hidden relative panel">
+                <div className="w-full h-full scale-[2] scl">
+                    <LazyLoadImage 
+                        alt="Runway Work Cover"
+                        src={highlightImage4}
+                        className="w-full h-full object-cover"
+                        width={"100%"}
+                        height={"100%"}
+                        effect="blur"
+                        placeholderSrc={highlightPlaceholderImage3}
+                        scrollPosition={scrollPosition}
+                    />
+                </div>
+                <div className="absolute bottom-10 left-3 sm:left-5 flex flex-col text-3xl sm:text-4xl font-nohemiBold">
+                    <p>MASTERCLASS</p>
+                    <p className="font-nohemiLight">MAKEUP</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
   )
 }
 
 export default Highlights;
+

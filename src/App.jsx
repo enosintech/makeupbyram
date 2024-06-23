@@ -19,8 +19,6 @@ ScrollTrigger.config({
   ignoreMobileResize: true
 })
 
-ScrollTrigger.normalizeScroll(true);
-
 const App = ({ scrollPosition }) => {
 
   const lenis = useLenis(() => {
@@ -46,8 +44,8 @@ const App = ({ scrollPosition }) => {
         <Hero />
         <About scrollPosition={scrollPosition}/>
         <Highlights scrollPosition={scrollPosition}/>
-        {/* <Work scrollPosition={scrollPosition}/>
-        <Contact scrollPosition={scrollPosition}/> */}
+        {/* <Work scrollPosition={scrollPosition}/> */}
+        <Contact scrollPosition={scrollPosition}/>
       </>
     )
 }
