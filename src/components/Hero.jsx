@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -8,7 +8,7 @@ import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
 import { pinAnimations } from "../utils/animations";
 
-const Hero = ({ height }) => {
+const Hero = () => {
 
     const hero = useRef(null);
 
@@ -53,7 +53,7 @@ const Hero = ({ height }) => {
     }, [])
 
   return (
-    <section style={{height: height}} className="w-full homescreen overflow-x-hidden">
+    <section className="w-full homescreen overflow-x-hidden oneVh">
         <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">

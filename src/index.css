@@ -68,10 +68,19 @@ body {
     pointer-events: none;
 }
 
+.fourVh {
+    height: calc(var(--vh, 1vh) * 400);
+}
+
 input::selection {
     color: none;
     background: none;
 }
+
+.oneVh {
+    height: calc(var(--vh, 1vh) * 100);
+}
+
 
 section {
     overflow-y: visible;
@@ -80,6 +89,10 @@ section {
 
 .stretch {
     font-stretch: ultra-expanded;
+}
+
+.threeVh {
+    height: calc(var(--vh, 1vh) * 300);
 }
 
 .vidLoader {

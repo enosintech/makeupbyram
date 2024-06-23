@@ -9,7 +9,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { highlightImage1, highlightImage2, highlightImage4, highlightPlaceholderImage1, highlightPlaceholderImage2, highlightPlaceholderImage3, runway2PlaceholderImage, runwayImage2, scrollDown } from "../lib";
 import { noTriggerToAnimations } from "../utils/animations";
 
-const Highlights = ({ scrollPosition, height }) => {
+const Highlights = ({ scrollPosition }) => {
 
     const slider = useRef(null);
 
@@ -57,7 +57,7 @@ const Highlights = ({ scrollPosition, height }) => {
 
   return (
     <div className="overflow-x-hidden">
-        <div ref={slider} style={{height: height}} className="md:w-[200vw] w-[400vw] bg-white text-white md:min-w-[200vw] min-w-[400vw] flex gap-x-1 py-1 moveLeft relative z-50">
+        <div ref={slider} className="md:w-[200vw] w-[400vw] oneVh bg-white text-white md:min-w-[200vw] min-w-[400vw] flex gap-x-1 py-1 moveLeft relative z-50">
                 <div className="w-[100vw] h-full absolute top-0 left-0 z-10">
                 <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                     <Lottie animationData={scrollDown} className="size-8 sm:size-10" />

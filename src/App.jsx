@@ -21,19 +21,24 @@ ScrollTrigger.config({
 
 const App = ({ scrollPosition }) => {
 
-  const [ height, setHeight ] = useState(window.innerHeight);
+  let vh = window.innerHeight * 0.01;
 
-  const setHeightFunc = () => {
-    setHeight(window.innerHeight);
-  }
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 
   useEffect(() => {
-    window.addEventListener("resize", setHeightFunc);
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
 
     return () => {
-      window.removeEventListener("resize", setHeightFunc);
+      window.removeEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      })
     }
   }, [])
+
 
   const lenis = useLenis(() => {
     
@@ -55,11 +60,11 @@ const App = ({ scrollPosition }) => {
       <>
         <CursorComponent />
         <Navbar />
-        <Hero height={height}/>
-        <About height={height} scrollPosition={scrollPosition}/>
-        <Highlights height={height} scrollPosition={scrollPosition}/>
+        <Hero />
+        <About scrollPosition={scrollPosition}/>
+        <Highlights scrollPosition={scrollPosition}/>
         {/* <Work scrollPosition={scrollPosition}/> */}
-        <Contact height={height} scrollPosition={scrollPosition}/>
+        <Contact scrollPosition={scrollPosition}/>
       </>
     )
 }
