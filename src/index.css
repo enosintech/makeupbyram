@@ -126,30 +126,30 @@ section {
     
 } */
 
-@supports (-webkit-font-smoothing: antialiased) {
+@supports (hanging-punctuation: last) {
 
     .oneVh {
-        height: 2000px !important;
+        height: 100lvh !important;
     }
 
     .oneThreeVh {
-        height: 2000px !important; 
+        height: 130lvh !important; 
     }
 
     .oneSixVh {
-        height: 2000px !important;
+        height: 160lvh !important;
     }
 
     .threeVh {
-        height: 2000px !important;
+        height: 300lvh !important;
     }
 
     .fourVh {
-        height: 2000px !important;
+        height: 400lvh !important;
     }
 
     .eightFiveVh {
-        height: 2000px !important;
+        height: 850lvh !important;
     }
 
 }
