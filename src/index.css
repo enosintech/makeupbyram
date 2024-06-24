@@ -129,27 +129,27 @@ section {
 @supports (-webkit-font-smoothing: antialiased) {
 
     .oneVh {
-        height: 100lvh !important;
+        height: 2000px !important;
     }
 
     .oneThreeVh {
-        height: 130lvh !important; 
+        height: 2000px !important; 
     }
 
     .oneSixVh {
-        height: 160lvh !important;
+        height: 2000px !important;
     }
 
     .threeVh {
-        height: 300lvh !important;
+        height: 2000px !important;
     }
 
     .fourVh {
-        height: 400lvh !important;
+        height: 2000px !important;
     }
 
     .eightFiveVh {
-        height: 850lvh !important;
+        height: 2000px !important;
     }
 
 }
