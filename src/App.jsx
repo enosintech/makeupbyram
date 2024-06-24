@@ -35,28 +35,25 @@ const App = ({ scrollPosition }) => {
 
   }, [refreshRoutine]);
 
+  const setHeight = () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
+    setHeight();
 
     window.addEventListener("beforeunload", () => {
       setRefreshRoutine(true)
     })
 
     return () => {
-      window.removeEventListener('resize', () => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      })
 
       window.removeEventListener("beforeunload", () => {
         setRefreshRoutine(true)
       })
     }
   }, [])
-
 
     return (
       <div className="wrappingDiv">
