@@ -19,10 +19,6 @@ ScrollTrigger.config({
 })
 
 const App = ({ scrollPosition }) => {
-
-  let vh = window.innerHeight * 0.01;
-
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
 
@@ -36,7 +32,7 @@ const App = ({ scrollPosition }) => {
   }, [refreshRoutine]);
 
   const setHeight = () => {
-    let vh = window.innerHeight * 0.01;
+    let vh = window.innerHeight;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 
