@@ -160,7 +160,7 @@ const Contact = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section style={{height: window.innerHeight * 3}} className="w-full bg-black -mt-2 flex flex-col relative z-10 overflow-x-hidden">
+    <section className="w-full h-[300lvh] bg-black -mt-2 flex flex-col relative z-10 overflow-x-hidden">
         <div ref={contactRef} className="w-full h-[100lvh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
