@@ -14,10 +14,6 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.config({
-  autoRefreshEvents: "load,visibilitychange,DOMContentLoaded",
-})
-
 const App = ({ scrollPosition }) => {
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
