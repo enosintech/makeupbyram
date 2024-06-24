@@ -49,10 +49,6 @@
     cursor: none !important;
 }
 
-html, body, #root {
-    height: 100%;
-}
-
 body {
     color: black;
     background-color: white;
@@ -211,27 +207,27 @@ section {
 } */
 
 .oneVh {
-    height: 100% !important;
+    height: 100dvh !important;
 }
 
 .oneThreeVh {
-    height: 130% !important; 
+    height: 130dvh !important; 
 }
 
 .oneSixVh {
-    height: 160% !important;
+    height: 160dvh !important;
 }
 
 .threeVh {
-    height: 300% !important;
+    height: 300dvh !important;
 }
 
 .fourVh {
-    height: 400% !important;
+    height: 400dvh !important;
 }
 
 .eightFiveVh {
-    height: 850% !important;
+    height: 850dvh !important;
 }
 
 @keyframes mulShdSpin {
