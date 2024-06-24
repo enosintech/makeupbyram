@@ -161,7 +161,7 @@ const Contact = ({ scrollPosition }) => {
 
   return (
     <section style={{height: window.innerHeight * 3}} className="w-full bg-black -mt-2 flex flex-col relative z-10 overflow-x-hidden">
-        <div ref={contactRef} style={{ height: window.innerHeight }} className="w-full border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
+        <div ref={contactRef} className="w-full h-[100lvh] border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
                     <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
@@ -234,7 +234,7 @@ const Contact = ({ scrollPosition }) => {
                 </div>
             </div>
         </div>
-        <div ref={lastPinRef} className="w-full h-[100lvh] lastPin flex items-center justify-center relative whiteScrubTrigger sm:border-none border-b-4 border-white">
+        <div ref={lastPinRef} className="w-full h-[100lvh] lastPin flex items-center justify-center relative whiteScrubTrigger sm:border-none">
             <div ref={contactOverlayRef} className="contactOverlay h-[100lvh] w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-900 rounded-[30px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                     <div className="w-full h-fit absolute top-3 sm:top-4 flex flex-row-reverse items-center justify-between px-10">
