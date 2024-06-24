@@ -38,6 +38,9 @@ const App = ({ scrollPosition }) => {
 
   useEffect(() => {
     setHeight();
+  }, [])
+
+  useEffect(() => {
 
     window.addEventListener("beforeunload", () => {
       setRefreshRoutine(true)

@@ -95,32 +95,32 @@ section {
 @supports (-moz-appearance: none) {
 
     .oneVh {
-        height: 100vh;
+        /* height: 100vh; */
         height: var(--vh);
     }
 
     .oneThreeVh {
-        height: 130vh;
+        /* height: 130vh; */
         height: calc(var(--vh) * 1.3);
     }
 
     .oneSixVh {
-        height: 160vh;
-        height: calc(var(--vh) * 1.36);
+        /* height: 160vh; */
+        height: calc(var(--vh) * 1.6);
     }
 
     .threeVh {
-        height: 300vh;
+        /* height: 300vh; */
         height: calc(var(--vh) * 3);
     }
 
     .fourVh {
-        height: 400vh;
+        /* height: 400vh; */
         height: calc(var(--vh) * 4)
     }
 
     .eightFiveVh {
-        height: 850vh;
+        /* height: 850vh; */
         height: calc(var(--vh) * 8.5);
     }
     
