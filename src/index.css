@@ -49,6 +49,10 @@
     cursor: none !important;
 }
 
+html, body, #root {
+    height: 100%;
+}
+
 body {
     color: black;
     background-color: white;
@@ -205,6 +209,30 @@ section {
         height: 850lvh !important;
     }
 } */
+
+.oneVh {
+    height: 100% !important;
+}
+
+.oneThreeVh {
+    height: 130% !important; 
+}
+
+.oneSixVh {
+    height: 160% !important;
+}
+
+.threeVh {
+    height: 300% !important;
+}
+
+.fourVh {
+    height: 400% !important;
+}
+
+.eightFiveVh {
+    height: 850% !important;
+}
 
 @keyframes mulShdSpin {
     0%,

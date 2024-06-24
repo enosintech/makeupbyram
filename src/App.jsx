@@ -66,9 +66,9 @@ const App = ({ scrollPosition }) => {
         <Navbar />
         <Hero />
         <About scrollPosition={scrollPosition}/>
-        <Highlights scrollPosition={scrollPosition}/>
+        {/* <Highlights scrollPosition={scrollPosition}/> */}
         {/* <Work scrollPosition={scrollPosition}/> */}
-        <Contact scrollPosition={scrollPosition}/>
+        {/* <Contact scrollPosition={scrollPosition}/> */}
       </>
     )
 }
