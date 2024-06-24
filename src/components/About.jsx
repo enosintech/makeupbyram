@@ -79,16 +79,16 @@ const About = ({ scrollPosition }) => {
 
     ScrollTrigger.create({
       trigger: ".aboutPin",
-      start: "top bottom",
+      start: "clamp(top bottom)",
       onEnter: () => {
         aboutVidRef.current.play();
         workedWithVideoRef.current.play();
       },
     })
 
-    pinAnimations(aboutRef.current, "clamp(top top)", () => "+=" + aboutRef.current.offsetHeight);
+    pinAnimations(aboutRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + aboutRef.current.offsetHeight));
 
-    pinAnimations(workedWithRef.current, "clamp(top top)", () => "+=" + workedWithRef.current.offsetHeight * 3, true);
+    pinAnimations(workedWithRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + workedWithRef.current.offsetHeight * 3));
 
   }, [])
 

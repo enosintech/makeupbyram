@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Lottie from "lottie-react";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -26,7 +27,7 @@ const Highlights = ({ scrollPosition }) => {
                 pin: true,
                 scrub: 2,
                 start: "clamp(top top)",
-                end: () => "+=" + slider.current.offsetWidth,
+                end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + slider.current.offsetWidth),
                 anticipatePin: 1,
             }
         })

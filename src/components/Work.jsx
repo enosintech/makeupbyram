@@ -176,21 +176,21 @@ const Work = ({ scrollPosition }) => {
       repeat: -1,
     })
 
-    pinAnimations(pinHighRef.current, "top top", () => "+=" + pinHighRef.current.offsetHeight);
+    pinAnimations(pinHighRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + pinHighRef.current.offsetHeight));
 
     ScrollTrigger.create({
       trigger: finalPinRef.current,
       pin: true,
-      start: "bottom bottom",
-      end: () => "+=" + oneVhRef.current.offsetHeight,
+      start: "clamp(bottom bottom)",
+      end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + oneVhRef.current.offsetHeight),
       anticipatePin: 1,
       pinSpacing: false,
     })
 
     ScrollTrigger.create({
       trigger: ".textPinTrigger",
-      start: "top top",
-      end: "bottom bottom",
+      start: "clamp(top top)",
+      end: "clamp(bottom bottom)",
       pin: ".pinText",
     })
 
@@ -205,7 +205,7 @@ const Work = ({ scrollPosition }) => {
         <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
       </div> 
       <div ref={finalPinRef} className="w-full h-fit flex-col flex relative pinTrigger gap-1 finalPin bg-white">
-        <div ref={oneVhRef} style={{height: window.innerHeight}} className="w-full flex items-center justify-center relative">
+        <div ref={oneVhRef} className="w-full h-[100lvh] flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
@@ -339,7 +339,7 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
       </div>
-      <div style={{ height: window.innerHeight }} className="w-full growUpTrigger bg-black opacity-0"></div>
+      <div className="w-full h-[100lvh] growUpTrigger bg-black opacity-0"></div>
       <div style={{ height: window.innerHeight * 1.3 }} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div style={{ height: window.innerHeight }} className="w-1/2 oneVh flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">

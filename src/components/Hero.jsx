@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 import Clock from "./Clock";
@@ -26,7 +27,7 @@ const Hero = () => {
 
     useGSAP(() => {
 
-        pinAnimations(hero.current, "clamp(top top)", () => "+=" + hero.current.offsetHeight);
+        pinAnimations(hero.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + hero.current.offsetHeight));
 
         const tl = gsap.timeline({
             onStart: () => {
