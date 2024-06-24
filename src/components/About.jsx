@@ -148,7 +148,7 @@ const About = ({ scrollPosition }) => {
             </div>
           </div>
         </div>
-        <div ref={workedWithRef} style={{height: window.innerHeight}} className="workedWithPin w-full text-white sm:border-0 border-b-4 border-white relative z-10 flex flex-col items-center justify-center">
+        <div ref={workedWithRef} className="workedWithPin w-full h-[100lvh] text-white sm:border-0 border-b-4 border-white relative z-10 flex flex-col items-center justify-center">
           <div className="w-full h-full absolute z-[-1] grid place-items-center">
             <div className="absolute top-0 left-0 w-full h-full z-[-1] grid place-items-center">
               <VidLoadingPrompt />

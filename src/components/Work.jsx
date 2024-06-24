@@ -257,7 +257,7 @@ const Work = ({ scrollPosition }) => {
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} style={{ height: window.innerHeight }} className={`w-full border-y-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} className={`w-full h-[100lvh] bg-white border-y-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
