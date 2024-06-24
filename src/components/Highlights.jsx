@@ -25,7 +25,7 @@ const Highlights = ({ scrollPosition }) => {
                 trigger: slider.current,
                 pin: true,
                 scrub: 2,
-                start: "top top",
+                start: "clamp(top top)",
                 end: () => "+=" + slider.current.offsetWidth,
                 anticipatePin: 1,
             }

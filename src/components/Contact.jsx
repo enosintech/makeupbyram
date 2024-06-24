@@ -115,16 +115,16 @@ const Contact = ({ scrollPosition }) => {
 
     useGSAP(() => {
 
-        pinAnimations(contactRef.current, "top top", () => "+=" + contactRef.current.offsetHeight);
+        pinAnimations(contactRef.current, "clamp(top top)", () => "+=" + contactRef.current.offsetHeight);
 
-        pinAnimations(lastPinRef.current, "top top", () => "+=" + lastPinRef.current.offsetHeight * 2);
+        pinAnimations(lastPinRef.current, "clamp(top top)", () => "+=" + lastPinRef.current.offsetHeight * 2);
 
         triggerToAnimations("#slideAboutMe", {
             width: "100%",
         }, {
             trigger: ".lastPin", 
-            start: "top bottom",
-            end: "top top",
+            start: "clamp(top bottom)",
+            end: "clamp(top top)",
             scrub: true,
         })
 

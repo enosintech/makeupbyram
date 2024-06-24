@@ -86,9 +86,9 @@ const About = ({ scrollPosition }) => {
       },
     })
 
-    pinAnimations(aboutRef.current, "top top", () => "+=" + aboutRef.current.offsetHeight);
+    pinAnimations(aboutRef.current, "clamp(top top)", () => "+=" + aboutRef.current.offsetHeight);
 
-    pinAnimations(workedWithRef.current, "top top", () => "+=" + workedWithRef.current.offsetHeight * 3, true);
+    pinAnimations(workedWithRef.current, "clamp(top top)", () => "+=" + workedWithRef.current.offsetHeight * 3, true);
 
   }, [])
 

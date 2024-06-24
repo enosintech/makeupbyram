@@ -26,7 +26,7 @@ const Hero = () => {
 
     useGSAP(() => {
 
-        pinAnimations(hero.current, "top top", () => "+=" + hero.current.offsetHeight);
+        pinAnimations(hero.current, "clamp(top top)", () => "+=" + hero.current.offsetHeight);
 
         const tl = gsap.timeline({
             onStart: () => {
