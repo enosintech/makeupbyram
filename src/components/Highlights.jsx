@@ -27,7 +27,6 @@ const Highlights = ({ scrollPosition }) => {
                 scrub: 2,
                 start: "top top",
                 end: () => "+=" + slider.current.offsetWidth,
-                invalidateOnRefresh: true,
                 anticipatePin: 1,
             }
         })
