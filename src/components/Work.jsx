@@ -188,18 +188,25 @@ const Work = ({ scrollPosition }) => {
       markers: true,
     })
 
+    ScrollTrigger.create({
+      trigger: ".textPinTrigger",
+      start: "top top",
+      end: "bottom bottom",
+      pin: ".pinText",
+    })
+
   }, [])
 
   return (
-    <section className='w-full relative z-30 flex flex-col eightFiveVh'>
-      <div className="pinText fixed top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
+    <section style={{height: window.innerHeight * 8.5}} className='w-full relative z-30 flex flex-col eightFiveVh textPinTrigger'>
+      <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
         <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
         <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
         <span className="absolute" id="upFade2"><p className="font-nohemiSemiBold opacity-0 toOne2">MAKEUP PORTRAITS</p></span>
         <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
       </div> 
       <div ref={finalPinRef} className="w-full h-fit flex-col flex relative pinTrigger gap-1 finalPin">
-        <div ref={oneVhRef} className="w-full oneVh flex items-center justify-center relative">
+        <div ref={oneVhRef} style={{height: window.innerHeight}} className="w-full oneVh flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
@@ -213,10 +220,10 @@ const Work = ({ scrollPosition }) => {
           </div>
           <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
-        <div className="w-full oneSixVh relative minusTrigger cursorTrigger">
+        <div style={{height: window.innerHeight * 1.6}} className="w-full oneSixVh relative minusTrigger cursorTrigger">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
         </div>
-        <div className="w-full oneVh relative flex gap-1 zeroTrigger cursorTrigger">
+        <div style={{height: window.innerHeight}} className="w-full oneVh relative flex gap-1 zeroTrigger cursorTrigger">
           <div className="w-1/2 h-full overflow-hidden">
               <div className="w-full h-full scale-[2] runwayImageScale">
                 <LazyLoadImage 
@@ -246,11 +253,11 @@ const Work = ({ scrollPosition }) => {
               </div>
           </div> 
         </div>
-        <div className="w-full oneSixVh relative oneTrigger z-10 cursorTrigger">
+        <div style={{height: window.innerHeight * 1.6}} className="w-full oneSixVh relative oneTrigger z-10 cursorTrigger">
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} className={`w-full oneVh border-y-4 border-white bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} style={{ height: window.innerHeight }} className={`w-full oneVh border-y-4 border-white bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -333,9 +340,9 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
       </div>
-      <div className="w-full oneVh growUpTrigger bg-black opacity-0"></div>
-      <div className="w-full oneThreeVh md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
-        <div className="w-1/2 oneVh flex justify-center z-10">
+      <div style={{ height: window.innerHeight }} className="w-full oneVh growUpTrigger bg-black opacity-0"></div>
+      <div style={{ height: window.innerHeight * 1.3 }} className="w-full oneThreeVh md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+        <div style={{ height: window.innerHeight }} className="w-1/2 oneVh flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain1}
@@ -349,7 +356,7 @@ const Work = ({ scrollPosition }) => {
             />
           </div>
         </div>
-        <div className="w-1/2 oneVh flex items-end justify-center z-10 relative">
+        <div style={{ height: window.innerHeight }} className="w-1/2 oneVh flex items-end justify-center z-10 relative">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain2}

@@ -1,13 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "@studio-freight/react-lenis";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { about1ImagePlaceholder, about2ImagePlaceholder, aboutImage1, aboutImage2, aboutVideo, aboutVidPlaceImg, workedWithPlaceholderImage, workedWithVideo } from "../lib";
-import { noTriggerToAnimations, pinAnimations, triggerToAnimations } from "../utils/animations";
+import { pinAnimations, triggerToAnimations } from "../utils/animations";
 import VidLoadingPrompt from "./VidLoadingPrompt";
 
 
@@ -16,6 +16,8 @@ const About = ({ scrollPosition }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const lenis = useLenis();
+
+  const height = window.innerHeight;
 
   const aboutRef = useRef(null);
   const aboutVidRef = useRef(null);
@@ -44,6 +46,7 @@ const About = ({ scrollPosition }) => {
   }
 
   const handleContactClick = () => {
+    console.log("clicked")
     lenis.scrollTo(".contactTrigger", {
       offset: height,
       immediate: true
@@ -74,15 +77,6 @@ const About = ({ scrollPosition }) => {
       toggleActions: "play none none reverse",
     })
 
-    noTriggerToAnimations(".bounce", {
-      width: window.innerWidth < 1024 ? 10 : 14,
-      height: window.innerWidth < 1024 ? 10 : 14,
-      ease: "power1.in",
-      repeat: -1,
-      yoyo: true,
-      duration: 0.5,
-    })
-
     ScrollTrigger.create({
       trigger: ".aboutPin",
       start: "top bottom",
@@ -90,7 +84,6 @@ const About = ({ scrollPosition }) => {
         aboutVidRef.current.play();
         workedWithVideoRef.current.play();
       },
-      invalidateOnRefresh: true
     })
 
     pinAnimations(aboutRef.current, "top top", () => "+=" + aboutRef.current.offsetHeight);
@@ -101,8 +94,8 @@ const About = ({ scrollPosition }) => {
 
   return (
     
-    <section id="aboutAnimateTrigger" className="w-full fourVh flex flex-col overflow-x-hidden">
-        <div ref={aboutRef} className="w-full relative bg-white flex flex-col py-1 aboutPin z-20 oneVh">
+    <section id="aboutAnimateTrigger" style={{height: window.innerHeight * 4}} className="w-full fourVh flex flex-col overflow-x-hidden">
+        <div ref={aboutRef} style={{height: window.innerHeight}} className="w-full relative bg-white flex flex-col py-1 aboutPin z-20 oneVh">
           <span className="absolute bottom-5 left-2 sm:left-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiRegular text-white">ESTABLISHED 2022</p></span>
           <span onClick={handleContactClick} className="hover:opacity-70 active:opacity-35 clickable absolute bottom-5 right-2 sm:right-5 z-50 p-3 w-fit h-fit rounded-full border-4 border-purple-950 bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><p className="text-[12px] md:text-[14px] lg:text-[18px] xl:text-[20px] font-nohemiBold text-white">HIRE ME NOW</p></span>
           <div className="w-full h-full flex flex-col-reverse lg:flex-row-reverse gap-1 lg:gap-0">
@@ -155,7 +148,7 @@ const About = ({ scrollPosition }) => {
             </div>
           </div>
         </div>
-        <div ref={workedWithRef} className="workedWithPin w-full text-white relative z-10 flex flex-col items-center justify-center oneVh">
+        <div ref={workedWithRef} style={{height: window.innerHeight}} className="workedWithPin w-full text-white relative z-10 flex flex-col items-center justify-center oneVh">
           <div className="w-full h-full absolute z-[-1] grid place-items-center">
             <div className="absolute top-0 left-0 w-full h-full z-[-1] grid place-items-center">
               <VidLoadingPrompt />
@@ -171,15 +164,12 @@ const About = ({ scrollPosition }) => {
                 <p className="mb-5 text-[16px] sm:text-xl font-nohemiMedium tracking-tight">SKIP TO WORK</p>
                 <div className="flex justify-center w-[90vw] gap-4 md:gap-5 flex-wrap">
                   <span onClick={handleRunwayClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Runway</p>
                   </span>
                   <span onClick={handleExperimentalClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Experimental</p>
                   </span>
-                  <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">
-                    <span className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-white group-hover:bg-black transition-all bounce"/>  
+                  <span onClick={handlePortraitsClick} className="rounded-full border-2 border-white p-2 md:p-3 lg:p-5 gap-x-2 md:gap-x-4 flex items-center justify-center hover:bg-white group transition-all trick">  
                     <p className="font-nohemiSemiBold group-hover:text-black transition-all">Portraits</p>
                   </span>
                 </div>

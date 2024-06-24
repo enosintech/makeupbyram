@@ -2,7 +2,6 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Lottie from "lottie-react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -14,10 +13,6 @@ const Highlights = ({ scrollPosition }) => {
     const slider = useRef(null);
 
     useGSAP(() => {
-
-        ScrollTrigger.config({
-            ignoreMobileResize: false
-        })
 
         const images = gsap.utils.toArray(".scl");
         const panels = gsap.utils.toArray(".panel");
@@ -57,7 +52,7 @@ const Highlights = ({ scrollPosition }) => {
 
   return (
     <div className="overflow-x-hidden">
-        <div ref={slider} className="md:w-[200vw] w-[400vw] oneVh bg-white text-white md:min-w-[200vw] min-w-[400vw] flex gap-x-1 py-1 moveLeft relative z-50">
+        <div ref={slider} style={{height: window.innerHeight}} className="md:w-[200vw] w-[400vw] oneVh bg-white text-white md:min-w-[200vw] min-w-[400vw] flex gap-x-1 py-1 moveLeft relative z-50">
                 <div className="w-[100vw] h-full absolute top-0 left-0 z-10">
                 <div className="absolute top-4 sm:top-3 left-3 sm:left-5 flex flex-row-reverse items-center gap-x-2 z-10">
                     <Lottie animationData={scrollDown} className="size-8 sm:size-10" />

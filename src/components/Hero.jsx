@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -6,6 +6,7 @@ import gsap from "gsap";
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
+
 import { pinAnimations } from "../utils/animations";
 
 const Hero = () => {
@@ -53,7 +54,7 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full homescreen overflow-x-hidden oneVh">
+    <section style={{height: window.innerHeight}} className="w-full homescreen overflow-x-hidden oneVh">
         <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">

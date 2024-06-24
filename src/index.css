@@ -92,7 +92,7 @@ section {
     transform: translateZ(0);
 }
 
-@supports (-moz-appearance: none) {
+/* @supports (-moz-appearance: none) {
 
     .oneVh {
         height: 100vh;
@@ -124,32 +124,32 @@ section {
         height: calc(var(--vh, 1vh) * 850);
     }
     
-}
+} */
 
 @supports (-webkit-font-smoothing: antialiased) {
 
     .oneVh {
-        height: 100lvh;
+        height: 100lvh !important;
     }
 
     .oneThreeVh {
-        height: 130lvh;
+        height: 130lvh !important; 
     }
 
     .oneSixVh {
-        height: 160lvh;
+        height: 160lvh !important;
     }
 
     .threeVh {
-        height: 300lvh;
+        height: 300lvh !important;
     }
 
     .fourVh {
-        height: 400lvh;
+        height: 400lvh !important;
     }
 
     .eightFiveVh {
-        height: 850lvh;
+        height: 850lvh !important;
     }
 
 }

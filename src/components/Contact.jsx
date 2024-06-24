@@ -4,6 +4,7 @@ import gsap, { Back } from "gsap";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Lottie from "lottie-react"
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -22,10 +23,13 @@ const Contact = ({ scrollPosition }) => {
     const overlayOpenRef = useRef(null);
     const overlayCloseRef = useRef(null);
     
+    const [ loading, setLoading ] = useState(false);
+    const [ error, setError ] = useState(false);
+    const [ submitValue, setSubmitValue ] = useState("SEND MESSAGE");
     const [ copied, setCopied ] = useState(false);
     const [ formData, setFormData ] = useState({
-        name: "",
         email: "",
+        subject: "",
         message: "",
     })
 
@@ -44,8 +48,69 @@ const Contact = ({ scrollPosition }) => {
         }, 4000)
     }
 
-    const handleFormSubmit = (e) => {
+    const emailForm = {
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+    }
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
+
+        setLoading(true);
+
+        if(formData.email === ""){
+            setLoading(false)
+            setError("Email is Required")
+            setTimeout(() => {
+                setError(false)
+            }, 3000)
+            return;
+        }
+
+        if(formData.subject === ""){
+            setLoading(false)
+            setError("Subject is Required")
+            setTimeout(() => {
+                setError(false)
+            }, 3000)
+            return;
+        }
+
+        if(formData.message === ""){
+            setLoading(false)
+            setError("Message is Required")
+            setTimeout(() => {
+                setError(false)
+            }, 3000)
+            return;
+        }
+
+        await fetch("https://byramemailserver.onrender.com/api/sendEmail", {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(emailForm)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success === false){
+                setLoading(false)
+                setError(data.message)
+            } else {
+                setLoading(false)
+                setSubmitValue("SUBMITTED")
+                setFormData({
+                    email: "",
+                    subject: "",
+                    message: ""
+                });
+                setTimeout(() => {
+                    setSubmitValue("SEND MESSAGE")
+                }, 3000);
+            }
+        })        
     }
 
     useGSAP(() => {
@@ -95,8 +160,8 @@ const Contact = ({ scrollPosition }) => {
     }, [])
 
   return (
-    <section className="w-full bg-black -mt-2 flex flex-col relative z-10 overflow-x-hidden threeVh">
-        <div ref={contactRef} className="w-full border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden oneVh">
+    <section style={{height: window.innerHeight * 3}} className="w-full bg-black -mt-2 flex flex-col relative z-10 overflow-x-hidden threeVh">
+        <div ref={contactRef} style={{ height: window.innerHeight }} className="w-full border-b-8 border-white bg-black contactPin relative z-[60] overflow-hidden oneVh">
             <div className="w-[100vw] h-full flex lg:flex-row flex-col">
                 <div className="lg:w-[60%] w-full lg:h-full h-[40%] flex items-center justify-center">
                     <div className="lg:w-[90%] sm:w-[50%] w-[70%] h-[90%] lg:translate-y-0 translate-y-14 overflow-hidden rounded-[20px] md:rounded-[30px] relative lg:rounded-[60px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
@@ -169,31 +234,41 @@ const Contact = ({ scrollPosition }) => {
                 </div>
             </div>
         </div>
-        <div ref={lastPinRef} className="w-full oneVh lastPin flex items-center justify-center relative whiteScrubTrigger">
-            <div ref={contactOverlayRef} className="contactOverlay oneVh w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
-                <div className="bg-slate-100 rounded-[20px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <div ref={overlayCloseRef} className="clickable absolute top-3 sm:top-4 right-4 rounded-full bg-neutral-200 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
-                        <FontAwesomeIcon icon={faX}/>
-                    </div>
-                    <div className="rounded-[20px] w-[95%] h-[80%] bg-white flex flex-col overflow-hidden px-5">
-                        <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
-                            <input type="text" value={formData.name} className="w-full h-full flex items-center placeholder:text-gray-300 font-nohemiRegular outline-none text-xl" placeholder="Your Name" onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    name: e.target.value
-                                })
-                            }}/>
+        <div ref={lastPinRef} style={{ height: window.innerHeight }} className="w-full oneVh lastPin flex items-center justify-center relative whiteScrubTrigger">
+            <div ref={contactOverlayRef} style={{ height: window.innerHeight }} className="contactOverlay oneVh w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
+                <div className="bg-slate-900 rounded-[30px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    <div className="w-full h-fit absolute top-3 sm:top-4 flex flex-row-reverse items-center justify-between px-10">
+                        <div ref={overlayCloseRef} className="clickable rounded-full bg-slate-700 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
+                            <FontAwesomeIcon icon={faX} color="white"/>
                         </div>
-                        <div className="w-full h-1/4 border-b-[0.5px] border-gray-300">
-                            <input type="email" value={formData.email} className="w-full h-full flex items-center placeholder:text-gray-300 font-nohemiRegular outline-none text-xl" placeholder="Your Email" onChange={(e) => {
+                        {error && 
+                            <div className="w-fit h-fit max-w-[40%] bg-white shadow rounded-full p-3 px-4">
+                                <p className="font-nohemiRegular text-red-700 text-[12px]">{error}</p>
+                            </div>
+                        }
+                        <a href="https://www.instagram.com/makeupby.ram/" target={"_blank"} className="clickable rounded-full bg-slate-700 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
+                            <FontAwesomeIcon size="xl" icon={faInstagram} color="white"/>
+                        </a>
+                    </div>
+                    <div className="rounded-[20px] w-[95%] h-[80%] flex flex-col overflow-hidden px-5">
+                        <div className="w-full h-1/4 rounded-full bg-slate-500 px-4">
+                            <input type="email" value={formData.email} className="w-full h-full bg-transparent flex items-center text-white placeholder:text-white font-nohemiBold outline-none text-xl" placeholder="Your Email" onChange={(e) => {
                                 setFormData({
                                     ...formData,
                                     email: e.target.value
                                 })
                             }}/>
                         </div>
-                        <div className="w-full h-2/4 py-3">
-                            <textarea value={formData.message} className="w-full h-full text-justify resize-none placeholder:text-gray-300 font-nohemiLight outline-none text-xl" placeholder="Your Message" onChange={(e) => {
+                        <div className="w-full h-1/4 rounded-full bg-slate-500 px-4 mt-2">
+                            <input type="text" value={formData.subject} className="w-full h-full bg-transparent flex items-center text-white placeholder:text-white font-nohemiBold outline-none text-xl" placeholder="Subject" onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    subject: e.target.value
+                                })
+                            }}/>
+                        </div>
+                        <div className="w-full h-2/4 py-3 rounded-[30px] bg-slate-500 px-4 mt-2">
+                            <textarea value={formData.message} className="w-full h-full text-justify resize-none bg-transparent text-white placeholder:text-white font-nohemiLight outline-none text-xl" placeholder="Message" onChange={(e) => {
                                 setFormData({
                                     ...formData,
                                     message: e.target.value,
@@ -202,8 +277,8 @@ const Contact = ({ scrollPosition }) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={handleFormSubmit} className="hover:opacity-70 active:opacity-50 transition-all font-nohemiBold text-2xl text-white py-3 px-5 flex items-center justify-center rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <p>SEND MESSAGE</p>
+                <button disabled={loading ? true : submitValue === "SUBMITTED" ? true : false} onClick={handleFormSubmit} className={`${loading || submitValue === "SUBMITTED" ? "opacity-30 hover:opacity-30 active:opacity-30" : "opacity-100 hover:opacity-70 active:opacity-50"} transition-all font-nohemiBold text-2xl text-white py-3 px-5 flex items-center justify-center rounded-full bg-purple-950 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]`}>
+                    <p>{loading ? "SENDING" : submitValue }</p>
                 </button>
                 <p className="absolute bottom-3 text-white font-nohemiRegular tracking-tight text-lg">© {new Date().getFullYear()} MAKEUPBYRAM</p>
             </div>
