@@ -198,7 +198,7 @@ const Work = ({ scrollPosition }) => {
   }, [])
 
   return (
-    <section style={{height: window.innerHeight * 8.5}} className='w-full relative z-30 flex flex-col textPinTrigger'>
+    <section style={{height: window.innerHeight * 8.5}} className='w-full relative z-30 flex flex-col textPinTrigger bg-white'>
       <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
         <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
         <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
