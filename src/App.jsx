@@ -14,6 +14,10 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.config({
+  autoRefreshEvents: "load,visibilitychange,DOMContentLoaded",
+})
+
 const App = ({ scrollPosition }) => {
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
@@ -62,9 +66,9 @@ const App = ({ scrollPosition }) => {
         <Navbar />
         <Hero />
         <About scrollPosition={scrollPosition}/>
-        {/* <Highlights scrollPosition={scrollPosition}/> */}
-        {/* <Work scrollPosition={scrollPosition}/> */}
-        {/* <Contact scrollPosition={scrollPosition}/> */}
+        <Highlights scrollPosition={scrollPosition}/>
+        <Work scrollPosition={scrollPosition}/>
+        <Contact scrollPosition={scrollPosition}/>
       </>
     )
 }
