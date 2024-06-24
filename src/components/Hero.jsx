@@ -54,7 +54,7 @@ const Hero = () => {
     }, [])
 
   return (
-    <section className="w-full h-[100lvh] homescreen overflow-x-hidden bg-white">
+    <section style={{height: window.innerHeight}} className="w-full homescreen overflow-x-hidden bg-white">
         <div ref={hero} className="w-full h-full heroPin flex items-center justify-center">
             <VideoBackground />
             <div className="w-full h-full pt-[52px] sm:pt-[100px] md:pt-[130px] lg:pt-[150px] xl:pt-[170px] 2xl:pt-[210px]">
