@@ -22,6 +22,7 @@ const App = ({ scrollPosition }) => {
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
   const [ scrollValue, setScrollValue ] = useState(0);
+  const [ sectionHeight, setSectionHeight ] = useState(window.innerHeight)
 
   const lenis = useLenis(() => {
 
@@ -68,6 +69,7 @@ const App = ({ scrollPosition }) => {
   useEffect(() => {
     if(scrollValue <= 25 && scrollValue >= 20){
       ScrollTrigger.refresh()
+      setHeight(window.innerHeight);
   }
   }, [scrollValue])
 
@@ -75,11 +77,11 @@ const App = ({ scrollPosition }) => {
       <>
         <CursorComponent />
         <Navbar />
-        <Hero />
-        <About scrollPosition={scrollPosition}/>
-        <Highlights scrollPosition={scrollPosition}/>
-        <Work scrollPosition={scrollPosition}/>
-        <Contact scrollPosition={scrollPosition}/>
+        <Hero height={sectionHeight}/>
+        <About height={sectionHeight} scrollPosition={scrollPosition}/>
+        {/* <Highlights scrollPosition={scrollPosition}/> */}
+        {/* <Work scrollPosition={scrollPosition}/> */}
+        {/* <Contact scrollPosition={scrollPosition}/> */}
       </>
     )
 }
