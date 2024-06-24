@@ -28,21 +28,27 @@ const App = ({ scrollPosition }) => {
   }, [refreshRoutine]);
 
   const setHeight = () => {
-    let vh = window.innerHeight;
+    let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 
   useEffect(() => {
     setHeight();
-  }, [])
 
-  useEffect(() => {
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
 
     window.addEventListener("beforeunload", () => {
       setRefreshRoutine(true)
     })
 
     return () => {
+      window.removeEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      })
 
       window.removeEventListener("beforeunload", () => {
         setRefreshRoutine(true)
