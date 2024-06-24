@@ -21,6 +21,7 @@ ScrollTrigger.config({
 const App = ({ scrollPosition }) => {
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
+  const [ scrollValue, setScrollValue ] = useState(0);
 
   const lenis = useLenis(() => {
 
@@ -28,6 +29,10 @@ const App = ({ scrollPosition }) => {
       lenis.scrollTo(0, {immediate: true, force: true})
       lenis.stop();
     } 
+
+    lenis.on("scroll", () => {
+      setScrollValue(lenis.actualScroll);
+    })
 
   }, [refreshRoutine]);
 
@@ -59,6 +64,12 @@ const App = ({ scrollPosition }) => {
       })
     }
   }, [])
+
+  useEffect(() => {
+    if(scrollValue <= 25 && scrollValue >= 20){
+      ScrollTrigger.refresh()
+  }
+  }, [scrollValue])
 
     return (
       <>
