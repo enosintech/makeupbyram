@@ -180,8 +180,7 @@ section {
  */
 /* } */
 
-@supports (height: 1lvh) {
-    /* CSS for browsers that support lvh */
+/* @supports (height: 1lvh) {
     .oneVh {
         height: 500lvh !important;
     }
@@ -205,7 +204,7 @@ section {
     .eightFiveVh {
         height: 850lvh !important;
     }
-}
+} */
 
 @keyframes mulShdSpin {
     0%,
