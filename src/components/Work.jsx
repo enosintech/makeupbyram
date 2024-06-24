@@ -185,7 +185,6 @@ const Work = ({ scrollPosition }) => {
       end: () => "+=" + oneVhRef.current.offsetHeight,
       anticipatePin: 1,
       pinSpacing: false,
-      markers: true,
     })
 
     ScrollTrigger.create({
