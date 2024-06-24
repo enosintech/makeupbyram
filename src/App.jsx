@@ -21,8 +21,6 @@ ScrollTrigger.config({
 const App = ({ scrollPosition }) => {
  
   const [ refreshRoutine, setRefreshRoutine ] = useState(false);
-  const [ scrollValue, setScrollValue ] = useState(0);
-  const [ sectionHeight, setSectionHeight ] = useState(window.innerHeight)
 
   const lenis = useLenis(() => {
 
@@ -30,10 +28,6 @@ const App = ({ scrollPosition }) => {
       lenis.scrollTo(0, {immediate: true, force: true})
       lenis.stop();
     } 
-
-    lenis.on("scroll", () => {
-      setScrollValue(lenis.actualScroll);
-    })
 
   }, [refreshRoutine]);
 
@@ -66,22 +60,15 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
-  useEffect(() => {
-    if(scrollValue <= 25 && scrollValue >= 20){
-      ScrollTrigger.refresh()
-      setHeight(window.innerHeight);
-  }
-  }, [scrollValue])
-
     return (
       <>
         <CursorComponent />
         <Navbar />
-        <Hero height={sectionHeight}/>
-        <About height={sectionHeight} scrollPosition={scrollPosition}/>
-        {/* <Highlights scrollPosition={scrollPosition}/> */}
-        {/* <Work scrollPosition={scrollPosition}/> */}
-        {/* <Contact scrollPosition={scrollPosition}/> */}
+        <Hero />
+        <About scrollPosition={scrollPosition}/>
+        <Highlights scrollPosition={scrollPosition}/>
+        <Work scrollPosition={scrollPosition}/>
+        <Contact scrollPosition={scrollPosition}/>
       </>
     )
 }

@@ -234,8 +234,8 @@ const Contact = ({ scrollPosition }) => {
                 </div>
             </div>
         </div>
-        <div ref={lastPinRef} style={{ height: window.innerHeight }} className="w-full lastPin flex items-center justify-center relative whiteScrubTrigger">
-            <div ref={contactOverlayRef} style={{ height: window.innerHeight }} className="contactOverlay oneVh w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
+        <div ref={lastPinRef} className="w-full h-[100lvh] lastPin flex items-center justify-center relative whiteScrubTrigger sm:border-none border-b-4 border-white">
+            <div ref={contactOverlayRef} className="contactOverlay h-[100lvh] w-[100vw] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-900 rounded-[30px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                     <div className="w-full h-fit absolute top-3 sm:top-4 flex flex-row-reverse items-center justify-between px-10">
                         <div ref={overlayCloseRef} className="clickable rounded-full bg-slate-700 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
