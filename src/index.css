@@ -49,6 +49,10 @@
     cursor: none !important;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     color: black;
     background-color: white;
