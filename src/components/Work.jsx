@@ -184,6 +184,7 @@ const Work = ({ scrollPosition }) => {
       start: "clamp(bottom bottom)",
       end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + window.innerHeight),
       anticipatePin: 2,
+      markers: true,
     })
 
     ScrollTrigger.create({

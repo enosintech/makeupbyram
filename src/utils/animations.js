@@ -5,13 +5,13 @@ export const noTriggerFromAnimations = (target, animationProps) => {
     gsap.from(target, {
         ...animationProps,
     })
-}
+};
 
 export const noTriggerToAnimations = (target, animationProps) => {
     gsap.to(target, {
         ...animationProps
     })
-}
+};
 
 export const triggerFromAnimations = (target, animationProps, scrollProps) => {
     gsap.from(target, {
@@ -20,7 +20,7 @@ export const triggerFromAnimations = (target, animationProps, scrollProps) => {
             ...scrollProps,
         }
     })
-}
+};
 
 export const triggerToAnimations = (target, animationsProps, scrollProps) => {
     gsap.to(target, {
@@ -29,7 +29,7 @@ export const triggerToAnimations = (target, animationsProps, scrollProps) => {
             ...scrollProps,
         }
     })
-}
+};
 
 export const pinAnimations = (target, start = "clamp(top top)", end) => {
     ScrollTrigger.create({
@@ -38,6 +38,6 @@ export const pinAnimations = (target, start = "clamp(top top)", end) => {
         end: end,
         pin: true,
         anticipatePin: 1,
-        markers: false,
+        markers: true,
     })
-}
+};
