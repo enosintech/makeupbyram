@@ -86,9 +86,9 @@ const About = ({ scrollPosition }) => {
       },
     })
 
-    pinAnimations(aboutRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + aboutRef.current.offsetHeight));
+    // pinAnimations(aboutRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + aboutRef.current.offsetHeight));
 
-    pinAnimations(workedWithRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + workedWithRef.current.offsetHeight * 3));
+    // pinAnimations(workedWithRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + workedWithRef.current.offsetHeight * 3));
 
   }, [])
 
@@ -188,6 +188,8 @@ const About = ({ scrollPosition }) => {
             </div>
           </div>
         </div>
+        <div  style={{height: window.innerHeight}} className="w-full bg-red-500"></div>
+        <div  style={{height: window.innerHeight}} className="w-full bg-green-500"></div>
     </section>
   )
 }

@@ -45,13 +45,15 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
+  console.log(ScrollTrigger.maxScroll(window), window.innerHeight, lenis?.targetScroll)
+
     return (
       <>
         <CursorComponent />
         <Navbar />
         <Hero />
         <About scrollPosition={scrollPosition}/>
-        <Highlights scrollPosition={scrollPosition}/>
+        {/* <Highlights scrollPosition={scrollPosition}/> */}
         {/* <Work scrollPosition={scrollPosition}/> */}
         <Contact scrollPosition={scrollPosition}/>
       </>

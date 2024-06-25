@@ -127,9 +127,9 @@ const Contact = ({ scrollPosition }) => {
 
     useGSAP(() => {
 
-        pinAnimations(contactRef.current, "clamp(top top)", () => "+=" + contactRef.current.offsetHeight);
+        // pinAnimations(contactRef.current, "clamp(top top)", () => "+=" + contactRef.current.offsetHeight);
 
-        pinAnimations(lastPinRef.current, "clamp(top top)", () => "+=" + lastPinRef.current.offsetHeight * 2);
+        // pinAnimations(lastPinRef.current, "clamp(top top)", () => "+=" + lastPinRef.current.offsetHeight * 2);
 
         triggerToAnimations("#slideAboutMe", {
             width: "100%",
@@ -171,6 +171,7 @@ const Contact = ({ scrollPosition }) => {
         }
         
         gsap.delayedCall(0, crossFade);
+
     }, [])
 
   return (
@@ -317,6 +318,7 @@ const Contact = ({ scrollPosition }) => {
             </div>
             <VideoBackground />
         </div>
+        <div  style={{height: window.innerHeight}} className="w-full bg-red-500"></div>
     </section>
   )
 }
