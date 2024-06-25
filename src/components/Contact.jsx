@@ -5,6 +5,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { useLenis } from "@studio-freight/react-lenis";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Lottie from "lottie-react"
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -14,8 +16,6 @@ import { pinAnimations, triggerToAnimations } from "../utils/animations";
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
-import { useLenis } from "@studio-freight/react-lenis";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Contact = ({ scrollPosition }) => {
 
@@ -38,7 +38,7 @@ const Contact = ({ scrollPosition }) => {
 
     const lenis = useLenis(() => {
         if(overLayOpen) {
-            // lenis.scrollTo(0, {immediate: true, force: true})
+            lenis.scrollTo(ScrollTrigger.maxScroll(window), {immediate: true, force: true})
             lenis.stop();
         } else {
             lenis.start();
@@ -253,7 +253,7 @@ const Contact = ({ scrollPosition }) => {
         <div ref={lastPinRef} className="w-full h-[100lvh] lastPin flex items-center justify-center relative whiteScrubTrigger sm:border-none border-b-4 border-white">
             <div ref={contactOverlayRef} className="contactOverlay w-[100vw] h-[100lvh] fixed z-50 left-0 top-0 flex flex-col items-center justify-center gap-y-4">
                 <div className="bg-slate-900 rounded-[30px] w-[85%] sm:w-[75%] md:w-[65%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] h-[50%] flex flex-col relative items-center justify-end pb-5 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                    <div className="w-full h-fit absolute top-3 sm:top-4 flex flex-row-reverse items-center justify-between px-10">
+                    <div className="w-full h-fit absolute top-3 sm:top-4 flex flex-row-reverse items-center justify-between px-5">
                         <div ref={overlayCloseRef} className="clickable rounded-full bg-slate-700 shadow w-10 h-10 flex items-center justify-center hover:opacity-75 active:opacity-50">
                             <FontAwesomeIcon icon={faX} color="white"/>
                         </div>
@@ -266,7 +266,7 @@ const Contact = ({ scrollPosition }) => {
                             <FontAwesomeIcon size="xl" icon={faInstagram} color="white"/>
                         </a>
                     </div>
-                    <div className="rounded-[20px] w-[95%] h-[80%] flex flex-col overflow-hidden px-5">
+                    <div className="rounded-[20px] w-[95%] h-[80%] flex flex-col overflow-hidden px-2 sm:px-5">
                         <div className="w-full h-1/4 rounded-full bg-slate-500 px-4">
                             <input type="email" value={formData.email} className="w-full h-full bg-transparent flex items-center text-white placeholder:text-white font-nohemiBold outline-none text-xl" placeholder="Your Email" onChange={(e) => {
                                 setFormData({
