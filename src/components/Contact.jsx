@@ -318,7 +318,6 @@ const Contact = ({ scrollPosition }) => {
             </div>
             <VideoBackground />
         </div>
-        <div  style={{height: window.innerHeight}} className="w-full bg-red-500"></div>
     </section>
   )
 }
