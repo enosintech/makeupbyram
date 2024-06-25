@@ -45,7 +45,7 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
-  console.log(ScrollTrigger.maxScroll(window), window.innerHeight, lenis?.targetScroll)
+  console.log(ScrollTrigger.maxScroll(window), window.innerHeight)
 
     return (
       <>
