@@ -14,6 +14,8 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.normalizeScroll(true)
+
 ScrollTrigger.config({
   autoRefreshEvents: "load,visibilitychange,DOMContentLoaded",
 })
