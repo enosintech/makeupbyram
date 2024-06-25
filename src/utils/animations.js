@@ -38,6 +38,6 @@ export const pinAnimations = (target, start = "clamp(top top)", end) => {
         end: end,
         pin: true,
         anticipatePin: 1,
-        markers: true,
+        markers: false,
     })
 }

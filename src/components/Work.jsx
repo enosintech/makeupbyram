@@ -121,13 +121,13 @@ const Work = ({ scrollPosition }) => {
     })
 
     triggerToAnimations(".growUp", {
-      width: "100vw",
-      height: "100vh",
+      width: "100%",
+      height: "100%",
       borderRadius: 0,
     }, {
       trigger: ".growUpTrigger",
-      start: "top bottom",
-      end: "bottom bottom",
+      start: "clamp(top bottom)",
+      end: "clamp(bottom bottom)",
       scrub: true,
     })
 
@@ -182,9 +182,8 @@ const Work = ({ scrollPosition }) => {
       trigger: finalPinRef.current,
       pin: true,
       start: "clamp(bottom bottom)",
-      end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + oneVhRef.current.offsetHeight),
-      anticipatePin: 1,
-      pinSpacing: false,
+      end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + window.innerHeight),
+      anticipatePin: 2,
     })
 
     ScrollTrigger.create({
@@ -197,7 +196,7 @@ const Work = ({ scrollPosition }) => {
   }, [])
 
   return (
-    <section style={{height: window.innerHeight * 8.5}} className='w-full relative z-30 flex flex-col textPinTrigger'>
+    <section style={{height: window.innerHeight * 8.4}} className='w-full relative z-30 flex flex-col textPinTrigger overflow-x-visible'>
       <div className="pinText absolute top-5 text-white pt-2 sm:pt-5 left-2 sm:left-5 w-[700px] text-nowrap h-fit flex items-center text-2xl sm:text-3xl md:text-5xl opacity-0 z-20">
         <span className="absolute" id="nowFade"><p className="font-nohemiSemiBold opacity-0 toZero">EXPERIMENTAL MAKEUP</p></span>
         <span className="absolute" id="upFade"><p className="font-nohemiSemiBold opacity-0 toOne1">RUNWAY MAKEUP</p></span>
@@ -205,7 +204,7 @@ const Work = ({ scrollPosition }) => {
         <p className="font-nohemiSemiBold absolute opacity-0 toOne3"></p>
       </div> 
       <div ref={finalPinRef} className="w-full h-fit flex-col flex relative pinTrigger gap-1 finalPin bg-white">
-        <div ref={oneVhRef} className="w-full h-[100lvh] flex items-center justify-center relative">
+        <div ref={oneVhRef} style={{height: window.innerHeight}} className="w-full flex items-center justify-center relative">
           <div className="w-full h-full absolute top-0 left-0 grid place-items-center">
             <img className="w-full h-full object-cover absolute z-[-1]" src={selectedWorksPlaceholderImage} alt="work video placeholder" />
             <VidLoadingPrompt />
@@ -217,7 +216,7 @@ const Work = ({ scrollPosition }) => {
             <p className="font-nohemiBold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Selected <span className="font-nohemiRegular">Works</span></p>
             <p className="font-nohemiExtraLight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">22' — Present</p>
           </div>
-          <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-32 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
+          <FontAwesomeIcon id="workScrollPrompt" icon={faChevronDown} className="absolute bottom-20 -translate-y-3 opacity-0 z-10" color="white" size="xl"/>
         </div>
         <div style={{height: window.innerHeight * 1.6}} className="w-full relative minusTrigger cursorTrigger bg-white">
           <WorkSectionComponent creativeMakeup={creativeMakeup} scrollPosition={scrollPosition} />
@@ -256,7 +255,7 @@ const Work = ({ scrollPosition }) => {
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} className={`w-full h-[100lvh] bg-white border-y-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} className={`w-full h-[100lvh] bg-white border-t-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -340,7 +339,7 @@ const Work = ({ scrollPosition }) => {
         </div>
       </div>
       <div className="w-full h-[100lvh] growUpTrigger bg-black opacity-0"></div>
-      <div style={{ height: window.innerHeight * 1.3 }} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
+      <div style={{ height: window.innerHeight * 1.2 }} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div className="w-1/2 h-full oneVh flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
@@ -356,7 +355,7 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
         <div className="w-1/2 h-full flex items-end justify-center z-10 relative">
-          <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-20 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+          <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] -translate-y-60 moveUp2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
             <LazyLoadImage 
               src={lipsMain2}
               alt="lips to die for 2"

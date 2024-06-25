@@ -14,6 +14,7 @@ import { pinAnimations, triggerToAnimations } from "../utils/animations";
 import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
+import { useLenis } from "@studio-freight/react-lenis";
 
 const Contact = ({ scrollPosition }) => {
 
@@ -23,6 +24,7 @@ const Contact = ({ scrollPosition }) => {
     const overlayOpenRef = useRef(null);
     const overlayCloseRef = useRef(null);
     
+    const [ overLayOpen, setOverlayOpen ] = useState(false)
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState(false);
     const [ submitValue, setSubmitValue ] = useState("SEND MESSAGE");
@@ -32,6 +34,16 @@ const Contact = ({ scrollPosition }) => {
         subject: "",
         message: "",
     })
+
+    const lenis = useLenis(() => {
+        if(overLayOpen) {
+            // lenis.scrollTo(0, {immediate: true, force: true})
+            lenis.stop();
+        } else {
+            lenis.start();
+        }
+
+    }, [overLayOpen]);
 
     const handleCopyText = () => {
         const copyText = document.getElementById("emailInput");
@@ -135,10 +147,12 @@ const Contact = ({ scrollPosition }) => {
 
         overlayOpenRef?.current.addEventListener("click", () => {
             tl.play()
+            setOverlayOpen(true)
         })
 
         overlayCloseRef?.current.addEventListener("click", () => {
             tl.reverse(.3)
+            setOverlayOpen(false)
         })
 
         const imgs = gsap.utils.toArray(".aboutAnimVid");
