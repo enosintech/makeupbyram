@@ -15,6 +15,7 @@ import Clock from "./Clock";
 import ScrollPrompt from "./ScrollPrompt";
 import VideoBackground from "./VideoBackground";
 import { useLenis } from "@studio-freight/react-lenis";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Contact = ({ scrollPosition }) => {
 
@@ -127,9 +128,9 @@ const Contact = ({ scrollPosition }) => {
 
     useGSAP(() => {
 
-        pinAnimations(contactRef.current, "clamp(top top)", () => "+=" + contactRef.current.offsetHeight);
+        pinAnimations(contactRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + contactRef.current.offsetHeight));
 
-        pinAnimations(lastPinRef.current, "clamp(top top)", () => "+=" + lastPinRef.current.offsetHeight * 2);
+        pinAnimations(lastPinRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + lastPinRef.current.offsetHeight * 2));
 
         triggerToAnimations("#slideAboutMe", {
             width: "100%",
