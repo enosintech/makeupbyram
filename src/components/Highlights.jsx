@@ -29,6 +29,7 @@ const Highlights = ({ scrollPosition }) => {
                 start: "clamp(top top)",
                 end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + slider.current.offsetWidth),
                 anticipatePin: 1,
+                markers: true
             }
         })
 
