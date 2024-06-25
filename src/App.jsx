@@ -45,8 +45,6 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
-  console.log(ScrollTrigger.maxScroll(window), window.innerHeight);
-
     return (
       <>
         <CursorComponent />

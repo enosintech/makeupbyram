@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 import Clock from "./Clock";

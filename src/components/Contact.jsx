@@ -99,7 +99,7 @@ const Contact = ({ scrollPosition }) => {
             return;
         }
 
-        await fetch("https://byramemailserver.onrender.com/api/sendEmail", {
+        await fetch(import.meta.env.VITE_API_LINK, {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
