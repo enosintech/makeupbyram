@@ -257,7 +257,7 @@ const Work = ({ scrollPosition }) => {
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} style={{height: window.innerHeight}} className={`w-full bg-white border-t-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} style={{height: window.innerHeight}} className={`w-full bg-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -267,7 +267,7 @@ const Work = ({ scrollPosition }) => {
             <p className="text-[100px] sm:text-[150px] md:text-[200px] lg:text-[250px] xl:text-[300px] 2xl:text-[350px] md:-translate-y-10 font-nohemiBold text-center opacity-0 toLife flex items-center gap-x-10 md:gap-x-14 lg:gap-x-24 xl:gap-x-32"><span>DIE</span><span>FOR</span></p>
           </div>
         </div>
-        <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
+        <div className="md:w-1/2 w-full md:h-full h-1/2 relative md:border-y-4 border-t-4 border-white">
           <LazyLoadImage 
             src={featuredMain1}
             alt="shifting image"
@@ -303,7 +303,7 @@ const Work = ({ scrollPosition }) => {
             />
           </div>
         </div>
-        <div className="md:w-1/2 w-full md:h-full h-1/2 relative">
+        <div className="md:w-1/2 w-full md:h-full h-1/2 relative md:border-y-4 border-b-4 border-white">
           <LazyLoadImage 
             src={featuredMain2}
             alt="shifting image right"
