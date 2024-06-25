@@ -14,8 +14,6 @@ import CursorComponent from "./components/CursorComponent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll(true)
-
 ScrollTrigger.config({
   autoRefreshEvents: "load,visibilitychange,DOMContentLoaded",
 })
@@ -47,7 +45,7 @@ const App = ({ scrollPosition }) => {
     }
   }, [])
 
-  console.log(ScrollTrigger.maxScroll(window), window.innerHeight)
+  console.log(ScrollTrigger.maxScroll(window), window.innerHeight);
 
     return (
       <>
