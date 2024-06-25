@@ -54,7 +54,7 @@ const App = ({ scrollPosition }) => {
         <Hero />
         <About scrollPosition={scrollPosition}/>
         <Highlights scrollPosition={scrollPosition}/>
-        {/* <Work scrollPosition={scrollPosition}/> */}
+        <Work scrollPosition={scrollPosition}/>
         <Contact scrollPosition={scrollPosition}/>
       </>
     )

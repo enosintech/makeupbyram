@@ -28,7 +28,7 @@ const Highlights = ({ scrollPosition }) => {
                 start: "top top",
                 end: () => "+=" + slider.current.offsetWidth,
                 anticipatePin: 1,
-                markers: true,
+                markers: false,
             }
         })
 

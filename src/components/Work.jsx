@@ -176,15 +176,16 @@ const Work = ({ scrollPosition }) => {
       repeat: -1,
     })
 
-    pinAnimations(pinHighRef.current, "clamp(top top)", gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + pinHighRef.current.offsetHeight));
+    pinAnimations(pinHighRef.current, "top top", () => "+=" + pinHighRef.current.offsetHeight, false, false);
 
     ScrollTrigger.create({
       trigger: finalPinRef.current,
       pin: true,
-      start: "clamp(bottom bottom)",
-      end: gsap.utils.clamp(0, ScrollTrigger.maxScroll(window), () => "+=" + window.innerHeight),
+      start: "bottom bottom",
+      end: () => "+=" + window.innerHeight,
       anticipatePin: 2,
-      markers: true,
+      markers: false,
+      pinSpacing: false,
     })
 
     ScrollTrigger.create({
@@ -256,7 +257,7 @@ const Work = ({ scrollPosition }) => {
           <WorkSectionComponent shootMakeup={shootMakeup} scrollPosition={scrollPosition} />
         </div>
       </div>
-      <div ref={pinHighRef} className={`w-full h-[100lvh] bg-white border-t-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
+      <div ref={pinHighRef} style={{height: window.innerHeight}} className={`w-full bg-white border-t-4 border-white flex md:flex-row flex-col md:gap-x-1 gap-y-1 md:gap-y-0 pinHigh twoTrigger relative overflow-y-visible`}>
         <div className="w-0 h-0 rounded-[9999px] absolute z-20 bg-black text-white top-0 bottom-0 my-auto left-0 right-0 mx-auto growUp flex items-center justify-center">
           <Lottie animationData={Lips} loop={true} className="relative z-10"/>
           <div className="w-full h-1/2 absolute top-0 flex items-end justify-center">
@@ -339,7 +340,7 @@ const Work = ({ scrollPosition }) => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[100lvh] growUpTrigger bg-black opacity-0"></div>
+      <div style={{height: window.innerHeight}} className="w-full growUpTrigger bg-black opacity-0"></div>
       <div style={{ height: window.innerHeight * 1.2 }} className="w-full md:px-14 xl:px-28 px-1 relative bg-black flex parallaxTrigger lipsOpacityTrigger z-20 overflow-visible">
         <div className="w-1/2 h-full oneVh flex justify-center z-10">
           <div className="overflow-hidden md:w-[85%] xl:w-[75%] w-[95%] h-[85%] translate-y-72 flex flex-col items-center moveDown2 rounded-[14px] sm:rounded-[20px] md:rounded-[40px] opacity-0 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
