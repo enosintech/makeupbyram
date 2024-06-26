@@ -1,16 +1,16 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { trackWindowScroll } from "react-lazy-load-image-component";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy } from "react";
 import gsap from "gsap";
 
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Highlights from "./components/Highlights";
-import Work from "./components/Work";
-import Contact from "./components/Contact";
-import CursorComponent from "./components/CursorComponent";
+const Navbar = lazy(() => import("./components/Navbar"));
+const Hero = lazy(() => import("./components/Hero"));
+const About = lazy(() => import("./components/About"));
+const Highlights = lazy(() => import("./components/Highlights"));
+const Work = lazy(() => import("./components/Work"));
+const Contact = lazy(() => import("./components/Contact"));
+const CursorComponent = lazy(() => import("./components/CursorComponent"));
 
 gsap.registerPlugin(ScrollTrigger);
 
