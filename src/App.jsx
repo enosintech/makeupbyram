@@ -39,7 +39,7 @@ const App = ({ scrollPosition }) => {
 
     return () => {
 
-      window.removeEventListener("beforeunload", () => {
+      window.removeEventListener('beforeunload', () => {
         setRefreshRoutine(true)
       })
     }
